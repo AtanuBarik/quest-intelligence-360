@@ -1,0 +1,74 @@
+name: Sync laboratory news data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-laboratory-news.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-laboratory-news
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Quest frontend
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download latest laboratory monitor outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data assets/quest-news-icons
+          curl --fail --location --retry 3 --silent --show-error \
+            https://raw.githubusercontent.com/AtanuBarik/laboratory-news-monitor/main/data/news.json \
+            --output data/laboratory-news.json
+          curl --fail --location --retry 3 --silent --show-error \
+            https://raw.githubusercontent.com/AtanuBarik/laboratory-news-monitor/main/data/email_status.json \
+            --output data/laboratory-email-status.json
+          curl --fail --location --retry 3 --silent --show-error \
+            https://laboratory-news-ai.atanu-barik.workers.dev \
+            --output data/laboratory-ai-health.json
+
+          for icon in product-services clinical-rd partnership-ma financials organizational leadership other; do
+            curl --fail --location --retry 3 --silent --show-error \
+              "https://raw.githubusercontent.com/AtanuBarik/laboratory-news-monitor/main/assets/email-icons/rendered/${icon}.png" \
+              --output "assets/quest-news-icons/${icon}.png"
+          done
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              Path('data/laboratory-news.json'),
+              Path('data/laboratory-email-status.json'),
+              Path('data/laboratory-ai-health.json'),
+          ]:
+              json.loads(path.read_text(encoding='utf-8'))
+              print(f'Validated {path}')
+          PY
+
+      - name: Commit synchronized data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-intelligence-sync[bot]'
+          git config user.email 'quest-intelligence-sync[bot]@users.noreply.github.com'
+          git add data/laboratory-news.json data/laboratory-email-status.json data/laboratory-ai-health.json assets/quest-news-icons
+          if git diff --cached --quiet; then
+            echo 'Laboratory news data is already current.'
+            exit 0
+          fi
+          git commit -m 'Sync latest laboratory news data and icons'
+          git pull --rebase origin main
+          git push origin HEAD:main
