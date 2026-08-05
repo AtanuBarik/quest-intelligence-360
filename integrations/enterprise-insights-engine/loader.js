@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const parts = ['chunk-00.b64', 'chunk-01.b64'];
+  const parts = ['chunk-00.b64', 'chunk-01.b64', 'chunk-02.b64', 'chunk-03.b64', 'chunk-04.b64', 'chunk-05.b64'];
   async function boot() {
     try {
       const base = new URL('.', document.currentScript.src);
