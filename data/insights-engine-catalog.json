@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-05T10:30:00Z",
+  "projects": [
+    {"id":"hs-experience","name":"Redefining the Health System Experience","business_unit":"Health Systems","status":"Active","files":{"final_reports":3,"transcripts":18,"survey_data":0,"discussion_guides":2,"presentations":2},"evidence_objects":186,"owner":"Faiza Muntaha"},
+    {"id":"digital-journey","name":"Digital Customer Journey & Solutions Roadmap","business_unit":"Health Systems & Physician Groups","status":"Active","files":{"final_reports":4,"transcripts":20,"survey_data":2,"discussion_guides":2,"presentations":3},"evidence_objects":314,"owner":"Kanwar Gaurav"},
+    {"id":"data-ecosystem","name":"Data Ecosystem Needs","business_unit":"Interoperability & Digital Strategy","status":"Active","files":{"final_reports":2,"transcripts":8,"survey_data":0,"discussion_guides":1,"presentations":2},"evidence_objects":148,"owner":"Apoorva Chhabra"},
+    {"id":"data-ecosystem-extended","name":"Data Ecosystem Needs — Extended Study","business_unit":"Partnerships & Data Ecosystem","status":"Active","files":{"final_reports":2,"transcripts":8,"survey_data":0,"discussion_guides":1,"presentations":1},"evidence_objects":119,"owner":"Apoorva Chhabra"},
+    {"id":"lab-stewardship","name":"Lab Stewardship & Analytics Competitive Positioning","business_unit":"Analytics & Stewardship","status":"Active","files":{"final_reports":3,"transcripts":10,"survey_data":0,"discussion_guides":1,"presentations":3},"evidence_objects":217,"owner":"Atanu Barik"},
+    {"id":"consumer-testing","name":"US Consumer Testing Market — Company Profiles","business_unit":"Consumer Health","status":"Completed","files":{"final_reports":1,"transcripts":0,"survey_data":0,"discussion_guides":0,"presentations":1},"evidence_objects":126,"owner":"Faiza Muntaha"},
+    {"id":"ci-always-on","name":"Clinical Laboratory Competitive Intelligence — Always On","business_unit":"MACI / Competitive Intelligence","status":"Always on","files":{"final_reports":3,"transcripts":0,"survey_data":1,"discussion_guides":0,"presentations":2},"evidence_objects":138,"owner":"Quest CI Team"}
+  ],
+  "source_types": [
+    {"id":"final_reports","label":"Final reports","description":"Approved project deliverables and executive readouts"},
+    {"id":"transcripts","label":"PMR transcripts","description":"Interview transcripts, coded excerpts and expert evidence"},
+    {"id":"survey_data","label":"Survey data","description":"Raw respondent-level files, tabulations and derived metrics"},
+    {"id":"discussion_guides","label":"Research instruments","description":"SOWs, screeners, discussion guides and questionnaires"},
+    {"id":"presentations","label":"Presentation outputs","description":"Quest-ready PowerPoint narratives and visual exhibits"},
+    {"id":"competitive_intelligence","label":"Competitive intelligence","description":"News, profiles, market landscapes and strategic signals"},
+    {"id":"uploaded_files","label":"Newly uploaded files","description":"User-supplied working files included in the current scope"}
+  ],
+  "connectors": [
+    {"id":"sharepoint","name":"Microsoft SharePoint","icon":"S","state":"ready","detail":"Folder-level sync, permissions and incremental indexing"},
+    {"id":"onedrive","name":"OneDrive","icon":"O","state":"available","detail":"Personal and shared files with Microsoft Graph"},
+    {"id":"google_drive","name":"Google Drive","icon":"G","state":"available","detail":"Import NotebookLM source folders and research files"},
+    {"id":"notebooklm","name":"NotebookLM export","icon":"N","state":"available","detail":"Import source lists, notes and exported artifacts"},
+    {"id":"qualtrics","name":"Qualtrics","icon":"Q","state":"available","detail":"Survey responses, metadata and respondent exports"},
+    {"id":"powerbi","name":"Power BI / Fabric","icon":"P","state":"available","detail":"Governed datasets, semantic models and report links"}
+  ]
+}
