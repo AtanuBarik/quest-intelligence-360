@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-08-05T12:20:00Z",
+  "status": "illustrative_connector_ready",
+  "note": "Illustrative baseline. Configure the daily social-intelligence workflow with an approved aggregator/API endpoint for production updates.",
+  "period_days": 90,
+  "companies": [
+    {
+      "name": "Quest Diagnostics",
+      "mentions": 8420,
+      "share_of_voice": 36,
+      "sentiment": 18,
+      "engagement_rate": 4.8,
+      "posts": 186,
+      "followers_m": 0.31,
+      "momentum": 12,
+      "top_theme": "Patient access & innovation",
+      "platforms": {"LinkedIn": 49, "X": 19, "Facebook": 17, "YouTube": 9, "Instagram": 6},
+      "sentiment_mix": {"positive": 54, "neutral": 33, "negative": 13},
+      "weekly": [31,32,34,33,35,36,37,35,38,39,40,41],
+      "posts_summary": [
+        {"platform":"LinkedIn","date":"2026-08-04","theme":"Employer health","engagement":4820,"sentiment":"Positive","summary":"Thought-leadership post on workforce health and accessible diagnostics generated strong enterprise engagement."},
+        {"platform":"X","date":"2026-08-02","theme":"Patient access","engagement":1860,"sentiment":"Positive","summary":"Patient-access announcement drove high repost velocity and local-market conversation."},
+        {"platform":"Facebook","date":"2026-07-30","theme":"Community health","engagement":2310,"sentiment":"Neutral","summary":"Community screening content achieved broad reach but lower comment depth."}
+      ]
+    },
+    {
+      "name": "Labcorp",
+      "mentions": 7210,
+      "share_of_voice": 31,
+      "sentiment": 12,
+      "engagement_rate": 4.2,
+      "posts": 171,
+      "followers_m": 0.28,
+      "momentum": 9,
+      "top_theme": "Enterprise partnerships",
+      "platforms": {"LinkedIn": 53, "X": 18, "Facebook": 14, "YouTube": 10, "Instagram": 5},
+      "sentiment_mix": {"positive": 49, "neutral": 38, "negative": 13},
+      "weekly": [29,30,31,32,31,33,34,34,35,36,35,37],
+      "posts_summary": [
+        {"platform":"LinkedIn","date":"2026-08-03","theme":"Data analytics","engagement":4380,"sentiment":"Positive","summary":"Partnership content reinforced Labcorp's enterprise analytics narrative and attracted health-system engagement."},
+        {"platform":"X","date":"2026-08-01","theme":"Clinical evidence","engagement":1510,"sentiment":"Positive","summary":"Clinical-evidence thread performed strongly among specialist audiences."},
+        {"platform":"YouTube","date":"2026-07-28","theme":"Patient education","engagement":980,"sentiment":"Neutral","summary":"Educational video reached a broad audience but had modest interaction depth."}
+      ]
+    },
+    {
+      "name": "ARUP Laboratories",
+      "mentions": 2860,
+      "share_of_voice": 12,
+      "sentiment": 24,
+      "engagement_rate": 5.6,
+      "posts": 128,
+      "followers_m": 0.11,
+      "momentum": 16,
+      "top_theme": "Clinical education",
+      "platforms": {"LinkedIn": 58, "X": 16, "Facebook": 10, "YouTube": 13, "Instagram": 3},
+      "sentiment_mix": {"positive": 61, "neutral": 31, "negative": 8},
+      "weekly": [9,9,10,10,11,11,12,12,13,14,14,15],
+      "posts_summary": [
+        {"platform":"LinkedIn","date":"2026-08-04","theme":"Stewardship","engagement":2190,"sentiment":"Positive","summary":"Laboratory stewardship content generated the highest specialist engagement rate in the peer set."},
+        {"platform":"YouTube","date":"2026-07-31","theme":"Medical education","engagement":1260,"sentiment":"Positive","summary":"Expert-led educational content strengthened ARUP's clinical-authority positioning."},
+        {"platform":"X","date":"2026-07-27","theme":"Research publication","engagement":870,"sentiment":"Positive","summary":"Research-publication amplification reached academic and laboratory audiences."}
+      ]
+    },
+    {
+      "name": "Mayo Clinic Laboratories",
+      "mentions": 2540,
+      "share_of_voice": 11,
+      "sentiment": 29,
+      "engagement_rate": 6.1,
+      "posts": 142,
+      "followers_m": 0.16,
+      "momentum": 18,
+      "top_theme": "Specialty testing education",
+      "platforms": {"LinkedIn": 44, "X": 17, "Facebook": 14, "YouTube": 21, "Instagram": 4},
+      "sentiment_mix": {"positive": 65, "neutral": 29, "negative": 6},
+      "weekly": [10,10,10,11,11,12,12,13,13,14,15,16],
+      "posts_summary": [
+        {"platform":"YouTube","date":"2026-08-03","theme":"Specialty testing","engagement":3110,"sentiment":"Positive","summary":"Specialty-testing explainer delivered the strongest video engagement in the monitored set."},
+        {"platform":"LinkedIn","date":"2026-07-29","theme":"Clinical expertise","engagement":2740,"sentiment":"Positive","summary":"Physician-led content reinforced Mayo's trusted clinical-authority brand."},
+        {"platform":"Facebook","date":"2026-07-26","theme":"Patient story","engagement":1650,"sentiment":"Positive","summary":"Patient-story content created strong emotional resonance and sharing."}
+      ]
+    },
+    {
+      "name": "Sonic Healthcare USA",
+      "mentions": 2320,
+      "share_of_voice": 10,
+      "sentiment": 8,
+      "engagement_rate": 3.4,
+      "posts": 94,
+      "followers_m": 0.08,
+      "momentum": 4,
+      "top_theme": "Regional service",
+      "platforms": {"LinkedIn": 47, "X": 14, "Facebook": 26, "YouTube": 8, "Instagram": 5},
+      "sentiment_mix": {"positive": 45, "neutral": 43, "negative": 12},
+      "weekly": [9,9,9,10,9,10,10,10,10,11,10,11],
+      "posts_summary": [
+        {"platform":"LinkedIn","date":"2026-08-02","theme":"Regional expansion","engagement":1180,"sentiment":"Positive","summary":"Regional-network update generated localized provider engagement."},
+        {"platform":"Facebook","date":"2026-07-30","theme":"Community access","engagement":940,"sentiment":"Neutral","summary":"Community-access content achieved steady reach with limited professional amplification."},
+        {"platform":"X","date":"2026-07-25","theme":"Operational update","engagement":420,"sentiment":"Neutral","summary":"Operational update had low interaction outside local audiences."}
+      ]
+    }
+  ],
+  "stakeholder_segments": [
+    {"segment":"HCPs and laboratory leaders","share":31,"sentiment":24,"top_theme":"Clinical evidence and stewardship"},
+    {"segment":"Patients and caregivers","share":27,"sentiment":14,"top_theme":"Access, affordability and convenience"},
+    {"segment":"Health-system executives","share":18,"sentiment":17,"top_theme":"Enterprise partnerships and analytics"},
+    {"segment":"Employees and talent","share":14,"sentiment":11,"top_theme":"Culture, leadership and hiring"},
+    {"segment":"Investors and industry observers","share":10,"sentiment":8,"top_theme":"Growth, M&A and financial performance"}
+  ],
+  "emerging_themes": [
+    {"theme":"AI-enabled diagnostics","growth":38,"sentiment":22},
+    {"theme":"Enterprise analytics","growth":31,"sentiment":18},
+    {"theme":"Patient access","growth":27,"sentiment":12},
+    {"theme":"Laboratory stewardship","growth":24,"sentiment":29},
+    {"theme":"Health-system partnerships","growth":21,"sentiment":19},
+    {"theme":"Billing and affordability","growth":17,"sentiment":-12}
+  ]
+}
