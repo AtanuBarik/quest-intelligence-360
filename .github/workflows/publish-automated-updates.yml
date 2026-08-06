@@ -22,19 +22,40 @@ permissions:
 
 concurrency:
   group: quest-branch-pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   publish:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - name: Check out latest main
         uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 0
+
+      - name: Clear stale Pages deployment locks
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for deployment in \
+            ebdb0d756391b16ca690deb787285b52b694e2ce \
+            1f8bbc61d4ae44b4c5f89b6329435dc097bd4f77
+          do
+            code=$(curl --silent --output /tmp/cancel-response.txt --write-out '%{http_code}' \
+              --request POST \
+              --header 'Accept: application/vnd.github+json' \
+              --header "Authorization: Bearer $GH_TOKEN" \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/deployments/$deployment/cancel" || true)
+            echo "Cancel request for $deployment returned HTTP $code"
+            if [ -s /tmp/cancel-response.txt ]; then cat /tmp/cancel-response.txt; fi
+          done
+          sleep 8
 
       - name: Build optimized static site
         shell: bash
@@ -49,7 +70,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260806p'
+          release = '20260806q'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -84,7 +105,7 @@ jobs:
           git config user.name 'quest-pages[bot]'
           git config user.email 'quest-pages[bot]@users.noreply.github.com'
 
-          git fetch origin gh-pages:gh-pages || true
+          git fetch origin gh-pages:gh-pages
           rm -rf /tmp/quest-pages
           git worktree add /tmp/quest-pages gh-pages
 
@@ -94,22 +115,9 @@ jobs:
           cd /tmp/quest-pages
           git add -A
           if git diff --cached --quiet; then
-            echo 'Published branch is already current.'
+            git commit --allow-empty -m "Redeploy Quest dashboard from ${GITHUB_SHA::7}"
           else
             git commit -m "Publish Quest dashboard from ${GITHUB_SHA::7}"
-            git push origin gh-pages
           fi
-
-      - name: Request branch-based Pages build
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          response=$(curl --silent --show-error --fail-with-body \
-            --request POST \
-            --header 'Accept: application/vnd.github+json' \
-            --header "Authorization: Bearer $GH_TOKEN" \
-            --header 'X-GitHub-Api-Version: 2022-11-28' \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/builds")
-          echo "$response"
+          git push origin gh-pages
+          echo 'The gh-pages push will trigger the configured branch-based Pages build.'
