@@ -1,26 +1,26 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-06T11:00:00Z",
+  "updated_at": "2026-08-06T11:12:00Z",
   "sharepoint": {
     "status": "site_created",
     "site_url": "https://evalueserveglobal.sharepoint.com/:f:/s/AbhishekSanyalWork/IgBxZHggiW4sRKdsDiZDMlOiAbDgpcMYV0bPQ4M6Qqm7chU?e=2lPzw9",
     "role": "Confidential system of record",
-    "frontend_access": "Open link or use locally synchronized folder; direct browser retrieval is disabled to protect credentials."
+    "frontend_access": "Open the authenticated site, use ChatGPT SharePoint sync, use the Copilot Studio agent in Teams/Microsoft 365, or monitor a locally synchronized folder."
   },
   "copilot_studio": {
     "status": "published",
     "agent_name": "Quest Insights Engine",
     "channels": ["Teams", "Microsoft 365 Copilot", "Web app"],
-    "authentication_recommendation": "Authenticate with Microsoft for confidential SharePoint knowledge.",
+    "authentication_recommendation": "Use Microsoft authentication in Teams or Microsoft 365 for confidential SharePoint knowledge.",
     "embed_url": null,
-    "note": "Paste the exact Web app iframe src in the Microsoft connections panel. Do not switch to No authentication when confidential SharePoint content is enabled."
+    "note": "The simple iframe Web app channel is suitable only for a separate no-authentication, nonconfidential demonstration agent. Do not expose the confidential SharePoint-enabled agent through a public no-authentication iframe."
   },
   "power_automate": {
     "status": "available",
     "connectors": ["SharePoint", "Office 365 Outlook", "RSS"],
     "recommended_flows": [
       "Daily or six-hour news digest to SharePoint and Outlook",
-      "Weekly project tracker export to a locally synced SharePoint folder",
+      "Weekly project tracker export to a locally synchronized SharePoint folder",
       "Approved insight output export for dashboard import"
     ]
   },
