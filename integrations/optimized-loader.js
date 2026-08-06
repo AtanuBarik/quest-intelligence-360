@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260806k';
+  const RELEASE = '20260806r';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -32,7 +32,10 @@
     if (loaded.has(path)) return loaded.get(path);
     const existing = Array.from(document.scripts).find(script => (script.src || '').includes(path));
     if (existing) {
-      const promise = existing.dataset.qLoaded === 'true' ? Promise.resolve(existing) : new Promise(resolve => existing.addEventListener('load', () => resolve(existing), { once: true }));
+      const promise = existing.dataset.qLoaded === 'true' ? Promise.resolve(existing) : new Promise(resolve => {
+        if (existing.readyState === 'complete') resolve(existing);
+        else existing.addEventListener('load', () => resolve(existing), { once: true });
+      });
       loaded.set(path, promise);
       return promise;
     }
@@ -100,10 +103,15 @@
   async function bootCore() {
     progress(true);
     try {
+      await loadScript('integrations/chart-lite.js');
+      if (window.Chart && typeof window.initCharts === 'function' && !Object.keys(window.Chart.instances || {}).length) {
+        try { window.initCharts(); } catch (error) { console.warn('Initial chart creation deferred:', error); }
+      }
       await loadScript('integrations/quest-brand-system.js');
       await loadScript('integrations/frontend-performance-layout.js');
       await loadScript('integrations/frontend-readability-overrides.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
+      await loadScript('integrations/public-demo-evidence.js');
     } catch (error) {
       console.error('Quest core load failed:', error);
     } finally {
