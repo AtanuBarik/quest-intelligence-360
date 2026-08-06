@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-08-06T04:56:40.206599+00:00",
+  "overall_status": "healthy",
+  "errors": [],
+  "sources": {
+    "project_tracker": {
+      "status": "ready",
+      "updated_at": "2026-08-03T18:00:00Z",
+      "workstreams": 7,
+      "on_track": 6,
+      "completed_projects": 1,
+      "respondent_target": 164,
+      "respondents_completed": 164,
+      "final_progress_average": 94.3
+    },
+    "laboratory_news": {
+      "status": "ready",
+      "updated_at": "2026-08-05T22:33:47.259223+00:00",
+      "records": 178
+    },
+    "social_intelligence": {
+      "status": "ready",
+      "updated_at": "2026-08-05T12:20:00Z",
+      "companies": 5,
+      "mode": "illustrative_connector_ready"
+    },
+    "email_workflow": {
+      "status": "no_summarizable_items",
+      "updated_at": null,
+      "items": 0
+    },
+    "ai_worker": {
+      "status": "ready",
+      "updated_at": null,
+      "capabilities": [
+        "email_article_summary",
+        "strategic_repository_chat",
+        "strategic_filtered_summary",
+        "google_search_deep_read",
+        "url_context_deep_read",
+        "model_and_tool_fallbacks"
+      ]
+    }
+  }
+}
