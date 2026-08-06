@@ -10,6 +10,7 @@ on:
       - integrations/**
       - assets/**
       - index.html
+      - .pages-trigger
   workflow_run:
     workflows:
       - Sync laboratory news data
@@ -128,4 +129,18 @@ jobs:
             git commit -m "Publish Quest dashboard from ${GITHUB_SHA::7}"
           fi
           git push origin gh-pages
-          echo 'The gh-pages push will trigger the configured branch-based Pages build.'
+
+      - name: Start one branch-based Pages build
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          curl --silent --show-error --fail-with-body \
+            --request POST \
+            --header 'Accept: application/vnd.github+json' \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/builds"
+          echo
+          echo 'Requested one Pages build from the updated gh-pages branch.'
