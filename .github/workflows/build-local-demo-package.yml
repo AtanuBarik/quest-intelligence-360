@@ -16,7 +16,7 @@ on:
       - 'templates/**'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   package:
@@ -51,6 +51,7 @@ jobs:
             --exclude '.git' \
             --exclude '.github' \
             --exclude 'local-data' \
+            --exclude 'downloads' \
             ./ "$PACKAGE_ROOT/"
           mkdir -p "$PACKAGE_ROOT/local-data/uploads" "$PACKAGE_ROOT/local-data/frontend-cache"
           cat > "$PACKAGE_ROOT/START-HERE.txt" <<'TXT'
@@ -76,10 +77,27 @@ jobs:
             zip -r "$GITHUB_WORKSPACE/$PACKAGE_NAME.zip" "$PACKAGE_NAME"
           )
 
-      - name: Upload local demo ZIP
+      - name: Upload local demo ZIP as workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: quest-intelligence-360-local-demo
           path: quest-intelligence-360-local-demo.zip
           retention-days: 30
           if-no-files-found: error
+
+      - name: Publish stable downloadable ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p downloads
+          cp quest-intelligence-360-local-demo.zip downloads/quest-intelligence-360-local-demo.zip
+          git config user.name 'quest-local-package[bot]'
+          git config user.email 'quest-local-package[bot]@users.noreply.github.com'
+          git add downloads/quest-intelligence-360-local-demo.zip
+          if git diff --cached --quiet; then
+            echo 'Downloadable package is already current.'
+            exit 0
+          fi
+          git commit -m 'Publish latest downloadable local demo package'
+          git pull --rebase origin main
+          git push origin HEAD:main
