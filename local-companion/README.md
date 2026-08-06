@@ -44,15 +44,23 @@ The browser extracts text from PDF, DOCX and XLSX files when uploaded through th
 ## SharePoint and Copilot Studio
 
 - Keep confidential source documents in SharePoint.
-- Use an authenticated Copilot Studio agent for SharePoint knowledge.
-- In the dashboard, open **Microsoft & local data** and paste the exact iframe `src` from Copilot Studio if your chosen web channel supports your authentication configuration.
+- Use the authenticated Teams or Microsoft 365 channel for the SharePoint-enabled Copilot Studio agent.
+- In the dashboard, open **Microsoft & local data**, select **Set Teams / Microsoft 365 link**, and paste the authenticated agent link.
+- The default iframe embed requires a separate **No authentication** agent. Use that iframe only for a nonconfidential demonstration agent with no private SharePoint knowledge.
 - Do not select **No authentication** for an agent that can access confidential SharePoint material.
+
+## Approved output publication
+
+1. Create an `Approved Insights` SharePoint list and a `Dashboard Exports` folder.
+2. Use Power Automate standard connectors to export approved, appropriately classified summaries as `approved-insights.json`.
+3. Upload the JSON in the Executive Hub, or place it in the local companion repository.
+4. The **SharePoint insight publication** panel displays the approved summaries and citations.
 
 ## Power Automate free operating pattern
 
 Use standard SharePoint and Outlook connectors:
 
-1. Recurrence trigger.
+1. Recurrence or SharePoint item trigger.
 2. Read approved files or list items from the Quest Intelligence SharePoint site.
 3. Create a nonconfidential JSON or CSV dashboard export in a `Dashboard Exports` folder.
 4. Synchronize that folder to the demonstration computer with OneDrive.
