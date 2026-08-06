@@ -28,6 +28,9 @@ jobs:
         run: |
           python -m py_compile local-companion/server.py
           node --check integrations/microsoft-local-bridge.js
+          if [ -f integrations/microsoft-security-guard.js ]; then
+            node --check integrations/microsoft-security-guard.js
+          fi
           python - <<'PY'
           import json
           from pathlib import Path
@@ -40,7 +43,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          PACKAGE_ROOT='quest-intelligence-360-local-demo'
+          PACKAGE_NAME='quest-intelligence-360-local-demo'
+          PACKAGE_ROOT="$RUNNER_TEMP/$PACKAGE_NAME"
+          rm -rf "$PACKAGE_ROOT"
           mkdir -p "$PACKAGE_ROOT"
           rsync -a \
             --exclude '.git' \
@@ -66,7 +71,10 @@ jobs:
 
           Read local-companion/README.md before using confidential files.
           TXT
-          zip -r quest-intelligence-360-local-demo.zip "$PACKAGE_ROOT"
+          (
+            cd "$RUNNER_TEMP"
+            zip -r "$GITHUB_WORKSPACE/$PACKAGE_NAME.zip" "$PACKAGE_NAME"
+          )
 
       - name: Upload local demo ZIP
         uses: actions/upload-artifact@v4
