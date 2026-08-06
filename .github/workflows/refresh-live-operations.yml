@@ -1,0 +1,124 @@
+name: Refresh live operations status
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 1 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'data/project-tracker.json'
+      - 'data/social-intelligence.json'
+      - 'data/laboratory-news.json'
+      - 'data/laboratory-email-status.json'
+      - 'data/laboratory-ai-health.json'
+      - '.github/workflows/refresh-live-operations.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-live-operations
+  cancel-in-progress: true
+
+jobs:
+  validate-and-summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate live datasets and generate status
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          def load(path):
+              file = Path(path)
+              if not file.exists():
+                  return None, f'{path} is missing'
+              try:
+                  return json.loads(file.read_text(encoding='utf-8')), None
+              except Exception as exc:
+                  return None, f'{path}: {exc}'
+
+          project, project_error = load('data/project-tracker.json')
+          news, news_error = load('data/laboratory-news.json')
+          social, social_error = load('data/social-intelligence.json')
+          email, email_error = load('data/laboratory-email-status.json')
+          ai, ai_error = load('data/laboratory-ai-health.json')
+
+          errors = [error for error in [project_error, news_error, social_error, email_error, ai_error] if error]
+          projects = (project or {}).get('projects', [])
+          applicable = [row for row in projects if isinstance(row.get('total_target'), (int, float))]
+          target = sum(row.get('total_target') or 0 for row in applicable)
+          completed = sum(row.get('completed') or 0 for row in applicable)
+          final_values = [row.get('final_progress') for row in projects if isinstance(row.get('final_progress'), (int, float))]
+
+          status = {
+              'generated_at': datetime.now(timezone.utc).isoformat(),
+              'overall_status': 'healthy' if not errors else 'degraded',
+              'errors': errors,
+              'sources': {
+                  'project_tracker': {
+                      'status': 'ready' if project else 'unavailable',
+                      'updated_at': (project or {}).get('updated_at'),
+                      'workstreams': len(projects),
+                      'on_track': sum(1 for row in projects if row.get('status') == 'On Track'),
+                      'completed_projects': sum(1 for row in projects if row.get('status') == 'Completed'),
+                      'respondent_target': target,
+                      'respondents_completed': completed,
+                      'final_progress_average': round(sum(final_values) / len(final_values), 1) if final_values else 0
+                  },
+                  'laboratory_news': {
+                      'status': 'ready' if news else 'unavailable',
+                      'updated_at': (news or {}).get('generated_at'),
+                      'records': len((news or {}).get('items', []))
+                  },
+                  'social_intelligence': {
+                      'status': 'ready' if social else 'unavailable',
+                      'updated_at': (social or {}).get('generated_at'),
+                      'companies': len((social or {}).get('companies', [])),
+                      'mode': (social or {}).get('status', 'unknown')
+                  },
+                  'email_workflow': {
+                      'status': (email or {}).get('status', 'unavailable'),
+                      'updated_at': (email or {}).get('updated_at') or (email or {}).get('sent_at'),
+                      'items': (email or {}).get('email_item_count', 0)
+                  },
+                  'ai_worker': {
+                      'status': (ai or {}).get('status') or ('ready' if ai else 'unavailable'),
+                      'updated_at': (ai or {}).get('checked_at'),
+                      'capabilities': (ai or {}).get('capabilities', [])
+                  }
+              }
+          }
+
+          output = Path('data/live-operations-status.json')
+          output.write_text(json.dumps(status, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          print(json.dumps(status, indent=2))
+          if errors:
+              raise SystemExit('One or more live datasets failed validation')
+          PY
+
+      - name: Commit generated status
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-live-operations[bot]'
+          git config user.email 'quest-live-operations[bot]@users.noreply.github.com'
+          git add data/live-operations-status.json
+          if git diff --cached --quiet; then
+            echo 'Live operations status is already current.'
+            exit 0
+          fi
+          git commit -m 'Refresh live operations status'
+          git pull --rebase origin main
+          git push origin HEAD:main
