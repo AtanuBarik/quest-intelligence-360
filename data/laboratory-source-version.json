@@ -1,0 +1,26 @@
+{
+  "source_repository": "AtanuBarik/laboratory-news-monitor",
+  "source_commit": "329f0f451d674e3c8cb93cdececa7f13ce75c036",
+  "synchronized_at": "2026-08-06T11:08:32.896196+00:00",
+  "news_generated_at": "2026-08-06T10:29:48.464770+00:00",
+  "news_item_count": 91,
+  "raw_relevant_item_count": 275,
+  "duplicates_merged": 111,
+  "low_value_items_removed": 73,
+  "filter_policy": "Excludes valuation articles, stock-price commentary, investment listicles, and multi-company market roundups without a direct transaction or partnership.",
+  "email_status": "test_email_sent",
+  "email_item_count": 2,
+  "verified_summary_count": 2,
+  "summary_pipeline": "direct_page_then_interactions_fallback",
+  "worker_capabilities": [
+    "direct_publisher_page_read",
+    "email_article_summary",
+    "google_search_deep_read",
+    "interactions_api",
+    "model_and_tool_fallbacks",
+    "strategic_filtered_summary",
+    "strategic_repository_chat",
+    "url_context_deep_read"
+  ],
+  "knowledge_generated_at": "2026-08-06T10:29:48.464770+00:00"
+}
