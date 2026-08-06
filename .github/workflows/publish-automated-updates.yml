@@ -1,0 +1,90 @@
+name: Publish automated Quest updates
+
+on:
+  workflow_run:
+    workflows:
+      - Sync laboratory news data
+      - Refresh live operations status
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: quest-automated-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build optimized static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+
+          python - <<'PY'
+          import base64
+          import gzip
+          import re
+          from pathlib import Path
+
+          release = '20260806m'
+          chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
+          missing = [str(path) for path in chunks if not path.exists()]
+          if missing:
+              raise SystemExit(f'Missing frontend chunks: {missing}')
+
+          encoded = ''.join(path.read_text(encoding='utf-8').strip() for path in chunks)
+          html = gzip.decompress(base64.b64decode(encoded)).decode('utf-8')
+          html = re.sub(
+              r'<script\b[^>]*\bsrc=["\'](?:\./)?integrations/[^"\']+["\'][^>]*>\s*</script>',
+              '',
+              html,
+              flags=re.IGNORECASE,
+          )
+          loader = f'<script src="integrations/optimized-loader.js?v={release}"></script>'
+          if '</body>' not in html:
+              raise SystemExit('The decompressed application shell has no closing body tag.')
+          html = html.replace('</body>', loader + '</body>', 1)
+          Path('_site/index.html').write_text(html, encoding='utf-8')
+          print(f'Built optimized application shell: {len(html):,} characters')
+          PY
+
+          cp -R integrations _site/
+          cp -R data _site/
+          if [ -d assets ]; then cp -R assets _site/; fi
+          touch _site/.nojekyll
+          du -sh _site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    steps:
+      - name: Deploy automated update
+        id: deployment
+        uses: actions/deploy-pages@v5
