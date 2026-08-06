@@ -1,0 +1,77 @@
+name: Build local demo package
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-local-demo-package.yml'
+      - 'index.html'
+      - 'chunks/**'
+      - 'integrations/**'
+      - 'data/**'
+      - 'assets/**'
+      - 'local-companion/**'
+      - 'docs/**'
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out frontend
+        uses: actions/checkout@v4
+
+      - name: Validate local companion
+        run: |
+          python -m py_compile local-companion/server.py
+          node --check integrations/microsoft-local-bridge.js
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in Path('data').glob('*.json'):
+              json.loads(path.read_text(encoding='utf-8'))
+              print('Validated', path)
+          PY
+
+      - name: Assemble package
+        shell: bash
+        run: |
+          set -euo pipefail
+          PACKAGE_ROOT='quest-intelligence-360-local-demo'
+          mkdir -p "$PACKAGE_ROOT"
+          rsync -a \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'local-data' \
+            ./ "$PACKAGE_ROOT/"
+          mkdir -p "$PACKAGE_ROOT/local-data/uploads" "$PACKAGE_ROOT/local-data/frontend-cache"
+          cat > "$PACKAGE_ROOT/START-HERE.txt" <<'TXT'
+          QUEST INTELLIGENCE 360 — LOCAL DEMO
+
+          Windows:
+            Double-click local-companion\run-windows.bat
+
+          macOS/Linux:
+            chmod +x local-companion/run-macos-linux.sh
+            ./local-companion/run-macos-linux.sh
+
+          The local companion opens http://127.0.0.1:8765 and stores uploaded
+          files under local-data/uploads with a local SQLite index.
+
+          For a locally synchronized SharePoint folder, add:
+            --watch-folder "FULL PATH TO THE SYNCED FOLDER"
+
+          Read local-companion/README.md before using confidential files.
+          TXT
+          zip -r quest-intelligence-360-local-demo.zip "$PACKAGE_ROOT"
+
+      - name: Upload local demo ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: quest-intelligence-360-local-demo
+          path: quest-intelligence-360-local-demo.zip
+          retention-days: 30
+          if-no-files-found: error
