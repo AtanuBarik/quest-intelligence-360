@@ -32,10 +32,8 @@
     if (loaded.has(path)) return loaded.get(path);
     const existing = Array.from(document.scripts).find(script => (script.src || '').includes(path));
     if (existing) {
-      const promise = existing.dataset.qLoaded === 'true' ? Promise.resolve(existing) : new Promise(resolve => {
-        if (existing.readyState === 'complete') resolve(existing);
-        else existing.addEventListener('load', () => resolve(existing), { once: true });
-      });
+      existing.dataset.qLoaded = 'true';
+      const promise = Promise.resolve(existing);
       loaded.set(path, promise);
       return promise;
     }
