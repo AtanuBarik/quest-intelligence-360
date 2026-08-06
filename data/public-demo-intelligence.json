@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-08-06T14:45:00Z",
+  "status": "public_source_demo_baseline",
+  "disclaimer": "Public-source facts are current as of the verification date. Relative capability, positioning, social and perception scores remain illustrative demo values and must be validated before client decision use.",
+  "companies": [
+    {
+      "name": "Quest Diagnostics",
+      "ticker": "DGX",
+      "scale_headline": "$11.04B 2025 revenue",
+      "facts": [
+        "Nearly 57,000 employees",
+        "Serves one in three American adults annually",
+        "Serves half of U.S. physicians and hospitals",
+        "Approximately 7,700 patient access points, including about 2,000 patient service centers",
+        "Approximately 550,000 patients tested each day"
+      ],
+      "benchmark": {"enterprise_scale": 96, "clinical_reach": 91, "specialty_depth": 82, "digital_access": 84, "global_reach": 61},
+      "source": "https://newsroom.questdiagnostics.com/Fact-sheet?mobile=No"
+    },
+    {
+      "name": "Labcorp",
+      "ticker": "LH",
+      "scale_headline": "$13.95B 2025 revenue",
+      "facts": [
+        "Approximately 71,000 employees",
+        "More than 750 million tests performed annually",
+        "Clients served in approximately 100 countries",
+        "Nearly 2,200 patient service centers",
+        "More than 6,500 tests offered"
+      ],
+      "benchmark": {"enterprise_scale": 100, "clinical_reach": 94, "specialty_depth": 87, "digital_access": 82, "global_reach": 95},
+      "source": "https://www.labcorp.com/about/corporate-facts"
+    },
+    {
+      "name": "ARUP Laboratories",
+      "ticker": "Nonprofit",
+      "scale_headline": "70,000+ specimens daily",
+      "facts": [
+        "National academic and nonprofit reference laboratory",
+        "More than 3,000 tests and test combinations",
+        "More than 150 academic experts and consultants",
+        "99% of testing performed on site",
+        "CAP, ISO 15189 and CLIA certified"
+      ],
+      "benchmark": {"enterprise_scale": 58, "clinical_reach": 68, "specialty_depth": 96, "digital_access": 66, "global_reach": 45},
+      "source": "https://www.aruplab.com/about"
+    },
+    {
+      "name": "Mayo Clinic Laboratories",
+      "ticker": "Mayo Clinic",
+      "scale_headline": "28M tests annually",
+      "facts": [
+        "More than 4,300 orderable tests",
+        "More than 100 tests launched in 2025",
+        "Connected to more than 50 countries in 2025",
+        "Approximately 28 million tests performed annually",
+        "6,000 Mayo Clinic physicians and scientists available for consultation"
+      ],
+      "benchmark": {"enterprise_scale": 62, "clinical_reach": 74, "specialty_depth": 100, "digital_access": 70, "global_reach": 80},
+      "source": "https://news.mayocliniclabs.com/about-us/"
+    },
+    {
+      "name": "Sonic Healthcare",
+      "ticker": "ASX: SHL",
+      "scale_headline": "A$9.65B FY2025 revenue",
+      "facts": [
+        "A$513.6 million FY2025 net profit",
+        "Approximately 45,000 employees globally",
+        "Third-largest pathology and clinical laboratory provider globally",
+        "Major positions across Australia, Europe, New Zealand and the United States",
+        "Global laboratory and radiology services portfolio"
+      ],
+      "benchmark": {"enterprise_scale": 83, "clinical_reach": 79, "specialty_depth": 72, "digital_access": 63, "global_reach": 92},
+      "source": "https://investors.sonichealthcare.com/Investors/?page=annual-reports"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Quest Diagnostics 2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1022079/000102207926000015/dgx-20251231.htm"
+    },
+    {
+      "title": "Quest Diagnostics Fact Sheet",
+      "url": "https://newsroom.questdiagnostics.com/Fact-sheet?mobile=No"
+    },
+    {
+      "title": "Labcorp 2025 annual income statement",
+      "url": "https://ir.labcorp.com/fundamentals/income-statement"
+    },
+    {
+      "title": "Labcorp corporate facts",
+      "url": "https://www.labcorp.com/about/corporate-facts"
+    },
+    {
+      "title": "ARUP Laboratories about and fact sheet",
+      "url": "https://www.aruplab.com/about"
+    },
+    {
+      "title": "Mayo Clinic Laboratories about us",
+      "url": "https://news.mayocliniclabs.com/about-us/"
+    },
+    {
+      "title": "Sonic Healthcare 2025 annual report overview",
+      "url": "https://investors.sonichealthcare.com/Investors/?page=annual-reports"
+    }
+  ]
+}
