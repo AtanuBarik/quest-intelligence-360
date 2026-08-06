@@ -130,6 +130,7 @@
     try {
       await loadScript('integrations/quest-brand-system.js');
       await loadScript('integrations/frontend-performance-layout.js');
+      await loadScript('integrations/frontend-readability-overrides.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
     } catch (error) {
       console.error('Quest core styling could not be fully loaded:', error);
