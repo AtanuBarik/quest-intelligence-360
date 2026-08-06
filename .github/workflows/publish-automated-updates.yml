@@ -1,6 +1,16 @@
-name: Publish automated Quest updates
+name: Publish Quest Pages
 
 on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/publish-automated-updates.yml
+      - chunks/**
+      - integrations/**
+      - assets/**
+      - index.html
   workflow_run:
     workflows:
       - Sync laboratory news data
@@ -13,12 +23,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: quest-automated-pages
+  group: pages
   cancel-in-progress: true
 
 jobs:
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -44,7 +54,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260806m'
+          release = '20260806n'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -85,6 +95,6 @@ jobs:
     needs: build
     timeout-minutes: 15
     steps:
-      - name: Deploy automated update
+      - name: Deploy Quest Pages
         id: deployment
         uses: actions/deploy-pages@v5
