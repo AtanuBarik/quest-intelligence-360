@@ -14,11 +14,12 @@ permissions:
 
 concurrency:
   group: sync-laboratory-news
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - name: Check out Quest frontend
         uses: actions/checkout@v4
@@ -32,29 +33,29 @@ jobs:
           SOURCE_BASE='https://raw.githubusercontent.com/AtanuBarik/laboratory-news-monitor/main'
           mkdir -p data/laboratory-knowledge assets/quest-news-icons
 
-          curl --fail --location --retry 3 --silent --show-error \
+          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
             "$SOURCE_BASE/data/news.json" \
             --output data/laboratory-news.json
-          curl --fail --location --retry 3 --silent --show-error \
+          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
             "$SOURCE_BASE/data/email_status.json" \
             --output data/laboratory-email-status.json
-          curl --fail --location --retry 3 --silent --show-error \
+          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
             https://laboratory-news-ai.atanu-barik.workers.dev \
             --output data/laboratory-ai-health.json
 
           for file in manifest.json latest.md quest-diagnostics.md labcorp.md arup-laboratories.md mayo-clinic-laboratories.md sonic-healthcare.md; do
-            curl --fail --location --retry 3 --silent --show-error \
+            curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
               "$SOURCE_BASE/knowledge/$file" \
               --output "data/laboratory-knowledge/$file"
           done
 
           for icon in product-services clinical-rd partnership-ma financials organizational leadership other; do
-            curl --fail --location --retry 3 --silent --show-error \
+            curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
               "$SOURCE_BASE/assets/email-icons/rendered/${icon}.png" \
               --output "assets/quest-news-icons/${icon}.png"
           done
 
-          SOURCE_SHA=$(curl --fail --location --retry 3 --silent --show-error \
+          SOURCE_SHA=$(curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
             https://api.github.com/repos/AtanuBarik/laboratory-news-monitor/commits/main \
             | python -c "import json,sys; print(json.load(sys.stdin)['sha'])")
 
