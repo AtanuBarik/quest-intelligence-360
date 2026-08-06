@@ -1,0 +1,169 @@
+(() => {
+  'use strict';
+
+  const RELEASE = '20260806h';
+  const loaded = new Map();
+  const groupLoads = new Map();
+  const idle = window.requestIdleCallback || ((callback, options = {}) => window.setTimeout(() => callback({ didTimeout: true, timeRemaining: () => 0 }), options.timeout || 700));
+
+  const GROUPS = {
+    alerts: [
+      'integrations/laboratory-news-monitor.js',
+      'integrations/laboratory-news-sync.js'
+    ],
+    competitor: [
+      'integrations/competitor-intelligence-profiles/loader.js'
+    ],
+    strategic: [
+      'integrations/strategic-news-social-hubs.js'
+    ],
+    insights: [
+      'integrations/enterprise-insights-engine/loader.js'
+    ],
+    governance: [
+      'integrations/no-cost-live-operations.js',
+      'integrations/live-governance-panels.js',
+      'integrations/approved-insights-panel.js'
+    ],
+    microsoft: [
+      'integrations/local-file-extraction.js',
+      'integrations/microsoft-local-bridge.js',
+      'integrations/microsoft-security-guard.js'
+    ]
+  };
+
+  function progress(active, done = false) {
+    let node = document.getElementById('qModuleProgress');
+    if (!node) {
+      node = document.createElement('div');
+      node.id = 'qModuleProgress';
+      node.className = 'q-module-progress';
+      node.innerHTML = '<i></i>';
+      document.body.appendChild(node);
+    }
+    node.classList.toggle('active', Boolean(active));
+    node.classList.toggle('done', Boolean(done));
+    if (done) window.setTimeout(() => node.remove(), 260);
+  }
+
+  function absolutePath(path) {
+    return new URL(`${path}?v=${RELEASE}`, document.baseURI).href;
+  }
+
+  function loadScript(path) {
+    if (loaded.has(path)) return loaded.get(path);
+    const existing = Array.from(document.scripts).find(script => (script.src || '').includes(path));
+    if (existing) {
+      const promise = existing.dataset.qLoaded === 'true'
+        ? Promise.resolve(existing)
+        : new Promise(resolve => existing.addEventListener('load', () => resolve(existing), { once: true }));
+      loaded.set(path, promise);
+      return promise;
+    }
+    const promise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = absolutePath(path);
+      script.async = true;
+      script.dataset.qModule = path;
+      script.onload = () => {
+        script.dataset.qLoaded = 'true';
+        window.dispatchEvent(new CustomEvent('quest:module-loaded', { detail: { path } }));
+        resolve(script);
+      };
+      script.onerror = () => reject(new Error(`Unable to load ${path}`));
+      document.body.appendChild(script);
+    });
+    loaded.set(path, promise);
+    return promise;
+  }
+
+  async function loadSequential(paths) {
+    for (const path of paths) await loadScript(path);
+  }
+
+  function loadGroup(name) {
+    if (!GROUPS[name]) return Promise.resolve();
+    if (groupLoads.has(name)) return groupLoads.get(name);
+    const promise = (async () => {
+      progress(true);
+      try {
+        await loadSequential(GROUPS[name]);
+      } catch (error) {
+        console.error(`Quest ${name} module load failed:`, error);
+      } finally {
+        progress(false, true);
+        window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: name } }));
+      }
+    })();
+    groupLoads.set(name, promise);
+    return promise;
+  }
+
+  function pageKeyFromText(value = '') {
+    const text = String(value).toLowerCase();
+    if (/alert|strategic signal/.test(text)) return 'alerts';
+    if (/competitor profile|competitive landscape/.test(text)) return 'competitor';
+    if (/news intelligence|social|perception/.test(text)) return 'strategic';
+    if (/insights engine|insights copilot/.test(text)) return 'insights';
+    if (/executive|project tracker|pmr project|methodology|audit|knowledge repository|survey analytics|voice of experts/.test(text)) return 'governance';
+    return '';
+  }
+
+  function activePageKey() {
+    const active = document.querySelector('.nav-item.active,[aria-current="page"],[data-view].active');
+    const visible = Array.from(document.querySelectorAll('.view[data-view]')).find(node => {
+      const style = window.getComputedStyle(node);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    });
+    return pageKeyFromText(`${active?.dataset?.view || ''} ${active?.textContent || ''} ${visible?.dataset?.view || ''} ${visible?.textContent?.slice(0, 120) || ''}`);
+  }
+
+  function preloadForInteraction(target) {
+    const node = target.closest('.nav-item,[data-view],a,button');
+    if (!node) return;
+    const key = pageKeyFromText(`${node.dataset?.view || ''} ${node.getAttribute('href') || ''} ${node.textContent || ''}`);
+    if (key) loadGroup(key);
+  }
+
+  async function bootCore() {
+    progress(true);
+    try {
+      await loadScript('integrations/quest-brand-system.js');
+      await loadScript('integrations/frontend-performance-layout.js');
+      await loadScript('integrations/local-data-fetch-bridge.js');
+    } catch (error) {
+      console.error('Quest core styling could not be fully loaded:', error);
+    } finally {
+      progress(false, true);
+    }
+  }
+
+  function bindNavigation() {
+    document.addEventListener('pointerover', event => preloadForInteraction(event.target), { passive: true, capture: true });
+    document.addEventListener('focusin', event => preloadForInteraction(event.target), true);
+    document.addEventListener('click', event => preloadForInteraction(event.target), true);
+    window.addEventListener('hashchange', () => {
+      const key = activePageKey();
+      if (key) loadGroup(key);
+    });
+  }
+
+  async function boot() {
+    bindNavigation();
+    await bootCore();
+
+    const current = activePageKey() || 'governance';
+    loadGroup(current);
+
+    idle(() => loadGroup('microsoft'), { timeout: 1600 });
+    idle(() => {
+      if (current !== 'governance') loadGroup('governance');
+    }, { timeout: 2400 });
+
+    document.documentElement.dataset.questRelease = RELEASE;
+    document.documentElement.classList.add('quest-ready');
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+  else boot();
+})();
