@@ -21,8 +21,10 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+
       - name: Check JavaScript syntax
         shell: bash
         run: |
@@ -31,6 +33,7 @@ jobs:
             echo "Checking $file"
             node --check "$file"
           done
+
       - name: Validate JSON data files
         shell: bash
         run: |
@@ -42,9 +45,15 @@ jobs:
               json.loads(path.read_text(encoding='utf-8'))
               print(f'Validated {path}')
           PY
-      - name: Confirm application entry point
+
+      - name: Confirm optimized application entry point
         shell: bash
         run: |
-          grep -q 'no-cost-live-operations.js' index.html
-          grep -q 'local-data-fetch-bridge.js' index.html
-          grep -q 'quest-brand-system.js' index.html
+          set -euo pipefail
+          grep -q 'integrations/optimized-loader.js' index.html
+          grep -q 'quest-brand-system.js' integrations/optimized-loader.js
+          grep -q 'frontend-performance-layout.js' integrations/optimized-loader.js
+          grep -q 'local-data-fetch-bridge.js' integrations/optimized-loader.js
+          grep -q 'no-cost-live-operations.js' integrations/optimized-loader.js
+          grep -q 'laboratory-news-monitor.js' integrations/optimized-loader.js
+          echo 'Optimized entry point and lazy feature groups are configured.'
