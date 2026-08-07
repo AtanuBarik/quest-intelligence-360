@@ -1,30 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-07T08:29:04Z",
+  "generated_at": "2026-08-07T08:31:39Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [
-    "labcorp",
-    "arup",
-    "mayo",
-    "sonic",
-    "eurofins",
-    "neogenomics",
-    "natera",
-    "exact",
-    "guardant",
-    "tempus",
-    "bioreference",
-    "fulgent",
-    "myriad",
-    "qiagen"
-  ],
+  "changed_competitors": [],
   "competitors": [
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -75,11 +60,9 @@
       "errors": [],
       "content_hash": "d56d50d8a0cf53380897f5d729616b9e12acd253c77ab40f70290ce07a6159a5",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -100,7 +83,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -167,11 +150,9 @@
       "errors": [],
       "content_hash": "9c808a9eed3604497af28390d01b74abbc20139bd56da0de66a7e11023c68f19",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -191,7 +172,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -220,11 +201,9 @@
       ],
       "content_hash": "d7b4eb1620e69cd2d8587305c78532eb6e2b3e926c8e05b284563f9aced008aa",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -244,7 +223,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -280,11 +259,9 @@
       "errors": [],
       "content_hash": "f09dd64672f9d5686313959434380b070796f97fee50f2d5136a7a84aeea8061",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -305,7 +282,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins Clinical Diagnostics",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -363,11 +340,9 @@
       "errors": [],
       "content_hash": "ac0fc8bb147074b3b1141195f5be77fe2b85ea69a1b280f46e65d30cb35fdc3d",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -387,7 +362,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -417,11 +392,9 @@
       "errors": [],
       "content_hash": "d2692c3b5530074637ee7444f3b4a5f77bda537f31cde2aa3b1034cb164f38e1",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -441,7 +414,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -474,11 +447,9 @@
       "errors": [],
       "content_hash": "22198377ee291bc14abd3ee13215b115ca92bb19f74ba12b87b16e1254fedc02",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -498,7 +469,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -529,11 +500,9 @@
       ],
       "content_hash": "b621ea1bec60abe5beb78123ac6e0e6a037d204405f4b36d372253fda5ceaee7",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -553,7 +522,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -581,11 +550,9 @@
       "errors": [],
       "content_hash": "be662c5fd07a193e3f6639e55ff31240cb3ee9da7dc2fc3baa574c86731ffc97",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -605,7 +572,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -666,11 +633,9 @@
       ],
       "content_hash": "79dcda6e186e503d7a744fc461f5a832971ee420a40ab38216a516ea96d2ac9e",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -694,7 +659,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -727,11 +692,9 @@
       ],
       "content_hash": "f612791c9bcba2e430d7688aa02f67f05f7e479ca7359108f4e834bdb7c82749",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -751,7 +714,7 @@
     {
       "id": "fulgent",
       "name": "Fulgent Genetics",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -768,11 +731,9 @@
       "errors": [],
       "content_hash": "2163d575f377d8adcb30f0150abf367a6b51ec4aa07f0a4fc317c823b49fddc8",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -788,7 +749,7 @@
     {
       "id": "myriad",
       "name": "Myriad Genetics",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -854,11 +815,9 @@
       "errors": [],
       "content_hash": "c77a45a060161c31e5b000f28d223e9f79ed47c83d829a68ab722ffa0285296d",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -878,7 +837,7 @@
     {
       "id": "qiagen",
       "name": "QIAGEN",
-      "last_checked_at": "2026-08-07T08:29:04Z",
+      "last_checked_at": "2026-08-07T08:31:39Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -914,11 +873,9 @@
       "errors": [],
       "content_hash": "c6a39e9d656b4b88a6ea8d227c2c0b78d02ec8261f5c2d4d4dfe13f1fc8e89aa",
       "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
