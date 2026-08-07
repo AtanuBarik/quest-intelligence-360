@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T04:56:40.206599+00:00",
+  "generated_at": "2026-08-07T06:00:20.002855+00:00",
   "overall_status": "healthy",
   "errors": [],
   "sources": {
@@ -15,8 +15,8 @@
     },
     "laboratory_news": {
       "status": "ready",
-      "updated_at": "2026-08-05T22:33:47.259223+00:00",
-      "records": 178
+      "updated_at": "2026-08-06T10:29:48.464770+00:00",
+      "records": 91
     },
     "social_intelligence": {
       "status": "ready",
@@ -25,15 +25,17 @@
       "mode": "illustrative_connector_ready"
     },
     "email_workflow": {
-      "status": "no_summarizable_items",
+      "status": "test_email_sent",
       "updated_at": null,
-      "items": 0
+      "items": 2
     },
     "ai_worker": {
       "status": "ready",
       "updated_at": null,
       "capabilities": [
         "email_article_summary",
+        "direct_publisher_page_read",
+        "interactions_api",
         "strategic_repository_chat",
         "strategic_filtered_summary",
         "google_search_deep_read",
