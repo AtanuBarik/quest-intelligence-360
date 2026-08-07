@@ -1,14 +1,14 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260807a';
+  const RELEASE = '20260807b';
   const loaded = new Map();
   const groupLoads = new Map();
 
   const GROUPS = {
-    alerts: ['integrations/laboratory-news-monitor.js','integrations/laboratory-news-sync.js'],
+    alerts: ['integrations/laboratory-news-monitor.js','integrations/laboratory-news-sync.js','integrations/strategic-analysis-hub.js'],
     competitor: ['integrations/competitor-intelligence-profiles/loader.js','integrations/competitor-daily-refresh.js'],
-    strategic: ['integrations/strategic-news-social-hubs.js'],
+    strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js'],
     insights: ['integrations/enterprise-insights-engine/loader.js'],
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js','integrations/approved-insights-panel.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js']
@@ -76,7 +76,7 @@
     const text = String(value).toLowerCase();
     if (/alert|strategic signal/.test(text)) return 'alerts';
     if (/competitor profile|competitive landscape/.test(text)) return 'competitor';
-    if (/news intelligence|social|perception/.test(text)) return 'strategic';
+    if (/news intelligence|strategic analysis|social|perception/.test(text)) return 'strategic';
     if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
     if (/microsoft|sharepoint|local data|local repository|local file/.test(text)) return 'microsoft';
     if (/executive|project tracker|pmr project|methodology|audit|knowledge repository|survey analytics|voice of experts/.test(text)) return 'governance';
