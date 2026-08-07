@@ -33,26 +33,42 @@ jobs:
           SOURCE_BASE='https://raw.githubusercontent.com/AtanuBarik/laboratory-news-monitor/main'
           mkdir -p data/laboratory-knowledge assets/quest-news-icons
 
-          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
-            "$SOURCE_BASE/data/news.json" \
-            --output data/laboratory-news.json
-          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
-            "$SOURCE_BASE/data/email_status.json" \
-            --output data/laboratory-email-status.json
-          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
-            https://laboratory-news-ai.atanu-barik.workers.dev \
-            --output data/laboratory-ai-health.json
+          download_required() {
+            local source="$1"
+            local target="$2"
+            curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
+              "$source" --output "$target"
+          }
+
+          download_optional() {
+            local source="$1"
+            local target="$2"
+            if ! curl --fail --location --retry 2 --retry-all-errors --connect-timeout 15 --max-time 90 --silent --show-error \
+              "$source" --output "$target"; then
+              echo "Optional source unavailable: $source"
+              rm -f "$target"
+            fi
+          }
+
+          download_required "$SOURCE_BASE/data/news.json" data/laboratory-news.json
+          download_required "$SOURCE_BASE/data/email_status.json" data/laboratory-email-status.json
+          download_required "$SOURCE_BASE/data/workflow_health.json" data/laboratory-workflow-health.json
+          download_required "$SOURCE_BASE/data/chatgpt_strategic_synthesis.json" data/laboratory-chatgpt-strategic-synthesis.json
+          download_required "$SOURCE_BASE/data/chatgpt_summaries.json" data/laboratory-chatgpt-summaries.json
+
+          # The worker is now a complementary on-demand layer. The source repository's
+          # scheduled ChatGPT summaries and workflow-health files are the primary status sources.
+          download_optional https://laboratory-news-ai.atanu-barik.workers.dev data/laboratory-ai-health.json
+          if [ ! -f data/laboratory-ai-health.json ]; then
+            printf '%s\n' '{"status":"optional_worker_unavailable","capabilities":[]}' > data/laboratory-ai-health.json
+          fi
 
           for file in manifest.json latest.md quest-diagnostics.md labcorp.md arup-laboratories.md mayo-clinic-laboratories.md sonic-healthcare.md; do
-            curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
-              "$SOURCE_BASE/knowledge/$file" \
-              --output "data/laboratory-knowledge/$file"
+            download_required "$SOURCE_BASE/knowledge/$file" "data/laboratory-knowledge/$file"
           done
 
           for icon in product-services clinical-rd partnership-ma financials organizational leadership other; do
-            curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
-              "$SOURCE_BASE/assets/email-icons/rendered/${icon}.png" \
-              --output "assets/quest-news-icons/${icon}.png"
+            download_required "$SOURCE_BASE/assets/email-icons/rendered/${icon}.png" "assets/quest-news-icons/${icon}.png"
           done
 
           SOURCE_SHA=$(curl --fail --location --retry 3 --retry-all-errors --connect-timeout 20 --max-time 120 --silent --show-error \
@@ -65,38 +81,51 @@ jobs:
           from datetime import datetime, timezone
           from pathlib import Path
 
-          source_sha = sys.argv[1]
-          news = json.loads(Path('data/laboratory-news.json').read_text(encoding='utf-8'))
-          email = json.loads(Path('data/laboratory-email-status.json').read_text(encoding='utf-8'))
-          worker = json.loads(Path('data/laboratory-ai-health.json').read_text(encoding='utf-8'))
-          manifest = json.loads(Path('data/laboratory-knowledge/manifest.json').read_text(encoding='utf-8'))
+          def read_json(path, default=None):
+              file = Path(path)
+              if not file.exists():
+                  return {} if default is None else default
+              return json.loads(file.read_text(encoding='utf-8'))
 
-          required = {
-              'email_article_summary',
-              'model_and_tool_fallbacks',
-              'direct_publisher_page_read',
-              'interactions_api',
-          }
-          capabilities = set(worker.get('capabilities') or [])
-          missing = sorted(required - capabilities)
-          if missing:
-              raise SystemExit(f'AI Worker is missing required capabilities: {missing}')
+          source_sha = sys.argv[1]
+          news = read_json('data/laboratory-news.json')
+          email = read_json('data/laboratory-email-status.json')
+          workflow = read_json('data/laboratory-workflow-health.json')
+          strategic = read_json('data/laboratory-chatgpt-strategic-synthesis.json')
+          summaries = read_json('data/laboratory-chatgpt-summaries.json')
+          worker = read_json('data/laboratory-ai-health.json')
+          manifest = read_json('data/laboratory-knowledge/manifest.json')
+
+          summary_records = summaries.get('summaries') or {}
+          summarized_in_feed = sum(1 for item in (news.get('items') or []) if item.get('chatgpt_summary'))
 
           version = {
               'source_repository': 'AtanuBarik/laboratory-news-monitor',
               'source_commit': source_sha,
               'synchronized_at': datetime.now(timezone.utc).isoformat(),
               'news_generated_at': news.get('generated_at'),
+              'news_generated_at_display': news.get('generated_at_display'),
               'news_item_count': news.get('item_count', len(news.get('items') or [])),
               'raw_relevant_item_count': news.get('raw_relevant_item_count'),
               'duplicates_merged': news.get('duplicates_merged'),
-              'low_value_items_removed': news.get('low_value_items_removed'),
+              'failures': news.get('failures') or [],
               'filter_policy': news.get('filter_policy'),
               'email_status': email.get('status'),
-              'email_item_count': email.get('email_item_count', 0),
-              'verified_summary_count': email.get('verified_summary_count', 0),
-              'summary_pipeline': email.get('summary_pipeline') or worker.get('summary_pipeline'),
-              'worker_capabilities': sorted(capabilities),
+              'email_checked_at_display': email.get('checked_at_display'),
+              'scheduled_chatgpt_summary_count': email.get('scheduled_chatgpt_summary_count', 0),
+              'gemini_summary_count': email.get('gemini_summary_count', 0),
+              'gemini_fallback_enabled': email.get('gemini_fallback_enabled'),
+              'workflow_last_run_display': workflow.get('last_run_display'),
+              'workflow_next_update_display': workflow.get('next_update_display'),
+              'chatgpt_queue_count': workflow.get('chatgpt_queue_count'),
+              'chatgpt_remaining_unsummarized': workflow.get('chatgpt_remaining_unsummarized'),
+              'chatgpt_summary_record_count': len(summary_records),
+              'chatgpt_summaries_in_feed': summarized_in_feed,
+              'strategic_synthesis_updated_at': strategic.get('updated_at'),
+              'strategic_synthesis_updated_at_display': strategic.get('updated_at_display'),
+              'strategic_synthesis_provider': strategic.get('provider'),
+              'worker_status': worker.get('status', 'available' if worker else 'unknown'),
+              'worker_capabilities': sorted(worker.get('capabilities') or []),
               'knowledge_generated_at': manifest.get('generated_at'),
           }
           Path('data/laboratory-source-version.json').write_text(
@@ -115,6 +144,9 @@ jobs:
           git add \
             data/laboratory-news.json \
             data/laboratory-email-status.json \
+            data/laboratory-workflow-health.json \
+            data/laboratory-chatgpt-strategic-synthesis.json \
+            data/laboratory-chatgpt-summaries.json \
             data/laboratory-ai-health.json \
             data/laboratory-source-version.json \
             data/laboratory-knowledge \
@@ -123,6 +155,6 @@ jobs:
             echo 'Laboratory news data is already current.'
             exit 0
           fi
-          git commit -m 'Sync latest laboratory news data, knowledge and capabilities'
+          git commit -m 'Sync latest laboratory news, ChatGPT summaries and workflow health'
           git pull --rebase origin main
           git push origin HEAD:main
