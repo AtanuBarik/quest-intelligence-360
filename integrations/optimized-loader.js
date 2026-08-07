@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260807b';
+  const RELEASE = '20260807c';
   const loaded = new Map();
   const groupLoads = new Map();
 
