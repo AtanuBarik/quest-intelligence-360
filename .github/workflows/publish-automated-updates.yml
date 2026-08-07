@@ -73,7 +73,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260807b'
+          release = '20260807c'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -108,8 +108,13 @@ jobs:
           test -f _site/integrations/chart-lite.js
           test -f _site/integrations/competitor-daily-refresh.js
           test -f _site/integrations/strategic-analysis-hub.js
+          test -f _site/integrations/laboratory-news-sync.js
           test -f _site/data/competitor-source-registry.json
           test -f _site/data/strategic-analysis.json
+          if [ -f _site/data/laboratory-workflow-health.json ]; then
+            test -f _site/data/laboratory-chatgpt-strategic-synthesis.json
+            test -f _site/data/laboratory-chatgpt-summaries.json
+          fi
           du -sh _site
 
       - name: Publish files to gh-pages branch
