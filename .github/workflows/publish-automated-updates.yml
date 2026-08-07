@@ -8,6 +8,7 @@ on:
     paths:
       - chunks/**
       - integrations/**
+      - data/**
       - assets/**
       - index.html
       - .pages-trigger
@@ -15,6 +16,7 @@ on:
     workflows:
       - Sync laboratory news data
       - Refresh live operations status
+      - Refresh competitor profiles daily
     types: [completed]
 
 permissions:
@@ -71,7 +73,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260806s'
+          release = '20260807a'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -104,7 +106,8 @@ jobs:
           if [ -d assets ]; then cp -R assets _site/; fi
           touch _site/.nojekyll
           test -f _site/integrations/chart-lite.js
-          test -f _site/data/public-demo-intelligence.json
+          test -f _site/integrations/competitor-daily-refresh.js
+          test -f _site/data/competitor-source-registry.json
           du -sh _site
 
       - name: Publish files to gh-pages branch
