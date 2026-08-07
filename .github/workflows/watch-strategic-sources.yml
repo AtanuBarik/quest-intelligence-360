@@ -1,0 +1,38 @@
+name: Watch strategic intelligence sources
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 1 * * 1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: strategic-source-watch
+  cancel-in-progress: true
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Review official strategic source pages
+        run: python scripts/update_strategic_source_watch.py
+
+      - name: Commit source-watch evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-strategy-watch[bot]'
+          git config user.email 'quest-strategy-watch[bot]@users.noreply.github.com'
+          git add data/strategic-source-watch.json
+          if git diff --cached --quiet; then
+            echo 'No source-watch state changes to publish.'
+            exit 0
+          fi
+          git commit -m 'Refresh weekly strategic intelligence source watch'
+          git push
