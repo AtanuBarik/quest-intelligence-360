@@ -3,7 +3,7 @@
 
   const jsParts = ['chunk-00.b64','chunk-01.b64','chunk-02.b64','chunk-03.b64','chunk-04.b64','chunk-05.b64'];
   const dataParts = ['data-00.b64','data-01.b64','data-02.b64','data-03.b64'];
-  const RELEASE = '2026-08-05f';
+  const RELEASE = '2026-08-07a';
 
   async function inflateBase64(paths, base) {
     const responses = await Promise.all(paths.map(name => fetch(new URL(`${name}?v=${RELEASE}`, base), { cache: 'no-store' })));
@@ -53,6 +53,64 @@
     document.body.style.overflow = '';
   }
 
+  async function applyDailyRefresh(dataText, loaderBase) {
+    let parsed;
+    try {
+      parsed = JSON.parse(dataText);
+    } catch (_) {
+      return { dataText, refresh: null };
+    }
+
+    let refresh;
+    try {
+      const url = new URL(`../../data/competitor-daily-refresh.json?v=${Date.now()}`, loaderBase);
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) return { dataText, refresh: null };
+      refresh = await response.json();
+    } catch (_) {
+      return { dataText, refresh: null };
+    }
+
+    const refreshById = new Map((refresh.competitors || []).map(item => [String(item.id || '').toLowerCase(), item]));
+    const refreshByName = new Map((refresh.competitors || []).map(item => [String(item.name || '').toLowerCase(), item]));
+    const profiles = Array.isArray(parsed)
+      ? parsed
+      : Array.isArray(parsed.profiles)
+        ? parsed.profiles
+        : Array.isArray(parsed.competitors)
+          ? parsed.competitors
+          : [];
+
+    profiles.forEach(profile => {
+      const key = String(profile.id || '').toLowerCase();
+      const name = String(profile.name || '').toLowerCase();
+      const current = refreshById.get(key) || refreshByName.get(name);
+      if (!current) return;
+      const patch = current.profile_patch || {};
+      Object.entries(patch).forEach(([field, value]) => {
+        if (field === 'sources' && Array.isArray(value)) {
+          const existing = Array.isArray(profile.sources) ? profile.sources : [];
+          const merged = [...existing, ...value].filter((item, index, all) => {
+            const url = Array.isArray(item) ? item[1] : '';
+            return url && all.findIndex(other => Array.isArray(other) && other[1] === url) === index;
+          });
+          profile.sources = merged;
+        } else if (value !== null && value !== undefined && value !== '') {
+          profile[field] = value;
+        }
+      });
+      profile.last_updated_at = current.last_updated_at;
+      profile.last_checked_at = current.last_checked_at;
+      profile.refresh_status = current.refresh_status;
+      profile.latest_developments = current.latest_developments || [];
+      profile.verified_fields = current.verified_fields || {};
+      profile.daily_changes = current.changes || { added: [], removed: [], modified: [] };
+    });
+
+    window.__QUEST_COMPETITOR_REFRESH__ = refresh;
+    return { dataText: JSON.stringify(parsed), refresh };
+  }
+
   function showLoadError(error, route) {
     console.error('Competitor Intelligence Profiles integration failed:', error);
     let attempts = 0;
@@ -97,10 +155,12 @@
     const route = detectRoute();
     try {
       removeLegacyDrawer();
-      const [source, dataText] = await Promise.all([
+      const [source, rawDataText] = await Promise.all([
         inflateBase64(jsParts, loaderBase),
         inflateBase64(dataParts, loaderBase),
       ]);
+      const refreshed = await applyDailyRefresh(rawDataText, loaderBase);
+      const dataText = refreshed.dataText;
       JSON.parse(dataText);
       dataUrl = URL.createObjectURL(new Blob([dataText], { type: 'application/json' }));
 
@@ -113,6 +173,7 @@
       script.dataset.integration = 'competitor-intelligence-profiles';
       script.textContent = `${patchedSource}\nwindow.__QUEST_COMPETITOR_PROFILES_VERSION__='${RELEASE}';\n//# sourceURL=competitor-intelligence-profiles.js`;
       document.body.appendChild(script);
+      window.dispatchEvent(new CustomEvent('quest:competitor-refresh-loaded', { detail: refreshed.refresh || {} }));
 
       window.setTimeout(async () => {
         try {
