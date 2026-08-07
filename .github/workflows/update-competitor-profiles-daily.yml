@@ -1,0 +1,72 @@
+name: Refresh competitor profiles daily
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 2 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-competitor-profiles-daily.yml'
+      - 'scripts/update_competitor_profiles.py'
+      - 'data/competitor-source-registry.json'
+      - '.competitor-refresh-trigger'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: competitor-profile-daily-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Run public-web competitor refresh
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/update_competitor_profiles.py
+          python scripts/update_competitor_profiles.py
+
+      - name: Validate generated competitor refresh data
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('data/competitor-daily-refresh.json')
+          payload = json.loads(path.read_text(encoding='utf-8'))
+          competitors = payload.get('competitors') or []
+          if len(competitors) < 10:
+              raise SystemExit(f'Expected at least 10 monitored competitors, found {len(competitors)}')
+          for item in competitors:
+              if not item.get('id') or not item.get('last_updated_at') or not item.get('last_checked_at'):
+                  raise SystemExit(f'Invalid refresh record: {item.get("id")}')
+          print('Validated competitor refresh records:', len(competitors))
+          print('Changed competitors:', ', '.join(payload.get('changed_competitors') or []) or 'none')
+          PY
+
+      - name: Commit refreshed public intelligence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-competitor-refresh[bot]'
+          git config user.email 'quest-competitor-refresh[bot]@users.noreply.github.com'
+          git add data/competitor-daily-refresh.json data/competitor-refresh-log.json
+          if git diff --cached --quiet; then
+            echo 'No refresh-file changes to publish.'
+            exit 0
+          fi
+          git commit -m 'Refresh competitor public intelligence'
+          git pull --rebase origin main
+          git push origin HEAD:main
