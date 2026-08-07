@@ -1,3 +1,4 @@
+# Repair trigger: 2026-08-07 21:30 IST
 name: Sync laboratory news data
 
 on:
@@ -78,7 +79,6 @@ jobs:
           fetch_source data/chatgpt_strategic_synthesis.json data/laboratory-chatgpt-strategic-synthesis.json optional
           fetch_source data/chatgpt_summaries.json data/laboratory-chatgpt-summaries.json optional
 
-          # Worker health is complementary and must never block the data synchronization.
           if ! curl --fail --location --retry 1 --connect-timeout 12 --max-time 45 --silent --show-error \
             https://laboratory-news-ai.atanu-barik.workers.dev --output data/laboratory-ai-health.json.incoming; then
             rm -f data/laboratory-ai-health.json.incoming
