@@ -1,0 +1,30 @@
+{
+  "runs": [
+    {
+      "checked_at": "2026-08-07T08:29:04Z",
+      "competitors_checked": 14,
+      "competitors_changed": [
+        "labcorp",
+        "arup",
+        "mayo",
+        "sonic",
+        "eurofins",
+        "neogenomics",
+        "natera",
+        "exact",
+        "guardant",
+        "tempus",
+        "bioreference",
+        "fulgent",
+        "myriad",
+        "qiagen"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "exact",
+        "tempus",
+        "bioreference"
+      ]
+    }
+  ]
+}

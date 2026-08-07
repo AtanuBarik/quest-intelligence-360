@@ -1,0 +1,939 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-07T08:29:04Z",
+  "refresh_cadence": "daily",
+  "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
+  "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
+  "changed_competitors": [
+    "labcorp",
+    "arup",
+    "mayo",
+    "sonic",
+    "eurofins",
+    "neogenomics",
+    "natera",
+    "exact",
+    "guardant",
+    "tempus",
+    "bioreference",
+    "fulgent",
+    "myriad",
+    "qiagen"
+  ],
+  "competitors": [
+    {
+      "id": "labcorp",
+      "name": "Labcorp",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {
+        "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
+      },
+      "latest_developments": [],
+      "official_signals": [
+        "Diagnostic Reference & Specialty Labs",
+        "Labcorp (NYSE: LH) is a global leader of innovative and comprehensive laboratory services that helps doctors, hospitals, pharmaceutical companies, researchers and patients make clear and confident decisions.",
+        "Labcorp Announces 2026 Second Quarter Results; Raises Full Year 2026 Guidance",
+        "Labcorp Biopharma Lab Services",
+        "Labcorp Launches FDA-Approved PTEN Companion Diagnostic for Prostate Cancer",
+        "Labcorp Launches Marker by Labcorp™ Genetic Health Panel, Expanding Consumer Access to Hereditary Genetic Risk Testing",
+        "Online Services User Agreement",
+        "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700 million tests annually for patients around the world.",
+        "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750 million tests for patients around the world.",
+        "We provide insights and advance science to improve health and improve lives through our unparalleled diagnostics and drug development laboratory capabilities."
+      ],
+      "source_status": [
+        {
+          "label": "Investor relations",
+          "url": "https://ir.labcorp.com/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Labcorp Biopharma Lab Services",
+            "Labcorp (NYSE: LH) is a global leader of innovative and comprehensive laboratory services that helps doctors, hospitals, pharmaceutical companies, researchers and patients make clear and confident decisions.",
+            "We provide insights and advance science to improve health and improve lives through our unparalleled diagnostics and drug development laboratory capabilities.",
+            "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700 million tests annually for patients around the world.",
+            "Labcorp Launches FDA-Approved PTEN Companion Diagnostic for Prostate Cancer",
+            "Labcorp Announces 2026 Second Quarter Results; Raises Full Year 2026 Guidance",
+            "Labcorp Launches Marker by Labcorp™ Genetic Health Panel, Expanding Consumer Access to Hereditary Genetic Risk Testing"
+          ]
+        },
+        {
+          "label": "Corporate facts",
+          "url": "https://www.labcorp.com/about/corporate-facts",
+          "kind": "company",
+          "status": "ok",
+          "signals": [
+            "Diagnostic Reference & Specialty Labs",
+            "Labcorp (NYSE: LH) is a global leader of innovative and comprehensive laboratory services that helps doctors, hospitals, pharmaceutical companies, researchers and patients make clear and confident decisions.",
+            "We provide insights and advance science to improve health and improve lives through our unparalleled diagnostics and drug development laboratory capabilities.",
+            "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750 million tests for patients around the world.",
+            "Online Services User Agreement"
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "d56d50d8a0cf53380897f5d729616b9e12acd253c77ab40f70290ce07a6159a5",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…",
+        "sources": [
+          [
+            "Investor relations",
+            "https://ir.labcorp.com/"
+          ],
+          [
+            "Corporate facts",
+            "https://www.labcorp.com/about/corporate-facts"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "arup",
+      "name": "ARUP Laboratories",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "ARUP Consult ® Our clinical decision support resource, ARUP Consult, empowers clinicians with robust information, algorithms, and tools for informed patient care decisions.",
+        "ARUP Institute for Research and Innovation in Diagnostic and Precision Medicine™ We accelerate the development and adoption of cutting-edge diagnostic and prognostic technologies advancing patient care through groundbreaking science and engineering.",
+        "About Us ARUP Laboratories is a national, academic, and nonprofit reference laboratory at the forefront of diagnostic medicine.",
+        "Access Free Online Resources Enhance your medical laboratory science (MLS) program with our free online resource center.",
+        "Changes and New Tests Explore the most recent updates to our Laboratory Test Directory in one convenient location.",
+        "Choose the Right Test Testing Algorithms Test Fact Sheets",
+        "Clinical Decision Support | ARUP Consult ®",
+        "Clinical and Academic Research Our Clinical Trials group supports a variety of research efforts, including academic research initiatives, and serves clients from central laboratories, clinical research organizations (CROs), in vitro device (IVD) manufacturers, and more.",
+        "Comprehensive Diagnostic Solutions Discover the benefits of our testing for each featured test category.",
+        "Drug and Clinical Research Services",
+        "For Researchers: Clinical Research Services Our team of experienced project managers is available to assist you in companion diagnostic development, clinical trial studies, academic research, and expert pathology review.",
+        "Healthcare Advisory Services Request Contact an ARUP healthcare consultant to learn more about how you can optimize your laboratory operations, generate more revenue, and improve patient care.",
+        "Laboratory Consulting Services",
+        "Live Webinars Attend our live webinars for insightful, interactive conversations around the latest trends and advancements in laboratory medicine.",
+        "Our Experts Explore the breadth and depth of expertise available from ARUP’s 150+ medical directors, genetic counselors, pathologists, specialty scientists, and consultants, most of whom are on-site.",
+        "Our consultants bring experience and analytics to enhance the value of your lab.",
+        "Podcast Episodes Stay up to date on trending laboratory medicine topics with our LabMind podcast.",
+        "Sales and Account Inquiries Request to speak to your local account executive or to set up a new account with ARUP.",
+        "Search our extensive Laboratory Test Directory to find test codes, ordering recommendations, specimen stability information, Test Fact Sheets, and more.",
+        "Search the Laboratory Test Directory"
+      ],
+      "source_status": [
+        {
+          "label": "ARUP newsroom",
+          "url": "https://www.aruplab.com/newsroom",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Clinical Decision Support | ARUP Consult ®",
+            "Search our extensive Laboratory Test Directory to find test codes, ordering recommendations, specimen stability information, Test Fact Sheets, and more.",
+            "Changes and New Tests Explore the most recent updates to our Laboratory Test Directory in one convenient location.",
+            "Test Resources Find general guidance on ARUP specimen preparation and handling, specimen transportation, test turnaround times, critical alerts, billing practices, patient forms, and more.",
+            "ARUP Consult ® Our clinical decision support resource, ARUP Consult, empowers clinicians with robust information, algorithms, and tools for informed patient care decisions.",
+            "Choose the Right Test Testing Algorithms Test Fact Sheets",
+            "Test Resources Find specimen instructions, test turnaround times, patient forms, test codes, and more.",
+            "Test Turnaround Time and Contingency Plan",
+            "Comprehensive Diagnostic Solutions Discover the benefits of our testing for each featured test category.",
+            "This section highlights our specialized offerings and is separate from our Laboratory Test Directory."
+          ]
+        },
+        {
+          "label": "Corporate overview",
+          "url": "https://www.aruplab.com/newsroom/media/corporate",
+          "kind": "company",
+          "status": "ok",
+          "signals": [
+            "Clinical Decision Support | ARUP Consult ®",
+            "Search our extensive Laboratory Test Directory to find test codes, ordering recommendations, specimen stability information, Test Fact Sheets, and more.",
+            "Changes and New Tests Explore the most recent updates to our Laboratory Test Directory in one convenient location.",
+            "Test Resources Find general guidance on ARUP specimen preparation and handling, specimen transportation, test turnaround times, critical alerts, billing practices, patient forms, and more.",
+            "ARUP Consult ® Our clinical decision support resource, ARUP Consult, empowers clinicians with robust information, algorithms, and tools for informed patient care decisions.",
+            "Choose the Right Test Testing Algorithms Test Fact Sheets",
+            "Test Resources Find specimen instructions, test turnaround times, patient forms, test codes, and more.",
+            "Test Turnaround Time and Contingency Plan",
+            "Comprehensive Diagnostic Solutions Discover the benefits of our testing for each featured test category.",
+            "This section highlights our specialized offerings and is separate from our Laboratory Test Directory."
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "9c808a9eed3604497af28390d01b74abbc20139bd56da0de66a7e11023c68f19",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "ARUP newsroom",
+            "https://www.aruplab.com/newsroom"
+          ],
+          [
+            "Corporate overview",
+            "https://www.aruplab.com/newsroom/media/corporate"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mayo",
+      "name": "Mayo Clinic Laboratories",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "partial",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [],
+      "source_status": [
+        {
+          "label": "Mayo Clinic Laboratories newsroom",
+          "url": "https://news.mayocliniclabs.com/homepage/news/newsroom/",
+          "kind": "news",
+          "status": "error",
+          "error": "Unable to fetch https://news.mayocliniclabs.com/homepage/news/newsroom/: HTTP Error 403: Forbidden",
+          "signals": []
+        },
+        {
+          "label": "About Mayo Clinic Laboratories",
+          "url": "https://news.mayocliniclabs.com/about-us/",
+          "kind": "company",
+          "status": "error",
+          "error": "Unable to fetch https://news.mayocliniclabs.com/about-us/: HTTP Error 403: Forbidden",
+          "signals": []
+        }
+      ],
+      "errors": [
+        "Unable to fetch https://news.mayocliniclabs.com/homepage/news/newsroom/: HTTP Error 403: Forbidden",
+        "Unable to fetch https://news.mayocliniclabs.com/about-us/: HTTP Error 403: Forbidden"
+      ],
+      "content_hash": "d7b4eb1620e69cd2d8587305c78532eb6e2b3e926c8e05b284563f9aced008aa",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Mayo Clinic Laboratories newsroom",
+            "https://news.mayocliniclabs.com/homepage/news/newsroom/"
+          ],
+          [
+            "About Mayo Clinic Laboratories",
+            "https://news.mayocliniclabs.com/about-us/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sonic",
+      "name": "Sonic Healthcare USA",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {
+        "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
+      },
+      "latest_developments": [],
+      "official_signals": [
+        "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million.",
+        "Sonic Healthcare is one of the world’s leading global providers of medical diagnostic services.",
+        "Sonic is the world’s third-largest provider of pathology/clinical laboratory services (referred to in some markets as 'laboratory medicine') and was the first company to do so on a global basis.",
+        "The group provides highly specialised pathology/clinical laboratory and radiology services to clinicians (GPs and specialists), hospitals, community health services, and their patients."
+      ],
+      "source_status": [
+        {
+          "label": "Sonic investor overview",
+          "url": "https://investors.sonichealthcare.com/Investors/",
+          "kind": "company",
+          "status": "ok",
+          "signals": [
+            "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million.",
+            "Sonic Healthcare is one of the world’s leading global providers of medical diagnostic services.",
+            "The group provides highly specialised pathology/clinical laboratory and radiology services to clinicians (GPs and specialists), hospitals, community health services, and their patients.",
+            "Sonic is the world’s third-largest provider of pathology/clinical laboratory services (referred to in some markets as 'laboratory medicine') and was the first company to do so on a global basis."
+          ]
+        },
+        {
+          "label": "Financial reports",
+          "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
+          "kind": "financial",
+          "status": "ok",
+          "signals": []
+        }
+      ],
+      "errors": [],
+      "content_hash": "f09dd64672f9d5686313959434380b070796f97fee50f2d5136a7a84aeea8061",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million.",
+        "sources": [
+          [
+            "Sonic investor overview",
+            "https://investors.sonichealthcare.com/Investors/"
+          ],
+          [
+            "Financial reports",
+            "https://investors.sonichealthcare.com/investors/?page=financial-reports"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "eurofins",
+      "name": "Eurofins Clinical Diagnostics",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "A one-of-a-kind \"hub and spoke\" laboratory network infrastructure is our platform for market leadership.",
+        "BioPharma Central Laboratory",
+        "Clinical Diagnostic Services",
+        "Contract Development & Manufacturing Organisation (CDMO)",
+        "Diagnostic Services & Products",
+        "Eurofins agrees to acquire Element Materials Technology’s Life Sciences Testing Services business in North America",
+        "Eurofins has reached an agreement to acquire Element's Life Sciences Testing Services business in North America, for an enterprise value of $400m.",
+        "Eurofins is in the advanced stages of a five-year programme of investments to continue the build-out of our best-in-class hub and spoke laboratory network, roll out key IT projects including suites of bespoke state-of-the art solutions by business line, establish ownership of strategic sites, and continue the…",
+        "From 2028, Eurofins will benefit from a well invested, uniquely efficient and digital hub and spoke laboratories platform, to drive unique levels of service to clients and associated profit and cash flow growth for many years.",
+        "Mid-term objectives for strong revenue growth, margin expansion, and increased cash flow and ROCE",
+        "Our areas of activity span Life, BioPharma, Diagnostic Services & Products, and Consumer & Technology Products Testing.",
+        "The benefits of the hub and spoke network and maturing start-up investments should continue to accumulate, and as we move through 2026-27, the completion of projects to fully digitalise the laboratory network will enable further productivity gains, including material savings in IT costs.",
+        "These include being a one-stop-shop fulfilling the broadest range of customer requirements; economies of scale providing large cost advantages; standardisation of the test portfolio and processes where needed; fast go-to-market as new tests can be quickly rolled out across the network; and providing a platform for…",
+        "These include the increasing outsourcing of laboratory activities; rising global demand for safe pharmaceuticals, quality food and a clean environment; supportive global trends in regulation; and the consolidation of a highly fragmented testing market.",
+        "Whatever your testing needs, we have the right experts to help you — find a laboratory near you.",
+        "With 130bps of adjusted EBITDA margin expansion, strong cash conversion, and 29% EPS growth."
+      ],
+      "source_status": [
+        {
+          "label": "Eurofins investor relations",
+          "url": "https://www.eurofins.com/en/investors/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Whatever your testing needs, we have the right experts to help you — find a laboratory near you.",
+            "Contract Development & Manufacturing Organisation (CDMO)",
+            "BioPharma Central Laboratory",
+            "Diagnostic Services & Products",
+            "Clinical Diagnostic Services",
+            "With 130bps of adjusted EBITDA margin expansion, strong cash conversion, and 29% EPS growth.",
+            "Eurofins agrees to acquire Element Materials Technology’s Life Sciences Testing Services business in North America",
+            "Eurofins has reached an agreement to acquire Element's Life Sciences Testing Services business in North America, for an enterprise value of $400m.",
+            "Our areas of activity span Life, BioPharma, Diagnostic Services & Products, and Consumer & Technology Products Testing.",
+            "These include the increasing outsourcing of laboratory activities; rising global demand for safe pharmaceuticals, quality food and a clean environment; supportive global trends in regulation; and the consolidation of a highly fragmented testing market."
+          ]
+        },
+        {
+          "label": "Reports and presentations",
+          "url": "https://www.eurofins.com/en/investors/reports-and-presentations/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Whatever your testing needs, we have the right experts to help you — find a laboratory near you.",
+            "Contract Development & Manufacturing Organisation (CDMO)",
+            "BioPharma Central Laboratory",
+            "Diagnostic Services & Products",
+            "Clinical Diagnostic Services"
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "ac0fc8bb147074b3b1141195f5be77fe2b85ea69a1b280f46e65d30cb35fdc3d",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Eurofins investor relations",
+            "https://www.eurofins.com/en/investors/"
+          ],
+          [
+            "Reports and presentations",
+            "https://www.eurofins.com/en/investors/reports-and-presentations/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "neogenomics",
+      "name": "NeoGenomics",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer"
+      ],
+      "source_status": [
+        {
+          "label": "NeoGenomics press releases",
+          "url": "https://ir.neogenomics.com/news-events/press-releases",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer"
+          ]
+        },
+        {
+          "label": "NeoGenomics financial results",
+          "url": "https://ir.neogenomics.com/financial-information/financial-results",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer"
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "d2692c3b5530074637ee7444f3b4a5f77bda537f31cde2aa3b1034cb164f38e1",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "NeoGenomics press releases",
+            "https://ir.neogenomics.com/news-events/press-releases"
+          ],
+          [
+            "NeoGenomics financial results",
+            "https://ir.neogenomics.com/financial-information/financial-results"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "natera",
+      "name": "Natera",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "The tests described have been developed and their performance characteristics determined by the CLIA-certified laboratory performing the test.",
+        "The tests have not been cleared or approved by the US Food and Drug Administration (FDA)."
+      ],
+      "source_status": [
+        {
+          "label": "Natera news",
+          "url": "https://investor.natera.com/news/default.aspx",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "The tests described have been developed and their performance characteristics determined by the CLIA-certified laboratory performing the test.",
+            "The tests have not been cleared or approved by the US Food and Drug Administration (FDA)."
+          ]
+        },
+        {
+          "label": "Natera quarterly results",
+          "url": "https://investor.natera.com/financials/quarterly-results/default.aspx",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "The tests described have been developed and their performance characteristics determined by the CLIA-certified laboratory performing the test.",
+            "The tests have not been cleared or approved by the US Food and Drug Administration (FDA)."
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "22198377ee291bc14abd3ee13215b115ca92bb19f74ba12b87b16e1254fedc02",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Natera news",
+            "https://investor.natera.com/news/default.aspx"
+          ],
+          [
+            "Natera quarterly results",
+            "https://investor.natera.com/financials/quarterly-results/default.aspx"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "exact",
+      "name": "Exact Sciences",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "partial",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "Unless otherwise specified, all product and service names appearing in this Internet site are approved for use in the U.S."
+      ],
+      "source_status": [
+        {
+          "label": "Exact Sciences investor relations",
+          "url": "https://investor.exactsciences.com/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Unless otherwise specified, all product and service names appearing in this Internet site are approved for use in the U.S."
+          ]
+        },
+        {
+          "label": "Exact Sciences SEC filings",
+          "url": "https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx",
+          "kind": "regulatory",
+          "status": "error",
+          "error": "Unable to fetch https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx: HTTP Error 404: Not Found",
+          "signals": []
+        }
+      ],
+      "errors": [
+        "Unable to fetch https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx: HTTP Error 404: Not Found"
+      ],
+      "content_hash": "b621ea1bec60abe5beb78123ac6e0e6a037d204405f4b36d372253fda5ceaee7",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Exact Sciences investor relations",
+            "https://investor.exactsciences.com/"
+          ],
+          [
+            "Exact Sciences SEC filings",
+            "https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "guardant",
+      "name": "Guardant Health",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "The latest news from Guardant Health, including new product unveilings, partnership initiatives, and financial disclosures."
+      ],
+      "source_status": [
+        {
+          "label": "Guardant investor overview",
+          "url": "https://investors.guardanthealth.com/overview/default.aspx",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "The latest news from Guardant Health, including new product unveilings, partnership initiatives, and financial disclosures."
+          ]
+        },
+        {
+          "label": "Guardant press releases",
+          "url": "https://investors.guardanthealth.com/press-releases/default.aspx",
+          "kind": "news",
+          "status": "ok",
+          "signals": []
+        }
+      ],
+      "errors": [],
+      "content_hash": "be662c5fd07a193e3f6639e55ff31240cb3ee9da7dc2fc3baa574c86731ffc97",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Guardant investor overview",
+            "https://investors.guardanthealth.com/overview/default.aspx"
+          ],
+          [
+            "Guardant press releases",
+            "https://investors.guardanthealth.com/press-releases/default.aspx"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "tempus",
+      "name": "Tempus AI",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "partial",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "Financial Information | Tempus AI",
+        "Hub is a secure platform that streamlines providers workflows and gives access to patient insights",
+        "Improving patient care through high-quality testing, clinical trial matching, and deep research data that powers scientific discovery",
+        "Investor Relations | Tempus AI",
+        "Lens is an analytical platform that enables researchers to quickly find, access, and analyze multimodal data and uncover critical insights to accelerate innovation",
+        "Next is an AI-enabled care pathway platform that helps providers deliver the next step in a patient’s care journey",
+        "Tempus Announces National Launch of OneOme Pharmacogenomics Testing, Advancing Patient Safety and Precision Medicine",
+        "Tempus Study Published in Nature Medicine Demonstrates Best-in-Class Performance of PRISM2 Across Diagnostic and Prognostic Applications",
+        "Tempus is a technology company advancing precision medicine through the practical application of artificial intelligence, including generative AI, in healthcare to create Intelligent Diagnostics.",
+        "We’re building innovative tech solutions oriented around clinical care and research products—and the virtuous cycle between them.",
+        "With one of the world’s largest libraries of clinical and molecular data, and an operating system to make that data accessible and useful, Tempus enables physicians to make near real-time, data-driven decisions to deliver personalized patient care.",
+        "of top pharma companies (based on 2025 revenue data)",
+        "patients identified for potential clinical trial matching"
+      ],
+      "source_status": [
+        {
+          "label": "Tempus investor relations",
+          "url": "https://investors.tempus.com/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Investor Relations | Tempus AI",
+            "Tempus is a technology company advancing precision medicine through the practical application of artificial intelligence, including generative AI, in healthcare to create Intelligent Diagnostics.",
+            "With one of the world’s largest libraries of clinical and molecular data, and an operating system to make that data accessible and useful, Tempus enables physicians to make near real-time, data-driven decisions to deliver personalized patient care.",
+            "We’re building innovative tech solutions oriented around clinical care and research products—and the virtuous cycle between them.",
+            "Hub is a secure platform that streamlines providers workflows and gives access to patient insights",
+            "Lens is an analytical platform that enables researchers to quickly find, access, and analyze multimodal data and uncover critical insights to accelerate innovation",
+            "Next is an AI-enabled care pathway platform that helps providers deliver the next step in a patient’s care journey",
+            "Improving patient care through high-quality testing, clinical trial matching, and deep research data that powers scientific discovery",
+            "patients identified for potential clinical trial matching",
+            "of top pharma companies (based on 2025 revenue data)"
+          ]
+        },
+        {
+          "label": "Tempus financial information",
+          "url": "https://investors.tempus.com/financials/financial-information",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Financial Information | Tempus AI"
+          ]
+        },
+        {
+          "label": "Tempus news",
+          "url": "https://www.tempus.com/news/",
+          "kind": "news",
+          "status": "error",
+          "error": "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests",
+          "signals": []
+        }
+      ],
+      "errors": [
+        "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests"
+      ],
+      "content_hash": "79dcda6e186e503d7a744fc461f5a832971ee420a40ab38216a516ea96d2ac9e",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Tempus investor relations",
+            "https://investors.tempus.com/"
+          ],
+          [
+            "Tempus financial information",
+            "https://investors.tempus.com/financials/financial-information"
+          ],
+          [
+            "Tempus news",
+            "https://www.tempus.com/news/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "bioreference",
+      "name": "BioReference Health",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "partial",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "As one of the largest full-service clinical reference laboratories in the U.S., serving approximately 11 million patients annually, BioReference Laboratories is a leading diagnostics company that continues to deliver innovations for patients and physicians, particularly those working in specialty areas.",
+        "With our focus on harnessing next-generation solutions by pioneering new advances on proven technologies, our approved therapies are positioned to offer better treatment options for patients."
+      ],
+      "source_status": [
+        {
+          "label": "BioReference Health",
+          "url": "https://www.bioreference.com/",
+          "kind": "company",
+          "status": "error",
+          "error": "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden",
+          "signals": []
+        },
+        {
+          "label": "OPKO investor relations",
+          "url": "https://www.opko.com/investors/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "With our focus on harnessing next-generation solutions by pioneering new advances on proven technologies, our approved therapies are positioned to offer better treatment options for patients.",
+            "As one of the largest full-service clinical reference laboratories in the U.S., serving approximately 11 million patients annually, BioReference Laboratories is a leading diagnostics company that continues to deliver innovations for patients and physicians, particularly those working in specialty areas."
+          ]
+        }
+      ],
+      "errors": [
+        "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden"
+      ],
+      "content_hash": "f612791c9bcba2e430d7688aa02f67f05f7e479ca7359108f4e834bdb7c82749",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "BioReference Health",
+            "https://www.bioreference.com/"
+          ],
+          [
+            "OPKO investor relations",
+            "https://www.opko.com/investors/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "fulgent",
+      "name": "Fulgent Genetics",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [],
+      "source_status": [
+        {
+          "label": "Fulgent investor relations",
+          "url": "https://ir.fulgentgenetics.com/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": []
+        }
+      ],
+      "errors": [],
+      "content_hash": "2163d575f377d8adcb30f0150abf367a6b51ec4aa07f0a4fc317c823b49fddc8",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Fulgent investor relations",
+            "https://ir.fulgentgenetics.com/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "myriad",
+      "name": "Myriad Genetics",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "FirstGene Study Demonstrates High Analytical Sensitivity and Specificity for Each Component of the Test",
+        "Key study finding: ctDNA levels detected using Precise MRD were associated with patients’ response to metastasis-directed radiation therapy",
+        "Meta-Analysis demonstrates that Access to the GeneSight test can significantly improve response and remission rates for patients with depression",
+        "Myriad Advances MRD Commercialization Timeline, Bolstered by New Study Data",
+        "Myriad Commercially Launches Precise MRD with Select Community Oncologists",
+        "Myriad Genetics Announces Select Preliminary Fourth Quarter and Full Year 2025 Financial Results and Introduces Full Year 2026 Financial Guidance",
+        "Myriad Genetics Expands Access for MyChoice Test to Prostate Cancer Patients in Japan",
+        "Myriad Genetics Expands Availability of Precise MRD™ for Colorectal, Renal and Breast Cancers, Supported by New Publication",
+        "Myriad Genetics Highlights Data Showing Broad Clinical Utility of Precise MRD Assay at 2026 ASCO Annual Meeting",
+        "Myriad Genetics Launches Prolaris® + AI, the First Prostate Cancer Test to Combine Genomics and Digital Pathology Artificial Intelligence (AI)",
+        "Myriad Genetics Planning Broader Precise MRD Launch in Breast Cancer Following AACR Readouts",
+        "Myriad Genetics Receives FDA Approval of the MyChoice CDx Test as the Companion Diagnostic for Zejula (niraparib) for Patients with Ovarian Cancer",
+        "Myriad Genetics Reports First Quarter 2026 Financial Results; Reiterates 2026 Financial Guidance Reflecting Ongoing Progress in the Cancer Care Continuum Business",
+        "Myriad Genetics Reports Fourth Quarter and Full-Year 2025 Financial Results; Reiterates 2026 Financial Guidance Reflecting Strengthened Execution",
+        "Myriad Genetics is a leader in genetic testing and precision medicine, providing insights that help people take control of their health and enable healthcare providers to better detect, treat and prevent disease.",
+        "New Large-Scale Meta-Analysis Demonstrates Strong Prognostic Performance of Myriad’s Prolaris® Biopsy Test in Localized Prostate Cancer",
+        "Prenatal screening gave Hannah time to plan",
+        "Six presented abstracts at ASCO-GU 2026 reinforce the clinical impact of Myriad’s Precise MRD, Prolaris, and MyRisk tests",
+        "Study suggest that utilizing RiskScore drives breast cancer screening tailored to individual risk",
+        "“Carrier screening empowers you to make the right decisions."
+      ],
+      "source_status": [
+        {
+          "label": "Myriad newsroom",
+          "url": "https://investor.myriad.com/newsroom/",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Myriad Genetics Planning Broader Precise MRD Launch in Breast Cancer Following AACR Readouts",
+            "Key study finding: ctDNA levels detected using Precise MRD were associated with patients’ response to metastasis-directed radiation therapy",
+            "Meta-Analysis demonstrates that Access to the GeneSight test can significantly improve response and remission rates for patients with depression",
+            "Study suggest that utilizing RiskScore drives breast cancer screening tailored to individual risk",
+            "New Large-Scale Meta-Analysis Demonstrates Strong Prognostic Performance of Myriad’s Prolaris® Biopsy Test in Localized Prostate Cancer",
+            "Myriad Genetics is a leader in genetic testing and precision medicine, providing insights that help people take control of their health and enable healthcare providers to better detect, treat and prevent disease.",
+            "“Carrier screening empowers you to make the right decisions.",
+            "Prenatal screening gave Hannah time to plan",
+            "“Once we got the noninvasive prenatal screening results back, we were able to meet with a lot more physicians.”"
+          ]
+        },
+        {
+          "label": "Myriad news releases",
+          "url": "https://investor.myriad.com/news-releases/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "New Large-Scale Meta-Analysis Demonstrates Strong Prognostic Performance of Myriad’s Prolaris® Biopsy Test in Localized Prostate Cancer",
+            "Myriad Genetics Expands Availability of Precise MRD™ for Colorectal, Renal and Breast Cancers, Supported by New Publication",
+            "Myriad Genetics Highlights Data Showing Broad Clinical Utility of Precise MRD Assay at 2026 ASCO Annual Meeting",
+            "Myriad Genetics Launches Prolaris® + AI, the First Prostate Cancer Test to Combine Genomics and Digital Pathology Artificial Intelligence (AI)",
+            "Myriad Genetics Reports First Quarter 2026 Financial Results; Reiterates 2026 Financial Guidance Reflecting Ongoing Progress in the Cancer Care Continuum Business",
+            "Myriad Genetics Expands Access for MyChoice Test to Prostate Cancer Patients in Japan",
+            "Myriad Genetics Receives FDA Approval of the MyChoice CDx Test as the Companion Diagnostic for Zejula (niraparib) for Patients with Ovarian Cancer",
+            "Myriad Commercially Launches Precise MRD with Select Community Oncologists",
+            "Six presented abstracts at ASCO-GU 2026 reinforce the clinical impact of Myriad’s Precise MRD, Prolaris, and MyRisk tests",
+            "Myriad Genetics Reports Fourth Quarter and Full-Year 2025 Financial Results; Reiterates 2026 Financial Guidance Reflecting Strengthened Execution"
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "c77a45a060161c31e5b000f28d223e9f79ed47c83d829a68ab722ffa0285296d",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Myriad newsroom",
+            "https://investor.myriad.com/newsroom/"
+          ],
+          [
+            "Myriad news releases",
+            "https://investor.myriad.com/news-releases/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "qiagen",
+      "name": "QIAGEN",
+      "last_checked_at": "2026-08-07T08:29:04Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "Oncology Companion Diagnostics",
+        "QIAGEN Clinical Insight (QCI) Interpret",
+        "Solutions for Laboratory-Developed"
+      ],
+      "source_status": [
+        {
+          "label": "QIAGEN newsroom",
+          "url": "https://corporate.qiagen.com/English/newsroom/",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Solutions for Laboratory-Developed",
+            "QIAGEN Clinical Insight (QCI) Interpret",
+            "Oncology Companion Diagnostics"
+          ]
+        },
+        {
+          "label": "QIAGEN financial reports",
+          "url": "https://corporate.qiagen.com/investor-relations/financial-reports-and-sec-filings/financial-reports/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Solutions for Laboratory-Developed",
+            "QIAGEN Clinical Insight (QCI) Interpret",
+            "Oncology Companion Diagnostics"
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "c6a39e9d656b4b88a6ea8d227c2c0b78d02ec8261f5c2d4d4dfe13f1fc8e89aa",
+      "last_updated_at": "2026-08-07T08:29:04Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "QIAGEN newsroom",
+            "https://corporate.qiagen.com/English/newsroom/"
+          ],
+          [
+            "QIAGEN financial reports",
+            "https://corporate.qiagen.com/investor-relations/financial-reports-and-sec-filings/financial-reports/"
+          ]
+        ]
+      }
+    }
+  ]
+}
