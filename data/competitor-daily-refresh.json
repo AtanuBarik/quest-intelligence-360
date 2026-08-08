@@ -1,27 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-08T06:30:30Z",
+  "generated_at": "2026-08-08T08:34:30Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "labcorp",
-    "sonic",
-    "eurofins",
-    "neogenomics",
-    "natera",
-    "exact",
-    "guardant",
-    "tempus",
-    "bioreference",
-    "fulgent",
-    "myriad"
+    "mayo",
+    "bioreference"
   ],
   "competitors": [
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -100,7 +91,7 @@
       "errors": [],
       "content_hash": "01bba1f81c62b185a5dab91dc709e86b451e2b335670a1d5f7728b1a316369cf",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -127,7 +118,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -216,12 +207,51 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "partial",
       "verified_fields": {},
-      "latest_developments": [],
+      "latest_developments": [
+        {
+          "title": "4 ways health systems are pursuing lab growth",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1sdktmbURocVhfbWxXem5OWmNsX05Wekg0MUhFT0JzMV9YNlRMU2x3bGxlQ0JCWGEyS2t1R2tOVEZucm85eTFmZUI0ZE9GdDNlRVpRc2VkNEtveXphREFvM2tMZ2d1c2Zpa3NycF9Fc3pRZ29TWTFObA?oc=5",
+          "published": "Thu, 06 Aug 2026 07:00:00 GMT",
+          "source_type": "public_news"
+        },
+        {
+          "title": "Elf blood test for non-invasive liver fibrosis assessment - SelectScience interview",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVFBlMTg3WFJ3MjlneWVGb0p3SDhZNjB0RDJ4bjl0Y25NOWtDdWxvdWdTUTBma3F1RnBlUld4WVMzMTdILUVhQVkyS2hNOW53Z3N3eWdrOWJ6d29GMVRjaDNzT0pfYlpqb0pZY1lLWmNfN05YSEQxWngyd0FZYjh6cDNzUnFZOG9LVktSSTZoc1hDSDBEMWw2Qk9vc1d0WnlqenBMQTdWZDl4SF8tV3p6YmZXcFRiODVZWVoweEo5cmtyOFN3alcwdg?oc=5",
+          "published": "Tue, 04 Aug 2026 13:51:10 GMT",
+          "source_type": "public_news"
+        },
+        {
+          "title": "Independent Clinical Laboratory Market Overview",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNGRPVzFoM1VObVNLNnZXaWpFYmQ2SFp0d2dZR0ZxVXlhOGdnSE41Q0cySENTbmV4WF93a2duNmh5YXgtME9wLTJrOTdha2hYal9qNy0wUG5vTmJHdWJFeXJ1X2M1TlJxLWRLeUdWZWFFRzZyWngzRXVJZHB3dnNaeEVuNkd2Wnl5b0JfYkctRDVVU2hCcjljUXN4c2Q?oc=5",
+          "published": "Fri, 31 Jul 2026 07:00:00 GMT",
+          "source_type": "public_news"
+        },
+        {
+          "title": "Alpha Gal Syndrome Allergy Market",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQmZtZG5PWC1teXUzbUt1YzdNNzFpQThqTktDbXVRQVhFSUVzc1RIeUZjNFB3VHVfV3R1OEtreUM5bWpVMUt4dnJTWGZGNGQyanQxQWZvRERsaWQ0X3NCNHpNX0dRbEF5VG9vRmFHazI1djFfdFFYdTM0YjZlMnRtN0RtZEo?oc=5",
+          "published": "Tue, 04 Aug 2026 13:00:41 GMT",
+          "source_type": "public_news"
+        },
+        {
+          "title": "Drug of Abuse Testing Market Size to Hit USD 24.14 Billion by 2035",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QSk0xSGdxbWNrWlVNdTIzR2t0cjFoV0VHMTlvTUF6MzlDRG91NGhFRDZnRUxVUWREQTVSSWcwbW5RRUM0eWNZYlZnS3pieWdmeHYwT2haanB3ZUw4YUhZQko4aW5ldUdzdFVheThxaV8?oc=5",
+          "published": "Fri, 31 Jul 2026 07:00:00 GMT",
+          "source_type": "public_news"
+        }
+      ],
       "official_signals": [],
       "source_status": [
+        {
+          "label": "Mayo Clinic Laboratories news",
+          "url": "https://news.mayocliniclabs.com/homepage/news/",
+          "kind": "news",
+          "status": "error",
+          "error": "Unable to fetch https://news.mayocliniclabs.com/homepage/news/: HTTP Error 403: Forbidden",
+          "signals": []
+        },
         {
           "label": "Mayo Clinic Laboratories newsroom",
           "url": "https://news.mayocliniclabs.com/homepage/news/newsroom/",
@@ -240,23 +270,34 @@
         }
       ],
       "errors": [
-        "Unable to fetch https://news.mayocliniclabs.com/mml-feed/: HTTP Error 403: Forbidden",
+        "Unable to fetch https://news.mayocliniclabs.com/homepage/news/: HTTP Error 403: Forbidden",
         "Unable to fetch https://news.mayocliniclabs.com/homepage/news/newsroom/: HTTP Error 403: Forbidden",
         "Unable to fetch https://news.mayocliniclabs.com/about-us/: HTTP Error 403: Forbidden"
       ],
-      "content_hash": "d7b4eb1620e69cd2d8587305c78532eb6e2b3e926c8e05b284563f9aced008aa",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "95da91b5f1dca85e7a6eca3b0b59d7a19475f071a2084d7fdd76e80c623db3e2",
+      "last_updated_at": "2026-08-08T08:34:30Z",
+      "change_detected": true,
       "changes": {
-        "added": [],
+        "added": [
+          "4 ways health systems are pursuing lab growth",
+          "Alpha Gal Syndrome Allergy Market",
+          "Drug of Abuse Testing Market Size to Hit USD 24.14 Billion by 2035",
+          "Elf blood test for non-invasive liver fibrosis assessment - SelectScience interview",
+          "Independent Clinical Laboratory Market Overview"
+        ],
         "removed": [],
         "modified": []
       },
       "profile_patch": {
+        "moves": [
+          "4 ways health systems are pursuing lab growth",
+          "Elf blood test for non-invasive liver fibrosis assessment - SelectScience interview",
+          "Independent Clinical Laboratory Market Overview"
+        ],
         "sources": [
           [
-            "Mayo Clinic Laboratories feed",
-            "https://news.mayocliniclabs.com/mml-feed/"
+            "Mayo Clinic Laboratories news",
+            "https://news.mayocliniclabs.com/homepage/news/"
           ],
           [
             "Mayo Clinic Laboratories newsroom",
@@ -265,6 +306,18 @@
           [
             "About Mayo Clinic Laboratories",
             "https://news.mayocliniclabs.com/about-us/"
+          ],
+          [
+            "Latest public development",
+            "https://news.google.com/rss/articles/CBMieEFVX3lxTE1sdktmbURocVhfbWxXem5OWmNsX05Wekg0MUhFT0JzMV9YNlRMU2x3bGxlQ0JCWGEyS2t1R2tOVEZucm85eTFmZUI0ZE9GdDNlRVpRc2VkNEtveXphREFvM2tMZ2d1c2Zpa3NycF9Fc3pRZ29TWTFObA?oc=5"
+          ],
+          [
+            "Latest public development",
+            "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVFBlMTg3WFJ3MjlneWVGb0p3SDhZNjB0RDJ4bjl0Y25NOWtDdWxvdWdTUTBma3F1RnBlUld4WVMzMTdILUVhQVkyS2hNOW53Z3N3eWdrOWJ6d29GMVRjaDNzT0pfYlpqb0pZY1lLWmNfN05YSEQxWngyd0FZYjh6cDNzUnFZOG9LVktSSTZoc1hDSDBEMWw2Qk9vc1d0WnlqenBMQTdWZDl4SF8tV3p6YmZXcFRiODVZWVoweEo5cmtyOFN3alcwdg?oc=5"
+          ],
+          [
+            "Latest public development",
+            "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNGRPVzFoM1VObVNLNnZXaWpFYmQ2SFp0d2dZR0ZxVXlhOGdnSE41Q0cySENTbmV4WF93a2duNmh5YXgtME9wLTJrOTdha2hYal9qNy0wUG5vTmJHdWJFeXJ1X2M1TlJxLWRLeUdWZWFFRzZyWngzRXVJZHB3dnNaeEVuNkd2Wnl5b0JfYkctRDVVU2hCcjljUXN4c2Q?oc=5"
           ]
         ]
       }
@@ -272,7 +325,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -322,7 +375,7 @@
       "errors": [],
       "content_hash": "cfd5dcc60149973a9943fba5141ba90dd071bfd9c2d7999255863ca655ceb942",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -349,7 +402,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins Clinical Diagnostics",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -420,7 +473,7 @@
       "errors": [],
       "content_hash": "8da46002a6c37666e1804680828c0163773484c55b16511003a751c90eec80f6",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -446,7 +499,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -485,7 +538,7 @@
       "errors": [],
       "content_hash": "7058f678f2d24aef9c5e11af9012cba1a41c3bcb6fa6daff7be7bbdb32063b77",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -511,7 +564,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -554,7 +607,7 @@
       "errors": [],
       "content_hash": "513a2f8923fc0fb99a039c639a1f003d854e8b6402fe2e4a0deca71a3237f6c4",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -580,7 +633,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -651,7 +704,7 @@
       "errors": [],
       "content_hash": "3c6e42698796102683244646dca91757ac50b3a0c64a2770b8a57a974ab6c97b",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -677,7 +730,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -721,7 +774,7 @@
       "errors": [],
       "content_hash": "724a0935054a3ffd3741d8ac55ca02ca0fb37e322e7417bd50e81a1336e0a5a6",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -747,7 +800,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -830,7 +883,7 @@
       "errors": [],
       "content_hash": "1971eaf1858c3defd22504bb4223c0e9d2f0a5e08602541f334622871f0c8ca0",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -860,7 +913,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -874,11 +927,11 @@
       ],
       "source_status": [
         {
-          "label": "BioReference Health",
-          "url": "https://www.bioreference.com/",
-          "kind": "company",
+          "label": "BioReference news",
+          "url": "https://www.bioreference.com/news/",
+          "kind": "news",
           "status": "error",
-          "error": "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden",
+          "error": "Unable to fetch https://www.bioreference.com/news/: HTTP Error 403: Forbidden",
           "signals": []
         },
         {
@@ -905,10 +958,10 @@
         }
       ],
       "errors": [
-        "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden"
+        "Unable to fetch https://www.bioreference.com/news/: HTTP Error 403: Forbidden"
       ],
-      "content_hash": "f3146525022d7c82e03fc536c9b7021bee242916778ddab9fcc11405a0611b8d",
-      "last_updated_at": "2026-08-08T06:30:30Z",
+      "content_hash": "218a76cb0643ed148c87bb112cc268ee82ad68af94994e49542442223359d25d",
+      "last_updated_at": "2026-08-08T08:34:30Z",
       "change_detected": true,
       "changes": {
         "added": [],
@@ -918,8 +971,8 @@
       "profile_patch": {
         "sources": [
           [
-            "BioReference Health",
-            "https://www.bioreference.com/"
+            "BioReference news",
+            "https://www.bioreference.com/news/"
           ],
           [
             "OPKO investor relations",
@@ -935,7 +988,7 @@
     {
       "id": "fulgent",
       "name": "Fulgent Genetics",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Reiterates revenue guidance for fiscal year 2026 Executed on stock repurchase program; purchased approximately 2.6 million shares in the first quarter of 2026 using $40.1 million in cash Revenue of $71.1 million GAAP gross profit of $21.5 million, or GAAP gross margin of 30.2%;…"
@@ -984,13 +1037,11 @@
       "errors": [],
       "content_hash": "b02a7a02d5b50e7c2430bcef50df50f306fbcaa27e57e1345bd98e3c7b88e71e",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": [
-          "financial"
-        ]
+        "modified": []
       },
       "profile_patch": {
         "financial": "Reiterates revenue guidance for fiscal year 2026 Executed on stock repurchase program; purchased approximately 2.6 million shares in the first quarter of 2026 using $40.1 million in cash Revenue of $71.1 million GAAP gross profit of $21.5 million, or GAAP gross margin of 30.2%;…",
@@ -1009,7 +1060,7 @@
     {
       "id": "myriad",
       "name": "Myriad Genetics",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1084,7 +1135,7 @@
       "errors": [],
       "content_hash": "1b2dd1549477990676a59f76f7eda8ff8b57a1d42e126048994a6a56327e6ba8",
       "last_updated_at": "2026-08-08T06:30:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -1110,7 +1161,7 @@
     {
       "id": "qiagen",
       "name": "QIAGEN",
-      "last_checked_at": "2026-08-08T06:30:30Z",
+      "last_checked_at": "2026-08-08T08:34:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
