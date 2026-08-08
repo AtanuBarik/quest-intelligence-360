@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-07T08:31:39Z",
+  "generated_at": "2026-08-08T05:21:42Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
@@ -9,7 +9,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -83,7 +83,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -172,7 +172,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -223,7 +223,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -282,7 +282,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins Clinical Diagnostics",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -362,7 +362,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -414,7 +414,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -469,7 +469,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -522,7 +522,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -572,7 +572,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -659,7 +659,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -714,7 +714,7 @@
     {
       "id": "fulgent",
       "name": "Fulgent Genetics",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -749,7 +749,7 @@
     {
       "id": "myriad",
       "name": "Myriad Genetics",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -837,7 +837,7 @@
     {
       "id": "qiagen",
       "name": "QIAGEN",
-      "last_checked_at": "2026-08-07T08:31:39Z",
+      "last_checked_at": "2026-08-08T05:21:42Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
