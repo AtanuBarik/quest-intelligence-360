@@ -4,6 +4,13 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '30 1 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/watch-strategic-sources.yml'
+      - 'scripts/update_strategic_source_watch.py'
+      - 'data/strategic-analysis.json'
+      - '.strategic-watch-trigger'
 
 permissions:
   contents: write
@@ -17,11 +24,40 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - name: Check out repository
+      - name: Check out latest main
         uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Review official strategic source pages
-        run: python scripts/update_strategic_source_watch.py
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/update_strategic_source_watch.py
+          python scripts/update_strategic_source_watch.py
+
+      - name: Validate source-watch state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('data/strategic-source-watch.json')
+          payload = json.loads(path.read_text(encoding='utf-8'))
+          sources = payload.get('sources') or []
+          if not payload.get('last_checked'):
+              raise SystemExit('Strategic source watch did not record last_checked')
+          if len(sources) < 5:
+              raise SystemExit(f'Expected at least 5 strategic sources, found {len(sources)}')
+          reached = sum(1 for source in sources if source.get('status'))
+          errors = sum(1 for source in sources if source.get('error'))
+          print('Validated strategic sources:', len(sources))
+          print('HTTP responses recorded:', reached)
+          print('Source errors retained for review:', errors)
+          print('Material source changes:', payload.get('changed_source_count', 0))
+          PY
 
       - name: Commit source-watch evidence
         shell: bash
@@ -35,4 +71,5 @@ jobs:
             exit 0
           fi
           git commit -m 'Refresh weekly strategic intelligence source watch'
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
