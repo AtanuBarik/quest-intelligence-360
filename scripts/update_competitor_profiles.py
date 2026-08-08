@@ -32,6 +32,10 @@ USER_AGENT = (
     "QuestIntelligence360/1.0 public-market-research "
     "(+https://github.com/AtanuBarik/quest-intelligence-360)"
 )
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0 Safari/537.36"
+)
 REQUEST_TIMEOUT = 24
 MAX_SOURCE_TEXT = 450_000
 MAX_NEWS = 6
@@ -92,23 +96,24 @@ def utc_now() -> str:
 
 
 def fetch_bytes(url: str, *, accept: str = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8") -> bytes:
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": accept,
-            "Accept-Language": "en-US,en;q=0.8",
-            "Cache-Control": "no-cache",
-        },
-    )
     last_error: Exception | None = None
-    for attempt in range(3):
+    user_agents = [USER_AGENT, BROWSER_USER_AGENT, BROWSER_USER_AGENT]
+    for attempt, user_agent in enumerate(user_agents):
+        request = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": user_agent,
+                "Accept": accept,
+                "Accept-Language": "en-US,en;q=0.8",
+                "Cache-Control": "no-cache",
+            },
+        )
         try:
             with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
                 return response.read(MAX_SOURCE_TEXT)
-        except Exception as exc:  # network variability is expected in scheduled CI
+        except Exception as exc:  # network variability and bot protection are expected in scheduled CI
             last_error = exc
-            if attempt < 2:
+            if attempt < len(user_agents) - 1:
                 time.sleep(1.5 * (attempt + 1))
     raise RuntimeError(f"Unable to fetch {url}: {last_error}")
 
@@ -149,13 +154,14 @@ def meaningful_sentences(text: str) -> list[str]:
     return found
 
 
-def google_news(query: str) -> list[dict[str, str]]:
+def google_news(query: str, title_terms: list[str] | None = None) -> list[dict[str, str]]:
     encoded = urllib.parse.quote_plus(f'"{query}" when:14d')
     url = f"https://news.google.com/rss/search?q={encoded}&hl=en-US&gl=US&ceid=US:en"
     xml = fetch_bytes(url, accept="application/rss+xml,application/xml,text/xml;q=0.9,*/*;q=0.8")
     root = ET.fromstring(xml)
     items: list[dict[str, str]] = []
     seen: set[str] = set()
+    required = [term.strip().lower() for term in (title_terms or []) if term and term.strip()]
     for item in root.findall(".//item"):
         title = compact_sentence(item.findtext("title") or "", 220)
         link = (item.findtext("link") or "").strip()
@@ -163,7 +169,10 @@ def google_news(query: str) -> list[dict[str, str]]:
         if not title or not link:
             continue
         clean_title = re.sub(r"\s+-\s+[^-]{2,80}$", "", title).strip()
-        key = clean_title.lower()
+        lowered = clean_title.lower()
+        if required and not any(term in lowered for term in required):
+            continue
+        key = lowered
         if key in seen:
             continue
         seen.add(key)
@@ -177,7 +186,6 @@ def extract_financial(signals: list[str]) -> str | None:
     candidates = [s for s in signals if FINANCIAL_TERMS.search(s) and MONEY_TERMS.search(s)]
     if not candidates:
         return None
-    # Prefer sentences explicitly referring to the latest reported quarter/year.
     candidates.sort(key=lambda s: (0 if re.search(r"\b(2026|q[1-4]|quarter|half year|h1|full year|fy)\b", s, re.I) else 1, len(s)))
     return compact_sentence(candidates[0], 280)
 
@@ -280,7 +288,8 @@ def build_profile_patch(current: dict[str, Any], entry: dict[str, Any]) -> dict[
 def refresh_competitor(entry: dict[str, Any], previous: dict[str, Any] | None, checked_at: str) -> dict[str, Any]:
     source_results, signals, errors = source_snapshot(entry)
     try:
-        news = google_news(entry.get("news_query") or entry["name"])
+        title_terms = entry.get("news_title_terms") or [entry["name"].split()[0]]
+        news = google_news(entry.get("news_query") or entry["name"], title_terms)
     except Exception as exc:
         errors.append(compact_sentence(str(exc), 200))
         news = previous.get("latest_developments", []) if previous else []
@@ -305,8 +314,6 @@ def refresh_competitor(entry: dict[str, Any], previous: dict[str, Any] | None, c
         "errors": errors[:8],
     }
 
-    # If every retrieval failed, preserve the previous monitored content rather than
-    # treating an outage as a competitor information deletion.
     successful_sources = any(source.get("status") == "ok" for source in source_results)
     if not successful_sources and not news and previous:
         for key in ("verified_fields", "latest_developments", "official_signals", "source_status"):
