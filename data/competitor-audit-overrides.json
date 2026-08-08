@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-08T03:07:15Z",
+  "policy": "Only competitors with evidence-backed material profile changes are included. last_updated_at is changed only for these records.",
+  "overrides": [
+    {
+      "id": "labcorp",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "employees": "~71,000 employees; clients in approximately 100 countries; more than 750 million tests performed for patients in 2025.",
+      "financial": "Q2 2026 revenue $3.73B, up 5.8% year over year; diluted EPS $3.64, up 28.5%; adjusted EPS $4.99, up 14.9%. Labcorp raised 2026 enterprise revenue-growth guidance to 5.4%-6.3% and adjusted EPS guidance to $18.10-$18.55.",
+      "moves_add": [
+        "Raised 2026 revenue-growth and adjusted EPS guidance after Q2 2026 results",
+        "Expanded oncology and consumer access through DPYD genotyping, nationwide ColoSense distribution and Marker by Labcorp genetic-health testing"
+      ],
+      "latest_developments_add": [
+        "30 Jul 2026: Q2 revenue reached $3.73B (+5.8% YoY), adjusted EPS reached $4.99 (+14.9%), and full-year revenue-growth/EPS guidance was raised.",
+        "27 Jul 2026: Launched Marker by Labcorp, expanding direct consumer access to hereditary genetic-risk testing."
+      ],
+      "sources_add": [
+        ["Q2 2026 results", "https://finance.yahoo.com/healthcare/articles/labcorp-announces-2026-second-quarter-105000030.html"],
+        ["Labcorp investor relations", "https://ir.labcorp.com/"]
+      ],
+      "audit_note": "Daily extractor saw the Q2 headline but did not propagate current Q2 financials or new portfolio moves into the profile."
+    },
+    {
+      "id": "eurofins",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "moves_add": [
+        "Agreed to acquire Element Materials Technology's North American Life Sciences Testing Services business for $400M enterprise value; expected to close in Q4 2026",
+        "Element transaction adds 27 laboratories/facilities, approximately 750 FTEs and more than $150M expected 2026 annual revenue across North American BioPharma, environmental and food testing"
+      ],
+      "latest_developments_add": [
+        "20 Jul 2026: Eurofins agreed to acquire Element's North American Life Sciences Testing Services business for $400M, expanding geographic coverage in the U.S. and Canada."
+      ],
+      "sources_add": [
+        ["Element North America Life Sciences acquisition", "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/"],
+        ["Eurofins H1 2026 investor materials", "https://www.eurofins.com/en/investors/"]
+      ],
+      "audit_note": "Material North American acquisition was absent from the automated profile patch."
+    },
+    {
+      "id": "neogenomics",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "financial": "Q2 2026 revenue $202M, up 11% year over year; clinical services revenue $187M, up 14%, with NGS revenue up 26%; GAAP net income $2M; adjusted EBITDA $14M, up 36%; $20M cash generated from operations. Full-year 2026 revenue and adjusted EBITDA guidance was raised.",
+      "moves_add": [
+        "Raised full-year 2026 revenue and adjusted EBITDA guidance after Q2",
+        "Clinical-services growth accelerated with 26% year-over-year NGS revenue growth",
+        "Launched FDA-approved PTEN IHC companion diagnostic for prostate cancer in July 2026"
+      ],
+      "latest_developments_add": [
+        "28 Jul 2026: Q2 total revenue increased 11% to $202M and adjusted EBITDA increased 36% to $14M; 2026 revenue and adjusted EBITDA guidance was raised."
+      ],
+      "sources_add": [
+        ["Q2 2026 results", "https://www.nasdaq.com/press-release/neogenomics-reports-second-quarter-2026-results-2026-07-28"],
+        ["NeoGenomics investor news", "https://ir.neogenomics.com/news-events/press-releases"]
+      ],
+      "audit_note": "The official IR page did not expose the Q2 result body to the deterministic extractor; current financial performance was therefore missing."
+    },
+    {
+      "id": "natera",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "financial": "Q2 2026 sales were $752.8M, approximately 38% higher year over year. Natera raised full-year 2026 sales guidance to $2.85B-$2.91B after record MRD momentum.",
+      "moves_add": [
+        "Record Signatera/MRD momentum in Q2 2026, including approximately 34,000 sequential new Signatera patients",
+        "Raised full-year 2026 revenue outlook to $2.85B-$2.91B"
+      ],
+      "latest_developments_add": [
+        "6-7 Aug 2026: Q2 sales reached $752.8M (~38% YoY growth); Signatera added about 34,000 sequential new patients and full-year sales guidance was raised to $2.85B-$2.91B."
+      ],
+      "sources_add": [
+        ["Natera Q2 2026 reporting schedule", "https://investor.natera.com/news/news-details/2026/Natera-to-Report-its-Second-Quarter-Results-on-August-6-2026/default.aspx"],
+        ["Q2 2026 results coverage", "https://www.investors.com/news/technology/natera-stock-natera-earnings-q2-2026/"]
+      ],
+      "audit_note": "The official quarterly-results index had not yet refreshed in search, so Q2 metrics were cross-checked against the official reporting date and reputable same-day earnings coverage."
+    },
+    {
+      "id": "exact",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "type": "Abbott-owned cancer screening and precision oncology diagnostics business",
+      "leader": "Jake Orville, Abbott Senior Vice President, Cancer Diagnostics; Kevin Conroy moved to an advisory transition role after the acquisition",
+      "financial": "Exact Sciences became a wholly owned subsidiary of Abbott on March 23, 2026 and its shares ceased Nasdaq trading after March 20, 2026. Abbott now reports the business within Cancer Diagnostics rather than as an independent public company.",
+      "position": "Cancer screening and precision oncology platform within Abbott, combining Exact's Cologuard, Cancerguard and precision-oncology assets with Abbott's global commercial and health-system scale.",
+      "moves_add": [
+        "Abbott completed its acquisition of Exact Sciences on March 23, 2026; Exact became a wholly owned subsidiary and ceased independent public-company status",
+        "Abbott created a Cancer Diagnostics growth platform around Exact's screening and precision-oncology portfolio"
+      ],
+      "latest_developments_add": [
+        "23 Mar 2026: Abbott completed the Exact Sciences acquisition; Exact became a wholly owned Abbott subsidiary and its Nasdaq listing ended.",
+        "Q1 2026: Abbott reported double-digit growth in Cologuard and Cancerguard within its new Cancer Diagnostics business."
+      ],
+      "sources_add": [
+        ["Abbott acquisition completion", "https://abbott.mediaroom.com/2026-03-23-Abbott-completes-acquisition-of-Exact-Sciences"],
+        ["Abbott Cancer Diagnostics leadership", "https://www.abbott.com/en-us/about-abbott/leadership/executive-team/orville-jake"],
+        ["Abbott Q1 2026 strategy update", "https://www.abbott.com/en-us/corpnewsroom/strategy-and-strength/q1-progress-positions-Abbott-for-accelerating-growth-in-2026"]
+      ],
+      "audit_note": "Existing profile incorrectly described Exact Sciences as an independent public company and retained pre-acquisition leadership/status."
+    },
+    {
+      "id": "guardant",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "financial": "Q2 2026 revenue $335.0M, up 44% year over year: oncology $219.1M (+38%), screening $52.9M with approximately 66,000 Shield tests, and Biopharma & Data $60.9M (+9%). 2026 revenue guidance increased to $1.34B-$1.36B.",
+      "moves_add": [
+        "Shield gained American Cancer Society guideline inclusion and UnitedHealth Group coverage, while Q2 Shield volume reached approximately 66,000 tests",
+        "FDA approved Guardant360 Liquid CDx and a higher-throughput, lower-cost Shield workflow",
+        "Raised 2026 revenue guidance to $1.34B-$1.36B"
+      ],
+      "latest_developments_add": [
+        "30 Jul 2026: Q2 revenue rose 44% to $335.0M; Shield screening revenue reached $52.9M and full-year revenue guidance increased to $1.34B-$1.36B."
+      ],
+      "sources_add": [
+        ["Guardant Q2 2026 results", "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx"]
+      ],
+      "audit_note": "The deterministic refresh only captured generic investor-page text and missed the now-published Q2 2026 results."
+    },
+    {
+      "id": "tempus",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "moves_add": [
+        "Entered a definitive agreement on July 20, 2026 to acquire Personalis, integrating Personalis MRD technology with Tempus' commercial scale, multimodal data and AI precision-oncology platform",
+        "Personalis transaction expands Tempus across diagnosis, treatment selection, recurrence and MRD monitoring in a market Tempus describes as a $20B opportunity"
+      ],
+      "latest_developments_add": [
+        "20 Jul 2026: Tempus announced a definitive agreement to acquire Personalis to deepen MRD capabilities within its AI-enabled precision-oncology platform."
+      ],
+      "sources_add": [
+        ["Tempus-Personalis acquisition", "https://investors.tempus.com/news-releases/news-release-details/tempus-acquire-personalis-more-tightly-integrating-molecular"],
+        ["Tempus SEC filing on Personalis merger agreement", "https://investors.tempus.com/node/10371/html"]
+      ],
+      "audit_note": "Tempus.com/news returned HTTP 429 to the crawler, but the material MRD acquisition is verified through Tempus IR and its SEC filing."
+    },
+    {
+      "id": "myriad",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "financial": "Q2 2026 revenue $190.7M, down 11% year over year; total test volume 379,000, down 1%; gross margin 66.6%. Full-year 2026 revenue guidance was revised to $770M-$790M and prior adjusted EBITDA guidance was suspended.",
+      "moves_add": [
+        "Launched Ascend efficiency/productivity/scalability initiative and began a rigorous portfolio review after Q2 performance fell below expectations",
+        "Cancer Care Continuum Q2 volume grew 6% with Prolaris + AI launch and Precise MRD expansion into colorectal and renal cancers",
+        "Submitted Precise MRD for breast cancer to MolDX and launched FirstGene Multiple Prenatal Screen in July 2026"
+      ],
+      "latest_developments_add": [
+        "30 Jul 2026: Q2 revenue fell 11% to $190.7M; Myriad revised 2026 revenue guidance to $770M-$790M and suspended prior adjusted EBITDA guidance while launching efficiency and portfolio-review initiatives."
+      ],
+      "sources_add": [
+        ["Myriad Q2 2026 results", "https://investor.myriad.com/news-releases/news-release-detail/?newsItemId=27481"],
+        ["Myriad investor relations", "https://investor.myriad.com/"]
+      ],
+      "audit_note": "The daily source capture listed many product signals but missed a material Q2 financial deterioration and strategic efficiency/portfolio-review response."
+    },
+    {
+      "id": "qiagen",
+      "last_updated_at": "2026-08-08T03:07:15Z",
+      "financial": "Q1 2026 net sales were $492M, up 2% reported and down 1% at constant exchange rates; adjusted diluted EPS was $0.54. QIAGEN's current full-year 2026 outlook is approximately 1%-2% CER net-sales growth and adjusted diluted EPS of at least $2.43 CER.",
+      "moves_add": [
+        "Reset 2026 outlook to approximately 1%-2% CER sales growth amid lower QuantiFERON immigration-testing demand and cautious U.S. Life Sciences demand",
+        "Continued five-pillar strategy with QIAcuity, QIAGEN Digital Insights, Sample Technologies, QIAstat-Dx and automated Sample-to-Insight workflows",
+        "Launched QIA Agent in May 2026 and expanded QIAstat-Dx infectious-disease testing in July 2026"
+      ],
+      "latest_developments_add": [
+        "6 May 2026: Q1 results confirmed $492M sales and a revised 2026 outlook of about 1%-2% CER sales growth with adjusted EPS of at least $2.43 CER.",
+        "15 Jul 2026: QIAGEN scheduled Q2 2026 results for Aug. 5; the public newsroom index had not yet exposed the result body during this audit."
+      ],
+      "sources_add": [
+        ["QIAGEN Q1 2026 results", "https://corporate.qiagen.com/newsroom/press-releases/press-release-details/2026/QIAGEN-Reports-Full-Results-for-Q1-2026/default.aspx"],
+        ["QIAGEN Q2 reporting notice", "https://corporate.qiagen.com/English/newsroom/press-releases/press-release-details/2026/QIAGEN-N-V--to-Release-Results-for-Q2-2026-and-Hold-Webcast/default.aspx"],
+        ["QIAGEN 2026 growth priorities", "https://corporate.qiagen.com/English/newsroom/press-releases/press-release-details/2026/QIAGEN-Sets-2026-Priorities-to-Drive-Growth-Across-Five-Pillars-Toward-Achieving-2028-Goals-for-Solid-Profitable-Growth/default.aspx"]
+      ],
+      "audit_note": "Current deterministic source extraction returned generic product text and omitted the material 2026 guidance reset. Q2 result body was not retrievable from the public newsroom index at audit time."
+    }
+  ],
+  "verified_unchanged": [
+    "arup",
+    "mayo",
+    "sonic",
+    "bioreference",
+    "fulgent"
+  ],
+  "source_failures": [
+    {
+      "id": "mayo",
+      "issue": "Deterministic crawler receives HTTP 403 from the configured Mayo Clinic Laboratories newsroom/about URLs; public web search can still access official Mayo content."
+    },
+    {
+      "id": "exact",
+      "issue": "Configured Exact Sciences SEC-filings URL returns HTTP 404 and is obsolete after Abbott completed the acquisition."
+    },
+    {
+      "id": "tempus",
+      "issue": "Configured tempus.com/news source returns HTTP 429; Tempus investor-relations news and SEC filings remain usable."
+    },
+    {
+      "id": "bioreference",
+      "issue": "Configured BioReference homepage returns HTTP 403; OPKO investor relations remains available as an authoritative parent-company source."
+    }
+  ]
+}
