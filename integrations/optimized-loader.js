@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260808a';
+  const RELEASE = '20260808b';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -105,6 +105,7 @@
       if (window.Chart && typeof window.initCharts === 'function' && !Object.keys(window.Chart.instances || {}).length) {
         try { window.initCharts(); } catch (error) { console.warn('Initial chart creation deferred:', error); }
       }
+      await loadScript('integrations/role-access-governance.js');
       await loadScript('integrations/quest-brand-system.js');
       await loadScript('integrations/frontend-performance-layout.js');
       await loadScript('integrations/frontend-readability-overrides.js');
