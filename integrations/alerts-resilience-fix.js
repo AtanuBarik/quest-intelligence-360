@@ -1,18 +1,18 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260807d';
+  const RELEASE = '20260808a';
   const REMOTE_BASE = 'https://atanubarik.github.io/laboratory-news-monitor';
   const SOURCES = {
-    news: ['data/laboratory-news.json', `${REMOTE_BASE}/data/news.json`],
-    summaries: ['data/laboratory-chatgpt-summaries.json', `${REMOTE_BASE}/data/chatgpt_summaries.json`],
-    strategic: ['data/laboratory-chatgpt-strategic-synthesis.json', `${REMOTE_BASE}/data/chatgpt_strategic_synthesis.json`],
-    workflow: ['data/laboratory-workflow-health.json', `${REMOTE_BASE}/data/workflow_health.json`],
+    news: [`${REMOTE_BASE}/data/news.json`, 'data/laboratory-news.json'],
+    summaries: [`${REMOTE_BASE}/data/chatgpt_summaries.json`, 'data/laboratory-chatgpt-summaries.json'],
+    strategic: [`${REMOTE_BASE}/data/chatgpt_strategic_synthesis.json`, 'data/laboratory-chatgpt-strategic-synthesis.json'],
+    workflow: [`${REMOTE_BASE}/data/workflow_health.json`, 'data/laboratory-workflow-health.json'],
   };
   const COLORS = ['#35792a','#034c1f','#c6d52f','#024c6a','#3995bb','#80276c','#c78800','#9a9a9a'];
   const state = {news:null,summaries:null,strategic:null,workflow:null,companyChart:null,categoryChart:null};
 
-  const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[char]));
   const byId = id => document.getElementById(id);
   const text = node => (node?.textContent || '').trim();
   const normalize = value => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
@@ -66,9 +66,10 @@
   function addVisibleSummaries(){
     const map=summaryIndex();
     document.querySelectorAll('.view[data-view="alerts"] .live-news-card').forEach(card=>{
-      if(card.querySelector('.q-visible-news-summary')) return;
       const record=findSummary(card,map);
-      if(!record) return;
+      const existing=card.querySelector('.q-visible-news-summary');
+      if(existing && !record) existing.remove();
+      if(existing || !record) return;
       const sentences=String(record.summary).replace(/\s+/g,' ').split(/(?<=[.!?])\s+/).filter(Boolean).slice(0,3).join(' ');
       const box=document.createElement('div');
       box.className='q-visible-news-summary';
@@ -114,8 +115,6 @@
   function renderStrategicSummary(){
     const target=byId('liveSummaryContent');
     if(!target || !state.strategic?.synthesis) return;
-    const existing=text(target);
-    if(existing && !/apply filters|temporarily unavailable|no synthesis|loading/i.test(existing) && target.dataset.qPreloaded==='1') return;
     const paragraphs=String(state.strategic.synthesis).split(/\n{2,}/).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
     const categories=Object.entries(state.strategic.categories||{}).slice(0,4).map(([name,value])=>`<article><strong>${esc(name)}</strong><span>${esc(value)}</span></article>`).join('');
     target.innerHTML=`${paragraphs}${categories?`<div class="q-summary-categories">${categories}</div>`:''}`;
@@ -141,12 +140,13 @@
 
   function addRecoveryStatus(){
     const view=document.querySelector('.view[data-view="alerts"]');
-    if(!view || view.querySelector('.q-alerts-recovered')) return;
+    if(!view) return;
+    view.querySelector('.q-alerts-recovered')?.remove();
     const heading=view.querySelector('.page-heading');
     const workflow=state.workflow||{};
     const note=document.createElement('div');
     note.className='q-alerts-recovered';
-    note.innerHTML=`<strong>Alerts data layer:</strong> ${esc(state.news?.item_count ?? state.news?.items?.length ?? 0)} current events · summaries and charts use local synchronized data first with the laboratory monitor as fallback${workflow.last_run_display?` · source run ${esc(workflow.last_run_display)}`:''}.`;
+    note.innerHTML=`<strong>Alerts data layer:</strong> ${esc(state.news?.item_count ?? state.news?.items?.length ?? 0)} current events · current published monitor data is used first; synchronized Quest data is the offline fallback${workflow.last_run_display?` · source run ${esc(workflow.last_run_display)}`:''}.`;
     if(heading) heading.insertAdjacentElement('afterend',note); else view.prepend(note);
   }
 
@@ -174,7 +174,7 @@
 
   function bind(){
     document.addEventListener('click',event=>{
-      if(event.target.closest?.('.nav-item[data-view="alerts"],#liveApplyFilters,#liveResetFilters,#liveRefreshBtn')) setTimeout(enhance,180);
+      if(event.target.closest?.('.nav-item[data-view="alerts"],#liveApplyFilters,#liveResetFilters,#liveRefreshBtn')) setTimeout(()=>{load();},160);
     },true);
     ['input','change'].forEach(type=>document.addEventListener(type,event=>{
       if(event.target?.matches?.('#liveSearch,#liveCompany,#liveCategory,#livePeriod,#liveSourceType')) setTimeout(()=>{renderCharts();addVisibleSummaries();},90);
