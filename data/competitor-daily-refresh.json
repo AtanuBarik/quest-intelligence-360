@@ -1,31 +1,53 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-08T05:21:42Z",
+  "generated_at": "2026-08-08T06:30:30Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "labcorp",
+    "sonic",
+    "eurofins",
+    "neogenomics",
+    "natera",
+    "exact",
+    "guardant",
+    "tempus",
+    "bioreference",
+    "fulgent",
+    "myriad"
+  ],
   "competitors": [
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
       },
       "latest_developments": [],
       "official_signals": [
+        "Children's Hospital of Philadelphia and Labcorp Announce a Collaboration to Accelerate Access to Advanced Pediatric Diagnostics Nationwide",
         "Diagnostic Reference & Specialty Labs",
         "Labcorp (NYSE: LH) is a global leader of innovative and comprehensive laboratory services that helps doctors, hospitals, pharmaceutical companies, researchers and patients make clear and confident decisions.",
+        "Labcorp Announces 2026 First Quarter Results; Raises Full Year 2026 Guidance",
         "Labcorp Announces 2026 Second Quarter Results; Raises Full Year 2026 Guidance",
+        "Labcorp Announces Multi-Year Partnership with SOMOS IPA to Expand Access to High Quality, Affordable Laboratory Services for Patients Across New York State",
+        "Labcorp Announces Nationwide Availability of ColoSense®, the First FDA-Approved RNA-Based At-Home Colorectal Cancer Screening Test",
         "Labcorp Biopharma Lab Services",
+        "Labcorp Completes Acquisition of Select Assets of Crouse Health’s Laboratory Alliance of Central New York’s Laboratory Business; Enters Agreement to Manage Crouse’s Inpatient Laboratory",
+        "Labcorp Completes Acquisition of Select Assets of Empire City Laboratories",
+        "Labcorp Expands Collaboration with PathAI to Deploy FDA-Cleared Digital Pathology Platform Nationwide",
+        "Labcorp Introduces AI-Powered Real-World Data Platform with AWS and Datavant to Accelerate Alzheimer's Research",
+        "Labcorp Launches Expanded DPYD Test to Identify Cancer Patients at Risk for Severe Chemotherapy Side Effects",
+        "Labcorp Launches FDA-Approved Companion Diagnostic to Identify Patients with Ovarian Cancer Eligible for KEYTRUDA®",
         "Labcorp Launches FDA-Approved PTEN Companion Diagnostic for Prostate Cancer",
+        "Labcorp Launches FDA-Cleared Fentanyl Test Delivering Results in 10 Minutes",
+        "Labcorp Launches First FDA-Cleared Blood Test for Alzheimer's Disease Assessment in Primary Care",
         "Labcorp Launches Marker by Labcorp™ Genetic Health Panel, Expanding Consumer Access to Hereditary Genetic Risk Testing",
-        "Online Services User Agreement",
-        "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700 million tests annually for patients around the world.",
-        "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750 million tests for patients around the world.",
-        "We provide insights and advance science to improve health and improve lives through our unparalleled diagnostics and drug development laboratory capabilities."
+        "Labcorp Launches MyLabcorp™, a New AI-Powered Mobile App Designed to Help Consumers Understand Lab Results and Track Health Trends Over Time",
+        "Labcorp Publishes 2025 Corporate Responsibility Report, Highlighting Progress in Sustainability, Access to Care and Employee Well-Being"
       ],
       "source_status": [
         {
@@ -44,6 +66,24 @@
           ]
         },
         {
+          "label": "Labcorp news releases",
+          "url": "https://ir.labcorp.com/news-and-events/news-releases",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Labcorp Biopharma Lab Services",
+            "Labcorp Launches FDA-Approved PTEN Companion Diagnostic for Prostate Cancer",
+            "Labcorp Announces 2026 Second Quarter Results; Raises Full Year 2026 Guidance",
+            "Labcorp Launches Marker by Labcorp™ Genetic Health Panel, Expanding Consumer Access to Hereditary Genetic Risk Testing",
+            "Labcorp Announces Nationwide Availability of ColoSense®, the First FDA-Approved RNA-Based At-Home Colorectal Cancer Screening Test",
+            "Labcorp Supports Multi-Institution Trial to Expand Genetic Testing in Colorectal Cancer",
+            "Labcorp Launches Expanded DPYD Test to Identify Cancer Patients at Risk for Severe Chemotherapy Side Effects",
+            "Labcorp Launches MyLabcorp™, a New AI-Powered Mobile App Designed to Help Consumers Understand Lab Results and Track Health Trends Over Time",
+            "Labcorp and Epic Expand Collaboration to Advance Diagnostic Integration across Hospitals and Health Systems",
+            "Labcorp Publishes 2025 Corporate Responsibility Report, Highlighting Progress in Sustainability, Access to Care and Employee Well-Being"
+          ]
+        },
+        {
           "label": "Corporate facts",
           "url": "https://www.labcorp.com/about/corporate-facts",
           "kind": "company",
@@ -58,9 +98,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "d56d50d8a0cf53380897f5d729616b9e12acd253c77ab40f70290ce07a6159a5",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "01bba1f81c62b185a5dab91dc709e86b451e2b335670a1d5f7728b1a316369cf",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -74,6 +114,10 @@
             "https://ir.labcorp.com/"
           ],
           [
+            "Labcorp news releases",
+            "https://ir.labcorp.com/news-and-events/news-releases"
+          ],
+          [
             "Corporate facts",
             "https://www.labcorp.com/about/corporate-facts"
           ]
@@ -83,7 +127,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -172,7 +216,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -196,6 +240,7 @@
         }
       ],
       "errors": [
+        "Unable to fetch https://news.mayocliniclabs.com/mml-feed/: HTTP Error 403: Forbidden",
         "Unable to fetch https://news.mayocliniclabs.com/homepage/news/newsroom/: HTTP Error 403: Forbidden",
         "Unable to fetch https://news.mayocliniclabs.com/about-us/: HTTP Error 403: Forbidden"
       ],
@@ -210,6 +255,10 @@
       "profile_patch": {
         "sources": [
           [
+            "Mayo Clinic Laboratories feed",
+            "https://news.mayocliniclabs.com/mml-feed/"
+          ],
+          [
             "Mayo Clinic Laboratories newsroom",
             "https://news.mayocliniclabs.com/homepage/news/newsroom/"
           ],
@@ -223,14 +272,17 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
       },
       "latest_developments": [],
       "official_signals": [
+        "Media Release: Auckland Pathology Contract Opens in new window",
+        "Sonic Healthcare Announces Breakthrough Development in Laboratory Automation Opens in new window",
         "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million.",
+        "Sonic Healthcare introduces Non-Invasive Pre-Natal Test in Australia Opens in new window",
         "Sonic Healthcare is one of the world’s leading global providers of medical diagnostic services.",
         "Sonic is the world’s third-largest provider of pathology/clinical laboratory services (referred to in some markets as 'laboratory medicine') and was the first company to do so on a global basis.",
         "The group provides highly specialised pathology/clinical laboratory and radiology services to clinicians (GPs and specialists), hospitals, community health services, and their patients."
@@ -249,6 +301,17 @@
           ]
         },
         {
+          "label": "Sonic media releases",
+          "url": "https://investors.sonichealthcare.com/investors/?page=media-releases",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Sonic Healthcare Announces Breakthrough Development in Laboratory Automation Opens in new window",
+            "Sonic Healthcare introduces Non-Invasive Pre-Natal Test in Australia Opens in new window",
+            "Media Release: Auckland Pathology Contract Opens in new window"
+          ]
+        },
+        {
           "label": "Financial reports",
           "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
           "kind": "financial",
@@ -257,9 +320,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "f09dd64672f9d5686313959434380b070796f97fee50f2d5136a7a84aeea8061",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "cfd5dcc60149973a9943fba5141ba90dd071bfd9c2d7999255863ca655ceb942",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -273,6 +336,10 @@
             "https://investors.sonichealthcare.com/Investors/"
           ],
           [
+            "Sonic media releases",
+            "https://investors.sonichealthcare.com/investors/?page=media-releases"
+          ],
+          [
             "Financial reports",
             "https://investors.sonichealthcare.com/investors/?page=financial-reports"
           ]
@@ -282,7 +349,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins Clinical Diagnostics",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -324,6 +391,19 @@
           ]
         },
         {
+          "label": "Eurofins media centre",
+          "url": "https://www.eurofins.com/en/media-centre/press-releases/",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Whatever your testing needs, we have the right experts to help you — find a laboratory near you.",
+            "Contract Development & Manufacturing Organisation (CDMO)",
+            "BioPharma Central Laboratory",
+            "Diagnostic Services & Products",
+            "Clinical Diagnostic Services"
+          ]
+        },
+        {
           "label": "Reports and presentations",
           "url": "https://www.eurofins.com/en/investors/reports-and-presentations/",
           "kind": "financial",
@@ -338,9 +418,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "ac0fc8bb147074b3b1141195f5be77fe2b85ea69a1b280f46e65d30cb35fdc3d",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "8da46002a6c37666e1804680828c0163773484c55b16511003a751c90eec80f6",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -353,6 +433,10 @@
             "https://www.eurofins.com/en/investors/"
           ],
           [
+            "Eurofins media centre",
+            "https://www.eurofins.com/en/media-centre/press-releases/"
+          ],
+          [
             "Reports and presentations",
             "https://www.eurofins.com/en/investors/reports-and-presentations/"
           ]
@@ -362,7 +446,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -387,12 +471,21 @@
           "signals": [
             "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer"
           ]
+        },
+        {
+          "label": "NeoGenomics SEC filings",
+          "url": "https://ir.neogenomics.com/sec-filings",
+          "kind": "regulatory",
+          "status": "ok",
+          "signals": [
+            "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer"
+          ]
         }
       ],
       "errors": [],
-      "content_hash": "d2692c3b5530074637ee7444f3b4a5f77bda537f31cde2aa3b1034cb164f38e1",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "7058f678f2d24aef9c5e11af9012cba1a41c3bcb6fa6daff7be7bbdb32063b77",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -407,6 +500,10 @@
           [
             "NeoGenomics financial results",
             "https://ir.neogenomics.com/financial-information/financial-results"
+          ],
+          [
+            "NeoGenomics SEC filings",
+            "https://ir.neogenomics.com/sec-filings"
           ]
         ]
       }
@@ -414,7 +511,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -442,12 +539,22 @@
             "The tests described have been developed and their performance characteristics determined by the CLIA-certified laboratory performing the test.",
             "The tests have not been cleared or approved by the US Food and Drug Administration (FDA)."
           ]
+        },
+        {
+          "label": "Natera SEC filings",
+          "url": "https://investor.natera.com/financials/sec-filings/default.aspx",
+          "kind": "regulatory",
+          "status": "ok",
+          "signals": [
+            "The tests described have been developed and their performance characteristics determined by the CLIA-certified laboratory performing the test.",
+            "The tests have not been cleared or approved by the US Food and Drug Administration (FDA)."
+          ]
         }
       ],
       "errors": [],
-      "content_hash": "22198377ee291bc14abd3ee13215b115ca92bb19f74ba12b87b16e1254fedc02",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "513a2f8923fc0fb99a039c639a1f003d854e8b6402fe2e4a0deca71a3237f6c4",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -462,6 +569,10 @@
           [
             "Natera quarterly results",
             "https://investor.natera.com/financials/quarterly-results/default.aspx"
+          ],
+          [
+            "Natera SEC filings",
+            "https://investor.natera.com/financials/sec-filings/default.aspx"
           ]
         ]
       }
@@ -469,38 +580,78 @@
     {
       "id": "exact",
       "name": "Exact Sciences",
-      "last_checked_at": "2026-08-08T05:21:42Z",
-      "refresh_status": "partial",
+      "last_checked_at": "2026-08-08T06:30:30Z",
+      "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
-        "Unless otherwise specified, all product and service names appearing in this Internet site are approved for use in the U.S."
+        "ACS guideline reaffirms Abbott leadership in noninvasive colorectal cancer screening",
+        "Abbott Reports First-Quarter 2026 Results; Updates Guidance to Reflect Acquisition of Exact Sciences",
+        "Abbott Reports Second-Quarter 2026 Results and Raises Full-Year EPS Guidance",
+        "Abbott acquisition of Exact Sciences set to close on March 23, 2026",
+        "Abbott and Real Madrid launch nationwide effort to build the next 'Abbott Dream Team'",
+        "Abbott completes acquisition of Exact Sciences",
+        "Abbott expands access to Precision Oncology portfolio through integration with Flatiron's OncoEMR® platform",
+        "Abbott initiates clinical study to show outcomes for real-world use of TriClip™ in repairing leaky tricuspid heart valve",
+        "Abbott receives FDA clearance and CE Mark for next-generation Ultreon™ 3.0 AI-powered coronary imaging platform",
+        "Abbott showcases strength of its technologies to address abnormal heart rhythms with late-breaking clinical data at Heart Rhythm Society 2026",
+        "Abbott to highlight expanding cancer diagnostic portfolio and clinical evidence at Digestive Disease Week (DDW) 2026",
+        "Abbott’s next‑generation CardioMEMS™ remote heart failure monitoring reader receives FDA approval to enhance patient experience and help detect disease progression",
+        "As a result, the site may contain information on pharmaceuticals, medical devices and other products or uses of those products that are not approved in other countries or regions.",
+        "Does anything change for customers with the acquisition?",
+        "Exact Sciences brings industry‑leading expertise in molecular oncology and early cancer detection, which complements Abbott’s global scale, scientific leadership, and broad diagnostics portfolio.",
+        "John Stamos and Jodie Sweetin reunite for \"The (Second) Talk\" with Cologuard® tests, encouraging colon cancer screening",
+        "New data at AACR 2026 demonstrate advancements in Cancerguard® Multi-Cancer Early Detection Test",
+        "Together, we will expand access to advanced cancer testing, accelerate innovation, and enhance patient care around the world.",
+        "Unless otherwise specified, all product and service names appearing in this Internet site are approved for use in the U.S.",
+        "Why did Abbott decide to acquire Exact Sciences?"
       ],
       "source_status": [
         {
-          "label": "Exact Sciences investor relations",
-          "url": "https://investor.exactsciences.com/",
+          "label": "Abbott Exact Sciences",
+          "url": "https://www.abbott.com/en-us/exact-sciences",
+          "kind": "company",
+          "status": "ok",
+          "signals": [
+            "Why did Abbott decide to acquire Exact Sciences?",
+            "Exact Sciences brings industry‑leading expertise in molecular oncology and early cancer detection, which complements Abbott’s global scale, scientific leadership, and broad diagnostics portfolio.",
+            "Together, we will expand access to advanced cancer testing, accelerate innovation, and enhance patient care around the world.",
+            "Does anything change for customers with the acquisition?",
+            "Unless otherwise specified, all product and service names appearing in this Internet site are approved for use in the U.S."
+          ]
+        },
+        {
+          "label": "Abbott newsroom",
+          "url": "https://abbott.mediaroom.com/press-releases",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Abbott initiates clinical study to show outcomes for real-world use of TriClip™ in repairing leaky tricuspid heart valve",
+            "Abbott Reports Second-Quarter 2026 Results and Raises Full-Year EPS Guidance",
+            "ACS guideline reaffirms Abbott leadership in noninvasive colorectal cancer screening",
+            "Abbott to highlight expanding cancer diagnostic portfolio and clinical evidence at Digestive Disease Week (DDW) 2026",
+            "Abbott receives FDA clearance and CE Mark for next-generation Ultreon™ 3.0 AI-powered coronary imaging platform",
+            "Abbott showcases strength of its technologies to address abnormal heart rhythms with late-breaking clinical data at Heart Rhythm Society 2026",
+            "New data at AACR 2026 demonstrate advancements in Cancerguard® Multi-Cancer Early Detection Test",
+            "Abbott Reports First-Quarter 2026 Results; Updates Guidance to Reflect Acquisition of Exact Sciences",
+            "Abbott expands access to Precision Oncology portfolio through integration with Flatiron's OncoEMR® platform",
+            "John Stamos and Jodie Sweetin reunite for \"The (Second) Talk\" with Cologuard® tests, encouraging colon cancer screening"
+          ]
+        },
+        {
+          "label": "Abbott investor relations",
+          "url": "https://www.abbottinvestor.com/",
           "kind": "financial",
           "status": "ok",
           "signals": [
             "Unless otherwise specified, all product and service names appearing in this Internet site are approved for use in the U.S."
           ]
-        },
-        {
-          "label": "Exact Sciences SEC filings",
-          "url": "https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx",
-          "kind": "regulatory",
-          "status": "error",
-          "error": "Unable to fetch https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx: HTTP Error 404: Not Found",
-          "signals": []
         }
       ],
-      "errors": [
-        "Unable to fetch https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx: HTTP Error 404: Not Found"
-      ],
-      "content_hash": "b621ea1bec60abe5beb78123ac6e0e6a037d204405f4b36d372253fda5ceaee7",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "errors": [],
+      "content_hash": "3c6e42698796102683244646dca91757ac50b3a0c64a2770b8a57a974ab6c97b",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -509,12 +660,16 @@
       "profile_patch": {
         "sources": [
           [
-            "Exact Sciences investor relations",
-            "https://investor.exactsciences.com/"
+            "Abbott Exact Sciences",
+            "https://www.abbott.com/en-us/exact-sciences"
           ],
           [
-            "Exact Sciences SEC filings",
-            "https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx"
+            "Abbott newsroom",
+            "https://abbott.mediaroom.com/press-releases"
+          ],
+          [
+            "Abbott investor relations",
+            "https://www.abbottinvestor.com/"
           ]
         ]
       }
@@ -522,12 +677,16 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
-        "The latest news from Guardant Health, including new product unveilings, partnership initiatives, and financial disclosures."
+        "American Cancer Society Recommends Guardant Health’s Shield Blood Test in Updated Colorectal Cancer Screening Guidelines",
+        "FDA Approves New Guardant360 Liquid CDx, the Largest FDA-Approved Liquid Biopsy Panel with a 100x Expanded Footprint",
+        "Guardant Health Reports Second Quarter 2026 Financial Results and Increases 2026 Revenue Guidance",
+        "The latest news from Guardant Health, including new product unveilings, partnership initiatives, and financial disclosures.",
+        "View all of our screening, early-stage cancer, and advanced cancer clinical studies."
       ],
       "source_status": [
         {
@@ -541,16 +700,28 @@
         },
         {
           "label": "Guardant press releases",
-          "url": "https://investors.guardanthealth.com/press-releases/default.aspx",
+          "url": "https://guardanthealth.com/newsroom/press-releases/",
           "kind": "news",
+          "status": "ok",
+          "signals": [
+            "View all of our screening, early-stage cancer, and advanced cancer clinical studies.",
+            "Guardant Health Reports Second Quarter 2026 Financial Results and Increases 2026 Revenue Guidance",
+            "American Cancer Society Recommends Guardant Health’s Shield Blood Test in Updated Colorectal Cancer Screening Guidelines",
+            "FDA Approves New Guardant360 Liquid CDx, the Largest FDA-Approved Liquid Biopsy Panel with a 100x Expanded Footprint"
+          ]
+        },
+        {
+          "label": "Guardant quarterly results",
+          "url": "https://investors.guardanthealth.com/financials/quarterly-results/default.aspx",
+          "kind": "financial",
           "status": "ok",
           "signals": []
         }
       ],
       "errors": [],
-      "content_hash": "be662c5fd07a193e3f6639e55ff31240cb3ee9da7dc2fc3baa574c86731ffc97",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "724a0935054a3ffd3741d8ac55ca02ca0fb37e322e7417bd50e81a1336e0a5a6",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -564,7 +735,11 @@
           ],
           [
             "Guardant press releases",
-            "https://investors.guardanthealth.com/press-releases/default.aspx"
+            "https://guardanthealth.com/newsroom/press-releases/"
+          ],
+          [
+            "Guardant quarterly results",
+            "https://investors.guardanthealth.com/financials/quarterly-results/default.aspx"
           ]
         ]
       }
@@ -572,24 +747,31 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-08-08T05:21:42Z",
-      "refresh_status": "partial",
+      "last_checked_at": "2026-08-08T06:30:30Z",
+      "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to",
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine and patient care, today announced a research collaboration with Angiosarcoma Awareness, Inc.",
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine and patient care, today announced the national launch of its OneOme pharmacogenomics (PGx) testing solution, delivering advanced genetic insights",
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine, Yale New Haven Hospital (YNHH) and Memorial Sloan Kettering Cancer Center (MSK) today announced the launch of a digital pathology IMS Open-Source",
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine, today announced it will report financial results for the second quarter ended June 30, 2026, on Thursday, July 30, 2026.",
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine, today announced publication of successful multi-site validation of its software, which received U.S.",
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine, today announced that it will participate in the Goldman Sachs 47th Annual Global Healthcare Conference.",
+        "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine, today reported financial results for the quarter ended June 30, 2026.",
+        "16, 2026-- Tempus, a technology company leading the adoption of AI to advance precision medicine,",
+        "Acquisition brings together Personalis’ MRD technology with Tempus’ commercial scale, multimodal data and AI platform to advance cancer monitoring, deepen insights and accelerate growth Expands Tempus’ reach across the cancer care continuum and accelerates access to industry-leading technology",
         "Financial Information | Tempus AI",
+        "Findings from the multi-center Articulate Pro study show Paige Prostate improves diagnostic consistency, accelerates turnaround times, and reduces laboratory workloads CHICAGO --(BUSINESS WIRE)--Jul.",
         "Hub is a secure platform that streamlines providers workflows and gives access to patient insights",
         "Improving patient care through high-quality testing, clinical trial matching, and deep research data that powers scientific discovery",
         "Investor Relations | Tempus AI",
         "Lens is an analytical platform that enables researchers to quickly find, access, and analyze multimodal data and uncover critical insights to accelerate innovation",
         "Next is an AI-enabled care pathway platform that helps providers deliver the next step in a patient’s care journey",
+        "Tempus Announces Multi-Center Validation of AI-Enabled ECG Model for Predicting Atrial Fibrillation Risk Published in Heart Rhythm",
         "Tempus Announces National Launch of OneOme Pharmacogenomics Testing, Advancing Patient Safety and Precision Medicine",
-        "Tempus Study Published in Nature Medicine Demonstrates Best-in-Class Performance of PRISM2 Across Diagnostic and Prognostic Applications",
-        "Tempus is a technology company advancing precision medicine through the practical application of artificial intelligence, including generative AI, in healthcare to create Intelligent Diagnostics.",
-        "We’re building innovative tech solutions oriented around clinical care and research products—and the virtuous cycle between them.",
-        "With one of the world’s largest libraries of clinical and molecular data, and an operating system to make that data accessible and useful, Tempus enables physicians to make near real-time, data-driven decisions to deliver personalized patient care.",
-        "of top pharma companies (based on 2025 revenue data)",
-        "patients identified for potential clinical trial matching"
+        "Tempus Announces Research Collaboration with Angiosarcoma Awareness, Inc."
       ],
       "source_status": [
         {
@@ -611,6 +793,24 @@
           ]
         },
         {
+          "label": "Tempus IR news releases",
+          "url": "https://investors.tempus.com/news-events/news-releases",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Tempus Study Published in Nature Medicine Demonstrates Best-in-Class Performance of PRISM2 Across Diagnostic and Prognostic Applications",
+            "Tempus' multimodal foundation model offers diagnostic-grade precision for cancer detection and unlocks broader applications predicting biomarker status and patient prognosis CHICAGO --(BUSINESS WIRE)--Aug.",
+            "(NASDAQ: TEM), a technology company leading the adoption of AI to",
+            "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine, today reported financial results for the quarter ended June 30, 2026.",
+            "Tempus Announces National Launch of OneOme Pharmacogenomics Testing, Advancing Patient Safety and Precision Medicine",
+            "(NASDAQ: TEM), a technology company leading the adoption of AI to advance precision medicine and patient care, today announced the national launch of its OneOme pharmacogenomics (PGx) testing solution, delivering advanced genetic insights",
+            "Tempus to Acquire Personalis, More Tightly Integrating Molecular Residual Disease (MRD) into Its AI-Enabled Precision Oncology Platform",
+            "Acquisition brings together Personalis’ MRD technology with Tempus’ commercial scale, multimodal data and AI platform to advance cancer monitoring, deepen insights and accelerate growth Expands Tempus’ reach across the cancer care continuum and accelerates access to industry-leading technology",
+            "Tempus Highlights Landmark Publication Demonstrating Safe, Real-World Deployment of Paige Prostate AI Suite in the UK National Health Service",
+            "Findings from the multi-center Articulate Pro study show Paige Prostate improves diagnostic consistency, accelerates turnaround times, and reduces laboratory workloads CHICAGO --(BUSINESS WIRE)--Jul."
+          ]
+        },
+        {
           "label": "Tempus financial information",
           "url": "https://investors.tempus.com/financials/financial-information",
           "kind": "financial",
@@ -620,20 +820,17 @@
           ]
         },
         {
-          "label": "Tempus news",
-          "url": "https://www.tempus.com/news/",
-          "kind": "news",
-          "status": "error",
-          "error": "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests",
+          "label": "Tempus SEC filings",
+          "url": "https://investors.tempus.com/financials/sec-filings",
+          "kind": "regulatory",
+          "status": "ok",
           "signals": []
         }
       ],
-      "errors": [
-        "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests"
-      ],
-      "content_hash": "79dcda6e186e503d7a744fc461f5a832971ee420a40ab38216a516ea96d2ac9e",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "errors": [],
+      "content_hash": "1971eaf1858c3defd22504bb4223c0e9d2f0a5e08602541f334622871f0c8ca0",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -646,12 +843,16 @@
             "https://investors.tempus.com/"
           ],
           [
+            "Tempus IR news releases",
+            "https://investors.tempus.com/news-events/news-releases"
+          ],
+          [
             "Tempus financial information",
             "https://investors.tempus.com/financials/financial-information"
           ],
           [
-            "Tempus news",
-            "https://www.tempus.com/news/"
+            "Tempus SEC filings",
+            "https://investors.tempus.com/financials/sec-filings"
           ]
         ]
       }
@@ -659,12 +860,16 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
         "As one of the largest full-service clinical reference laboratories in the U.S., serving approximately 11 million patients annually, BioReference Laboratories is a leading diagnostics company that continues to deliver innovations for patients and physicians, particularly those working in specialty areas.",
+        "BioReference® Launches BioReference Direct™, Expanding Access to Consumer-Initiated Diagnostic Testing Through a Fully Integrated Digital Platform",
+        "OPKO Health Expands Nicoya Agreement to Support RAYALDEE® Commercialization in Greater China",
+        "OPKO Health’s ModeX Therapeutics Begins Clinical Trial of Tetraspecific Antibody for Treatment of B-cell Lymphomas",
+        "OPKO Health’s ModeX Therapeutics Initiates Clinical Trial of MDX2301 for the Prevention of COVID-19",
         "With our focus on harnessing next-generation solutions by pioneering new advances on proven technologies, our approved therapies are positioned to offer better treatment options for patients."
       ],
       "source_status": [
@@ -685,14 +890,26 @@
             "With our focus on harnessing next-generation solutions by pioneering new advances on proven technologies, our approved therapies are positioned to offer better treatment options for patients.",
             "As one of the largest full-service clinical reference laboratories in the U.S., serving approximately 11 million patients annually, BioReference Laboratories is a leading diagnostics company that continues to deliver innovations for patients and physicians, particularly those working in specialty areas."
           ]
+        },
+        {
+          "label": "OPKO press releases",
+          "url": "https://www.opko.com/news-media/press-releases",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "OPKO Health Expands Nicoya Agreement to Support RAYALDEE® Commercialization in Greater China",
+            "BioReference® Launches BioReference Direct™, Expanding Access to Consumer-Initiated Diagnostic Testing Through a Fully Integrated Digital Platform",
+            "OPKO Health’s ModeX Therapeutics Begins Clinical Trial of Tetraspecific Antibody for Treatment of B-cell Lymphomas",
+            "OPKO Health’s ModeX Therapeutics Initiates Clinical Trial of MDX2301 for the Prevention of COVID-19"
+          ]
         }
       ],
       "errors": [
         "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden"
       ],
-      "content_hash": "f612791c9bcba2e430d7688aa02f67f05f7e479ca7359108f4e834bdb7c82749",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "f3146525022d7c82e03fc536c9b7021bee242916778ddab9fcc11405a0611b8d",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -707,6 +924,10 @@
           [
             "OPKO investor relations",
             "https://www.opko.com/investors/"
+          ],
+          [
+            "OPKO press releases",
+            "https://www.opko.com/news-media/press-releases"
           ]
         ]
       }
@@ -714,11 +935,25 @@
     {
       "id": "fulgent",
       "name": "Fulgent Genetics",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
-      "verified_fields": {},
+      "verified_fields": {
+        "financial": "Reiterates revenue guidance for fiscal year 2026 Executed on stock repurchase program; purchased approximately 2.6 million shares in the first quarter of 2026 using $40.1 million in cash Revenue of $71.1 million GAAP gross profit of $21.5 million, or GAAP gross margin of 30.2%;…"
+      },
       "latest_developments": [],
-      "official_signals": [],
+      "official_signals": [
+        "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that it will release its first quarter 2026",
+        "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that it will release its fourth quarter and",
+        "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that it will release its second quarter 2026",
+        "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that its abstract was selected to be",
+        "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that its full abstract has been released on",
+        "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with established laboratory services and therapeutic development businesses, today announced it presented updated data in the Head and Neck Cancer Track",
+        "(NASDAQ: FLGT) (“Fulgent”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced the completion of the acquisition of Bako Diagnostics, a",
+        "Fulgent Genetics Completes Acquisition of Bako Diagnostics and StrataDx",
+        "Reiterates revenue guidance for fiscal year 2026 Executed on stock repurchase program; purchased approximately 2.6 million shares in the first quarter of 2026 using $40.1 million in cash Revenue of $71.1 million GAAP gross profit of $21.5 million, or GAAP gross margin of 30.2%; Non-GAAP gross",
+        "Revenue of $83.3 million, growing 9% year-over-year GAAP gross profit of $32.6 million, or GAAP gross margin of 39.1%; Non-GAAP gross profit of $34.2 million, or Non-GAAP gross margin of 41.0% GAAP loss of $23.4 million, or ( $0.76) per share; Non-GAAP income of $5.2 million, or $0.16 per share",
+        "Revenue of $85.4 million, growing 20.1% sequentially GAAP gross profit of $25.7 million, or GAAP gross margin of 30.1%; Non-GAAP gross profit of $26.8 million, or Non-GAAP gross margin of 31.3% GAAP loss of $29.5 million, or $(1.05) per share; Non-GAAP loss of $16.2 million, or $(0.58) per share"
+      ],
       "source_status": [
         {
           "label": "Fulgent investor relations",
@@ -726,22 +961,47 @@
           "kind": "financial",
           "status": "ok",
           "signals": []
+        },
+        {
+          "label": "Fulgent press releases",
+          "url": "https://ir.fulgentgenetics.com/news-events/press-releases",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Revenue of $85.4 million, growing 20.1% sequentially GAAP gross profit of $25.7 million, or GAAP gross margin of 30.1%; Non-GAAP gross profit of $26.8 million, or Non-GAAP gross margin of 31.3% GAAP loss of $29.5 million, or $(1.05) per share; Non-GAAP loss of $16.2 million, or $(0.58) per share",
+            "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that it will release its second quarter 2026",
+            "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with established laboratory services and therapeutic development businesses, today announced it presented updated data in the Head and Neck Cancer Track",
+            "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that its full abstract has been released on",
+            "Reiterates revenue guidance for fiscal year 2026 Executed on stock repurchase program; purchased approximately 2.6 million shares in the first quarter of 2026 using $40.1 million in cash Revenue of $71.1 million GAAP gross profit of $21.5 million, or GAAP gross margin of 30.2%; Non-GAAP gross",
+            "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that its abstract was selected to be",
+            "(NASDAQ: FLGT) (“Fulgent” or the “Company”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced that it will release its first quarter 2026",
+            "Fulgent Genetics Completes Acquisition of Bako Diagnostics and StrataDx",
+            "(NASDAQ: FLGT) (“Fulgent”), a technology-based company with a well-established laboratory services business and a therapeutic development business, today announced the completion of the acquisition of Bako Diagnostics, a",
+            "Revenue of $83.3 million, growing 9% year-over-year GAAP gross profit of $32.6 million, or GAAP gross margin of 39.1%; Non-GAAP gross profit of $34.2 million, or Non-GAAP gross margin of 41.0% GAAP loss of $23.4 million, or ( $0.76) per share; Non-GAAP income of $5.2 million, or $0.16 per share"
+          ]
         }
       ],
       "errors": [],
-      "content_hash": "2163d575f377d8adcb30f0150abf367a6b51ec4aa07f0a4fc317c823b49fddc8",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "b02a7a02d5b50e7c2430bcef50df50f306fbcaa27e57e1345bd98e3c7b88e71e",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": []
+        "modified": [
+          "financial"
+        ]
       },
       "profile_patch": {
+        "financial": "Reiterates revenue guidance for fiscal year 2026 Executed on stock repurchase program; purchased approximately 2.6 million shares in the first quarter of 2026 using $40.1 million in cash Revenue of $71.1 million GAAP gross profit of $21.5 million, or GAAP gross margin of 30.2%;…",
         "sources": [
           [
             "Fulgent investor relations",
             "https://ir.fulgentgenetics.com/"
+          ],
+          [
+            "Fulgent press releases",
+            "https://ir.fulgentgenetics.com/news-events/press-releases"
           ]
         ]
       }
@@ -749,7 +1009,7 @@
     {
       "id": "myriad",
       "name": "Myriad Genetics",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -771,9 +1031,9 @@
         "Myriad Genetics is a leader in genetic testing and precision medicine, providing insights that help people take control of their health and enable healthcare providers to better detect, treat and prevent disease.",
         "New Large-Scale Meta-Analysis Demonstrates Strong Prognostic Performance of Myriad’s Prolaris® Biopsy Test in Localized Prostate Cancer",
         "Prenatal screening gave Hannah time to plan",
+        "Read our 2025 Corporate Responsibility report to learn how we are working to advance innovation, strengthen our impact, and support the creation of long-term value for patients, providers, employees, and the communities we serve.",
         "Six presented abstracts at ASCO-GU 2026 reinforce the clinical impact of Myriad’s Precise MRD, Prolaris, and MyRisk tests",
-        "Study suggest that utilizing RiskScore drives breast cancer screening tailored to individual risk",
-        "“Carrier screening empowers you to make the right decisions."
+        "Study suggest that utilizing RiskScore drives breast cancer screening tailored to individual risk"
       ],
       "source_status": [
         {
@@ -796,7 +1056,7 @@
         {
           "label": "Myriad news releases",
           "url": "https://investor.myriad.com/news-releases/",
-          "kind": "financial",
+          "kind": "news",
           "status": "ok",
           "signals": [
             "New Large-Scale Meta-Analysis Demonstrates Strong Prognostic Performance of Myriad’s Prolaris® Biopsy Test in Localized Prostate Cancer",
@@ -810,12 +1070,21 @@
             "Six presented abstracts at ASCO-GU 2026 reinforce the clinical impact of Myriad’s Precise MRD, Prolaris, and MyRisk tests",
             "Myriad Genetics Reports Fourth Quarter and Full-Year 2025 Financial Results; Reiterates 2026 Financial Guidance Reflecting Strengthened Execution"
           ]
+        },
+        {
+          "label": "Myriad investor relations",
+          "url": "https://investor.myriad.com/",
+          "kind": "financial",
+          "status": "ok",
+          "signals": [
+            "Read our 2025 Corporate Responsibility report to learn how we are working to advance innovation, strengthen our impact, and support the creation of long-term value for patients, providers, employees, and the communities we serve."
+          ]
         }
       ],
       "errors": [],
-      "content_hash": "c77a45a060161c31e5b000f28d223e9f79ed47c83d829a68ab722ffa0285296d",
-      "last_updated_at": "2026-08-07T08:29:04Z",
-      "change_detected": false,
+      "content_hash": "1b2dd1549477990676a59f76f7eda8ff8b57a1d42e126048994a6a56327e6ba8",
+      "last_updated_at": "2026-08-08T06:30:30Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -830,6 +1099,10 @@
           [
             "Myriad news releases",
             "https://investor.myriad.com/news-releases/"
+          ],
+          [
+            "Myriad investor relations",
+            "https://investor.myriad.com/"
           ]
         ]
       }
@@ -837,7 +1110,7 @@
     {
       "id": "qiagen",
       "name": "QIAGEN",
-      "last_checked_at": "2026-08-08T05:21:42Z",
+      "last_checked_at": "2026-08-08T06:30:30Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
