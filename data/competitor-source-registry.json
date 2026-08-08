@@ -14,6 +14,7 @@
       "news_query": "Labcorp laboratory diagnostics",
       "official_sources": [
         {"label": "Investor relations", "url": "https://ir.labcorp.com/", "kind": "financial"},
+        {"label": "Labcorp news releases", "url": "https://ir.labcorp.com/news-and-events/news-releases", "kind": "news"},
         {"label": "Corporate facts", "url": "https://www.labcorp.com/about/corporate-facts", "kind": "company"}
       ]
     },
@@ -31,6 +32,7 @@
       "name": "Mayo Clinic Laboratories",
       "news_query": "Mayo Clinic Laboratories diagnostics",
       "official_sources": [
+        {"label": "Mayo Clinic Laboratories feed", "url": "https://news.mayocliniclabs.com/mml-feed/", "kind": "news"},
         {"label": "Mayo Clinic Laboratories newsroom", "url": "https://news.mayocliniclabs.com/homepage/news/newsroom/", "kind": "news"},
         {"label": "About Mayo Clinic Laboratories", "url": "https://news.mayocliniclabs.com/about-us/", "kind": "company"}
       ]
@@ -41,6 +43,7 @@
       "news_query": "Sonic Healthcare laboratory diagnostics USA",
       "official_sources": [
         {"label": "Sonic investor overview", "url": "https://investors.sonichealthcare.com/Investors/", "kind": "company"},
+        {"label": "Sonic media releases", "url": "https://investors.sonichealthcare.com/investors/?page=media-releases", "kind": "news"},
         {"label": "Financial reports", "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports", "kind": "financial"}
       ]
     },
@@ -50,6 +53,7 @@
       "news_query": "Eurofins clinical diagnostics laboratory",
       "official_sources": [
         {"label": "Eurofins investor relations", "url": "https://www.eurofins.com/en/investors/", "kind": "financial"},
+        {"label": "Eurofins media centre", "url": "https://www.eurofins.com/en/media-centre/press-releases/", "kind": "news"},
         {"label": "Reports and presentations", "url": "https://www.eurofins.com/en/investors/reports-and-presentations/", "kind": "financial"}
       ]
     },
@@ -59,7 +63,8 @@
       "news_query": "NeoGenomics oncology diagnostics",
       "official_sources": [
         {"label": "NeoGenomics press releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
-        {"label": "NeoGenomics financial results", "url": "https://ir.neogenomics.com/financial-information/financial-results", "kind": "financial"}
+        {"label": "NeoGenomics financial results", "url": "https://ir.neogenomics.com/financial-information/financial-results", "kind": "financial"},
+        {"label": "NeoGenomics SEC filings", "url": "https://ir.neogenomics.com/sec-filings", "kind": "regulatory"}
       ]
     },
     {
@@ -68,16 +73,18 @@
       "news_query": "Natera Signatera Panorama diagnostics",
       "official_sources": [
         {"label": "Natera news", "url": "https://investor.natera.com/news/default.aspx", "kind": "news"},
-        {"label": "Natera quarterly results", "url": "https://investor.natera.com/financials/quarterly-results/default.aspx", "kind": "financial"}
+        {"label": "Natera quarterly results", "url": "https://investor.natera.com/financials/quarterly-results/default.aspx", "kind": "financial"},
+        {"label": "Natera SEC filings", "url": "https://investor.natera.com/financials/sec-filings/default.aspx", "kind": "regulatory"}
       ]
     },
     {
       "id": "exact",
       "name": "Exact Sciences",
-      "news_query": "Exact Sciences cancer diagnostics Cologuard",
+      "news_query": "Abbott Exact Sciences cancer diagnostics Cologuard",
       "official_sources": [
-        {"label": "Exact Sciences investor relations", "url": "https://investor.exactsciences.com/", "kind": "financial"},
-        {"label": "Exact Sciences SEC filings", "url": "https://investor.exactsciences.com/investor-relations/financial-information/sec-filings/default.aspx", "kind": "regulatory"}
+        {"label": "Abbott Exact Sciences", "url": "https://www.abbott.com/en-us/exact-sciences", "kind": "company"},
+        {"label": "Abbott newsroom", "url": "https://abbott.mediaroom.com/press-releases", "kind": "news"},
+        {"label": "Abbott investor relations", "url": "https://www.abbottinvestor.com/", "kind": "financial"}
       ]
     },
     {
@@ -86,7 +93,8 @@
       "news_query": "Guardant Health Shield Guardant360 diagnostics",
       "official_sources": [
         {"label": "Guardant investor overview", "url": "https://investors.guardanthealth.com/overview/default.aspx", "kind": "financial"},
-        {"label": "Guardant press releases", "url": "https://investors.guardanthealth.com/press-releases/default.aspx", "kind": "news"}
+        {"label": "Guardant press releases", "url": "https://guardanthealth.com/newsroom/press-releases/", "kind": "news"},
+        {"label": "Guardant quarterly results", "url": "https://investors.guardanthealth.com/financials/quarterly-results/default.aspx", "kind": "financial"}
       ]
     },
     {
@@ -95,8 +103,9 @@
       "news_query": "Tempus AI precision medicine diagnostics",
       "official_sources": [
         {"label": "Tempus investor relations", "url": "https://investors.tempus.com/", "kind": "financial"},
+        {"label": "Tempus IR news releases", "url": "https://investors.tempus.com/news-events/news-releases", "kind": "news"},
         {"label": "Tempus financial information", "url": "https://investors.tempus.com/financials/financial-information", "kind": "financial"},
-        {"label": "Tempus news", "url": "https://www.tempus.com/news/", "kind": "news"}
+        {"label": "Tempus SEC filings", "url": "https://investors.tempus.com/financials/sec-filings", "kind": "regulatory"}
       ]
     },
     {
@@ -105,15 +114,17 @@
       "news_query": "BioReference Health laboratory OPKO diagnostics",
       "official_sources": [
         {"label": "BioReference Health", "url": "https://www.bioreference.com/", "kind": "company"},
-        {"label": "OPKO investor relations", "url": "https://www.opko.com/investors/", "kind": "financial"}
+        {"label": "OPKO investor relations", "url": "https://www.opko.com/investors/", "kind": "financial"},
+        {"label": "OPKO press releases", "url": "https://www.opko.com/news-media/press-releases", "kind": "news"}
       ]
     },
     {
       "id": "fulgent",
       "name": "Fulgent Genetics",
-      "news_query": "Fulgent Genetics laboratory diagnostics",
+      "news_query": "Fulgent Genetics laboratory diagnostics therapeutics",
       "official_sources": [
-        {"label": "Fulgent investor relations", "url": "https://ir.fulgentgenetics.com/", "kind": "financial"}
+        {"label": "Fulgent investor relations", "url": "https://ir.fulgentgenetics.com/", "kind": "financial"},
+        {"label": "Fulgent press releases", "url": "https://ir.fulgentgenetics.com/news-events/press-releases", "kind": "news"}
       ]
     },
     {
@@ -122,7 +133,8 @@
       "news_query": "Myriad Genetics molecular diagnostics",
       "official_sources": [
         {"label": "Myriad newsroom", "url": "https://investor.myriad.com/newsroom/", "kind": "news"},
-        {"label": "Myriad news releases", "url": "https://investor.myriad.com/news-releases/", "kind": "financial"}
+        {"label": "Myriad news releases", "url": "https://investor.myriad.com/news-releases/", "kind": "news"},
+        {"label": "Myriad investor relations", "url": "https://investor.myriad.com/", "kind": "financial"}
       ]
     },
     {
