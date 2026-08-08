@@ -30,7 +30,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "news_query": "Mayo Clinic Laboratories diagnostics site:news.mayocliniclabs.com",
+      "news_query": "Mayo Clinic Laboratories",
       "official_sources": [
         {"label": "Mayo Clinic Laboratories news", "url": "https://news.mayocliniclabs.com/homepage/news/", "kind": "news"},
         {"label": "Mayo Clinic Laboratories newsroom", "url": "https://news.mayocliniclabs.com/homepage/news/newsroom/", "kind": "news"},
