@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-08T08:34:32Z",
+  "last_checked": "2026-08-08T08:38:28Z",
   "last_material_source_change": null,
   "changed_source_count": 0,
   "changed_sources": [],
@@ -10,9 +10,10 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:34:32Z",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
       "evidence_preview": [],
+      "header_profile": null,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
@@ -21,9 +22,10 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:34:32Z",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
       "evidence_preview": [],
+      "header_profile": null,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
@@ -45,9 +47,10 @@
         "Annual Income Statement | https://ir.labcorp.com/fundamentals/income-statement",
         "Annual Cash Flow | https://ir.labcorp.com/fundamentals/cash-flow"
       ],
-      "checked_at": "2026-08-08T08:34:32Z",
+      "header_profile": "research",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
-      "previous_digest": null,
+      "previous_digest": "9a54231c63c242bf7596856090d6e14e92c9cd9a4cd179a40e3edd2c11bbc56e",
       "error": null
     },
     {
@@ -69,9 +72,10 @@
         "Annual Income Statement | https://ir.labcorp.com/fundamentals/income-statement",
         "Annual Cash Flow | https://ir.labcorp.com/fundamentals/cash-flow"
       ],
-      "checked_at": "2026-08-08T08:34:32Z",
+      "header_profile": "research",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
-      "previous_digest": null,
+      "previous_digest": "46c6a8df5019532af4f069c673371c8abd3b7bf56a31c3288ff778563a99e0dd",
       "error": null
     },
     {
@@ -93,9 +97,10 @@
         "Overview | https://investors.sonichealthcare.com/corporate-governance/?page=overview",
         "Board of Directors | https://investors.sonichealthcare.com/corporate-governance/?page=board-of-directors"
       ],
-      "checked_at": "2026-08-08T08:34:32Z",
+      "header_profile": "research",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
-      "previous_digest": null,
+      "previous_digest": "a83a2bd5ae43db9df6699703bcbd64625eecf8ad451f37ced303d49acd3c1364",
       "error": null
     },
     {
@@ -117,9 +122,10 @@
         "Cosmetics &amp; Personal Care | https://www.eurofins.com:443/en/consumer-product-testing/cosmetics-and-personal-care/",
         "Softlines &amp; Hardlines | https://www.eurofins.com:443/en/consumer-product-testing/softlines-hardlines/"
       ],
-      "checked_at": "2026-08-08T08:34:32Z",
+      "header_profile": "research",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
-      "previous_digest": null,
+      "previous_digest": "b3f8af4c2a766dcc13c40be8cb0743d028f286856778634b40e62767b501dafe",
       "error": null
     },
     {
@@ -128,9 +134,10 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:34:32Z",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
       "evidence_preview": [],
+      "header_profile": null,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
@@ -139,9 +146,10 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:34:32Z",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
       "evidence_preview": [],
+      "header_profile": null,
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
@@ -163,16 +171,20 @@
         "Corporate Governance | https://investors.tempus.com/corporate-governance/governance-documents",
         "Board of Directors | https://investors.tempus.com/corporate-governance/board-of-directors"
       ],
-      "checked_at": "2026-08-08T08:34:32Z",
+      "header_profile": "research",
+      "checked_at": "2026-08-08T08:38:28Z",
       "changed": false,
-      "previous_digest": null,
+      "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
       "error": null
     },
     {
       "url": "https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm",
       "final_url": "https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm",
-      "status": 200,
+      "status": null,
       "digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
+      "previous_digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
+      "checked_at": "2026-08-08T08:38:28Z",
+      "changed": false,
       "evidence_preview": [
         "Part I - Financial Information | https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm#if454735e94df41c3a44babbae82e9fc7_10",
         "Item 1. Financial Statements and Supplementary Data | https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm#if454735e94df41c3a44babbae82e9fc7_13",
@@ -187,16 +199,17 @@
         "Form of 4.000% Notes due 2031, filed as Exhibit 4.5 to the Abbott Laboratories Current Report on Form 8-K filed on March 9, 2026 (included in Exhibit 4.2 of the Abbott Laboratories Current Report on Form 8-K filed on March 9, 2026). | https://www.sec.gov/Archives/edgar/data/1800/000110465926025240/tm264905d8_ex4-2.htm#ex4-2_004",
         "Form of 4.300% Notes due 2033, filed as Exhibit 4.6 to the Abbott Laboratories Current Report on Form 8-K filed on March 9, 2026 (included in Exhibit 4.2 of the Abbott Laboratories Current Report on Form 8-K filed on March 9, 2026). | https://www.sec.gov/Archives/edgar/data/1800/000110465926025240/tm264905d8_ex4-2.htm#ex4-2_005"
       ],
-      "checked_at": "2026-08-08T08:34:32Z",
-      "changed": false,
-      "previous_digest": null,
-      "error": null
+      "header_profile": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "url": "https://news.mayocliniclabs.com/homepage/news/newsroom/",
       "final_url": "https://news.mayocliniclabs.com/homepage/news/newsroom/",
-      "status": 200,
+      "status": null,
       "digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
+      "previous_digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
+      "checked_at": "2026-08-08T08:38:28Z",
+      "changed": false,
       "evidence_preview": [
         "Ordering &amp; Results | https://www.mayocliniclabs.com/order-tests",
         "Critical Values &amp; Results | https://www.mayocliniclabs.com/order-tests/critical-values-and-results",
@@ -211,10 +224,8 @@
         "Dr. Bill Morice shares the elements of an effective innovation strategy March 6, 2026 Dr. Bill Morice shares strategies and insights on maximizing the value of your organization’s innovation investments. | https://news.mayocliniclabs.com/2026/03/06/dr-bill-morice-shares-the-elements-of-an-effective-innovation-strategy/",
         "Dr. Bill Morice predicts clinical diagnostic trends for 2026 February 10, 2026 As 2026 begins, Dr. Bill Morice shares his thoughts on the forces that will shape opportunities and challenges for the diagnostics industry this year. | https://news.mayocliniclabs.com/2026/02/10/dr-bill-morice-predicts-clinical-diagnostic-trends-for-2026/"
       ],
-      "checked_at": "2026-08-08T08:34:32Z",
-      "changed": false,
-      "previous_digest": null,
-      "error": null
+      "header_profile": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     }
   ],
   "note": "Source changes are a research trigger. Strategic synthesis is updated separately after evidence review; a changed page is not automatically treated as a strategic change."
