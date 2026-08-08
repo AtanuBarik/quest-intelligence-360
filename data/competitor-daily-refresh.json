@@ -1,18 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-08T08:34:30Z",
+  "generated_at": "2026-08-08T08:38:25Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [
-    "mayo",
-    "bioreference"
-  ],
+  "changed_competitors": [],
   "competitors": [
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -118,7 +115,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -207,7 +204,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -276,15 +273,9 @@
       ],
       "content_hash": "95da91b5f1dca85e7a6eca3b0b59d7a19475f071a2084d7fdd76e80c623db3e2",
       "last_updated_at": "2026-08-08T08:34:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "4 ways health systems are pursuing lab growth",
-          "Alpha Gal Syndrome Allergy Market",
-          "Drug of Abuse Testing Market Size to Hit USD 24.14 Billion by 2035",
-          "Elf blood test for non-invasive liver fibrosis assessment - SelectScience interview",
-          "Independent Clinical Laboratory Market Overview"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -325,7 +316,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -402,7 +393,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins Clinical Diagnostics",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -499,7 +490,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -564,7 +555,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -633,7 +624,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -730,7 +721,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -800,7 +791,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -913,7 +904,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -962,7 +953,7 @@
       ],
       "content_hash": "218a76cb0643ed148c87bb112cc268ee82ad68af94994e49542442223359d25d",
       "last_updated_at": "2026-08-08T08:34:30Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -988,7 +979,7 @@
     {
       "id": "fulgent",
       "name": "Fulgent Genetics",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Reiterates revenue guidance for fiscal year 2026 Executed on stock repurchase program; purchased approximately 2.6 million shares in the first quarter of 2026 using $40.1 million in cash Revenue of $71.1 million GAAP gross profit of $21.5 million, or GAAP gross margin of 30.2%;…"
@@ -1060,7 +1051,7 @@
     {
       "id": "myriad",
       "name": "Myriad Genetics",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1161,7 +1152,7 @@
     {
       "id": "qiagen",
       "name": "QIAGEN",
-      "last_checked_at": "2026-08-08T08:34:30Z",
+      "last_checked_at": "2026-08-08T08:38:25Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
