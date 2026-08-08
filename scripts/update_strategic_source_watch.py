@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import ssl
+import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -19,7 +20,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "strategic-analysis.json"
 STATE = ROOT / "data" / "strategic-source-watch.json"
-UA = "QuestIntelligence360-StrategicSourceWatch/1.0 (+public research demo)"
+UA = "QuestIntelligence360-StrategicSourceWatch/1.0 (+https://github.com/AtanuBarik/quest-intelligence-360)"
+BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0 Safari/537.36"
+)
 KEYWORDS = re.compile(
     r"annual|10-k|10-q|8-k|quarter|result|presentation|investor|strategy|strategic|"
     r"acqui|merger|guidance|earnings|financial|oncology|mrd|artificial intelligence|\bai\b|"
@@ -52,22 +57,41 @@ def clean_html(html: str, base: str) -> str:
 
 
 def fetch(url: str) -> dict:
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,application/xhtml+xml"})
     ctx = ssl.create_default_context()
-    with urllib.request.urlopen(req, timeout=35, context=ctx) as response:
-        raw = response.read(2_500_000)
-        final_url = response.geturl()
-        charset = response.headers.get_content_charset() or "utf-8"
-        html = raw.decode(charset, errors="replace")
-        normalized = clean_html(html, final_url)
-        digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()
-        return {
-            "url": url,
-            "final_url": final_url,
-            "status": getattr(response, "status", 200),
-            "digest": digest,
-            "evidence_preview": normalized.splitlines()[:12],
-        }
+    last_error: Exception | None = None
+    for attempt, user_agent in enumerate((UA, BROWSER_UA, BROWSER_UA)):
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": user_agent,
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.8",
+                "Cache-Control": "no-cache",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=35, context=ctx) as response:
+                raw = response.read(2_500_000)
+                final_url = response.geturl()
+                charset = response.headers.get_content_charset() or "utf-8"
+                html = raw.decode(charset, errors="replace")
+                normalized = clean_html(html, final_url)
+                digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+                return {
+                    "url": url,
+                    "final_url": final_url,
+                    "status": getattr(response, "status", 200),
+                    "digest": digest,
+                    "evidence_preview": normalized.splitlines()[:12],
+                    "header_profile": "research" if attempt == 0 else "browser_fallback",
+                }
+        except Exception as exc:
+            last_error = exc
+            if attempt < 2:
+                time.sleep(1.5 * (attempt + 1))
+    if last_error:
+        raise last_error
+    raise RuntimeError(f"Unable to fetch {url}")
 
 
 def main() -> None:
@@ -99,6 +123,7 @@ def main() -> None:
                 "checked_at": checked,
                 "changed": False,
                 "evidence_preview": previous.get("evidence_preview", []),
+                "header_profile": previous.get("header_profile"),
                 "error": f"{type(exc).__name__}: {exc}",
             }
         results.append(current)
@@ -112,7 +137,9 @@ def main() -> None:
         "note": "Source changes are a research trigger. Strategic synthesis is updated separately after evidence review; a changed page is not automatically treated as a strategic change."
     }
     STATE.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Checked {len(results)} strategic sources; detected {len(changes)} changed source pages.")
+    reached = sum(1 for result in results if result.get("status"))
+    errors = sum(1 for result in results if result.get("error"))
+    print(f"Checked {len(results)} strategic sources; reached {reached}; errors {errors}; detected {len(changes)} changed source pages.")
 
 
 if __name__ == "__main__":
