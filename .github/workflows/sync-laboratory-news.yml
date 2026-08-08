@@ -1,4 +1,4 @@
-# Resilient bridge: refresh from the laboratory Pages export when available and retain the last valid local mirror when it is not.
+# Private-source-aware bridge: prefer authenticated repository access, then published Pages, then the last valid local mirror.
 name: Sync laboratory news data
 
 on:
@@ -29,11 +29,28 @@ jobs:
 
       - name: Refresh laboratory monitor mirrors
         shell: bash
+        env:
+          LABORATORY_NEWS_TOKEN: ${{ secrets.LABORATORY_NEWS_TOKEN }}
         run: |
           set -euo pipefail
           SOURCE_BASE='https://atanubarik.github.io/laboratory-news-monitor'
+          SOURCE_REPO='AtanuBarik/laboratory-news-monitor'
           mkdir -p data/laboratory-knowledge assets/quest-news-icons
           : > /tmp/lab-sync-warnings.txt
+          printf '%s\n' 'published_pages_with_local_mirror_fallback' > /tmp/lab-source-transport.txt
+
+          copy_private_file() {
+            local source="$1"
+            local target="$2"
+            if [ ! -f "/tmp/laboratory-source/$source" ]; then
+              echo "$source" >> /tmp/lab-sync-warnings.txt
+              echo "Private repository source missing; retaining local copy when available: $source"
+              return 1
+            fi
+            mkdir -p "$(dirname "$target")"
+            cp "/tmp/laboratory-source/$source" "$target"
+            echo "Updated authenticated private source: $source"
+          }
 
           fetch_published() {
             local path="$1"
@@ -43,8 +60,9 @@ jobs:
             bust=$(date +%s)
             rm -f "$tmp"
 
-            if curl --fail --location --retry 2 --retry-all-errors --connect-timeout 10 --max-time 45 --silent --show-error \
+            if curl --fail --location --retry 2 --connect-timeout 10 --max-time 45 --silent --show-error \
               "$SOURCE_BASE/$path?sync=$bust" --output "$tmp"; then
+              mkdir -p "$(dirname "$target")"
               mv "$tmp" "$target"
               echo "Updated published source: $path"
               return 0
@@ -60,14 +78,47 @@ jobs:
             return 1
           }
 
-          # news.json must exist locally after this step, but a temporary/private Pages 404 must not erase a valid mirror.
-          fetch_published data/news.json data/laboratory-news.json || true
-          fetch_published data/email_status.json data/laboratory-email-status.json || true
-          fetch_published data/workflow_health.json data/laboratory-workflow-health.json || true
-          fetch_published data/chatgpt_strategic_synthesis.json data/laboratory-chatgpt-strategic-synthesis.json || true
-          fetch_published data/chatgpt_summaries.json data/laboratory-chatgpt-summaries.json || true
+          sync_source() {
+            local source="$1"
+            local target="$2"
+            if [ -d /tmp/laboratory-source ]; then
+              copy_private_file "$source" "$target" || true
+            else
+              fetch_published "$source" "$target" || true
+            fi
+          }
+
+          if [ -n "${LABORATORY_NEWS_TOKEN:-}" ]; then
+            echo 'Authenticated laboratory repository token detected; using direct private-repository sync.'
+            rm -rf /tmp/laboratory-source
+            if git clone --quiet --depth=1 \
+              "https://x-access-token:${LABORATORY_NEWS_TOKEN}@github.com/${SOURCE_REPO}.git" \
+              /tmp/laboratory-source; then
+              printf '%s\n' 'authenticated_private_repository' > /tmp/lab-source-transport.txt
+            else
+              rm -rf /tmp/laboratory-source
+              echo 'private-repository-authentication' >> /tmp/lab-sync-warnings.txt
+              echo 'Authenticated clone failed; falling back to published Pages/local mirrors.' >&2
+            fi
+          else
+            echo 'LABORATORY_NEWS_TOKEN is not configured; using published Pages/local mirrors.'
+            echo 'private-repository-token-not-configured' >> /tmp/lab-sync-warnings.txt
+          fi
+
+          sync_source data/news.json data/laboratory-news.json
+          sync_source data/email_status.json data/laboratory-email-status.json
+          sync_source data/workflow_health.json data/laboratory-workflow-health.json
+          sync_source data/chatgpt_strategic_synthesis.json data/laboratory-chatgpt-strategic-synthesis.json
+          sync_source data/chatgpt_summaries.json data/laboratory-chatgpt-summaries.json
 
           test -s data/laboratory-news.json || { echo 'No valid laboratory news mirror is available.' >&2; exit 22; }
+
+          # Optional outputs receive valid placeholders when they have never been synchronized,
+          # so downstream frontend fetches and git staging cannot fail simply because an optional source is absent.
+          [ -f data/laboratory-email-status.json ] || printf '%s\n' '{"status":"source_unavailable"}' > data/laboratory-email-status.json
+          [ -f data/laboratory-workflow-health.json ] || printf '%s\n' '{"status":"source_unavailable","chatgpt_queue_count":null,"chatgpt_remaining_unsummarized":null}' > data/laboratory-workflow-health.json
+          [ -f data/laboratory-chatgpt-strategic-synthesis.json ] || printf '%s\n' '{"status":"source_unavailable"}' > data/laboratory-chatgpt-strategic-synthesis.json
+          [ -f data/laboratory-chatgpt-summaries.json ] || printf '%s\n' '{"status":"source_unavailable","summaries":{}}' > data/laboratory-chatgpt-summaries.json
 
           if ! curl --fail --location --retry 1 --connect-timeout 12 --max-time 45 --silent --show-error \
             https://laboratory-news-ai.atanu-barik.workers.dev --output data/laboratory-ai-health.json.incoming; then
@@ -81,11 +132,11 @@ jobs:
           fi
 
           for file in manifest.json latest.md quest-diagnostics.md labcorp.md arup-laboratories.md mayo-clinic-laboratories.md sonic-healthcare.md; do
-            fetch_published "knowledge/$file" "data/laboratory-knowledge/$file" || true
+            sync_source "knowledge/$file" "data/laboratory-knowledge/$file"
           done
 
           for icon in product-services clinical-rd partnership-ma financials organizational leadership other; do
-            fetch_published "assets/email-icons/rendered/${icon}.png" "assets/quest-news-icons/${icon}.png" || true
+            sync_source "assets/email-icons/rendered/${icon}.png" "assets/quest-news-icons/${icon}.png"
           done
 
           SOURCE_VERSION=$(python - <<'PY'
@@ -131,7 +182,9 @@ jobs:
           worker = read_json('data/laboratory-ai-health.json')
           manifest = read_json('data/laboratory-knowledge/manifest.json')
           warning_file = Path('/tmp/lab-sync-warnings.txt')
+          transport_file = Path('/tmp/lab-source-transport.txt')
           warnings = [line.strip() for line in warning_file.read_text(encoding='utf-8').splitlines() if line.strip()] if warning_file.exists() else []
+          transport = transport_file.read_text(encoding='utf-8').strip() if transport_file.exists() else 'unknown'
 
           items = news.get('items') or []
           if not isinstance(items, list):
@@ -140,10 +193,12 @@ jobs:
               raise SystemExit('The retained laboratory news mirror contains no items')
 
           summary_records = summaries.get('summaries') or {}
+          if not isinstance(summary_records, dict):
+              summary_records = {}
           summarized_in_feed = sum(1 for item in items if item.get('chatgpt_summary'))
           version = {
               'source_repository': 'AtanuBarik/laboratory-news-monitor',
-              'source_transport': 'published_pages_with_local_mirror_fallback',
+              'source_transport': transport,
               'source_version_hash': source_version,
               'synchronized_at': datetime.now(timezone.utc).isoformat(),
               'news_generated_at': news.get('generated_at'),
@@ -184,16 +239,24 @@ jobs:
           set -euo pipefail
           git config user.name 'quest-intelligence-sync[bot]'
           git config user.email 'quest-intelligence-sync[bot]@users.noreply.github.com'
-          git add \
-            data/laboratory-news.json \
-            data/laboratory-email-status.json \
-            data/laboratory-workflow-health.json \
-            data/laboratory-chatgpt-strategic-synthesis.json \
-            data/laboratory-chatgpt-summaries.json \
-            data/laboratory-ai-health.json \
-            data/laboratory-source-version.json \
-            data/laboratory-knowledge \
+
+          candidates=(
+            data/laboratory-news.json
+            data/laboratory-email-status.json
+            data/laboratory-workflow-health.json
+            data/laboratory-chatgpt-strategic-synthesis.json
+            data/laboratory-chatgpt-summaries.json
+            data/laboratory-ai-health.json
+            data/laboratory-source-version.json
+            data/laboratory-knowledge
             assets/quest-news-icons
+          )
+          for path in "${candidates[@]}"; do
+            if [ -e "$path" ]; then
+              git add "$path"
+            fi
+          done
+
           if git diff --cached --quiet; then
             echo 'Laboratory news data is already current.'
             exit 0
