@@ -59,6 +59,8 @@ jobs:
 
           encoded = ''.join(path.read_text(encoding='utf-8').strip() for path in chunks)
           html = gzip.decompress(base64.b64decode(encoded)).decode('utf-8')
+          html = html.replace('id="username" type="email" value="quest@medtech.com"', 'id="username" type="email" value=""')
+          html = html.replace('id="password" type="password" value="evalueserve"', 'id="password" type="password" value=""')
           html = re.sub(
               r'<script\b[^>]*\bsrc=["\']https://cdn\.jsdelivr\.net/npm/chart\.js[^"\']*["\'][^>]*>\s*</script>',
               f'<script src="integrations/chart-lite.js?v={release}"></script>',
