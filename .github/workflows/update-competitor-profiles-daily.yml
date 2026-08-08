@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 18
     steps:
       - name: Check out latest main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 0
@@ -49,11 +49,18 @@ jobs:
           competitors = payload.get('competitors') or []
           if len(competitors) < 10:
               raise SystemExit(f'Expected at least 10 monitored competitors, found {len(competitors)}')
+          invalid = []
+          partial = []
           for item in competitors:
               if not item.get('id') or not item.get('last_updated_at') or not item.get('last_checked_at'):
-                  raise SystemExit(f'Invalid refresh record: {item.get("id")}')
+                  invalid.append(item.get('id') or '<missing-id>')
+              if item.get('refresh_status') in {'partial', 'error'}:
+                  partial.append(item.get('id'))
+          if invalid:
+              raise SystemExit(f'Invalid refresh records: {invalid}')
           print('Validated competitor refresh records:', len(competitors))
           print('Changed competitors:', ', '.join(payload.get('changed_competitors') or []) or 'none')
+          print('Partial/error competitors retained with source diagnostics:', ', '.join(partial) or 'none')
           PY
 
       - name: Commit refreshed public intelligence
