@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "purpose": "Authoritative public-source registry for the automated Competitor Profile refresh pipeline.",
   "refresh_policy": {
     "schedule": "daily",
@@ -30,9 +30,9 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "news_query": "Mayo Clinic Laboratories diagnostics",
+      "news_query": "Mayo Clinic Laboratories diagnostics site:news.mayocliniclabs.com",
       "official_sources": [
-        {"label": "Mayo Clinic Laboratories feed", "url": "https://news.mayocliniclabs.com/mml-feed/", "kind": "news"},
+        {"label": "Mayo Clinic Laboratories news", "url": "https://news.mayocliniclabs.com/homepage/news/", "kind": "news"},
         {"label": "Mayo Clinic Laboratories newsroom", "url": "https://news.mayocliniclabs.com/homepage/news/newsroom/", "kind": "news"},
         {"label": "About Mayo Clinic Laboratories", "url": "https://news.mayocliniclabs.com/about-us/", "kind": "company"}
       ]
@@ -113,7 +113,7 @@
       "name": "BioReference Health",
       "news_query": "BioReference Health laboratory OPKO diagnostics",
       "official_sources": [
-        {"label": "BioReference Health", "url": "https://www.bioreference.com/", "kind": "company"},
+        {"label": "BioReference news", "url": "https://www.bioreference.com/news/", "kind": "news"},
         {"label": "OPKO investor relations", "url": "https://www.opko.com/investors/", "kind": "financial"},
         {"label": "OPKO press releases", "url": "https://www.opko.com/news-media/press-releases", "kind": "news"}
       ]
