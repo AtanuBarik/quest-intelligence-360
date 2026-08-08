@@ -21,7 +21,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
 
 concurrency:
   group: quest-branch-pages
@@ -39,27 +38,6 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Clear stale Pages deployment locks
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          for deployment in \
-            ebdb0d756391b16ca690deb787285b52b694e2ce \
-            1f8bbc61d4ae44b4c5f89b6329435dc097bd4f77
-          do
-            code=$(curl --silent --output /tmp/cancel-response.txt --write-out '%{http_code}' \
-              --request POST \
-              --header 'Accept: application/vnd.github+json' \
-              --header "Authorization: Bearer $GH_TOKEN" \
-              --header 'X-GitHub-Api-Version: 2022-11-28' \
-              "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/deployments/$deployment/cancel" || true)
-            echo "Cancel request for $deployment returned HTTP $code"
-            if [ -s /tmp/cancel-response.txt ]; then cat /tmp/cancel-response.txt; fi
-          done
-          sleep 8
-
       - name: Build optimized static site
         shell: bash
         run: |
@@ -73,7 +51,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260808a'
+          release = '20260808b'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -105,6 +83,7 @@ jobs:
           cp -R data _site/
           if [ -d assets ]; then cp -R assets _site/; fi
           touch _site/.nojekyll
+          test -f _site/integrations/role-access-governance.js
           test -f _site/integrations/chart-lite.js
           test -f _site/integrations/competitor-daily-refresh.js
           test -f _site/integrations/strategic-analysis-hub.js
@@ -141,17 +120,4 @@ jobs:
           fi
           git push origin gh-pages
 
-      - name: Start one branch-based Pages build
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          curl --silent --show-error --fail-with-body \
-            --request POST \
-            --header 'Accept: application/vnd.github+json' \
-            --header "Authorization: Bearer $GH_TOKEN" \
-            --header 'X-GitHub-Api-Version: 2022-11-28' \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/builds"
-          echo
-          echo 'Requested one Pages build from the updated gh-pages branch.'
+          echo 'Published gh-pages. The repository Pages configuration will create the single deployment automatically.'
