@@ -112,9 +112,10 @@
       await loadScript('integrations/frontend-performance-layout.js');
       await loadScript('integrations/frontend-readability-overrides.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
-      // Install the lightweight Knowledge Repository and legacy guard before any
-      // governance module can mount the old full-record IndexedDB panel.
+      // Install the lightweight Knowledge Repository and its compatibility guard
+      // before any governance module can mount the old full-record IndexedDB panel.
       await loadScript('integrations/knowledge-repository-lite.js');
+      await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
     } catch (error) {
       console.error('Quest core load failed:', error);
