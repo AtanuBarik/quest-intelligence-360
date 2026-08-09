@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-08-09T12:20:00Z",
+  "status": "verified_public_sources",
+  "methodology": "Official company newsroom, investor-relations and laboratory-news sources were reviewed for current strategic developments. These highlights are source facts; any normalized benchmark scores shown in the frontend are directional analytics, not company-reported metrics.",
+  "updates": [
+    {
+      "company": "Quest Diagnostics",
+      "date": "2026-07-23",
+      "category": "Growth & operating model",
+      "title": "Quest Diagnostics reports Q2 2026 growth and raises full-year guidance",
+      "summary": "Quest reported revenue growth above 10%, highlighted continued Co-Lab Solutions implementation, growth in Advanced Diagnostics and expansion of oncology workflow integration through OncoEMR.",
+      "executive_implication": "Health-system partnerships, advanced diagnostics and workflow integration remain central competitive priorities.",
+      "url": "https://newsroom.questdiagnostics.com/2026-07-23-Quest-Diagnostics-Reports-Second-Quarter-2026-Financial-Results-Raises-Revenue-and-EPS-Guidance-for-Full-Year-2026"
+    },
+    {
+      "company": "Labcorp",
+      "date": "2026-07-27",
+      "category": "Consumer genetics",
+      "title": "Labcorp expands direct-to-consumer hereditary risk testing",
+      "summary": "Labcorp launched Marker by Labcorp, a 163-gene hereditary risk panel covering more than 100 medically actionable conditions with genetic counseling support.",
+      "executive_implication": "Consumer access, longitudinal engagement and specialty genetics are becoming more important points of differentiation.",
+      "url": "https://www.labcorp.com/education-events/press-releases/labcorp-launches-marker-labcorptm-genetic-health-panel-expanding"
+    },
+    {
+      "company": "Mayo Clinic Laboratories",
+      "date": "2026-07-24",
+      "category": "Specialty testing",
+      "title": "Mayo Clinic Laboratories expands its Q2 2026 test catalog",
+      "summary": "Mayo highlighted multiple newly introduced specialty assays, including rare-fusion monitoring and other advanced diagnostic tests, while continuing to emphasize strategic collaboration and connected diagnostic access.",
+      "executive_implication": "Specialty depth and rapid test-menu innovation remain strong competitive differentiators for complex-care segments.",
+      "url": "https://news.mayocliniclabs.com/2026/07/24/featured-new-tests-in-quarter-two-of-2026/"
+    },
+    {
+      "company": "Sonic Healthcare",
+      "date": "2026-06-15",
+      "category": "Capital & network strategy",
+      "title": "Sonic completes Brisbane hub laboratory sale-and-leaseback",
+      "summary": "Sonic completed the A$445 million sale and leaseback of its Brisbane hub laboratory while retaining the facility as critical pathology infrastructure under a long-term lease.",
+      "executive_implication": "Large laboratory networks are actively optimizing capital while protecting strategically important operating capacity.",
+      "url": "https://investors.sonichealthcare.com/DownloadFile.axd?file=%2FReport%2FComNews%2F20260615%2F03100321.pdf"
+    },
+    {
+      "company": "ARUP Laboratories",
+      "date": "2026-02-10",
+      "category": "Research & innovation",
+      "title": "ARUP highlights broad research output and diagnostic innovation",
+      "summary": "ARUP reported that its scientists authored more than 130 peer-reviewed publications and presented at more than 100 conferences in 2025 across genomics, rare disease, molecular diagnostics, hematopathology, infectious disease and AI.",
+      "executive_implication": "Academic credibility, specialty expertise and research productivity reinforce ARUP's reference-laboratory positioning.",
+      "url": "https://www.aruplab.com/news/02-10-2026/arup-medical-directors-and-scientists-prolific-research"
+    }
+  ]
+}
