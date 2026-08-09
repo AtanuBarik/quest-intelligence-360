@@ -62,7 +62,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260809t'
+          release = '20260809u'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
