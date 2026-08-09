@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809c';
+  const RELEASE = '20260809d';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -11,8 +11,8 @@
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
     insights: ['integrations/enterprise-insights-engine/loader.js'],
     library: ['integrations/knowledge-repository-lite.js'],
-    governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js','integrations/approved-insights-panel.js'],
-    microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js']
+    governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js'],
+    microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js','integrations/approved-insights-panel.js']
   };
 
   function progress(active, done = false) {
@@ -112,6 +112,7 @@
       await loadScript('integrations/frontend-performance-layout.js');
       await loadScript('integrations/frontend-readability-overrides.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
+      await loadScript('integrations/executive-hub-live.js');
       await loadScript('integrations/knowledge-repository-lite.js');
       await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
