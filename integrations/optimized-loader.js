@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809t';
+  const RELEASE = '20260809u';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -29,6 +29,20 @@
     if (done) window.setTimeout(() => node.remove(), 220);
   }
 
+  function removeRetiredNavigation() {
+    const navs = Array.from(document.querySelectorAll('.nav-item'));
+    const profileNav = navs.find(node => /^competitor profiles$/i.test(String(node.textContent || '').trim()));
+    const landscapeNav = navs.find(node => /^competitive landscape$/i.test(String(node.textContent || '').trim()));
+    const profileView = profileNav?.dataset?.view || '';
+    const landscapeView = landscapeNav?.dataset?.view || '';
+    if (landscapeNav) landscapeNav.remove();
+    if (landscapeView && landscapeView !== profileView) {
+      document.querySelectorAll('.view[data-view]').forEach(view => {
+        if (view.dataset.view === landscapeView) view.remove();
+      });
+    }
+  }
+
   function loadScript(path) {
     if (loaded.has(path)) return loaded.get(path);
     const existing = Array.from(document.scripts).find(script => (script.src || '').includes(path));
@@ -45,6 +59,7 @@
       script.dataset.qModule = path;
       script.onload = () => {
         script.dataset.qLoaded = 'true';
+        removeRetiredNavigation();
         window.dispatchEvent(new CustomEvent('quest:module-loaded', { detail: { path } }));
         resolve(script);
       };
@@ -65,6 +80,7 @@
       } catch (error) {
         console.error(`Quest ${name} module load failed:`, error);
       } finally {
+        removeRetiredNavigation();
         progress(false, true);
         window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: name } }));
       }
@@ -76,7 +92,7 @@
   function groupFromText(value = '') {
     const text = String(value).toLowerCase();
     if (/alert|strategic signal/.test(text)) return 'alerts';
-    if (/competitor profile|competitive landscape/.test(text)) return 'competitor';
+    if (/competitor profile/.test(text)) return 'competitor';
     if (/news intelligence|strategic analysis|social|perception/.test(text)) return 'strategic';
     if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
     if (/knowledge repository|research repository/.test(text)) return 'library';
@@ -103,6 +119,7 @@
   async function bootCore() {
     progress(true);
     try {
+      removeRetiredNavigation();
       await loadScript('integrations/chart-lite.js');
       if (window.Chart && typeof window.initCharts === 'function' && !Object.keys(window.Chart.instances || {}).length) {
         try { window.initCharts(); } catch (error) { console.warn('Initial chart creation deferred:', error); }
@@ -119,6 +136,7 @@
       await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
       await loadScript('integrations/executive-typography-benchmark-cleanup.js');
+      removeRetiredNavigation();
     } catch (error) {
       console.error('Quest core load failed:', error);
     } finally {
@@ -136,18 +154,22 @@
       if (group) loadGroup(group);
     }, true);
     document.addEventListener('click', event => {
+      removeRetiredNavigation();
       const group = groupFromElement(event.target);
       if (group) loadGroup(group);
     }, true);
     window.addEventListener('hashchange', () => {
+      removeRetiredNavigation();
       const group = activeGroup();
       if (group) loadGroup(group);
     });
   }
 
   async function boot() {
+    removeRetiredNavigation();
     bindNavigation();
     await bootCore();
+    removeRetiredNavigation();
     const group = activeGroup();
     if (group) loadGroup(group);
     document.documentElement.dataset.questRelease = RELEASE;
