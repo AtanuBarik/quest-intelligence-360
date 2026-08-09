@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809o';
+  const RELEASE = '20260809p';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -9,7 +9,7 @@
     alerts: ['integrations/laboratory-news-monitor.js','integrations/laboratory-news-sync.js','integrations/strategic-analysis-hub.js','integrations/alerts-resilience-fix.js'],
     competitor: ['integrations/competitor-intelligence-profiles/loader.js','integrations/competitor-daily-refresh.js'],
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
-    insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-final.js'],
+    insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-v2.js'],
     library: ['integrations/knowledge-repository-lite.js'],
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js','integrations/approved-insights-panel.js']
