@@ -87,6 +87,7 @@ jobs:
           touch _site/.nojekyll
           test -f _site/integrations/role-access-governance.js
           test -f _site/integrations/chart-lite.js
+          test -f _site/integrations/knowledge-repository-lite.js
           test -f _site/integrations/competitor-daily-refresh.js
           test -f _site/integrations/strategic-analysis-hub.js
           test -f _site/integrations/strategic-source-watch-status.js
