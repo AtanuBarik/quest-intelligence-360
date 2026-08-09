@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "purpose": "Authoritative public-source registry for the automated Competitor Profile refresh pipeline.",
+  "version": 3,
+  "purpose": "Authoritative public-source registry for the eight approved Quest Intelligence 360 competitor profiles.",
   "refresh_policy": {
     "schedule": "daily",
     "source_priority": ["official_company", "investor_relations", "regulatory", "public_news"],
@@ -8,6 +8,16 @@
     "ai_policy": "No paid LLM API is required. ChatGPT Pro or Gemini may be used as an analyst review layer, but the scheduled job uses deterministic public-web extraction so it can run without API keys."
   },
   "competitors": [
+    {
+      "id": "quest",
+      "name": "Quest Diagnostics",
+      "news_query": "Quest Diagnostics laboratory diagnostics",
+      "official_sources": [
+        {"label": "Quest Diagnostics newsroom", "url": "https://newsroom.questdiagnostics.com/", "kind": "news"},
+        {"label": "Quest Diagnostics fact sheet", "url": "https://newsroom.questdiagnostics.com/Fact-sheet?mobile=No", "kind": "company"},
+        {"label": "Quest investor relations", "url": "https://ir.questdiagnostics.com/overview/default.aspx", "kind": "financial"}
+      ]
+    },
     {
       "id": "labcorp",
       "name": "Labcorp",
@@ -38,77 +48,6 @@
       ]
     },
     {
-      "id": "sonic",
-      "name": "Sonic Healthcare USA",
-      "news_query": "Sonic Healthcare laboratory diagnostics USA",
-      "official_sources": [
-        {"label": "Sonic investor overview", "url": "https://investors.sonichealthcare.com/Investors/", "kind": "company"},
-        {"label": "Sonic media releases", "url": "https://investors.sonichealthcare.com/investors/?page=media-releases", "kind": "news"},
-        {"label": "Financial reports", "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports", "kind": "financial"}
-      ]
-    },
-    {
-      "id": "eurofins",
-      "name": "Eurofins Clinical Diagnostics",
-      "news_query": "Eurofins clinical diagnostics laboratory",
-      "official_sources": [
-        {"label": "Eurofins investor relations", "url": "https://www.eurofins.com/en/investors/", "kind": "financial"},
-        {"label": "Eurofins media centre", "url": "https://www.eurofins.com/en/media-centre/press-releases/", "kind": "news"},
-        {"label": "Reports and presentations", "url": "https://www.eurofins.com/en/investors/reports-and-presentations/", "kind": "financial"}
-      ]
-    },
-    {
-      "id": "neogenomics",
-      "name": "NeoGenomics",
-      "news_query": "NeoGenomics oncology diagnostics",
-      "official_sources": [
-        {"label": "NeoGenomics press releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
-        {"label": "NeoGenomics financial results", "url": "https://ir.neogenomics.com/financial-information/financial-results", "kind": "financial"},
-        {"label": "NeoGenomics SEC filings", "url": "https://ir.neogenomics.com/sec-filings", "kind": "regulatory"}
-      ]
-    },
-    {
-      "id": "natera",
-      "name": "Natera",
-      "news_query": "Natera Signatera Panorama diagnostics",
-      "official_sources": [
-        {"label": "Natera news", "url": "https://investor.natera.com/news/default.aspx", "kind": "news"},
-        {"label": "Natera quarterly results", "url": "https://investor.natera.com/financials/quarterly-results/default.aspx", "kind": "financial"},
-        {"label": "Natera SEC filings", "url": "https://investor.natera.com/financials/sec-filings/default.aspx", "kind": "regulatory"}
-      ]
-    },
-    {
-      "id": "exact",
-      "name": "Exact Sciences",
-      "news_query": "Abbott Exact Sciences cancer diagnostics Cologuard",
-      "official_sources": [
-        {"label": "Abbott Exact Sciences", "url": "https://www.abbott.com/en-us/exact-sciences", "kind": "company"},
-        {"label": "Abbott newsroom", "url": "https://abbott.mediaroom.com/press-releases", "kind": "news"},
-        {"label": "Abbott investor relations", "url": "https://www.abbottinvestor.com/", "kind": "financial"}
-      ]
-    },
-    {
-      "id": "guardant",
-      "name": "Guardant Health",
-      "news_query": "Guardant Health Shield Guardant360 diagnostics",
-      "official_sources": [
-        {"label": "Guardant investor overview", "url": "https://investors.guardanthealth.com/overview/default.aspx", "kind": "financial"},
-        {"label": "Guardant press releases", "url": "https://guardanthealth.com/newsroom/press-releases/", "kind": "news"},
-        {"label": "Guardant quarterly results", "url": "https://investors.guardanthealth.com/financials/quarterly-results/default.aspx", "kind": "financial"}
-      ]
-    },
-    {
-      "id": "tempus",
-      "name": "Tempus AI",
-      "news_query": "Tempus AI precision medicine diagnostics",
-      "official_sources": [
-        {"label": "Tempus investor relations", "url": "https://investors.tempus.com/", "kind": "financial"},
-        {"label": "Tempus IR news releases", "url": "https://investors.tempus.com/news-events/news-releases", "kind": "news"},
-        {"label": "Tempus financial information", "url": "https://investors.tempus.com/financials/financial-information", "kind": "financial"},
-        {"label": "Tempus SEC filings", "url": "https://investors.tempus.com/financials/sec-filings", "kind": "regulatory"}
-      ]
-    },
-    {
       "id": "bioreference",
       "name": "BioReference Health",
       "news_query": "BioReference Health laboratory OPKO diagnostics",
@@ -119,31 +58,33 @@
       ]
     },
     {
-      "id": "fulgent",
-      "name": "Fulgent Genetics",
-      "news_query": "Fulgent Genetics laboratory diagnostics therapeutics",
+      "id": "sonic",
+      "name": "Sonic Healthcare",
+      "news_query": "Sonic Healthcare laboratory diagnostics USA",
       "official_sources": [
-        {"label": "Fulgent investor relations", "url": "https://ir.fulgentgenetics.com/", "kind": "financial"},
-        {"label": "Fulgent press releases", "url": "https://ir.fulgentgenetics.com/news-events/press-releases", "kind": "news"}
+        {"label": "Sonic investor overview", "url": "https://investors.sonichealthcare.com/Investors/", "kind": "company"},
+        {"label": "Sonic media releases", "url": "https://investors.sonichealthcare.com/investors/?page=media-releases", "kind": "news"},
+        {"label": "Financial reports", "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports", "kind": "financial"}
       ]
     },
     {
-      "id": "myriad",
-      "name": "Myriad Genetics",
-      "news_query": "Myriad Genetics molecular diagnostics",
+      "id": "cleveland",
+      "name": "Cleveland Clinic Laboratories",
+      "news_query": "Cleveland Clinic Laboratories pathology laboratory medicine",
       "official_sources": [
-        {"label": "Myriad newsroom", "url": "https://investor.myriad.com/newsroom/", "kind": "news"},
-        {"label": "Myriad news releases", "url": "https://investor.myriad.com/news-releases/", "kind": "news"},
-        {"label": "Myriad investor relations", "url": "https://investor.myriad.com/", "kind": "financial"}
+        {"label": "Cleveland Clinic Laboratories", "url": "https://clevelandcliniclabs.com/", "kind": "company"},
+        {"label": "Pathology & Laboratory Medicine Institute", "url": "https://my.clevelandclinic.org/departments/pathology", "kind": "company"},
+        {"label": "Laboratory Medicine", "url": "https://my.clevelandclinic.org/departments/pathology/depts/laboratory-medicine", "kind": "company"}
       ]
     },
     {
-      "id": "qiagen",
-      "name": "QIAGEN",
-      "news_query": "QIAGEN molecular diagnostics sample to insight",
+      "id": "neogenomics",
+      "name": "NeoGenomics Laboratories",
+      "news_query": "NeoGenomics oncology diagnostics",
       "official_sources": [
-        {"label": "QIAGEN newsroom", "url": "https://corporate.qiagen.com/English/newsroom/", "kind": "news"},
-        {"label": "QIAGEN financial reports", "url": "https://corporate.qiagen.com/investor-relations/financial-reports-and-sec-filings/financial-reports/", "kind": "financial"}
+        {"label": "NeoGenomics press releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
+        {"label": "NeoGenomics financial results", "url": "https://ir.neogenomics.com/financial-information/financial-results", "kind": "financial"},
+        {"label": "NeoGenomics SEC filings", "url": "https://ir.neogenomics.com/sec-filings", "kind": "regulatory"}
       ]
     }
   ]
