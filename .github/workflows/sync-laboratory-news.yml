@@ -4,7 +4,9 @@ name: Sync laboratory news data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 */6 * * *'
+    # Source repository refreshes at :17 every six hours IST; mirror it ten minutes later.
+    - cron: '27 0,6,12,18 * * *'
+      timezone: 'Asia/Kolkata'
   push:
     branches: [main]
     paths:
