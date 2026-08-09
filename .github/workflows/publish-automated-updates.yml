@@ -45,6 +45,9 @@ jobs:
           rm -rf _site
           mkdir -p _site
 
+          node --check integrations/executive-status-seed.js
+          node --check integrations/executive-hub-final.js
+
           python - <<'PY'
           import base64
           import gzip
@@ -87,6 +90,7 @@ jobs:
           touch _site/.nojekyll
           test -f _site/integrations/role-access-governance.js
           test -f _site/integrations/chart-lite.js
+          test -f _site/integrations/executive-status-seed.js
           test -f _site/integrations/executive-hub-final.js
           test -f _site/integrations/knowledge-repository-lite.js
           test -f _site/integrations/knowledge-legacy-guard.js
