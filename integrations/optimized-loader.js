@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809j';
+  const RELEASE = '20260809k';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -118,6 +118,7 @@
       await loadScript('integrations/knowledge-repository-lite.js');
       await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
+      await loadScript('integrations/executive-typography-benchmark-cleanup.js');
     } catch (error) {
       console.error('Quest core load failed:', error);
     } finally {
