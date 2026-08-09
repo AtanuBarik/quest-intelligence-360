@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260808c';
+  const RELEASE = '20260809a';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -10,6 +10,7 @@
     competitor: ['integrations/competitor-intelligence-profiles/loader.js','integrations/competitor-daily-refresh.js'],
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
     insights: ['integrations/enterprise-insights-engine/loader.js'],
+    library: ['integrations/no-cost-live-operations.js'],
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js','integrations/approved-insights-panel.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js']
   };
@@ -78,8 +79,9 @@
     if (/competitor profile|competitive landscape/.test(text)) return 'competitor';
     if (/news intelligence|strategic analysis|social|perception/.test(text)) return 'strategic';
     if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
+    if (/knowledge repository|research repository/.test(text)) return 'library';
     if (/microsoft|sharepoint|local data|local repository|local file/.test(text)) return 'microsoft';
-    if (/executive|project tracker|pmr project|methodology|audit|knowledge repository|survey analytics|voice of experts/.test(text)) return 'governance';
+    if (/executive|project tracker|pmr project|methodology|audit|survey analytics|voice of experts/.test(text)) return 'governance';
     return '';
   }
 
@@ -121,7 +123,7 @@
   function bindNavigation() {
     document.addEventListener('pointerover', event => {
       const group = groupFromElement(event.target);
-      if (group) loadGroup(group);
+      if (group && group !== 'library') loadGroup(group);
     }, { passive: true, capture: true });
     document.addEventListener('focusin', event => {
       const group = groupFromElement(event.target);
