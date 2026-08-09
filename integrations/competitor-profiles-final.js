@@ -1,0 +1,291 @@
+(() => {
+  'use strict';
+
+  const RELEASE = '20260809t';
+  const ALLOWED = ['quest','labcorp','arup','mayo','bioreference','sonic','cleveland','neogenomics'];
+  const DISPLAY = {
+    quest: 'Quest Diagnostics',
+    labcorp: 'Labcorp',
+    arup: 'ARUP Laboratories',
+    mayo: 'Mayo Clinic Laboratories',
+    bioreference: 'BioReference Health',
+    sonic: 'Sonic Healthcare',
+    cleveland: 'Cleveland Clinic Laboratories',
+    neogenomics: 'NeoGenomics Laboratories',
+  };
+  const DOMAINS = {
+    quest: 'questdiagnostics.com',
+    labcorp: 'labcorp.com',
+    arup: 'aruplab.com',
+    mayo: 'mayocliniclabs.com',
+    bioreference: 'bioreference.com',
+    sonic: 'sonichealthcareusa.com',
+    cleveland: 'clevelandcliniclabs.com',
+    neogenomics: 'neogenomics.com',
+  };
+  const FALLBACKS = {
+    quest: {
+      id: 'quest', name: 'Quest Diagnostics', type: 'National diagnostic information services', priority: 'Benchmark',
+      hq: 'Secaucus, New Jersey', founded: '1967', leader: 'Jim Davis, Chairman, CEO and President', employees: 'Nearly 57,000',
+      financial: 'FY2025 revenue: approximately $11.04B',
+      geography: 'Serves half of U.S. physicians and hospitals and one in three American adults each year',
+      position: 'National leader in diagnostic information services with broad routine, advanced-diagnostics, consumer and health-system capabilities.',
+      customers: ['Physicians and health systems','Patients and consumers','Employers and population-health programs','Payers','Biopharma and research partners'],
+      products: ['Routine and specialty laboratory testing','Advanced oncology, genomic and rare-disease diagnostics','Consumer-initiated testing through questhealth.com','Drug monitoring and toxicology','Cardiometabolic, neurology and women’s-health diagnostics'],
+      pricing: 'Mix of contracted payer reimbursement, health-system and physician arrangements, employer programs and direct-to-consumer pricing.',
+      innovation: 'Investment spans advanced diagnostics, oncology, digital access, health-system integration, consumer testing and longitudinal health insights.',
+      marketing: 'Combines enterprise health-system relationships, physician education, consumer access, employer solutions and digital channels.',
+      distribution: 'National laboratory and patient-service-center network supported by couriers, physician interfaces, hospital partnerships and digital ordering/results.',
+      customer: 'Large national access footprint and broad test menu support convenience; billing, coverage, turnaround and digital integration remain important experience dimensions.',
+      operations: 'High-volume national laboratory network with automated core labs, logistics, health-system collaborations, specialty centers of excellence and digital connectivity.',
+      moves: ['Expansion of health-system partnerships and joint ventures','Growth in consumer and wearable-enabled testing','Continued expansion of advanced oncology and specialty diagnostics'],
+      swot: {Strengths:['National scale and access','Broad payer and provider relationships','Wide routine-to-advanced test menu'],Weaknesses:['Complex reimbursement and billing environment','Large-network service consistency requirements'],Opportunities:['Consumer and longitudinal testing','Health-system laboratory partnerships','Advanced diagnostics and AI-enabled workflow'],Threats:['National and specialty competitors','Reimbursement pressure','Rapid technology and regulatory change']},
+      scores: {Market:5,Innovation:4,Pricing:4,Service:4,Digital:4,Clinical:5},
+      sources: [['Quest Diagnostics fact sheet','https://newsroom.questdiagnostics.com/Fact-sheet?mobile=No'],['Quest Diagnostics newsroom','https://newsroom.questdiagnostics.com/'],['Investor relations','https://ir.questdiagnostics.com/overview/default.aspx']]
+    },
+    cleveland: {
+      id: 'cleveland', name: 'Cleveland Clinic Laboratories', type: 'Academic health-system reference laboratory', priority: 'Medium',
+      hq: 'Cleveland, Ohio', founded: 'More than 25 years of reference-laboratory service', leader: 'Cleveland Clinic Pathology & Laboratory Medicine leadership',
+      employees: 'Part of a pathology and laboratory medicine organization with approximately 2,200 caregivers',
+      financial: 'Part of nonprofit Cleveland Clinic; standalone laboratory revenue is not publicly disclosed',
+      geography: 'Reference-laboratory services for hospitals and health systems, supported by the Cleveland Clinic network and global clinical reach',
+      position: 'Integrated academic reference laboratory combining subspecialty pathology, molecular diagnostics, laboratory medicine and direct access to Cleveland Clinic clinical expertise.',
+      customers: ['Hospitals and health systems','Pathologists and community clinicians','Academic and specialty centers','Research and clinical-trial programs','Cleveland Clinic care sites'],
+      products: ['Clinical chemistry and immunology','Molecular pathology and genomics','Hematopathology and coagulation','Microbiology and transfusion medicine','Subspecialty anatomic pathology and expert consultation'],
+      pricing: 'Reference-laboratory and institutional contracting aligned to specialized testing, consultation and health-system needs.',
+      innovation: 'Embedded in an academic clinical environment with translational research, diagnostic AI, molecular pathology and subspecialty expert interpretation.',
+      marketing: 'Clinical-authority positioning centered on Cleveland Clinic expertise, specialist consultation and complex diagnostic capability.',
+      distribution: 'Central reference services, health-system specimen logistics, client services and Cleveland Clinic network connectivity.',
+      customer: 'Strong perceived clinical authority and access to subspecialists; reference workflows emphasize consultation, complex case support and reliable specialty testing.',
+      operations: 'Cleveland Clinic Pathology & Laboratory Medicine processes more than 20 million tests annually across the broader institute, with reference services delivered through Cleveland Clinic Laboratories.',
+      moves: ['Expansion of molecular and specialty diagnostic menus','Use of diagnostic AI and translational research capabilities','Continued reference-laboratory support for health systems and complex-care programs'],
+      swot: {Strengths:['Cleveland Clinic clinical brand','Deep subspecialty pathology expertise','Integrated academic and care-delivery environment'],Weaknesses:['Smaller commercial footprint than national reference labs','Standalone financial transparency is limited'],Opportunities:['Complex specialty referrals','Health-system reference partnerships','AI and molecular diagnostics'],Threats:['National reference-lab scale competitors','Specialty-test price pressure','Health-system insourcing and network choices']},
+      scores: {Market:3,Innovation:5,Pricing:3,Service:5,Digital:4,Clinical:5},
+      sources: [['Pathology & Laboratory Medicine Institute','https://my.clevelandclinic.org/departments/pathology'],['Laboratory Medicine','https://my.clevelandclinic.org/departments/pathology/depts/laboratory-medicine'],['Cleveland Clinic Laboratories','https://clevelandcliniclabs.com/']]
+    }
+  };
+
+  let profiles = [];
+  let observer = null;
+  let applying = false;
+
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const clean = value => String(value || '').replace(/\s+/g,' ').trim();
+  const normalize = value => clean(value).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  const list = values => `<ul>${(Array.isArray(values)?values:[]).filter(Boolean).map(value=>`<li>${esc(value)}</li>`).join('')}</ul>`;
+
+  function canonicalId(profile){
+    const id = String(profile?.id || '').toLowerCase();
+    if (ALLOWED.includes(id)) return id;
+    const name = normalize(profile?.name);
+    if (name.includes('quest diagnostics')) return 'quest';
+    if (name.includes('labcorp')) return 'labcorp';
+    if (name.includes('arup')) return 'arup';
+    if (name.includes('mayo clinic')) return 'mayo';
+    if (name.includes('bioreference')) return 'bioreference';
+    if (name.includes('sonic healthcare')) return 'sonic';
+    if (name.includes('cleveland clinic')) return 'cleveland';
+    if (name.includes('neogenomics')) return 'neogenomics';
+    return '';
+  }
+
+  function logoUrl(id){
+    const domain = DOMAINS[id];
+    return domain ? `https://www.google.com/s2/favicons?sz=128&domain_url=https://${domain}` : '';
+  }
+
+  function injectStyles(){
+    let style = document.getElementById('qCompetitorFinalStyles');
+    if (!style) { style = document.createElement('style'); style.id = 'qCompetitorFinalStyles'; document.head.appendChild(style); }
+    style.textContent = `
+      .cp-shell{--qpf-green:#005a2b;--qpf-dark:#034c1f;--qpf-lime:#c7d92c;--qpf-line:#dfe6e1;--qpf-muted:#5d6b63}
+      .cp-shell .cp-top p,.cp-shell .cp-badge,.cp-shell .cp-metrics span,.cp-shell .cp-bar label,.cp-shell .cp-actions span,.cp-shell .cp-note{font-size:12px!important;line-height:1.4!important}
+      .cp-shell .cp-toolbar input,.cp-shell .cp-toolbar select,.cp-shell .cp-toolbar button{font-size:13px!important}
+      .cp-shell .cp-top h3{font-size:16px!important}.cp-shell .cp-metrics strong{font-size:15px!important}.cp-shell .cp-actions button{font-size:13px!important}
+      .cp-shell .cp-logo{background:#fff!important;border:1px solid #dce6df!important;overflow:hidden;padding:5px!important}
+      .cp-shell .cp-logo img{width:100%;height:100%;object-fit:contain;display:block}
+      .cp-shell .cp-card{min-height:292px}
+      .cp-shell #cpAdd{display:none!important}
+      .cp-shell #cpOverlay,.cp-shell .cp-overlay{display:none!important}
+      #qCompetitorDetailPage{display:none}
+      #qCompetitorDetailPage.active{display:block}
+      .qcp-page{color:#25332b}
+      .qcp-back{display:inline-flex;align-items:center;gap:7px;border:1px solid #cad9cd;background:#fff;color:#034c1f;border-radius:9px;padding:9px 13px;font-size:13px;font-weight:800;cursor:pointer;margin-bottom:14px}
+      .qcp-hero{background:linear-gradient(128deg,#004a24 0%,#006b3c 62%,#6d8f35 100%);color:#fff;border-radius:18px;padding:25px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;box-shadow:0 14px 38px rgba(3,76,31,.16)}
+      .qcp-hero-logo{width:86px;height:86px;background:#fff;border-radius:17px;padding:10px;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+      .qcp-hero-logo img{max-width:100%;max-height:100%;object-fit:contain}.qcp-hero-logo span{font-size:24px;font-weight:800;color:#034c1f}
+      .qcp-kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.82}.qcp-hero h1{margin:4px 0 7px;font-size:30px}.qcp-hero p{font-size:14px;line-height:1.55;max-width:1000px;margin:0;opacity:.94}
+      .qcp-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin-top:4px}.qcp-fact{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:11px}.qcp-fact b{display:block;font-size:12px;margin-bottom:4px}.qcp-fact span{font-size:12px;line-height:1.45}
+      .qcp-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;margin-top:14px}.qcp-panel{background:#fff;border:1px solid var(--qpf-line);border-radius:15px;padding:17px;box-shadow:0 6px 20px rgba(3,76,31,.035);min-width:0}.qcp-panel.qcp-6{grid-column:span 6}.qcp-panel.qcp-12{grid-column:span 12}.qcp-panel h2{font-size:17px;color:#034c1f;margin:0 0 10px}.qcp-panel h3{font-size:14px;color:#005a2b;margin:13px 0 7px}.qcp-panel p,.qcp-panel li,.qcp-panel dd,.qcp-panel dt{font-size:13px;line-height:1.62}.qcp-panel p{margin:6px 0}.qcp-panel ul{margin:7px 0;padding-left:20px}.qcp-panel li+li{margin-top:5px}
+      .qcp-score-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.qcp-score{border:1px solid #dfe7e0;background:#f8faf8;border-radius:11px;padding:13px;text-align:center}.qcp-score strong{display:block;color:#034c1f;font-size:22px}.qcp-score span{font-size:12px;color:#637169}
+      .qcp-split{display:grid;grid-template-columns:1fr 1fr;gap:12px}.qcp-callout{border-left:4px solid #c7d92c;background:#f8fbf4;border-radius:10px;padding:12px;margin-top:10px}.qcp-callout b{display:block;color:#034c1f;font-size:13px;margin-bottom:4px}.qcp-callout span{font-size:12px;line-height:1.5;color:#536159}
+      .qcp-source{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #edf1ee;padding:10px 0;align-items:center}.qcp-source span,.qcp-source a{font-size:12px}.qcp-source a{color:#005a2b;font-weight:800;text-decoration:none}
+      .qcp-meta{font-size:12px;color:#65736b;margin-top:10px}.qcp-empty{font-size:13px;color:#68758a;padding:16px;border:1px dashed #dfe6e1;border-radius:10px}
+      @media(max-width:1100px){.qcp-facts{grid-template-columns:repeat(2,1fr)}.qcp-panel.qcp-6{grid-column:span 12}.qcp-score-grid{grid-template-columns:repeat(3,1fr)}}
+      @media(max-width:700px){.qcp-hero{grid-template-columns:1fr}.qcp-hero-logo{width:72px;height:72px}.qcp-facts,.qcp-split{grid-template-columns:1fr}.qcp-score-grid{grid-template-columns:repeat(2,1fr)}}
+    `;
+  }
+
+  async function loadFallbackProfiles(){
+    const base = new URL('competitor-profile-expansion/', document.baseURI);
+    const files = ['profiles-0.json','profiles-1.json','profiles-2.json'];
+    const arrays = await Promise.all(files.map(async file => {
+      try { const response = await fetch(new URL(`${file}?v=${RELEASE}`,base),{cache:'no-store'}); return response.ok ? await response.json() : []; } catch (_) { return []; }
+    }));
+    return arrays.flat();
+  }
+
+  function mergeProfiles(baseProfiles){
+    const live = Array.isArray(window.__QUEST_COMPETITOR_PROFILES__) ? window.__QUEST_COMPETITOR_PROFILES__ : [];
+    const byId = new Map();
+    [...baseProfiles,...live].forEach(profile => {
+      const id = canonicalId(profile);
+      if (!id) return;
+      const current = byId.get(id) || {};
+      byId.set(id,{...current,...profile,id,name:DISPLAY[id],sources:[...(current.sources||[]),...(profile.sources||[])]});
+    });
+    Object.entries(FALLBACKS).forEach(([id,profile]) => {
+      const current = byId.get(id) || {};
+      byId.set(id,{...profile,...current,id,name:DISPLAY[id],sources:[...(profile.sources||[]),...(current.sources||[])]});
+    });
+    profiles = ALLOWED.map(id => byId.get(id)).filter(Boolean).map(profile => ({...profile,name:DISPLAY[profile.id]}));
+    window.__QUEST_COMPETITOR_FINAL_PROFILES__ = profiles;
+  }
+
+  function uniqueSources(sources){
+    const seen = new Set();
+    return (Array.isArray(sources)?sources:[]).filter(item => Array.isArray(item) && item[1] && !seen.has(item[1]) && seen.add(item[1]));
+  }
+
+  function hideLandscape(){
+    const navs = Array.from(document.querySelectorAll('.nav-item'));
+    const profileNav = navs.find(node => /^competitor profiles$/i.test(clean(node.textContent)));
+    const landscapeNav = navs.find(node => /^competitive landscape$/i.test(clean(node.textContent)));
+    const profileView = profileNav?.dataset?.view || '';
+    const landscapeView = landscapeNav?.dataset?.view || '';
+    if (landscapeNav) landscapeNav.remove();
+    if (landscapeView && landscapeView !== profileView) document.querySelectorAll(`.view[data-view="${CSS.escape(landscapeView)}"]`).forEach(node => node.remove());
+  }
+
+  function profileView(){
+    return document.querySelector('.cp-grid')?.closest('.view') || document.querySelector('.view[data-view="competitors"],.view[data-view="profiles"]');
+  }
+
+  function applyListPresentation(){
+    const view = profileView(); if (!view) return;
+    const heading = view.querySelector('.page-heading p');
+    if (heading) heading.textContent = 'Living profiles for Quest Diagnostics and seven priority laboratory competitors, combining public-web refreshes with strategic operating context.';
+    const monitored = Array.from(view.querySelectorAll('span,small,button')).find(node => /monitored profiles?/i.test(clean(node.textContent)));
+    if (monitored) monitored.textContent = '8 monitored profiles';
+    const add = view.querySelector('#cpAdd'); if (add) add.remove();
+    view.querySelectorAll('.cp-card,[data-competitor-profile-id]').forEach(card => {
+      const id = canonicalId({id:card.dataset.profile || card.dataset.competitorProfileId, name:card.querySelector('h3,h4')?.textContent});
+      if (!id || !ALLOWED.includes(id)) { card.remove(); return; }
+      card.dataset.profile = id;
+      const title = card.querySelector('h3,h4'); if (title) title.textContent = DISPLAY[id];
+      const logo = card.querySelector('.cp-logo,.ci-profile-logo,.competitor-logo');
+      if (logo) {
+        logo.innerHTML = `<img src="${esc(logoUrl(id))}" alt="${esc(DISPLAY[id])} logo" loading="lazy" referrerpolicy="no-referrer">`;
+      }
+      const button = card.querySelector('.cp-actions button,button');
+      if (button && /open full profile/i.test(clean(button.textContent))) button.textContent = 'Open full profile →';
+    });
+  }
+
+  function detailHeader(profile){
+    const id = profile.id;
+    const facts = [
+      ['Headquarters',profile.hq],['Leadership',profile.leader],['Workforce / scale',profile.employees],['Financial context',profile.financial],['Geographic reach',profile.geography]
+    ].filter(([,value])=>clean(value));
+    return `<div class="qcp-hero"><div class="qcp-hero-logo"><img src="${esc(logoUrl(id))}" alt="${esc(DISPLAY[id])} logo" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">${esc(DISPLAY[id].slice(0,2).toUpperCase())}</span></div><div><div class="qcp-kicker">${esc(profile.type || 'Laboratory competitor profile')}</div><h1>${esc(DISPLAY[id])}</h1><p>${esc(profile.position || '')}</p></div><div class="qcp-facts">${facts.map(([label,value])=>`<div class="qcp-fact"><b>${esc(label)}</b><span>${esc(value)}</span></div>`).join('')}</div></div>`;
+  }
+
+  function developmentText(item){
+    if (typeof item === 'string') return item;
+    if (!item || typeof item !== 'object') return '';
+    return item.title || item.headline || item.summary || item.description || item.name || '';
+  }
+
+  function renderDetail(profile){
+    const view = profileView(); if (!view) return;
+    let detail = document.getElementById('qCompetitorDetailPage');
+    if (!detail) { detail = document.createElement('div'); detail.id='qCompetitorDetailPage'; detail.className='qcp-page'; view.appendChild(detail); }
+    const listNodes = Array.from(view.children).filter(node => node !== detail);
+    listNodes.forEach(node => { if (!node.dataset.qcpPreviousDisplay) node.dataset.qcpPreviousDisplay = node.style.display || '__empty__'; node.style.display='none'; });
+    detail.classList.add('active');
+    const changes = profile.daily_changes || {};
+    const changed = [...(changes.added||[]),...(changes.modified||[])].slice(0,6);
+    const developments = (profile.latest_developments||[]).map(developmentText).filter(Boolean).slice(0,8);
+    const verified = Object.entries(profile.verified_fields || {}).filter(([,value])=>clean(value)).slice(0,8);
+    const sources = uniqueSources(profile.sources);
+    detail.innerHTML = `<button class="qcp-back" type="button">← Back to Competitor Profiles</button>${detailHeader(profile)}<div class="qcp-grid">
+      <section class="qcp-panel qcp-6"><h2>Company and market context</h2><p>${esc(profile.position || '')}</p><h3>Customer segments</h3>${list(profile.customers)}<h3>Geographic and access footprint</h3><p>${esc(profile.geography || '')}</p><h3>Customer experience lens</h3><p>${esc(profile.customer || '')}</p></section>
+      <section class="qcp-panel qcp-6"><h2>Portfolio and innovation</h2><h3>Products and services</h3>${list(profile.products)}<h3>Innovation focus</h3><p>${esc(profile.innovation || '')}</p><h3>Current strategic moves</h3>${list(profile.moves)}</section>
+      <section class="qcp-panel qcp-6"><h2>Commercial and go-to-market model</h2><h3>Pricing and contracting</h3><p>${esc(profile.pricing || '')}</p><h3>Brand and communications</h3><p>${esc(profile.marketing || '')}</p><h3>Distribution and access</h3><p>${esc(profile.distribution || '')}</p></section>
+      <section class="qcp-panel qcp-6"><h2>Operations and scale</h2><h3>Operating model</h3><p>${esc(profile.operations || '')}</p><h3>Scale indicators</h3><p><strong>Workforce:</strong> ${esc(profile.employees || 'Not publicly consolidated')}</p><p><strong>Financial context:</strong> ${esc(profile.financial || 'Not publicly disclosed')}</p><p><strong>Headquarters:</strong> ${esc(profile.hq || '')}</p></section>
+      <section class="qcp-panel qcp-12"><h2>Competitive Profile Matrix</h2><div class="qcp-score-grid">${Object.entries(profile.scores||{}).map(([label,value])=>`<div class="qcp-score"><strong>${esc(value)}/5</strong><span>${esc(label)}</span></div>`).join('')}</div><p class="qcp-meta">Directional competitive assessment intended to be read alongside Quest PMR, account feedback, win/loss evidence and the latest public refresh.</p></section>
+      <section class="qcp-panel qcp-12"><h2>Strategic assessment</h2><div class="qcp-split">${Object.entries(profile.swot||{}).map(([label,values])=>`<div><h3>${esc(label)}</h3>${list(values)}</div>`).join('')}</div></section>
+      <section class="qcp-panel qcp-6"><h2>Latest public-web refresh</h2>${verified.length?verified.map(([label,value])=>`<div class="qcp-callout"><b>${esc(label.replaceAll('_',' '))}</b><span>${esc(value)}</span></div>`).join(''):''}${developments.length?`<h3>Latest developments</h3>${list(developments)}`:''}${changed.length?`<h3>Changes detected</h3>${list(changed)}`:''}${!verified.length&&!developments.length&&!changed.length?'<div class="qcp-empty">No material change was recorded in the most recent automated public-web refresh.</div>':''}<div class="qcp-meta">Last checked: ${esc(profile.last_checked_at || 'daily refresh')} · Last material update: ${esc(profile.last_updated_at || 'baseline profile')}</div></section>
+      <section class="qcp-panel qcp-6"><h2>Source trail</h2>${sources.length?sources.map(([label,url])=>`<div class="qcp-source"><span>${esc(label)}</span><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a></div>`).join(''):'<div class="qcp-empty">No source links are available in the current profile.</div>'}<p class="qcp-meta">Public sources are refreshed automatically where accessible; time-sensitive facts should be interpreted with the latest refresh status.</p></section>
+    </div>`;
+    detail.querySelector('.qcp-back')?.addEventListener('click', closeDetail);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function openDetail(id, push=true){
+    const profile = profiles.find(item => item.id === id); if (!profile) return;
+    document.getElementById('cpOverlay')?.classList.remove('open'); document.body.style.overflow='';
+    renderDetail(profile);
+    if (push) history.pushState({qCompetitorProfile:id},'',`#competitor-profile/${encodeURIComponent(id)}`);
+  }
+
+  function closeDetail(){
+    const view = profileView(); const detail = document.getElementById('qCompetitorDetailPage');
+    if (detail) detail.classList.remove('active');
+    if (view) Array.from(view.children).filter(node=>node!==detail).forEach(node=>{
+      const previous = node.dataset.qcpPreviousDisplay; node.style.display = previous && previous !== '__empty__' ? previous : ''; delete node.dataset.qcpPreviousDisplay;
+    });
+    if (location.hash.startsWith('#competitor-profile/')) history.pushState({},'',location.pathname+location.search);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function handleRoute(){
+    const match = location.hash.match(/^#competitor-profile\/([^/?#]+)/);
+    if (match) openDetail(decodeURIComponent(match[1]),false);
+    else if (document.getElementById('qCompetitorDetailPage')?.classList.contains('active')) closeDetail();
+  }
+
+  function bind(){
+    document.addEventListener('click', event => {
+      const landscape = event.target.closest?.('.nav-item');
+      if (landscape && /^competitive landscape$/i.test(clean(landscape.textContent))) { event.preventDefault(); event.stopImmediatePropagation(); return; }
+      const card = event.target.closest?.('.cp-card,[data-competitor-profile-id]');
+      if (!card || !profileView()?.contains(card)) return;
+      const id = canonicalId({id:card.dataset.profile || card.dataset.competitorProfileId,name:card.querySelector('h3,h4')?.textContent});
+      if (!id) return;
+      event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation();
+      openDetail(id,true);
+    },true);
+    window.addEventListener('popstate',handleRoute);
+    window.addEventListener('hashchange',handleRoute);
+    window.addEventListener('quest:competitor-refresh-loaded',()=>setTimeout(apply,120));
+    window.addEventListener('quest:layout-refresh',()=>setTimeout(apply,120));
+  }
+
+  function apply(){
+    if (applying) return; applying=true;
+    try { injectStyles(); hideLandscape(); applyListPresentation(); handleRoute(); document.documentElement.dataset.competitorFinalRelease=RELEASE; }
+    finally { applying=false; }
+  }
+
+  async function boot(){
+    injectStyles(); hideLandscape(); bind();
+    const baseProfiles = await loadFallbackProfiles();
+    mergeProfiles(baseProfiles);
+    [80,260,700,1600,3000].forEach(delay=>setTimeout(apply,delay));
+    observer = new MutationObserver(() => { if (!applying) setTimeout(apply,80); });
+    observer.observe(document.body,{childList:true,subtree:true});
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();
+})();
