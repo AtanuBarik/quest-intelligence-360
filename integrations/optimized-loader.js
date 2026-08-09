@@ -113,6 +113,7 @@
       await loadScript('integrations/frontend-readability-overrides.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
       await loadScript('integrations/executive-hub-live.js');
+      await loadScript('integrations/executive-refresh-guard.js');
       await loadScript('integrations/knowledge-repository-lite.js');
       await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
