@@ -1,0 +1,7 @@
+{
+  "provider": "ChatGPT via OpenAI Responses API",
+  "model": "gpt-5-chat-latest",
+  "updated_at": null,
+  "summaries": {},
+  "status": "openai_api_key_not_configured"
+}
