@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/update-competitor-profiles-daily.yml'
       - 'scripts/update_competitor_profiles.py'
+      - 'scripts/clean_competitor_refresh.py'
       - 'data/competitor-source-registry.json'
       - '.competitor-refresh-trigger'
 
@@ -34,8 +35,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m py_compile scripts/update_competitor_profiles.py
+          python -m py_compile scripts/update_competitor_profiles.py scripts/clean_competitor_refresh.py
           python scripts/update_competitor_profiles.py
+          python scripts/clean_competitor_refresh.py
 
       - name: Validate generated competitor refresh data
         shell: bash
