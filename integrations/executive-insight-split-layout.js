@@ -5,6 +5,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   let timer = 0;
+  let observer = null;
 
   function homeView() {
     return $('.view[data-view="home"],.view[data-view="executive"],.view[data-view="hub"],.view[data-view="dashboard"],.view[data-view="my-hub"]');
@@ -50,6 +51,20 @@
         grid-column:auto!important;
         grid-row:auto!important;
       }
+      #qExecutiveInsightPairFinal .qef-sub,
+      #qExecutiveInsightPairFinal .qef-note,
+      #qExecutiveInsightPairFinal .qef-social-item,
+      #qExecutiveInsightPairFinal .qef-social-item div,
+      #qExecutiveInsightPairFinal .qef-voice-insights,
+      #qExecutiveInsightPairFinal .qef-voice-insights li,
+      #qExecutiveInsightPairFinal .qef-voice-insights strong,
+      #qExecutiveInsightPairFinal .qeis-donut-key,
+      #qExecutiveInsightPairFinal .qeis-donut-key span,
+      #qExecutiveInsightPairFinal .qeis-donut-key strong,
+      #qExecutiveInsightPairFinal .qeis-donut-center span{
+        font-size:10px!important;
+        line-height:1.5!important;
+      }
       .qeis-voice .qeis-voice-body{
         display:grid!important;
         grid-template-columns:minmax(0,1.04fr) minmax(250px,.96fr)!important;
@@ -84,7 +99,7 @@
       .qeis-social .qef-social-item{position:relative!important;margin:0!important;padding:8px 4px 8px 18px!important;border:0!important;border-bottom:1px solid #edf1ed!important;border-radius:0!important;background:transparent!important;color:#505a54!important;font-size:10px!important;line-height:1.5!important}
       .qeis-social .qef-social-item:last-child{border-bottom:0!important}
       .qeis-social .qef-social-item::before{content:'';position:absolute;left:2px;top:14px;width:7px;height:7px;border-radius:50%;background:#c6d52f;box-shadow:0 0 0 3px rgba(198,213,47,.16)}
-      .qeis-social>.qef-note{grid-column:2!important;grid-row:3!important;margin:8px 0 0 14px!important;padding-top:8px!important;border-top:1px solid #edf1ed!important;font-size:10px!important;line-height:1.45!important}
+      .qeis-social>.qef-note{grid-column:2!important;grid-row:3!important;margin:8px 0 0 14px!important;padding-top:8px!important;border-top:1px solid #edf1ed!important;font-size:10px!important;line-height:1.5!important}
       .qeis-social .qef-head h3,.qeis-voice h3{font-size:17px!important}
 
       .qeis-donut-shell{display:grid!important;grid-template-columns:190px minmax(0,1fr)!important;gap:12px!important;align-items:center!important;min-height:250px!important;padding:4px 0!important}
@@ -92,8 +107,8 @@
       .qeis-donut::after{content:'';position:absolute;inset:43px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px #edf1ed}
       .qeis-donut-center{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#034c1f;pointer-events:none}
       .qeis-donut-center strong{font-size:25px!important;line-height:1!important}.qeis-donut-center span{font-size:10px!important;margin-top:5px!important;color:#657069!important}
-      .qeis-donut-legend{display:grid!important;gap:7px!important;min-width:0!important}
-      .qeis-donut-key{display:grid!important;grid-template-columns:10px minmax(0,1fr) auto!important;gap:7px!important;align-items:center!important;font-size:10px!important;line-height:1.35!important;color:#4f5952!important}
+      .qeis-donut-legend{display:grid!important;gap:8px!important;min-width:0!important}
+      .qeis-donut-key{display:grid!important;grid-template-columns:10px minmax(0,1fr) auto!important;gap:7px!important;align-items:center!important;font-size:10px!important;line-height:1.45!important;color:#4f5952!important}
       .qeis-donut-key i{width:9px!important;height:9px!important;border-radius:50%!important}.qeis-donut-key span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.qeis-donut-key strong{color:#034c1f!important;font-size:10px!important}
 
       @media(max-width:1120px){
@@ -114,30 +129,62 @@
     `;
   }
 
+  function chartInstance(canvas) {
+    if (!canvas || !window.Chart?.instances) return null;
+    return Object.values(window.Chart.instances).find(instance => instance?.canvas === canvas) || null;
+  }
+
+  function upgradeChartTypography(panel) {
+    const canvas = $('canvas', panel);
+    const chart = chartInstance(canvas);
+    if (!chart || chart.__qeisReadable) return;
+    const truncate = (ctx, text, maxWidth) => {
+      let value = String(text ?? '');
+      if (ctx.measureText(value).width <= maxWidth) return value;
+      while (value.length > 2 && ctx.measureText(value + '…').width > maxWidth) value = value.slice(0, -1);
+      return value + '…';
+    };
+    chart._grid = function(ctx, area, max = 100, min = 0) {
+      ctx.save();ctx.strokeStyle=window.Chart.defaults.borderColor;ctx.fillStyle=window.Chart.defaults.color;ctx.font='10px Arial';ctx.lineWidth=1;
+      for(let i=0;i<=4;i++){
+        const y=area.y+area.h-(area.h*i/4);ctx.beginPath();ctx.moveTo(area.x,y);ctx.lineTo(area.x+area.w,y);ctx.stroke();
+        const value=min+(max-min)*i/4;ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(Math.round(value),area.x-7,y);
+      }
+      ctx.restore();
+    };
+    chart._labels = function(ctx, area, labels) {
+      ctx.save();ctx.fillStyle=window.Chart.defaults.color;ctx.font='10px Arial';ctx.textAlign='center';ctx.textBaseline='top';
+      labels.forEach((label,index)=>{const x=area.x+area.w*(index+.5)/labels.length;ctx.fillText(truncate(ctx,label,Math.max(48,area.w/labels.length-6)),x,area.y+area.h+8);});ctx.restore();
+    };
+    chart.__qeisReadable = true;
+    chart.draw();
+  }
+
   function prepareVoice(panel) {
     panel.classList.add('qeis-tile', 'qeis-voice');
-    if ($('.qeis-voice-body', panel)) return;
-    const canvas = $('canvas', panel);
-    const insights = $('.qef-voice-insights', panel);
-    if (!canvas || !insights) return;
-    const chartNode = topChild(panel, canvas) || canvas;
-    const body = document.createElement('div');
-    body.className = 'qeis-voice-body';
-    const chartColumn = document.createElement('div');
-    chartColumn.className = 'qeis-chart-column';
-    const insightColumn = document.createElement('div');
-    insightColumn.className = 'qeis-insight-column';
-    chartColumn.appendChild(chartNode);
-    insightColumn.appendChild(insights);
-    body.append(chartColumn, insightColumn);
-    panel.appendChild(body);
+    if (!$('.qeis-voice-body', panel)) {
+      const canvas = $('canvas', panel);
+      const insights = $('.qef-voice-insights', panel);
+      if (!canvas || !insights) return;
+      const chartNode = topChild(panel, canvas) || canvas;
+      const body = document.createElement('div');
+      body.className = 'qeis-voice-body';
+      const chartColumn = document.createElement('div');
+      chartColumn.className = 'qeis-chart-column';
+      const insightColumn = document.createElement('div');
+      insightColumn.className = 'qeis-insight-column';
+      chartColumn.appendChild(chartNode);
+      insightColumn.appendChild(insights);
+      body.append(chartColumn, insightColumn);
+      panel.appendChild(body);
+    }
+    upgradeChartTypography(panel);
   }
 
   function donutFromActivity(activity) {
     if (!activity || $('.qeis-donut-shell', activity)) return;
     const rows = $$('.qef-bar-row', activity).map(row => {
-      const parts = row.querySelectorAll('span,strong');
-      const name = (parts[0]?.textContent || '').trim();
+      const name = (row.querySelector('span')?.textContent || '').trim();
       const value = Number((row.querySelector('strong')?.textContent || '0').replace(/[^0-9.]/g, '')) || 0;
       return { name, value };
     }).filter(row => row.name);
@@ -152,12 +199,29 @@
       return `${colors[index % colors.length]} ${start.toFixed(2)}% ${cursor.toFixed(2)}%`;
     });
     if (cursor < 100) segments.push(`#edf1ed ${cursor.toFixed(2)}% 100%`);
-    activity.innerHTML = `<div class="qeis-donut-shell"><div class="qeis-donut" role="img" aria-label="Distribution of ${total} current public activity records" style="background:conic-gradient(${segments.join(',')})"><div class="qeis-donut-center"><strong>${total}</strong><span>public updates</span></div></div><div class="qeis-donut-legend">${rows.map((row,index)=>`<div class="qeis-donut-key"><i style="background:${colors[index % colors.length]}"></i><span title="${row.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}">${row.name}</span><strong>${row.value}</strong></div>`).join('')}</div></div>`;
+    const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    activity.innerHTML = `<div class="qeis-donut-shell"><div class="qeis-donut" role="img" aria-label="Distribution of ${total} current public activity records" style="background:conic-gradient(${segments.join(',')})"><div class="qeis-donut-center"><strong>${total}</strong><span>public updates</span></div></div><div class="qeis-donut-legend">${rows.map((row,index)=>`<div class="qeis-donut-key"><i style="background:${colors[index % colors.length]}"></i><span title="${escape(row.name)}">${escape(row.name)}</span><strong>${row.value}</strong></div>`).join('')}</div></div>`;
   }
 
   function prepareSocial(panel) {
     panel.classList.add('qeis-tile', 'qeis-social');
     donutFromActivity($('.qef-activity', panel));
+  }
+
+  function needsRepair(view) {
+    const pair = $('#qExecutiveInsightPairFinal', view);
+    const voice = findPanel(view, /VOICE OF EXPERTS|Top unmet needs/i);
+    const social = findPanel(view, /PUBLIC & SOCIAL ACTIVITY|Company activity pulse|NEWS & SOCIAL|Market pulse/i);
+    if (!pair || !voice || !social) return false;
+    return voice.parentElement !== pair || social.parentElement !== pair || Boolean($('.qef-bar-row', social)) || !$('.qeis-voice-body', voice);
+  }
+
+  function watch(view) {
+    observer?.disconnect();
+    observer = new MutationObserver(() => {
+      if (needsRepair(view)) schedule(100);
+    });
+    observer.observe(view, { childList:true, subtree:true });
   }
 
   function apply() {
@@ -168,12 +232,14 @@
     const voice = findPanel(view, /VOICE OF EXPERTS|Top unmet needs/i);
     const social = findPanel(view, /PUBLIC & SOCIAL ACTIVITY|Company activity pulse|NEWS & SOCIAL|Market pulse/i);
     if (!pair || !voice || !social) return;
+    observer?.disconnect();
     pair.classList.add('qeis-pair');
     if (voice.parentElement !== pair) pair.appendChild(voice);
     if (social.parentElement !== pair) pair.appendChild(social);
     prepareVoice(voice);
     prepareSocial(social);
     document.documentElement.dataset.executiveInsightLayout = RELEASE;
+    watch(view);
     requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
   }
 
