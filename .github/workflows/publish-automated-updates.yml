@@ -48,6 +48,7 @@ jobs:
           node --check integrations/executive-status-seed.js
           node --check integrations/executive-hub-final.js
           node --check integrations/executive-insight-split-layout.js
+          node --check integrations/executive-typography-benchmark-cleanup.js
 
           python - <<'PY'
           import base64
@@ -55,7 +56,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260809j'
+          release = '20260809k'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -94,6 +95,7 @@ jobs:
           test -f _site/integrations/executive-status-seed.js
           test -f _site/integrations/executive-hub-final.js
           test -f _site/integrations/executive-insight-split-layout.js
+          test -f _site/integrations/executive-typography-benchmark-cleanup.js
           test -f _site/integrations/knowledge-repository-lite.js
           test -f _site/integrations/knowledge-legacy-guard.js
           test -f _site/integrations/competitor-daily-refresh.js
