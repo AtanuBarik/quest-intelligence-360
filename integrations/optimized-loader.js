@@ -10,7 +10,7 @@
     competitor: ['integrations/competitor-intelligence-profiles/loader.js','integrations/competitor-daily-refresh.js'],
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
     insights: ['integrations/enterprise-insights-engine/loader.js'],
-    library: ['integrations/no-cost-live-operations.js'],
+    library: ['integrations/knowledge-repository-lite.js'],
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js','integrations/approved-insights-panel.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js']
   };
