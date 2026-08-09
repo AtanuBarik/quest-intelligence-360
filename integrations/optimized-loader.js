@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809g';
+  const RELEASE = '20260809h';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -81,7 +81,7 @@
     if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
     if (/knowledge repository|research repository/.test(text)) return 'library';
     if (/microsoft|sharepoint|local data|local repository|local file/.test(text)) return 'microsoft';
-    if (/executive|project tracker|pmr project|methodology|audit|survey analytics|voice of experts/.test(text)) return 'governance';
+    if (/project tracker|pmr project|methodology|audit|survey analytics|voice of experts/.test(text)) return 'governance';
     return '';
   }
 
@@ -112,11 +112,8 @@
       await loadScript('integrations/frontend-performance-layout.js');
       await loadScript('integrations/frontend-readability-overrides.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
-      await loadScript('integrations/executive-hub-live.js');
-      await loadScript('integrations/executive-refresh-guard.js');
-      await loadScript('integrations/executive-hub-v2.js');
-      await loadScript('integrations/executive-hub-v3.js');
-      await loadScript('integrations/executive-hub-v4-layout.js');
+      await loadScript('integrations/executive-status-seed.js');
+      await loadScript('integrations/executive-hub-final.js');
       await loadScript('integrations/knowledge-repository-lite.js');
       await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
