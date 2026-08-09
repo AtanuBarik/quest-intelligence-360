@@ -112,6 +112,7 @@
       await loadScript('integrations/frontend-performance-layout.js');
       await loadScript('integrations/frontend-readability-overrides.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
+      await loadScript('integrations/executive-status-seed.js');
       await loadScript('integrations/executive-hub-final.js');
       await loadScript('integrations/knowledge-repository-lite.js');
       await loadScript('integrations/knowledge-legacy-guard.js');
