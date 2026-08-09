@@ -1,9 +1,10 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809u';
+  const RELEASE = '20260809v';
   const loaded = new Map();
   const groupLoads = new Map();
+  let retireSweepQueued = false;
 
   const GROUPS = {
     alerts: ['integrations/laboratory-news-monitor.js','integrations/laboratory-news-sync.js','integrations/alerts-resilience-fix.js','integrations/alerts-signals-final.js'],
@@ -29,18 +30,50 @@
     if (done) window.setTimeout(() => node.remove(), 220);
   }
 
+  function normalizedText(value = '') {
+    return String(value).replace(/\s+/g, ' ').trim();
+  }
+
   function removeRetiredNavigation() {
-    const navs = Array.from(document.querySelectorAll('.nav-item'));
-    const profileNav = navs.find(node => /^competitor profiles$/i.test(String(node.textContent || '').trim()));
-    const landscapeNav = navs.find(node => /^competitive landscape$/i.test(String(node.textContent || '').trim()));
-    const profileView = profileNav?.dataset?.view || '';
-    const landscapeView = landscapeNav?.dataset?.view || '';
-    if (landscapeNav) landscapeNav.remove();
-    if (landscapeView && landscapeView !== profileView) {
-      document.querySelectorAll('.view[data-view]').forEach(view => {
-        if (view.dataset.view === landscapeView) view.remove();
-      });
-    }
+    let retiredView = '';
+    Array.from(document.querySelectorAll('.nav-item')).forEach(node => {
+      if (/^competitive landscape$/i.test(normalizedText(node.textContent))) {
+        retiredView = node.dataset?.view || retiredView;
+        node.remove();
+      }
+    });
+
+    Array.from(document.querySelectorAll('.view[data-view]')).forEach(view => {
+      const headingText = Array.from(view.querySelectorAll('h1,h2,h3,[class*="title"]'))
+        .map(node => normalizedText(node.textContent))
+        .join(' | ');
+      if ((retiredView && view.dataset.view === retiredView) || /competitive landscape/i.test(headingText)) {
+        view.remove();
+      }
+    });
+
+    Array.from(document.querySelectorAll('a,button,[aria-label],[title]')).forEach(node => {
+      const label = normalizedText(node.getAttribute('aria-label') || node.getAttribute('title') || node.textContent);
+      if (/^competitive landscape$/i.test(label)) node.remove();
+    });
+  }
+
+  function scheduleRetiredSweep() {
+    if (retireSweepQueued) return;
+    retireSweepQueued = true;
+    window.requestAnimationFrame(() => {
+      retireSweepQueued = false;
+      removeRetiredNavigation();
+    });
+  }
+
+  function watchForRetiredLandscape() {
+    if (!document.body || document.body.dataset.qLandscapeGuard === 'true') return;
+    document.body.dataset.qLandscapeGuard = 'true';
+    const observer = new MutationObserver(mutations => {
+      if (mutations.some(mutation => mutation.addedNodes && mutation.addedNodes.length)) scheduleRetiredSweep();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 
   function loadScript(path) {
@@ -167,6 +200,7 @@
 
   async function boot() {
     removeRetiredNavigation();
+    watchForRetiredLandscape();
     bindNavigation();
     await bootCore();
     removeRetiredNavigation();
