@@ -1,0 +1,80 @@
+name: Summarize laboratory news with ChatGPT
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Sync laboratory news data
+    types: [completed]
+  schedule:
+    # Safety run after the six-hour source mirror in case workflow_run is delayed.
+    - cron: '45 0,6,12,18 * * *'
+      timezone: 'Asia/Kolkata'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/summarize_laboratory_news_openai.py'
+      - '.github/workflows/summarize-laboratory-news-chatgpt.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: summarize-laboratory-news-chatgpt
+  cancel-in-progress: false
+
+jobs:
+  summarize:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_SUMMARY_MODEL: gpt-5-chat-latest
+      OPENAI_SUMMARY_MAX_ITEMS: '120'
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Confirm synchronized news exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s data/laboratory-news.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('data/laboratory-news.json').read_text(encoding='utf-8'))
+          items=data.get('items') or []
+          if not items:
+              raise SystemExit('No laboratory news items available for summarization')
+          print(f'Laboratory news items: {len(items)}')
+          PY
+
+      - name: Generate missing content-aware ChatGPT summaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/summarize_laboratory_news_openai.py
+
+      - name: Commit ChatGPT summary cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-chatgpt-summaries[bot]'
+          git config user.email 'quest-chatgpt-summaries[bot]@users.noreply.github.com'
+          if [ ! -f data/laboratory-openai-summaries.json ]; then
+            echo 'No summary cache was produced.'
+            exit 0
+          fi
+          git add data/laboratory-openai-summaries.json
+          if git diff --cached --quiet; then
+            echo 'ChatGPT summaries are already current.'
+            exit 0
+          fi
+          git commit -m 'Refresh content-aware ChatGPT laboratory summaries'
+          git pull --rebase origin main
+          git push origin HEAD:main

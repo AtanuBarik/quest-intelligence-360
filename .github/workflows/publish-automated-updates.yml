@@ -51,6 +51,8 @@ jobs:
           node --check integrations/executive-typography-benchmark-cleanup.js
           node --check integrations/insights-engine-layout-v3.js
           node --check integrations/insights-engine-evidence-placement-final.js
+          node --check integrations/alerts-signals-final.js
+          python -m py_compile scripts/summarize_laboratory_news_openai.py
 
           python - <<'PY'
           import base64
@@ -58,7 +60,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260809r'
+          release = '20260809s'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -100,6 +102,7 @@ jobs:
           test -f _site/integrations/executive-typography-benchmark-cleanup.js
           test -f _site/integrations/insights-engine-layout-v3.js
           test -f _site/integrations/insights-engine-evidence-placement-final.js
+          test -f _site/integrations/alerts-signals-final.js
           test -f _site/integrations/knowledge-repository-lite.js
           test -f _site/integrations/knowledge-legacy-guard.js
           test -f _site/integrations/competitor-daily-refresh.js

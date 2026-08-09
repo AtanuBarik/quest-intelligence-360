@@ -1,12 +1,12 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809r';
+  const RELEASE = '20260809s';
   const loaded = new Map();
   const groupLoads = new Map();
 
   const GROUPS = {
-    alerts: ['integrations/laboratory-news-monitor.js','integrations/laboratory-news-sync.js','integrations/strategic-analysis-hub.js','integrations/alerts-resilience-fix.js'],
+    alerts: ['integrations/laboratory-news-monitor.js','integrations/laboratory-news-sync.js','integrations/alerts-resilience-fix.js','integrations/alerts-signals-final.js'],
     competitor: ['integrations/competitor-intelligence-profiles/loader.js','integrations/competitor-daily-refresh.js'],
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
     insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-v3.js','integrations/insights-engine-evidence-placement-final.js'],
