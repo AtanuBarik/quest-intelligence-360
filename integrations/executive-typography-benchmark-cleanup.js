@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809k';
+  const RELEASE = '20260809l';
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   let observer = null;
@@ -20,6 +20,11 @@
     }
 
     style.textContent = `
+      /* Permanent Executive Hub readability floor. */
+      .view[data-view="home"] :is(p,span,small,label,a,button,li,td,th) {
+        font-size:max(12px,1em)!important;
+      }
+
       .view[data-view="home"] .qef-kicker,
       .view[data-view="home"] .qef-sub,
       .view[data-view="home"] .qef-chip,
@@ -44,25 +49,19 @@
       .view[data-view="home"] .flo-status-line,
       .view[data-view="home"] .flo-status-card small,
       .view[data-view="home"] .kpi-card span,
-      .view[data-view="home"] .kpi-card small,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qef-sub,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qef-social-item,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qef-social-item div,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qef-voice-insights li,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qeis-donut-key,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qeis-donut-key span,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qeis-donut-key strong,
-      .view[data-view="home"] #qExecutiveInsightPairFinal .qeis-donut-center span {
+      .view[data-view="home"] .kpi-card small {
         font-size:12px!important;
         line-height:1.5!important;
       }
 
+      /* Text that was 12px is promoted to 14px. */
       .view[data-view="home"] .qef-signal strong,
       .view[data-view="home"] .qef-project strong,
       .view[data-view="home"] .qef-voice-insights h4,
       .view[data-view="home"] .qeis-social>.qef-social-list::before,
       .view[data-view="home"] .flo-status-card strong,
-      .view[data-view="home"] .qef-alert-item strong {
+      .view[data-view="home"] .qef-alert-item strong,
+      .view[data-view="home"] .qef-value {
         font-size:14px!important;
         line-height:1.4!important;
       }
@@ -71,6 +70,7 @@
         font-size:18px!important;
       }
 
+      /* Clean benchmark: values stay inside bubbles; company identification stays in the legend below. */
       .view[data-view="home"] .qef-bubble-svg g>line,
       .view[data-view="home"] .qef-bubble-svg .qef-label,
       .view[data-view="home"] .qef-bubble-svg .qef-bubble-sub {
@@ -87,10 +87,11 @@
         font-size:14px!important;
       }
 
-      /* Keep legends and footnotes at their existing compact size. */
+      /* User-requested exceptions: legends and footnotes remain compact. */
       .view[data-view="home"] .qef-legend,
       .view[data-view="home"] .qef-legend *,
       .view[data-view="home"] .qef-note,
+      .view[data-view="home"] .qef-note *,
       .view[data-view="home"] .qef-company-card span,
       .view[data-view="home"] .qef-company-card strong {
         font-size:10px!important;
