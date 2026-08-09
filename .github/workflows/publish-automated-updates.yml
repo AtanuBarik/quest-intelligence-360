@@ -51,7 +51,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260809e'
+          release = '20260809f'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -90,6 +90,7 @@ jobs:
           test -f _site/integrations/executive-hub-live.js
           test -f _site/integrations/executive-refresh-guard.js
           test -f _site/integrations/executive-hub-v2.js
+          test -f _site/integrations/executive-hub-v3.js
           test -f _site/integrations/knowledge-repository-lite.js
           test -f _site/integrations/knowledge-legacy-guard.js
           test -f _site/integrations/competitor-daily-refresh.js
