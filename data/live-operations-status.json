@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T04:39:11.955867+00:00",
+  "generated_at": "2026-08-09T04:52:27.378056+00:00",
   "overall_status": "healthy",
   "errors": [],
   "sources": {
@@ -35,11 +35,9 @@
       "capabilities": [
         "email_article_summary",
         "direct_publisher_page_read",
-        "interactions_api",
+        "generate_content_search_fallback",
         "strategic_repository_chat",
         "strategic_filtered_summary",
-        "google_search_deep_read",
-        "url_context_deep_read",
         "model_and_tool_fallbacks"
       ]
     }
