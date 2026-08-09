@@ -81,7 +81,7 @@
     if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
     if (/knowledge repository|research repository/.test(text)) return 'library';
     if (/microsoft|sharepoint|local data|local repository|local file/.test(text)) return 'microsoft';
-    if (/executive|project tracker|pmr project|methodology|audit|survey analytics|voice of experts/.test(text)) return 'governance';
+    if (/project tracker|pmr project|methodology|audit|survey analytics|voice of experts/.test(text)) return 'governance';
     return '';
   }
 
