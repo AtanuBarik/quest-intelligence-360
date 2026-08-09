@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260809h';
+  const RELEASE = '20260809i';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -114,6 +114,7 @@
       await loadScript('integrations/local-data-fetch-bridge.js');
       await loadScript('integrations/executive-status-seed.js');
       await loadScript('integrations/executive-hub-final.js');
+      await loadScript('integrations/executive-insight-split-layout.js');
       await loadScript('integrations/knowledge-repository-lite.js');
       await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
