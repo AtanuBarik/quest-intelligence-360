@@ -8,6 +8,7 @@
   const MAX_LIST = 50;
   const MAX_SEARCH_RESULTS = 25;
   const MAX_INDEXED_TEXT = 5_000_000;
+  const MAX_SEARCH_TEXT = 1_000_000;
   const MAX_FILE_BYTES = 75 * 1024 * 1024;
   const $ = (selector, root = document) => root.querySelector(selector);
   const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -89,14 +90,7 @@
         const cursor = request.result;
         if (!cursor || results.length >= limit) return resolve(results);
         const value = cursor.value || {};
-        results.push({
-          id:value.id,
-          name:value.name,
-          project:value.project,
-          type:value.type,
-          size:value.size,
-          uploadedAt:value.uploadedAt,
-        });
+        results.push({ id:value.id, name:value.name, project:value.project, type:value.type, size:value.size, uploadedAt:value.uploadedAt });
         cursor.continue();
       };
     }));
@@ -127,8 +121,7 @@
     if (['xlsx','xls'].includes(extension)) {
       await ensureScript('https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js', 'XLSX');
       const workbook = XLSX.read(await file.arrayBuffer(), { type:'array' });
-      const text = workbook.SheetNames.map(name => `## ${name}\n${XLSX.utils.sheet_to_csv(workbook.Sheets[name])}`).join('\n\n');
-      return text.slice(0, MAX_INDEXED_TEXT);
+      return workbook.SheetNames.map(name => `## ${name}\n${XLSX.utils.sheet_to_csv(workbook.Sheets[name])}`).join('\n\n').slice(0, MAX_INDEXED_TEXT);
     }
     if (extension === 'docx') {
       await ensureScript('https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js', 'mammoth');
@@ -228,7 +221,7 @@
       return;
     }
     root.innerHTML = '';
-    status.textContent = 'Searching local evidence without blocking page navigation…';
+    status.textContent = 'Searching local evidence…';
     const results = [];
     let scanned = 0;
     try {
@@ -236,19 +229,26 @@
       await new Promise((resolve, reject) => {
         const request = db.transaction(STORE, 'readonly').objectStore(STORE).openCursor();
         request.onerror = () => reject(request.error);
-        request.onsuccess = async () => {
+        request.onsuccess = () => {
           const cursor = request.result;
           if (!cursor) return resolve();
           const doc = cursor.value || {};
-          const searchable = `${doc.name || ''}\n${doc.project || ''}\n${doc.type || ''}\n${String(doc.text || '').slice(0, MAX_INDEXED_TEXT)}`.toLowerCase();
+          const metadata = `${doc.name || ''}\n${doc.project || ''}\n${doc.type || ''}`.toLowerCase();
+          const searchable = String(doc.text || '').slice(0, MAX_SEARCH_TEXT).toLowerCase();
           let score = 0;
-          terms.forEach(term => {
+          for (const term of terms) {
+            if (metadata.includes(term)) score += 8;
             let position = 0;
-            while ((position = searchable.indexOf(term, position)) >= 0 && score < 1000) { score += 1; position += term.length; }
-          });
+            let occurrences = 0;
+            while (occurrences < 50 && (position = searchable.indexOf(term, position)) >= 0) {
+              score += 1;
+              occurrences += 1;
+              position += term.length;
+            }
+          }
           if (score) results.push({ doc, score });
           scanned += 1;
-          if (scanned % 5 === 0) await yieldUi();
+          if (scanned % 10 === 0) status.textContent = `Searching local evidence… ${scanned} files checked`;
           cursor.continue();
         };
       });
@@ -274,14 +274,13 @@
       if (bar) bar.style.width = '0%';
       try {
         const text = await extractFile(file, value => { if (bar) bar.style.width = `${value}%`; });
-        const now = new Date().toISOString();
         await putDoc({
           id: `${Date.now()}-${index}-${Math.random().toString(36).slice(2,10)}`,
           name:file.name,
           project:$('#qkrProject')?.value || 'Unassigned',
           type:$('#qkrType')?.value || 'Other',
           size:file.size,
-          uploadedAt:now,
+          uploadedAt:new Date().toISOString(),
           text,
           textTruncated:text.length >= MAX_INDEXED_TEXT,
         });
