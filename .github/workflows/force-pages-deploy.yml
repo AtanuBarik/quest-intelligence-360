@@ -48,6 +48,7 @@ jobs:
           set -euo pipefail
           node --check integrations/frontend-critical-nav-survey.js
           node --check integrations/survey-analytics-dashboard-final.js
+          node --check integrations/survey-analytics-failsafe.js
           node --check integrations/optimized-loader.js
           node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/voice-experts-dashboard-final.js
@@ -122,6 +123,7 @@ jobs:
           scripts = ''.join([
               f'<script src="integrations/frontend-critical-nav-survey.js?v={release}"></script>',
               f'<script src="integrations/survey-analytics-dashboard-final.js?v={release}"></script>',
+              f'<script src="integrations/survey-analytics-failsafe.js?v={release}"></script>',
               f'<script src="integrations/optimized-loader.js?v={release}"></script>',
           ])
           if '</body>' not in html:
@@ -132,7 +134,7 @@ jobs:
               raise SystemExit('Survey placeholder missing after materialization.')
           if html.find(evidence) < html.find(tracker):
               raise SystemExit('Evidence Library is not after Project Tracker.')
-          for path in ['frontend-critical-nav-survey.js','survey-analytics-dashboard-final.js','optimized-loader.js']:
+          for path in ['frontend-critical-nav-survey.js','survey-analytics-dashboard-final.js','survey-analytics-failsafe.js','optimized-loader.js']:
               if path not in html:
                   raise SystemExit(f'Missing critical script {path}.')
 
@@ -148,9 +150,11 @@ jobs:
           test -f _site/index.html
           test -f _site/integrations/frontend-critical-nav-survey.js
           test -f _site/integrations/survey-analytics-dashboard-final.js
+          test -f _site/integrations/survey-analytics-failsafe.js
           test -f _site/integrations/optimized-loader.js
           test -f _site/data/survey-analytics-demo.json
           grep -q 'Loading multi-project Survey Analytics' _site/index.html
+          grep -q 'survey-analytics-failsafe.js?v=20260810s' _site/index.html
           if grep -qi 'Competitive Landscape' _site/index.html; then exit 1; fi
 
       - name: Keep gh-pages branch synchronized
