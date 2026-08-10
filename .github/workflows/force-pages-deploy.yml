@@ -76,6 +76,10 @@ jobs:
             echo 'Legacy Survey Analytics route alias survived build.' >&2
             exit 1
           fi
+          if grep -Eiq 'Competitive Landscape|data-view=["'"']landscape["'"']|data-view-jump=["'"']landscape["'"']|positioningBubble|capabilityRadar' _site/index.html; then
+            echo 'Competitive Landscape residue survived build.' >&2
+            exit 1
+          fi
 
       - name: Keep gh-pages synchronized
         shell: bash
