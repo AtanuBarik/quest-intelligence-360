@@ -1,9 +1,10 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810h';
+  const RELEASE = '20260810i';
   const SCRIPTS = [
     ['integrations/social-perception-v2.js', 'socialPerceptionV2Loader'],
+    ['integrations/social-perception-legacy-visuals-v2.js', 'socialPerceptionLegacyVisualsLoader'],
     ['integrations/strategic-analysis-final-fixes.js', 'strategicAnalysisFinalFixLoader'],
     ['integrations/strategic-analysis-v2.js', 'strategicAnalysisV2Loader']
   ];
