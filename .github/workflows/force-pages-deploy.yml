@@ -1,0 +1,122 @@
+name: Force Quest Pages Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - index.html
+      - chunks/**
+      - integrations/**
+      - data/**
+      - assets/**
+      - .pages-trigger
+      - .github/workflows/force-pages-deploy.yml
+      - .github/workflows/publish-automated-updates.yml
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: quest-pages-direct-deploy
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Assemble deployable site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+          cp index.html _site/index.html
+          cp -R chunks _site/chunks
+          cp -R integrations _site/integrations
+          cp -R data _site/data
+          if [ -d assets ]; then cp -R assets _site/assets; fi
+          touch _site/.nojekyll
+
+          grep -q "20260810r" _site/index.html
+          test -f _site/chunks/chunk-00.txt
+          test -f _site/chunks/chunk-06.txt
+          test -f _site/integrations/frontend-critical-nav-survey.js
+          test -f _site/integrations/survey-analytics-dashboard-final.js
+          test -f _site/integrations/optimized-loader.js
+          test -f _site/data/survey-analytics-demo.json
+
+      - name: Keep gh-pages branch synchronized
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-pages[bot]'
+          git config user.email 'quest-pages[bot]@users.noreply.github.com'
+          git fetch origin gh-pages:gh-pages
+          rm -rf /tmp/quest-pages
+          git worktree add /tmp/quest-pages gh-pages
+          find /tmp/quest-pages -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -R "$GITHUB_WORKSPACE/_site/." /tmp/quest-pages/
+          cd /tmp/quest-pages
+          git add -A
+          if git diff --cached --quiet; then
+            git commit --allow-empty -m "Redeploy Quest Pages release 20260810r"
+          else
+            git commit -m "Publish Quest Pages release 20260810r"
+          fi
+          git push origin gh-pages
+
+      - name: Request legacy Pages build fallback
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      pages: write
+      id-token: write
+      actions: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy artifact directly to GitHub Pages
+        id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Report deployment mode
+        shell: bash
+        run: |
+          if [ "${{ steps.deployment.outcome }}" = "success" ]; then
+            echo "Direct GitHub Pages artifact deployment succeeded."
+          else
+            echo "Direct artifact deployment was unavailable; the legacy Pages build fallback was already requested."
+          fi
