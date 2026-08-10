@@ -1,71 +1,57 @@
 (() => {
   'use strict';
-  const RELEASE = '20260810q';
-  let queued = false;
+  const RELEASE='20260810s';
+  let queued=false;
+  const clean=v=>String(v||'').replace(/\s+/g,' ').trim();
 
-  const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
-
-  function fixNavigation() {
-    Array.from(document.querySelectorAll('.nav-item')).forEach(node => {
-      if (/^competitive landscape$/i.test(clean(node.textContent))) node.remove();
-    });
-    Array.from(document.querySelectorAll('.view[data-view]')).forEach(view => {
-      const heading = Array.from(view.querySelectorAll('h1,h2,h3,[class*="title"]')).map(node => clean(node.textContent)).join(' | ');
-      if (view.dataset.view === 'landscape' || /competitive landscape/i.test(heading)) view.remove();
-    });
-    const items = Array.from(document.querySelectorAll('.nav-item'));
-    const tracker = items.find(node => /^project tracker$/i.test(clean(node.textContent)));
-    const evidence = items.find(node => /^evidence library$/i.test(clean(node.textContent)));
-    if (tracker && evidence && tracker.parentElement === evidence.parentElement && tracker.nextElementSibling !== evidence) {
-      tracker.insertAdjacentElement('afterend', evidence);
-    }
+  function fixNavigation(){
+    document.querySelectorAll('.nav-item').forEach(n=>{if(/^competitive landscape$/i.test(clean(n.textContent)))n.remove()});
+    document.querySelectorAll('.view[data-view]').forEach(v=>{const h=clean(v.querySelector('h1,h2,h3,[class*="title"]')?.textContent);if(v.dataset.view==='landscape'||/competitive landscape/i.test(h))v.remove()});
+    const items=[...document.querySelectorAll('.nav-item')];
+    const tracker=items.find(n=>/^project tracker$/i.test(clean(n.textContent)));
+    const evidence=items.find(n=>/^evidence library$/i.test(clean(n.textContent)));
+    if(tracker&&evidence&&tracker.parentElement===evidence.parentElement&&tracker.nextElementSibling!==evidence)tracker.insertAdjacentElement('afterend',evidence);
   }
 
-  function ensureSurveyRenderer() {
-    const survey = document.querySelector('.view[data-view="survey"]');
-    if (!survey || survey.dataset.surveyFinal === 'true') return;
-    const hasScript = Array.from(document.scripts).some(script => (script.src || '').includes('survey-analytics-dashboard-final.js'));
-    if (!hasScript) {
-      const script = document.createElement('script');
-      script.src = new URL(`integrations/survey-analytics-dashboard-final.js?v=${RELEASE}`, document.baseURI).href;
-      script.async = false;
-      script.dataset.qCriticalSurvey = 'true';
-      document.body.appendChild(script);
-    }
-    window.setTimeout(() => {
-      const current = document.querySelector('.view[data-view="survey"]');
-      if (current && current.dataset.surveyFinal !== 'true' && !current.querySelector('[data-q-survey-load-error]')) {
-        current.innerHTML = '<div data-q-survey-load-error style="margin:24px;padding:18px;border:1px solid #d8e4d7;border-left:4px solid #c78800;border-radius:12px;background:#fff;color:#3f5046;font:600 14px/1.5 Arial,sans-serif">Survey Analytics is loading its current data module. If this message remains visible, refresh once to retrieve the latest release.</div>';
-      }
-    }, 2500);
+  function surveyIsSelected(){
+    return [...document.querySelectorAll('.nav-item.active,[aria-current="page"]')].some(n=>n.dataset?.view==='survey'||/^survey analytics$/i.test(clean(n.textContent)));
   }
 
-  function apply() {
-    queued = false;
-    fixNavigation();
-    ensureSurveyRenderer();
-    document.documentElement.dataset.criticalFrontendRelease = RELEASE;
+  function activateSurvey(){
+    const v=document.querySelector('.view[data-view="survey"]');
+    if(!v)return;
+    document.querySelectorAll('.view[data-view]').forEach(x=>x.classList.toggle('active',x===v));
+    v.style.removeProperty('display');
+    v.style.removeProperty('visibility');
+    v.removeAttribute('hidden');
+    document.documentElement.dataset.surveyActivationRelease=RELEASE;
   }
 
-  function schedule() {
-    if (queued) return;
-    queued = true;
-    (window.requestAnimationFrame || window.setTimeout)(apply);
+  function loadScript(path,attr){
+    if([...document.scripts].some(s=>(s.src||'').includes(path)))return;
+    const s=document.createElement('script');s.src=new URL(`${path}?v=${RELEASE}`,document.baseURI).href;s.async=false;if(attr)s.dataset[attr]='true';document.body.appendChild(s);
   }
 
-  function boot() {
+  function ensureSurvey(){
+    const v=document.querySelector('.view[data-view="survey"]');
+    if(!v)return;
+    if(v.dataset.surveyFinal!=='true')loadScript('integrations/survey-analytics-dashboard-final.js','qCriticalSurvey');
+    [700,1500,2800].forEach(t=>setTimeout(()=>{
+      const current=document.querySelector('.view[data-view="survey"]');
+      if(surveyIsSelected())activateSurvey();
+      if(current&&current.dataset.surveyFinal!=='true'&&current.dataset.surveyFailsafe!=='true')loadScript('integrations/survey-analytics-failsafe.js','qSurveyFailsafe');
+    },t));
+  }
+
+  function apply(){queued=false;fixNavigation();ensureSurvey();if(surveyIsSelected())activateSurvey();document.documentElement.dataset.criticalFrontendRelease=RELEASE;}
+  function schedule(delay=0){if(delay){setTimeout(apply,delay);return}if(queued)return;queued=true;(window.requestAnimationFrame||setTimeout)(apply)}
+  function boot(){
     apply();
-    const observer = new MutationObserver(mutations => {
-      if (mutations.some(m => m.addedNodes && m.addedNodes.length)) schedule();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-    document.addEventListener('click', event => {
-      if (event.target.closest('.nav-item')) window.setTimeout(apply, 0);
-    }, true);
-    window.addEventListener('hashchange', () => window.setTimeout(apply, 0));
-    [250, 800, 1800].forEach(delay => window.setTimeout(apply, delay));
+    document.addEventListener('click',e=>{const n=e.target.closest('.nav-item');if(!n)return;fixNavigation();if(n.dataset.view==='survey'||/^survey analytics$/i.test(clean(n.textContent)))[0,40,150,500,1200].forEach(schedule);else schedule()},true);
+    window.addEventListener('hashchange',()=>[0,100,400].forEach(schedule));
+    window.addEventListener('quest:layout-refresh',()=>[0,100,400].forEach(schedule));
+    const o=new MutationObserver(m=>{if(m.some(x=>x.addedNodes&&x.addedNodes.length))schedule()});o.observe(document.body,{childList:true,subtree:true});
+    [250,800,1800,3500].forEach(schedule);
   }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
-  else boot();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
