@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810f';
+  const RELEASE = '20260810k';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
@@ -12,7 +12,7 @@
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
     insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-v3.js','integrations/insights-engine-evidence-placement-final.js'],
     library: ['integrations/knowledge-repository-lite.js'],
-    governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js'],
+    governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js','integrations/pmr-repository-dashboard-v2.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js','integrations/approved-insights-panel.js']
   };
 
