@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810c';
+  const RELEASE = '20260810d';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
