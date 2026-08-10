@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T13:35:00Z",
+  "source": "Illustrative PMR insight layer for the Quest Intelligence 360 public prototype",
+  "method_note": "These analysis objects are demo content designed to demonstrate filter-responsive synthesis. They are not verbatim findings from confidential Quest research unless explicitly replaced with approved source evidence.",
+  "projects": {
+    "health-system-experience": {
+      "summary": "Health-system decision makers are likely to evaluate a laboratory partner as an enterprise operating partner rather than a test vendor. The strongest proposition links access, service reliability, analytics and governance to measurable system-level outcomes while allowing for different needs across central leadership, physician networks and ambulatory settings.",
+      "decision_readiness": 88,
+      "evidence_confidence": 86,
+      "opportunity_score": 92,
+      "execution_complexity": 68,
+      "signals": [
+        {"name":"Enterprise value proposition","score":94,"direction":"rising","note":"Enterprise buyers reward propositions that connect diagnostics to access, workflow and measurable outcomes.","tags":["Enterprise value","Health systems"]},
+        {"name":"Physician-network segmentation","score":87,"direction":"rising","note":"Central health-system priorities and physician-network needs may require differentiated messages and service bundles.","tags":["Physician networks","Health systems"]},
+        {"name":"Ambulatory service consistency","score":84,"direction":"rising","note":"Distributed ambulatory growth increases the importance of consistent service levels and visibility.","tags":["Ambulatory strategy"]},
+        {"name":"Governance as a differentiator","score":79,"direction":"stable","note":"Structured governance can turn operational performance into a strategic relationship asset.","tags":["Enterprise value"]}
+      ],
+      "insights": [
+        {"kind":"Finding","title":"Value is assessed at enterprise level","body":"Laboratory value extends beyond price and test menu breadth; decision makers increasingly judge the relationship through access, workflow fit, service reliability and measurable enterprise impact.","implication":"Anchor the proposition in enterprise outcomes and operating metrics rather than unit economics alone.","confidence":91,"impact":94,"urgency":82,"tags":["Enterprise value","Health systems"],"evidence_types":["Transcript","Report","Presentation"],"research_types":["Qualitative IDIs"],"icon":"◎"},
+        {"kind":"Finding","title":"One value proposition will not fit every buyer","body":"System executives, physician networks and ambulatory leaders can prioritize different outcomes, creating a need for modular proof points and role-specific stories.","implication":"Create persona-specific value modules under one enterprise narrative.","confidence":87,"impact":89,"urgency":78,"tags":["Physician networks","Enterprise value"],"evidence_types":["Transcript","Analysis"],"research_types":["Qualitative IDIs"],"icon":"◫"},
+        {"kind":"Opportunity","title":"Own the ambulatory consistency problem","body":"As care shifts across distributed settings, customers may value a partner that can standardize turnaround visibility, service escalation and diagnostic decision support across locations.","implication":"Package ambulatory network management as a measurable enterprise capability.","confidence":82,"impact":91,"urgency":86,"tags":["Ambulatory strategy","Health systems"],"evidence_types":["Transcript","Report"],"research_types":["Qualitative IDIs"],"icon":"↗"},
+        {"kind":"Recommendation","title":"Build an enterprise value scorecard","body":"Translate the value proposition into a small set of customer-facing measures such as access, turnaround consistency, avoidable send-outs, workflow friction and escalation responsiveness.","implication":"Use the scorecard in account planning and executive governance reviews.","confidence":88,"impact":93,"urgency":90,"tags":["Enterprise value","Health systems"],"evidence_types":["Analysis","Presentation","Report"],"research_types":["Qualitative IDIs"],"icon":"✓"},
+        {"kind":"Risk","title":"Fragmented service experience can undermine enterprise messaging","body":"A strong strategic proposition can be weakened when local sites experience inconsistent service, escalation or communication.","implication":"Make local experience variance visible and assign ownership before scaling enterprise claims.","confidence":83,"impact":86,"urgency":88,"tags":["Ambulatory strategy","Health systems"],"evidence_types":["Transcript","Analysis"],"research_types":["Qualitative IDIs"],"icon":"!"}
+      ],
+      "recommendations": [
+        {"priority":"P1","title":"Segment the enterprise value proposition","action":"Create distinct proof modules for enterprise executives, physician networks and ambulatory operators while retaining a common Quest enterprise story.","rationale":"Different stakeholders evaluate value through different operational and strategic lenses.","impact":95,"confidence":89,"horizon":"0–3 months","tags":["Enterprise value","Physician networks"],"evidence_types":["Transcript","Report"]},
+        {"priority":"P1","title":"Make service governance visible","action":"Introduce a standard governance scorecard with trend lines, exceptions, ownership and agreed improvement actions.","rationale":"Governance converts service performance from a hygiene factor into a relationship differentiator.","impact":91,"confidence":86,"horizon":"0–3 months","tags":["Health systems","Enterprise value"],"evidence_types":["Analysis","Presentation"]},
+        {"priority":"P2","title":"Design an ambulatory operating bundle","action":"Bundle service-level visibility, escalation, logistics and workflow support for distributed outpatient settings.","rationale":"Ambulatory growth increases the cost of inconsistency and fragmented support.","impact":88,"confidence":81,"horizon":"3–6 months","tags":["Ambulatory strategy"],"evidence_types":["Transcript","Report"]}
+      ],
+      "risks": [
+        {"title":"Over-generalized enterprise story","level":"High","description":"A single broad message may fail to resonate with physician-network and ambulatory stakeholders.","mitigation":"Use persona-specific proof points and test them in account conversations.","tags":["Physician networks","Enterprise value"]},
+        {"title":"Promise-to-delivery gap","level":"Medium","description":"Enterprise messaging may exceed what local operations consistently deliver.","mitigation":"Tie claims to service metrics and exception governance.","tags":["Ambulatory strategy","Health systems"]}
+      ],
+      "voices": [
+        {"role":"Health-system executive","quote":"Illustrative paraphrase: Show me how the laboratory relationship improves access and operating performance across the system, not only the price of testing.","theme":"Enterprise value","evidence_type":"Transcript"},
+        {"role":"Network leader","quote":"Illustrative paraphrase: What works for the flagship hospital may not solve the day-to-day issues in the physician network.","theme":"Physician networks","evidence_type":"Transcript"},
+        {"role":"Ambulatory operator","quote":"Illustrative paraphrase: Consistency and visibility across sites are as important as the underlying test capability.","theme":"Ambulatory strategy","evidence_type":"Transcript"}
+      ],
+      "next_questions": ["Which enterprise metrics are most credible to CFO, COO and clinical buyers?","Where does experience vary most across hospital, physician-network and ambulatory settings?","Which service capabilities can be standardized nationally versus tailored locally?"]
+    },
+    "digital-customer-journey": {
+      "summary": "The digital journey is likely to be won through workflow simplification rather than feature proliferation. Interoperability, onboarding, role-specific visibility and fewer handoffs should be treated as the foundation; advanced functionality adds value only after the basic journey feels reliable and easy to navigate.",
+      "decision_readiness": 91,
+      "evidence_confidence": 90,
+      "opportunity_score": 94,
+      "execution_complexity": 76,
+      "signals": [
+        {"name":"Workflow integration","score":96,"direction":"rising","note":"Reducing context switching is the clearest cross-segment digital need.","tags":["Workflow integration","Digital journey"]},
+        {"name":"Onboarding simplicity","score":91,"direction":"rising","note":"Implementation friction can shape adoption before users experience advanced features.","tags":["Onboarding","Digital journey"]},
+        {"name":"Interoperability reliability","score":93,"direction":"rising","note":"Reliable data exchange is a prerequisite for trust in digital solutions.","tags":["Interoperability"]},
+        {"name":"Role-specific status visibility","score":84,"direction":"stable","note":"Users need different information at different points in the journey.","tags":["Digital journey","Workflow integration"]}
+      ],
+      "insights": [
+        {"kind":"Finding","title":"Friction concentrates at handoffs","body":"The biggest journey pain points are likely to occur where users move between ordering, implementation, support, results and follow-up rather than within any single screen.","implication":"Prioritize end-to-end handoff reduction before adding net-new features.","confidence":92,"impact":95,"urgency":92,"tags":["Digital journey","Workflow integration"],"evidence_types":["Transcript","Survey data","Analysis"],"research_types":["Qualitative IDIs","Quantitative Survey"],"icon":"⇄"},
+        {"kind":"Finding","title":"Onboarding shapes long-term adoption","body":"Early implementation effort and unclear ownership can create persistent negative perceptions even when the product itself is capable.","implication":"Treat onboarding as a product experience with measurable time-to-value.","confidence":89,"impact":90,"urgency":88,"tags":["Onboarding","Digital journey"],"evidence_types":["Transcript","Survey data"],"research_types":["Qualitative IDIs","Quantitative Survey"],"icon":"→"},
+        {"kind":"Opportunity","title":"Create a single status layer across workflows","body":"A consolidated status and exception layer could reduce calls, manual follow-up and uncertainty without requiring users to abandon their primary workflow.","implication":"Prototype status visibility that can surface in existing systems and a lightweight Quest experience.","confidence":86,"impact":94,"urgency":90,"tags":["Workflow integration","Interoperability"],"evidence_types":["Transcript","Analysis","Presentation"],"research_types":["Qualitative IDIs"],"icon":"◉"},
+        {"kind":"Recommendation","title":"Prioritize integration debt before feature breadth","body":"Roadmap investment should first address interface reliability, user provisioning, onboarding and high-friction handoffs.","implication":"Use a friction-weighted roadmap score instead of feature-count prioritization.","confidence":93,"impact":96,"urgency":95,"tags":["Interoperability","Onboarding","Workflow integration"],"evidence_types":["Survey data","Transcript","Report"],"research_types":["Qualitative IDIs","Quantitative Survey"],"icon":"✓"},
+        {"kind":"Risk","title":"Standalone portal expansion may add cognitive load","body":"Adding another destination can make the experience feel more fragmented if critical information is not embedded where work already happens.","implication":"Use portal functionality selectively and favor embedded or integrated experiences for high-frequency tasks.","confidence":88,"impact":89,"urgency":84,"tags":["Digital journey","Workflow integration"],"evidence_types":["Transcript","Survey data"],"research_types":["Qualitative IDIs","Quantitative Survey"],"icon":"!"}
+      ],
+      "recommendations": [
+        {"priority":"P1","title":"Create a friction-weighted roadmap","action":"Score roadmap items by frequency of pain, operational burden, customer impact and implementation feasibility.","rationale":"This keeps the roadmap focused on customer effort reduction rather than feature volume.","impact":96,"confidence":92,"horizon":"0–3 months","tags":["Digital journey","Workflow integration"],"evidence_types":["Survey data","Analysis"]},
+        {"priority":"P1","title":"Redesign onboarding as a measurable journey","action":"Define owners, milestones, expected elapsed time and proactive exception triggers from contract to first value.","rationale":"Onboarding is a high-leverage determinant of adoption and trust.","impact":93,"confidence":89,"horizon":"0–3 months","tags":["Onboarding"],"evidence_types":["Transcript","Survey data"]},
+        {"priority":"P2","title":"Prototype embedded status visibility","action":"Test a role-specific status layer that can surface order, implementation and support state inside existing workflows.","rationale":"Status uncertainty is a recurring source of manual follow-up and context switching.","impact":91,"confidence":85,"horizon":"3–6 months","tags":["Interoperability","Workflow integration"],"evidence_types":["Transcript","Presentation"]}
+      ],
+      "risks": [
+        {"title":"Feature-first roadmap","level":"High","description":"Adding features without fixing handoffs can increase complexity and support burden.","mitigation":"Require a customer-effort reduction case for major roadmap items.","tags":["Digital journey","Workflow integration"]},
+        {"title":"Integration reliability variance","level":"High","description":"Different customer environments may experience inconsistent interface quality.","mitigation":"Track integration health and implementation complexity by customer archetype.","tags":["Interoperability"]}
+      ],
+      "voices": [
+        {"role":"Health-system IT leader","quote":"Illustrative paraphrase: The best digital feature is the one that removes a handoff instead of creating another place to log in.","theme":"Workflow integration","evidence_type":"Transcript"},
+        {"role":"Practice administrator","quote":"Illustrative paraphrase: We judge the relationship early, during setup, when ownership and next steps need to be obvious.","theme":"Onboarding","evidence_type":"Transcript"},
+        {"role":"Survey respondent pattern","quote":"Illustrative synthesis: Reliability and ease of use would likely rank ahead of advanced feature breadth for many users.","theme":"Digital journey","evidence_type":"Survey data"}
+      ],
+      "next_questions": ["Which three handoffs create the most avoidable customer effort?","How does onboarding time-to-value vary by customer segment?","Which status elements can be embedded in EHR/LIS workflows without duplicating existing systems?"]
+    },
+    "data-ecosystem-needs": {
+      "summary": "Customers are likely to value AI and analytics when they sit on a trusted data foundation and appear inside existing clinical or operational workflows. Interoperability, governance and longitudinal context are prerequisites; the value story should therefore begin with reliable data and decision support rather than AI as a standalone headline.",
+      "decision_readiness": 86,
+      "evidence_confidence": 84,
+      "opportunity_score": 93,
+      "execution_complexity": 82,
+      "signals": [
+        {"name":"Workflow-embedded AI","score":94,"direction":"rising","note":"AI gains credibility when it augments an existing decision rather than creating a new workflow.","tags":["AI","Data ecosystem"]},
+        {"name":"Interoperability foundation","score":96,"direction":"rising","note":"Data access and connectivity remain the gating layer for advanced analytics.","tags":["Interoperability","Data ecosystem"]},
+        {"name":"Population-health context","score":86,"direction":"rising","note":"Longitudinal diagnostic context strengthens population-health and risk use cases.","tags":["Population health","Data ecosystem"]},
+        {"name":"Data governance trust","score":90,"direction":"stable","note":"Transparent lineage and governance are essential for enterprise adoption.","tags":["Data ecosystem"]}
+      ],
+      "insights": [
+        {"kind":"Finding","title":"AI value is conditional on workflow fit","body":"Customers may be skeptical of standalone AI but receptive when recommendations are explainable, evidence-linked and integrated into existing decisions.","implication":"Position AI as a workflow capability supported by diagnostic context and governance.","confidence":88,"impact":94,"urgency":88,"tags":["AI","Data ecosystem"],"evidence_types":["Transcript","Report","Analysis"],"research_types":["Qualitative IDIs"],"icon":"✦"},
+        {"kind":"Finding","title":"Interoperability remains the gating constraint","body":"Advanced use cases cannot scale reliably when data access, identity, mapping and interface consistency remain fragmented.","implication":"Make interoperability maturity a formal prerequisite in solution design.","confidence":93,"impact":97,"urgency":94,"tags":["Interoperability","Data ecosystem"],"evidence_types":["Transcript","Report"],"research_types":["Qualitative IDIs"],"icon":"⌁"},
+        {"kind":"Opportunity","title":"Use diagnostics as longitudinal context","body":"Diagnostic data can become more valuable when combined longitudinally with clinical and operational context for population-health decisions.","implication":"Develop governed longitudinal data products around clearly defined use cases.","confidence":82,"impact":92,"urgency":78,"tags":["Population health","Data ecosystem"],"evidence_types":["Transcript","Analysis","Presentation"],"research_types":["Qualitative IDIs"],"icon":"↗"},
+        {"kind":"Recommendation","title":"Lead with data trust before AI sophistication","body":"Customer messaging and solution sequencing should emphasize data quality, lineage, interoperability and clear decision ownership before advanced models.","implication":"Create a maturity path from trusted data to explainable analytics to AI-enabled next-best action.","confidence":91,"impact":95,"urgency":91,"tags":["AI","Interoperability","Data ecosystem"],"evidence_types":["Report","Presentation","Analysis"],"research_types":["Qualitative IDIs"],"icon":"✓"},
+        {"kind":"Risk","title":"AI-first positioning can outpace customer readiness","body":"An AI-heavy story may underperform where customers still struggle with foundational data integration and governance.","implication":"Segment use cases by data maturity and implementation readiness.","confidence":86,"impact":87,"urgency":82,"tags":["AI","Interoperability"],"evidence_types":["Transcript","Analysis"],"research_types":["Qualitative IDIs"],"icon":"!"}
+      ],
+      "recommendations": [
+        {"priority":"P1","title":"Create a data-to-decision maturity model","action":"Define stages from connectivity and governance through analytics, decision support and workflow-embedded AI.","rationale":"Customers need a practical path that matches their current infrastructure and readiness.","impact":95,"confidence":89,"horizon":"0–3 months","tags":["Data ecosystem","AI","Interoperability"],"evidence_types":["Report","Analysis"]},
+        {"priority":"P1","title":"Prioritize two workflow-embedded AI use cases","action":"Select use cases with clear owners, measurable outcomes and sufficient data quality rather than a broad AI portfolio.","rationale":"Focused use cases improve credibility and implementation learning.","impact":93,"confidence":86,"horizon":"3–6 months","tags":["AI"],"evidence_types":["Transcript","Presentation"]},
+        {"priority":"P2","title":"Develop longitudinal population-health data products","action":"Explore governed diagnostic longitudinality for risk stratification, care-gap identification and intervention measurement.","rationale":"Diagnostic data can become strategically differentiated when contextualized over time.","impact":89,"confidence":80,"horizon":"6–12 months","tags":["Population health","Data ecosystem"],"evidence_types":["Analysis","Report"]}
+      ],
+      "risks": [
+        {"title":"Foundation debt","level":"High","description":"Interoperability and data-quality gaps can undermine advanced analytics credibility.","mitigation":"Assess data readiness before committing to advanced use cases.","tags":["Interoperability","Data ecosystem"]},
+        {"title":"Explainability gap","level":"Medium","description":"Users may resist recommendations that cannot be traced to understandable evidence or logic.","mitigation":"Design evidence links, confidence indicators and human override into workflows.","tags":["AI"]}
+      ],
+      "voices": [
+        {"role":"Clinical leader","quote":"Illustrative paraphrase: AI becomes useful when it shows up in the decision I am already making and I can understand why it is recommending something.","theme":"AI","evidence_type":"Transcript"},
+        {"role":"Data leader","quote":"Illustrative paraphrase: The limiting factor is often not the model; it is getting the right data connected, governed and reliable.","theme":"Interoperability","evidence_type":"Transcript"},
+        {"role":"Population-health leader","quote":"Illustrative paraphrase: Longitudinal diagnostic context is more useful than isolated results when we are managing populations.","theme":"Population health","evidence_type":"Transcript"}
+      ],
+      "next_questions": ["Which AI use cases have both adequate data maturity and a measurable operational owner?","What interoperability gaps recur across the largest account archetypes?","How can Quest demonstrate data lineage and confidence inside customer workflows?"]
+    },
+    "data-ecosystem-extended": {
+      "summary": "Partnerships can accelerate the data and analytics roadmap, but value depends on more than technical capability. Data rights, implementation ownership, workflow fit, enterprise scalability and governance should be evaluated together so that a partner reduces time-to-value rather than introducing another layer of complexity.",
+      "decision_readiness": 80,
+      "evidence_confidence": 82,
+      "opportunity_score": 88,
+      "execution_complexity": 85,
+      "signals": [
+        {"name":"Implementation ownership","score":94,"direction":"rising","note":"Partners that leave implementation ambiguity to the customer can slow value realization.","tags":["Partnerships","Use cases"]},
+        {"name":"Interoperability fit","score":92,"direction":"rising","note":"Technical compatibility should be evaluated against real customer environments and workflows.","tags":["Interoperability","Data ecosystem"]},
+        {"name":"Data-rights clarity","score":90,"direction":"stable","note":"Clear usage rights and governance are prerequisites for scalable ecosystem value.","tags":["Partnerships","Data ecosystem"]},
+        {"name":"Enterprise scalability","score":84,"direction":"stable","note":"Pilot success does not guarantee enterprise deployment viability.","tags":["Partnerships","Use cases"]}
+      ],
+      "insights": [
+        {"kind":"Finding","title":"Technical fit is necessary but insufficient","body":"A partner can look strong in a capability comparison yet fail to create value if implementation, governance and workflow ownership remain unclear.","implication":"Evaluate operational fit and accountability alongside functionality.","confidence":89,"impact":92,"urgency":90,"tags":["Partnerships","Use cases"],"evidence_types":["Transcript","Analysis"],"research_types":["Qualitative IDIs"],"icon":"◫"},
+        {"kind":"Finding","title":"Data rights can become a scaling constraint","body":"Ambiguity around data usage, derivative products and customer permissions can slow commercialization or create governance risk.","implication":"Define rights and responsibilities before high-dependency pilots.","confidence":87,"impact":90,"urgency":88,"tags":["Partnerships","Data ecosystem"],"evidence_types":["Transcript","Report"],"research_types":["Qualitative IDIs"],"icon":"◇"},
+        {"kind":"Opportunity","title":"Use partners to compress time-to-value","body":"External capabilities are most attractive where they remove a clear bottleneck in integration, analytics or implementation rather than duplicating internal capability.","implication":"Prioritize partnership gaps with a measurable acceleration case.","confidence":84,"impact":91,"urgency":83,"tags":["Partnerships","Interoperability","Use cases"],"evidence_types":["Transcript","Analysis"],"research_types":["Qualitative IDIs"],"icon":"↗"},
+        {"kind":"Recommendation","title":"Adopt a partner scorecard with kill criteria","body":"Score interoperability, data rights, implementation ownership, workflow adoption, commercial model and enterprise scalability before committing resources.","implication":"Use explicit thresholds to avoid attractive but non-scalable pilots.","confidence":92,"impact":95,"urgency":94,"tags":["Partnerships","Interoperability"],"evidence_types":["Analysis","Report"],"research_types":["Qualitative IDIs"],"icon":"✓"},
+        {"kind":"Risk","title":"Pilot proliferation can create architecture debt","body":"Multiple narrow partnerships can fragment the customer experience and create overlapping integration obligations.","implication":"Govern the ecosystem as a portfolio with architectural guardrails.","confidence":85,"impact":89,"urgency":87,"tags":["Partnerships","Data ecosystem"],"evidence_types":["Analysis","Transcript"],"research_types":["Qualitative IDIs"],"icon":"!"}
+      ],
+      "recommendations": [
+        {"priority":"P1","title":"Implement an enterprise partner scorecard","action":"Require evidence for interoperability, data rights, ownership, workflow adoption, economics and scalability before selection.","rationale":"This prevents technical demos from dominating broader enterprise considerations.","impact":96,"confidence":91,"horizon":"0–3 months","tags":["Partnerships","Interoperability"],"evidence_types":["Analysis","Report"]},
+        {"priority":"P1","title":"Define implementation RACI before pilot approval","action":"Document who owns integration, customer change management, support, data quality and outcome measurement.","rationale":"Ambiguous ownership is a major driver of delayed time-to-value.","impact":92,"confidence":88,"horizon":"0–3 months","tags":["Partnerships","Use cases"],"evidence_types":["Transcript","Analysis"]},
+        {"priority":"P2","title":"Consolidate overlapping ecosystem bets","action":"Review active and proposed partners against a common architecture and capability map.","rationale":"Portfolio coherence reduces integration debt and customer confusion.","impact":87,"confidence":82,"horizon":"3–6 months","tags":["Data ecosystem","Partnerships"],"evidence_types":["Analysis"]}
+      ],
+      "risks": [
+        {"title":"Ambiguous data rights","level":"High","description":"Rights uncertainty can block scaling and derivative analytics use cases.","mitigation":"Use standard data-rights clauses and governance review before pilots.","tags":["Partnerships","Data ecosystem"]},
+        {"title":"Partner lock-in","level":"Medium","description":"Deep dependence on proprietary interfaces can reduce strategic flexibility.","mitigation":"Prefer modular integration patterns and clear portability requirements.","tags":["Interoperability","Partnerships"]}
+      ],
+      "voices": [
+        {"role":"Ecosystem partner leader","quote":"Illustrative paraphrase: The hard part is usually not proving the technology works; it is deciding who owns implementation and how it scales across customers.","theme":"Partnerships","evidence_type":"Transcript"},
+        {"role":"Data governance leader","quote":"Illustrative paraphrase: Data rights need to be explicit before the use case becomes strategically important.","theme":"Data ecosystem","evidence_type":"Transcript"},
+        {"role":"Technology leader","quote":"Illustrative paraphrase: A partner has to fit the architecture we actually have, not the architecture shown in a demo.","theme":"Interoperability","evidence_type":"Transcript"}
+      ],
+      "next_questions": ["Which capabilities genuinely shorten time-to-value versus duplicate internal roadmaps?","What partner dependencies would be hardest to unwind?","Which governance and data-rights terms should be standardized across ecosystem agreements?"]
+    },
+    "lab-stewardship": {
+      "summary": "Stewardship is strongest when analytics lead to a measurable clinical or utilization decision, not when they stop at reporting. Quest can differentiate by combining clinical credibility, operational integration, benchmarking and managed-service support into a proposition that demonstrates outcomes and makes action easier for customer teams.",
+      "decision_readiness": 94,
+      "evidence_confidence": 92,
+      "opportunity_score": 96,
+      "execution_complexity": 66,
+      "signals": [
+        {"name":"Actionable stewardship","score":98,"direction":"rising","note":"Customers value analytics most when they trigger a clear utilization decision or intervention.","tags":["Lab stewardship","Analytics"]},
+        {"name":"Clinical credibility","score":93,"direction":"stable","note":"Clinical expertise remains a differentiator as analytics offerings become more common.","tags":["Competitive positioning","Lab stewardship"]},
+        {"name":"Workflow integration","score":91,"direction":"rising","note":"Recommendations gain adoption when delivered in existing operational and clinical workflows.","tags":["Analytics","Unmet needs"]},
+        {"name":"Outcome-linked packaging","score":86,"direction":"rising","note":"Premium value is more defensible when connected to measurable outcomes.","tags":["Competitive positioning","Unmet needs"]}
+      ],
+      "insights": [
+        {"kind":"Finding","title":"Dashboards alone are becoming table stakes","body":"Customers can access more reporting than before; differentiation increasingly depends on interpretation, prioritization and support for action.","implication":"Shift messaging from analytics visibility to measurable stewardship decisions.","confidence":95,"impact":97,"urgency":94,"tags":["Analytics","Competitive positioning"],"evidence_types":["Transcript","Report","Presentation"],"research_types":["Qualitative IDIs"],"icon":"▥"},
+        {"kind":"Finding","title":"Clinical credibility amplifies analytics value","body":"Recommendations are more persuasive when backed by clinical expertise, transparent evidence and practical knowledge of laboratory workflows.","implication":"Make clinical advisory capability visible within the analytics proposition.","confidence":93,"impact":94,"urgency":88,"tags":["Lab stewardship","Competitive positioning"],"evidence_types":["Transcript","Report"],"research_types":["Qualitative IDIs"],"icon":"✚"},
+        {"kind":"Opportunity","title":"Managed stewardship can bridge customer capability gaps","body":"Some customers may prefer an outcome-oriented service that combines data, clinical review, intervention design and measurement rather than buying software alone.","implication":"Test tiered managed-service offers for customers with different analytics maturity.","confidence":88,"impact":95,"urgency":91,"tags":["Lab stewardship","Unmet needs"],"evidence_types":["Transcript","Analysis"],"research_types":["Qualitative IDIs"],"icon":"↗"},
+        {"kind":"Recommendation","title":"Productize a closed-loop stewardship workflow","body":"Design the proposition around detect → explain → prioritize → intervene → measure, with clear accountability at each step.","implication":"Use closed-loop outcome evidence as the core differentiation story.","confidence":94,"impact":98,"urgency":96,"tags":["Lab stewardship","Analytics","Unmet needs"],"evidence_types":["Report","Analysis","Presentation"],"research_types":["Qualitative IDIs"],"icon":"✓"},
+        {"kind":"Risk","title":"Generic analytics positioning will blend into the market","body":"A broad dashboard story may be difficult to distinguish as competitors expand analytics and stewardship capabilities.","implication":"Own specific use cases and outcome proof rather than broad capability claims.","confidence":91,"impact":92,"urgency":93,"tags":["Competitive positioning","Analytics"],"evidence_types":["Transcript","Report"],"research_types":["Qualitative IDIs"],"icon":"!"}
+      ],
+      "recommendations": [
+        {"priority":"P1","title":"Launch a closed-loop stewardship proposition","action":"Package analytics, clinical review, intervention workflow and outcome measurement as one operating model.","rationale":"This moves the offer beyond dashboards and toward measurable customer decisions.","impact":98,"confidence":94,"horizon":"0–3 months","tags":["Lab stewardship","Analytics"],"evidence_types":["Report","Analysis"]},
+        {"priority":"P1","title":"Build proof around three high-value use cases","action":"Select use cases such as send-out optimization, duplicate testing or care-pathway compliance and define measurable before/after outcomes.","rationale":"Specific proof is more defensible than a generic analytics message.","impact":96,"confidence":92,"horizon":"0–6 months","tags":["Lab stewardship","Competitive positioning"],"evidence_types":["Transcript","Presentation"]},
+        {"priority":"P2","title":"Create maturity-based packaging","action":"Offer foundational analytics, guided stewardship and fully managed tiers matched to customer capability.","rationale":"Customers differ in internal analytics resources and desired operating support.","impact":90,"confidence":87,"horizon":"3–6 months","tags":["Unmet needs","Competitive positioning"],"evidence_types":["Transcript","Analysis"]}
+      ],
+      "risks": [
+        {"title":"Dashboard commoditization","level":"High","description":"Competitors can match generic visualization and reporting capabilities.","mitigation":"Differentiate through clinical action, workflow integration and outcomes evidence.","tags":["Analytics","Competitive positioning"]},
+        {"title":"Outcome attribution difficulty","level":"Medium","description":"Customers may challenge whether savings or clinical changes are attributable to the stewardship intervention.","mitigation":"Define baselines, counterfactuals and measurement governance up front.","tags":["Lab stewardship"]}
+      ],
+      "voices": [
+        {"role":"Laboratory operations leader","quote":"Illustrative paraphrase: A dashboard is useful, but the real value is knowing what to do next and who needs to act.","theme":"Analytics","evidence_type":"Transcript"},
+        {"role":"Clinical leader","quote":"Illustrative paraphrase: Recommendations need clinical credibility and enough transparency that we can defend the decision.","theme":"Lab stewardship","evidence_type":"Transcript"},
+        {"role":"Health-system executive","quote":"Illustrative paraphrase: Premium value has to connect to an outcome we can measure, not another reporting layer.","theme":"Competitive positioning","evidence_type":"Transcript"}
+      ],
+      "next_questions": ["Which stewardship use cases offer the clearest measurable economics?","Where should clinical advisory be human-led versus automated?","What packaging model best fits high-, medium- and low-maturity customers?"]
+    },
+    "consumer-testing": {
+      "summary": "Consumer testing competition is increasingly an experience competition: access, trust, convenience, interpretation and continuity matter alongside the test itself. Quest can use clinical credibility and scale as an advantage if the consumer journey feels simple and results lead naturally to understandable next steps rather than ending at a laboratory result.",
+      "decision_readiness": 83,
+      "evidence_confidence": 78,
+      "opportunity_score": 89,
+      "execution_complexity": 72,
+      "signals": [
+        {"name":"Digital access simplicity","score":94,"direction":"rising","note":"Frictionless discovery, ordering and scheduling are increasingly expected.","tags":["Digital health","Consumer testing"]},
+        {"name":"Trust and clinical credibility","score":92,"direction":"stable","note":"Consumers need confidence in test quality, interpretation and what happens next.","tags":["Consumer testing","Company profiles"]},
+        {"name":"Actionable interpretation","score":91,"direction":"rising","note":"Results become more valuable when paired with understandable guidance and follow-through.","tags":["Digital health","Consumer testing"]},
+        {"name":"Retail / telehealth convergence","score":84,"direction":"rising","note":"Channel boundaries are blurring as testing integrates with broader digital-health journeys.","tags":["Retail health","Digital health"]}
+      ],
+      "insights": [
+        {"kind":"Finding","title":"The product is the journey, not only the test","body":"Competitive differentiation increasingly comes from easy access, transparent pricing, trust, interpretation and convenient follow-through.","implication":"Evaluate consumer propositions end-to-end rather than as isolated test SKUs.","confidence":84,"impact":94,"urgency":91,"tags":["Consumer testing","Digital health"],"evidence_types":["Report","Analysis"],"research_types":["Secondary Research"],"icon":"◎"},
+        {"kind":"Finding","title":"Clinical trust can offset digital-native novelty","body":"Established diagnostic credibility can remain a powerful advantage when paired with a modern, consumer-friendly experience.","implication":"Lead with trust without allowing the journey to feel institutional or complex.","confidence":81,"impact":90,"urgency":84,"tags":["Consumer testing","Company profiles"],"evidence_types":["Report","Analysis"],"research_types":["Secondary Research"],"icon":"✓"},
+        {"kind":"Opportunity","title":"Connect testing to longitudinal guidance","body":"A one-time transaction can become a relationship when results feed follow-up education, monitoring or care navigation.","implication":"Explore journeys that extend beyond the result event while staying within appropriate clinical boundaries.","confidence":77,"impact":92,"urgency":79,"tags":["Digital health","Consumer testing"],"evidence_types":["Analysis","Report"],"research_types":["Secondary Research"],"icon":"↗"},
+        {"kind":"Recommendation","title":"Benchmark the consumer journey against digital-native expectations","body":"Assess discovery, purchase, scheduling, sample collection, status, results, interpretation and support against leading digital-health experiences.","implication":"Use journey friction and trust as primary design metrics.","confidence":85,"impact":93,"urgency":90,"tags":["Digital health","Retail health"],"evidence_types":["Analysis","Report"],"research_types":["Secondary Research"],"icon":"▦"},
+        {"kind":"Risk","title":"Clinical complexity can leak into the consumer experience","body":"Processes designed for institutional customers may create friction if exposed directly to consumers.","implication":"Simplify language, choices and support while maintaining clinical quality.","confidence":80,"impact":88,"urgency":86,"tags":["Consumer testing","Retail health"],"evidence_types":["Report","Analysis"],"research_types":["Secondary Research"],"icon":"!"}
+      ],
+      "recommendations": [
+        {"priority":"P1","title":"Create a consumer journey benchmark","action":"Score Quest and priority competitors across access, convenience, trust, transparency, interpretation and follow-through.","rationale":"The competitive unit is the end-to-end experience, not the test menu alone.","impact":94,"confidence":84,"horizon":"0–3 months","tags":["Consumer testing","Company profiles"],"evidence_types":["Analysis","Report"]},
+        {"priority":"P1","title":"Simplify result-to-action pathways","action":"Design clear next-step guidance, education and navigation around common consumer-testing use cases.","rationale":"Interpretation and follow-through can create differentiation after the test is complete.","impact":92,"confidence":80,"horizon":"3–6 months","tags":["Digital health","Consumer testing"],"evidence_types":["Analysis"]},
+        {"priority":"P2","title":"Test retail and telehealth channel combinations","action":"Evaluate where partnerships can reduce access friction without diluting Quest trust or economics.","rationale":"Channel convergence is changing how consumers discover and complete testing.","impact":87,"confidence":76,"horizon":"3–9 months","tags":["Retail health","Digital health"],"evidence_types":["Report","Analysis"]}
+      ],
+      "risks": [
+        {"title":"Experience mismatch","level":"High","description":"A clinically strong offer can underperform if discovery, purchase or results feel cumbersome.","mitigation":"Use consumer-experience metrics alongside clinical and commercial metrics.","tags":["Consumer testing","Digital health"]},
+        {"title":"Trust dilution","level":"Medium","description":"Aggressive consumerization could weaken perceptions of clinical rigor.","mitigation":"Keep evidence, quality and transparent clinical boundaries visible throughout the journey.","tags":["Company profiles","Consumer testing"]}
+      ],
+      "voices": [
+        {"role":"Illustrative consumer archetype","quote":"Illustrative paraphrase: I want the process to be simple, but I also want to know the result is clinically trustworthy and what I should do next.","theme":"Consumer testing","evidence_type":"Report"},
+        {"role":"Digital-health pattern","quote":"Illustrative synthesis: Convenience lowers the barrier to testing, while interpretation and follow-up determine whether the experience feels complete.","theme":"Digital health","evidence_type":"Analysis"},
+        {"role":"Retail-health pattern","quote":"Illustrative synthesis: Retail access can create reach, but the surrounding support model determines trust and repeat use.","theme":"Retail health","evidence_type":"Report"}
+      ],
+      "next_questions": ["Which consumer journeys create the highest repeat or longitudinal value?","Where does Quest trust most clearly outperform digital-native competitors?","Which retail or telehealth partnerships improve access without creating channel confusion?"]
+    },
+    "ci-always-on": {
+      "summary": "The competitive market is moving on several fronts at once: health-system integration, specialty diagnostics, AI-enabled workflows, consumer access and strategic partnerships. The most useful always-on intelligence model is therefore not a news feed; it is a signal-to-decision system that identifies which external moves challenge current assumptions and should trigger deeper PMR or strategic action.",
+      "decision_readiness": 90,
+      "evidence_confidence": 81,
+      "opportunity_score": 91,
+      "execution_complexity": 58,
+      "signals": [
+        {"name":"Health-system integration moves","score":94,"direction":"rising","note":"Scale competitors continue to deepen enterprise relationships and integrated service models.","tags":["Competitor monitoring","Market moves"]},
+        {"name":"AI-enabled workflows","score":92,"direction":"rising","note":"AI claims are shifting from experimentation toward workflow and productivity propositions.","tags":["Strategic signals","Market moves"]},
+        {"name":"Specialty / precision expansion","score":89,"direction":"rising","note":"Partnerships and acquisitions are increasing specialty depth and clinical differentiation.","tags":["Partnerships","Competitor monitoring"]},
+        {"name":"Consumer access expansion","score":85,"direction":"rising","note":"Digital and retail channels continue to broaden access and alter customer expectations.","tags":["Market moves","Strategic signals"]}
+      ],
+      "insights": [
+        {"kind":"Finding","title":"Competitive advantage is becoming ecosystem-based","body":"Scale, specialty depth, digital capability and partnerships increasingly combine into broader customer propositions rather than competing as isolated capabilities.","implication":"Track competitor systems of advantage, not only individual announcements.","confidence":84,"impact":93,"urgency":90,"tags":["Competitor monitoring","Partnerships"],"evidence_types":["News dataset","Report","Analysis"],"research_types":["Secondary Research","Competitive Intelligence"],"icon":"◎"},
+        {"kind":"Finding","title":"Health-system relationships remain a strategic battleground","body":"Large competitors continue to strengthen enterprise relationships through integration, service breadth and analytics.","implication":"Connect external moves directly to health-system value-proposition research.","confidence":86,"impact":95,"urgency":94,"tags":["Competitor monitoring","Market moves"],"evidence_types":["News dataset","Report"],"research_types":["Secondary Research","Competitive Intelligence"],"icon":"▥"},
+        {"kind":"Opportunity","title":"Use external signals to trigger targeted PMR","body":"Always-on intelligence can identify where assumptions about customer needs, competitor strength or market direction should be tested with focused primary research.","implication":"Create formal signal thresholds that launch rapid PMR sprints.","confidence":89,"impact":94,"urgency":88,"tags":["Strategic signals","Competitor monitoring"],"evidence_types":["Analysis","Methodology","News dataset"],"research_types":["Competitive Intelligence"],"icon":"↗"},
+        {"kind":"Recommendation","title":"Shift from monitoring to signal-to-decision workflows","body":"Every high-priority signal should map to an assumption, implication, owner and next action rather than ending as an article summary.","implication":"Use a structured signal object linked to PMR themes and strategic decisions.","confidence":92,"impact":96,"urgency":95,"tags":["Strategic signals","Market moves"],"evidence_types":["Methodology","Analysis","Report"],"research_types":["Competitive Intelligence","Secondary Research"],"icon":"✓"},
+        {"kind":"Risk","title":"Signal volume can create false urgency","body":"A high-volume feed can distract teams if relevance, novelty and strategic impact are not scored consistently.","implication":"Use explicit triage rules and suppress repetitive low-impact signals.","confidence":90,"impact":87,"urgency":89,"tags":["Strategic signals","Competitor monitoring"],"evidence_types":["Methodology","Analysis"],"research_types":["Competitive Intelligence"],"icon":"!"}
+      ],
+      "recommendations": [
+        {"priority":"P1","title":"Create signal-to-assumption mapping","action":"Link each material competitor signal to the strategic assumption it supports, challenges or leaves uncertain.","rationale":"This converts monitoring into decision support and identifies where research is needed.","impact":96,"confidence":91,"horizon":"0–3 months","tags":["Strategic signals","Competitor monitoring"],"evidence_types":["Methodology","Analysis"]},
+        {"priority":"P1","title":"Define rapid-PMR trigger thresholds","action":"Launch short primary-research sprints when external evidence materially challenges a high-value customer or market assumption.","rationale":"Targeted PMR can validate whether external competitor activity is changing customer expectations.","impact":93,"confidence":87,"horizon":"0–3 months","tags":["Strategic signals","Market moves"],"evidence_types":["Analysis","News dataset"]},
+        {"priority":"P2","title":"Track ecosystems and capability combinations","action":"Maintain maps showing how partnerships, specialty assets, digital workflows and enterprise relationships combine by competitor.","rationale":"Competitive strength increasingly comes from combinations of assets rather than single products.","impact":90,"confidence":83,"horizon":"3–6 months","tags":["Partnerships","Competitor monitoring"],"evidence_types":["News dataset","Report"]}
+      ],
+      "risks": [
+        {"title":"News-volume bias","level":"High","description":"Frequently covered companies or topics can appear more strategically important than they are.","mitigation":"Score novelty, relevance, evidence quality and decision impact separately from volume.","tags":["Competitor monitoring","Strategic signals"]},
+        {"title":"Disconnected PMR and CI","level":"Medium","description":"External signals may not influence ongoing primary research or account strategy.","mitigation":"Tag signals to PMR themes, projects and assumptions and review them together.","tags":["Strategic signals","Market moves"]}
+      ],
+      "voices": [
+        {"role":"CI operating model","quote":"Illustrative synthesis: A signal matters when it changes a decision, a priority or an assumption—not simply because it is new.","theme":"Strategic signals","evidence_type":"Methodology"},
+        {"role":"Market pattern","quote":"Illustrative synthesis: Competitors are combining specialty assets, partnerships and workflow technology to deepen enterprise relevance.","theme":"Partnerships","evidence_type":"Report"},
+        {"role":"Research trigger","quote":"Illustrative synthesis: The best use of always-on intelligence may be identifying exactly where another piece of primary evidence is worth buying.","theme":"Competitor monitoring","evidence_type":"Analysis"}
+      ],
+      "next_questions": ["Which competitor moves materially change assumptions in active PMR projects?","Which signal categories should automatically trigger account-team or PMR review?","How should novelty and strategic impact be scored independently of media volume?"]
+    }
+  }
+}
