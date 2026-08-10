@@ -15,7 +15,7 @@
   <div class="q-boot"><div class="q-boot-card"><strong>Quest Intelligence 360</strong><span>Loading the optimized dashboard and visual system…</span><div class="q-boot-line"><i></i></div></div></div>
   <script>
   (async()=>{try{
-    const release='20260810r';
+    const release='20260810s';
     const shellKey='./.quest-shell-'+release+'.html';
     const scrubShell=html=>{try{
       const doc=new DOMParser().parseFromString(html,'text/html');
@@ -53,8 +53,10 @@
     }else h=scrubShell(h);
     const critical='<script src="integrations/frontend-critical-nav-survey.js?v='+release+'"><\/script>';
     const survey='<script src="integrations/survey-analytics-dashboard-final.js?v='+release+'"><\/script>';
+    const failsafe='<script src="integrations/survey-analytics-failsafe.js?v='+release+'"><\/script>';
+    const routeFix='<script src="integrations/survey-route-activation-fix.js?v='+release+'"><\/script>';
     const loader='<script src="integrations/optimized-loader.js?v='+release+'"><\/script>';
-    h=h.replace('</body>',critical+survey+loader+'</body>');
+    h=h.replace('</body>',critical+survey+failsafe+routeFix+loader+'</body>');
     document.open();document.write(h);document.close();
   }catch(e){document.body.innerHTML='<div class="q-boot"><div class="q-boot-card"><strong>Unable to load the dashboard</strong><span>Please refresh the page or serve the repository over HTTP. '+String(e.message||e)+'</span></div></div>'}})();
   </script>
