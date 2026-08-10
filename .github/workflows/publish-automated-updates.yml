@@ -56,7 +56,7 @@ jobs:
           node --check integrations/executive-typography-benchmark-cleanup.js
           node --check integrations/insights-engine-layout-v3.js
           node --check integrations/insights-engine-evidence-placement-final.js
-          node --check integrations/pmr-repository-dashboard-v2.js
+          node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/laboratory-news-monitor.js
           node --check integrations/alerts-resilience-fix.js
           node --check integrations/alerts-signals-final.js
@@ -72,7 +72,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260810l'
+          release = '20260810m'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -99,6 +99,26 @@ jobs:
           html = re.sub(r"\s*chart\('capabilityRadar'.*?\);\s*", '\n', html, count=1, flags=re.DOTALL)
           if re.search(r'>\s*Competitive Landscape\s*<|data-view=["\']landscape["\']', html, flags=re.IGNORECASE):
               raise SystemExit('Competitive Landscape survived the Pages build scrub.')
+
+          pmr_placeholder = '''
+        <!-- PMR -->
+        <section class="view" data-view="pmr">
+          <div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading PMR repository and analysis dashboard…</div>
+        </section>
+'''
+          html, pmr_replacements = re.subn(
+              r'\s*<!--\s*PMR\s*-->\s*<section class="view" data-view="pmr">.*?</section>\s*',
+              pmr_placeholder,
+              html,
+              count=1,
+              flags=re.IGNORECASE | re.DOTALL,
+          )
+          if pmr_replacements != 1:
+              raise SystemExit(f'Expected to replace one legacy PMR section; replaced {pmr_replacements}.')
+          if 'Active projects</span><strong>5</strong>' in html or 'Evidence reuse</span><strong>64%' in html:
+              raise SystemExit('Legacy PMR dashboard content survived the Pages build scrub.')
+          if 'data-view="pmr"' not in html:
+              raise SystemExit('PMR placeholder missing after Pages build scrub.')
 
           html = re.sub(
               r'<script\b[^>]*\bsrc=["\']https://cdn\.jsdelivr\.net/npm/chart\.js[^"\']*["\'][^>]*>\s*</script>',
@@ -138,8 +158,9 @@ jobs:
           test -f _site/integrations/executive-typography-benchmark-cleanup.js
           test -f _site/integrations/insights-engine-layout-v3.js
           test -f _site/integrations/insights-engine-evidence-placement-final.js
-          test -f _site/integrations/pmr-repository-dashboard-v2.js
+          test -f _site/integrations/pmr-repository-dashboard-final.js
           test -f _site/data/pmr-repository-dashboard.json
+          test -f _site/data/project-tracker.json
           test -f _site/integrations/laboratory-news-monitor.js
           test -f _site/integrations/alerts-resilience-fix.js
           test -f _site/integrations/alerts-signals-final.js
