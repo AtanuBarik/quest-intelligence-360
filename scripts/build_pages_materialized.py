@@ -6,13 +6,15 @@ import re
 import shutil
 from pathlib import Path
 
-RELEASE = "20260810s"
+RELEASE = "20260810t"
 ROOT = Path(".")
 SITE = ROOT / "_site"
 
 
-def replace_view(html: str, view: str, label: str, message: str) -> str:
-    pattern = rf"\s*(?:<!--\s*{re.escape(label)}\s*-->\s*)?<section class=\"view\" data-view=\"{re.escape(view)}\">.*?</section>\s*"
+def replace_view(html: str, view: str, label: str, message: str, aliases: tuple[str, ...] = ()) -> str:
+    names = (view, *aliases)
+    name_pattern = "|".join(re.escape(name) for name in names)
+    pattern = rf"\s*(?:<!--\s*{re.escape(label)}S?\s*-->\s*)?<section class=\"view\" data-view=\"(?:{name_pattern})\">.*?</section>\s*"
     replacement = (
         f"\n<!-- {label} -->\n"
         f"<section class=\"view\" data-view=\"{view}\">"
@@ -21,7 +23,7 @@ def replace_view(html: str, view: str, label: str, message: str) -> str:
     )
     html, count = re.subn(pattern, replacement, html, count=1, flags=re.I | re.S)
     if count != 1:
-        raise RuntimeError(f"Expected one {view} section; replaced {count}.")
+        raise RuntimeError(f"Expected one {view} section (aliases: {aliases}); replaced {count}.")
     return html
 
 
@@ -49,16 +51,20 @@ def build() -> None:
     buttons = re.findall(r'<button\s+class="nav-item"[^>]*>.*?</button>', html, flags=re.I | re.S)
     tracker = next((b for b in buttons if re.search(r'>\s*Project Tracker\s*<', b, flags=re.I)), None)
     evidence = next((b for b in buttons if re.search(r'>\s*Evidence Library\s*<', b, flags=re.I)), None)
-    if not tracker or not evidence:
-        raise RuntimeError("Project Tracker or Evidence Library navigation item is missing.")
+    survey_button = next((b for b in buttons if re.search(r'>\s*Survey Analytics\s*<', b, flags=re.I)), None)
+    if not tracker or not evidence or not survey_button:
+        raise RuntimeError("Project Tracker, Evidence Library, or Survey Analytics navigation item is missing.")
     html = html.replace(evidence, "", 1)
     html = html.replace(tracker, tracker + "\n" + evidence, 1)
     if html.find(tracker) < 0 or html.find(evidence) < html.find(tracker):
         raise RuntimeError("Evidence Library is not positioned after Project Tracker.")
 
+    normalized_survey_button = re.sub(r'data-view="surveys?"', 'data-view="survey"', survey_button, count=1, flags=re.I)
+    html = html.replace(survey_button, normalized_survey_button, 1)
+
     html = replace_view(html, "pmr", "PMR", "Loading PMR repository and analysis dashboard...")
     html = replace_view(html, "experts", "EXPERTS", "Loading Voice of Experts persona analysis...")
-    html = replace_view(html, "survey", "SURVEY", "Loading multi-project Survey Analytics...")
+    html = replace_view(html, "survey", "SURVEY", "Loading multi-project Survey Analytics...", aliases=("surveys",))
 
     html = re.sub(
         r'<script\b[^>]*\bsrc=["\']https://cdn\.jsdelivr\.net/npm/chart\.js[^"\']*["\'][^>]*>\s*</script>',
@@ -96,6 +102,8 @@ def build() -> None:
     missing_tokens = [token for token in required if token not in html]
     if missing_tokens:
         raise RuntimeError(f"Materialized shell missing required tokens: {missing_tokens}")
+    if 'data-view="surveys"' in html:
+        raise RuntimeError("Legacy Survey Analytics route alias survived materialization.")
 
     if SITE.exists():
         shutil.rmtree(SITE)
