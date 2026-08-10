@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810p';
+  const RELEASE = '20260810q';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
@@ -50,7 +50,7 @@
       const headingText = Array.from(view.querySelectorAll('h1,h2,h3,[class*="title"]'))
         .map(node => normalizedText(node.textContent))
         .join(' | ');
-      if ((retiredView && view.dataset.view === retiredView) || /competitive landscape/i.test(headingText)) view.remove();
+      if ((retiredView && view.dataset.view === retiredView) || view.dataset.view === 'landscape' || /competitive landscape/i.test(headingText)) view.remove();
     });
 
     Array.from(document.querySelectorAll('a,button,[aria-label],[title]')).forEach(node => {
