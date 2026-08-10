@@ -1,1 +1,0 @@
-85 current synchronized articles have persistent inline ChatGPT summaries as of release 20260810e.
