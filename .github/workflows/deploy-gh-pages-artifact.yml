@@ -1,0 +1,56 @@
+name: Deploy gh-pages Artifact
+
+on:
+  push:
+    branches:
+      - gh-pages
+    paths-ignore:
+      - pages-deployment-status.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: quest-gh-pages-artifact
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out published branch
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+
+      - name: Validate critical Survey Analytics assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "20260810s" index.html
+          grep -q "survey-analytics-failsafe.js" index.html
+          grep -q "survey-route-activation-fix.js" index.html
+          test -f integrations/frontend-critical-nav-survey.js
+          test -f integrations/survey-analytics-dashboard-final.js
+          test -f integrations/survey-analytics-failsafe.js
+          test -f integrations/survey-route-activation-fix.js
+          test -f data/survey-analytics-demo.json
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload published site artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
