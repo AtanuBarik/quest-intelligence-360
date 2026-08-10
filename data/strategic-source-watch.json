@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-08T08:38:28Z",
+  "last_checked": "2026-08-10T06:03:29Z",
   "last_material_source_change": null,
   "changed_source_count": 0,
   "changed_sources": [],
@@ -10,7 +10,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -22,7 +22,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -48,7 +48,7 @@
         "Annual Cash Flow | https://ir.labcorp.com/fundamentals/cash-flow"
       ],
       "header_profile": "research",
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "previous_digest": "9a54231c63c242bf7596856090d6e14e92c9cd9a4cd179a40e3edd2c11bbc56e",
       "error": null
@@ -73,7 +73,7 @@
         "Annual Cash Flow | https://ir.labcorp.com/fundamentals/cash-flow"
       ],
       "header_profile": "research",
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "previous_digest": "46c6a8df5019532af4f069c673371c8abd3b7bf56a31c3288ff778563a99e0dd",
       "error": null
@@ -98,7 +98,7 @@
         "Board of Directors | https://investors.sonichealthcare.com/corporate-governance/?page=board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "previous_digest": "a83a2bd5ae43db9df6699703bcbd64625eecf8ad451f37ced303d49acd3c1364",
       "error": null
@@ -123,7 +123,7 @@
         "Softlines &amp; Hardlines | https://www.eurofins.com:443/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "previous_digest": "b3f8af4c2a766dcc13c40be8cb0743d028f286856778634b40e62767b501dafe",
       "error": null
@@ -134,7 +134,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -146,7 +146,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -172,7 +172,7 @@
         "Board of Directors | https://investors.tempus.com/corporate-governance/board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
       "error": null
@@ -183,7 +183,7 @@
       "status": null,
       "digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
       "previous_digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "evidence_preview": [
         "Part I - Financial Information | https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm#if454735e94df41c3a44babbae82e9fc7_10",
@@ -208,7 +208,7 @@
       "status": null,
       "digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
       "previous_digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
-      "checked_at": "2026-08-08T08:38:28Z",
+      "checked_at": "2026-08-10T06:03:29Z",
       "changed": false,
       "evidence_preview": [
         "Ordering &amp; Results | https://www.mayocliniclabs.com/order-tests",
@@ -226,6 +226,105 @@
       ],
       "header_profile": null,
       "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://newsroom.questdiagnostics.com/2026-07-23-Quest-Diagnostics-Reports-Second-Quarter-2026-Financial-Results-Raises-Revenue-and-EPS-Guidance-for-Full-Year-2026",
+      "final_url": "https://newsroom.questdiagnostics.com/2026-07-23-Quest-Diagnostics-Reports-Second-Quarter-2026-Financial-Results-Raises-Revenue-and-EPS-Guidance-for-Full-Year-2026",
+      "status": 200,
+      "digest": "64b197c8c8455ba7623532e4c174dc676c606115d1cf6c2f67904a06371c5f94",
+      "evidence_preview": [
+        "Cookies Policy | https://careers.questdiagnostics.com/en-US/cookie-notice",
+        "Newsroom | https://newsroom.questdiagnostics.com/home",
+        " | https://questdiagnostics.com/",
+        "Home | https://newsroom.questdiagnostics.com/home",
+        "News Releases&nbsp; | https://newsroom.questdiagnostics.com/index.php?s=35197",
+        "News Releases | https://newsroom.questdiagnostics.com/press-releases",
+        "RSS Feeds | https://newsroom.questdiagnostics.com/rss-feeds",
+        "Our Stories | https://newsroom.questdiagnostics.com/stories",
+        "Media Coverage | https://newsroom.questdiagnostics.com/coverage",
+        "Health Trends® | https://newsroom.questdiagnostics.com/health-trends",
+        "At a Glance | https://newsroom.questdiagnostics.com/Fact-sheet",
+        "Contact&nbsp; | https://newsroom.questdiagnostics.com/index.php?s=35201"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-08-10T06:03:29Z",
+      "changed": false,
+      "previous_digest": null,
+      "error": null
+    },
+    {
+      "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
+      "final_url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
+      "status": 200,
+      "digest": "7daf8cb106d0c46502caecca58b5bb35ad5400c31319d24b4f013bee2429ad73",
+      "evidence_preview": [
+        "BioPharma Product Testing | https://www.eurofins.com/en/biopharma-services/biopharma-product-testing/",
+        "BioPharma Discovery Services &amp; Products | https://www.eurofins.com/en/biopharma-services/biopharma-discovery/",
+        "BioPharma Central Laboratory | https://www.eurofins.com/en/biopharma-services/biopharma-central-laboratory/",
+        "In Vitro Diagnostics Solutions | https://www.eurofins.com/en/in-vitro-diagnostics-solutions/",
+        "Clinical Diagnostic Services | https://www.eurofins.com/en/clinical-diagnostic-services/",
+        "Consumer Product Testing | https://www.eurofins.com/en/consumer-product-testing/",
+        "Construction Materials and Industrial | https://www.eurofins.com/en/consumer-product-testing/construction/",
+        "Detergents, Hygiene, Paper &amp; Pulp | https://www.eurofins.com/en/consumer-product-testing/detergents-hygiene-paper-pulp/",
+        "Home &amp; Garden | https://www.eurofins.com/en/consumer-product-testing/home-garden/",
+        "Packaging | https://www.eurofins.com/en/consumer-product-testing/packaging/",
+        "Cosmetics &amp; Personal Care | https://www.eurofins.com/en/consumer-product-testing/cosmetics-and-personal-care/",
+        "Softlines &amp; Hardlines | https://www.eurofins.com/en/consumer-product-testing/softlines-hardlines/"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-08-10T06:03:29Z",
+      "changed": false,
+      "previous_digest": null,
+      "error": null
+    },
+    {
+      "url": "https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx",
+      "final_url": "https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx",
+      "status": null,
+      "digest": null,
+      "previous_digest": null,
+      "checked_at": "2026-08-10T06:03:29Z",
+      "changed": false,
+      "evidence_preview": [],
+      "header_profile": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx",
+      "final_url": "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx",
+      "status": null,
+      "digest": null,
+      "previous_digest": null,
+      "checked_at": "2026-08-10T06:03:29Z",
+      "changed": false,
+      "evidence_preview": [],
+      "header_profile": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results",
+      "final_url": "https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results",
+      "status": 200,
+      "digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
+      "evidence_preview": [
+        "Skip to main navigation | https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results#main-menu",
+        "Overview | https://investors.tempus.com/investor-relations",
+        "News &amp; Events | https://investors.tempus.com/news-events/news-releases",
+        "News Releases | https://investors.tempus.com/news-events/news-releases",
+        "Events | https://investors.tempus.com/news-events/investor-events",
+        "Presentations | https://investors.tempus.com/news-events/presentations",
+        "Letter from the CEO | https://investors.tempus.com/static-files/d8c5f9dd-ae5a-41fc-b3d4-13436086e760",
+        "Stock Information | https://investors.tempus.com/stock-information/stock-quote-chart",
+        "Stock Quote &amp; Chart | https://investors.tempus.com/stock-information/stock-quote-chart",
+        "Analyst Coverage | https://investors.tempus.com/stock-information/analyst-coverage",
+        "Corporate Governance | https://investors.tempus.com/corporate-governance/governance-documents",
+        "Board of Directors | https://investors.tempus.com/corporate-governance/board-of-directors"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-08-10T06:03:29Z",
+      "changed": false,
+      "previous_digest": null,
+      "error": null
     }
   ],
   "note": "Source changes are a research trigger. Strategic synthesis is updated separately after evidence review; a changed page is not automatically treated as a strategic change."
