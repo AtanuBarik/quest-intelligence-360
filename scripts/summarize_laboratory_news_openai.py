@@ -67,6 +67,26 @@ def load_json(path: Path, default):
         return default
 
 
+def normalize_title(value: str | None) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
+def cached_record_for_item(summaries: dict, item: dict):
+    item_id = str(item.get("id") or "").strip()
+    direct = summaries.get(item_id) if item_id else None
+    if isinstance(direct, dict) and str(direct.get("summary") or "").strip():
+        return direct
+    wanted = normalize_title(item.get("title"))
+    if not wanted:
+        return None
+    for record in summaries.values():
+        if not isinstance(record, dict) or not str(record.get("summary") or "").strip():
+            continue
+        if normalize_title(record.get("title")) == wanted:
+            return record
+    return None
+
+
 def article_urls(item: dict) -> list[str]:
     values = [item.get("url")]
     for source in item.get("sources") or []:
@@ -197,6 +217,10 @@ def call_openai(api_key: str, prompt: str) -> str:
     return ""
 
 
+def current_summary_count(items: list[dict], summaries: dict) -> int:
+    return sum(1 for item in items if item.get("id") and cached_record_for_item(summaries, item))
+
+
 def main() -> int:
     news = load_json(NEWS_PATH, {})
     items = news.get("items") or []
@@ -210,13 +234,17 @@ def main() -> int:
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
 
     if not api_key:
-        print("OPENAI_API_KEY is not configured; retaining cached summaries without generating new ones.")
+        matched = current_summary_count(items, summaries)
+        print(f"OPENAI_API_KEY is not configured; retaining {matched} cached current-feed summaries without generating new ones.")
         if not OUT_PATH.exists():
             OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
             OUT_PATH.write_text(json.dumps({
                 "provider": "ChatGPT via OpenAI Responses API",
                 "model": MODEL,
                 "updated_at": None,
+                "news_item_count": len(items),
+                "summary_count": matched,
+                "remaining_unsummarized": max(0, len(items) - matched),
                 "summaries": summaries,
                 "status": "openai_api_key_not_configured",
             }, indent=2) + "\n", encoding="utf-8")
@@ -228,8 +256,12 @@ def main() -> int:
         item_id = str(item.get("id") or "").strip()
         if not item_id:
             continue
-        cached = summaries.get(item_id) or {}
-        if isinstance(cached, dict) and str(cached.get("summary") or "").strip():
+        cached = cached_record_for_item(summaries, item)
+        if cached:
+            # Alias a title-keyed curated record to the current item ID so future runs
+            # remain efficient even when the upstream collector regenerates/merges IDs.
+            if item_id not in summaries:
+                summaries[item_id] = dict(cached, title=item.get("title"), company=item.get("company"))
             continue
         if generated >= MAX_ITEMS:
             break
@@ -259,14 +291,15 @@ def main() -> int:
         print(f"Generated ChatGPT summary {generated}: {item.get('title')}")
         time.sleep(0.2)
 
+    matched = current_summary_count(items, summaries)
     payload = {
         "provider": "ChatGPT via OpenAI Responses API",
         "model": MODEL,
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "news_generated_at": news.get("generated_at"),
         "news_item_count": len(items),
-        "summary_count": len(summaries),
-        "remaining_unsummarized": max(0, len([i for i in items if i.get("id")]) - len(summaries)),
+        "summary_count": matched,
+        "remaining_unsummarized": max(0, len([i for i in items if i.get("id")]) - matched),
         "generated_this_run": generated,
         "unavailable_this_run": unavailable,
         "summaries": summaries,
