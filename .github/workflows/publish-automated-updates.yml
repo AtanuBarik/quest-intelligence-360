@@ -47,6 +47,8 @@ jobs:
           mkdir -p _site
 
           node --check integrations/optimized-loader.js
+          node --check integrations/frontend-content-cleanup.js
+          node --check integrations/frontend-readability-overrides.js
           node --check integrations/executive-status-seed.js
           node --check integrations/executive-hub-final.js
           node --check integrations/executive-insight-split-layout.js
@@ -64,7 +66,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260809v'
+          release = '20260810b'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -142,6 +144,8 @@ jobs:
           test -f _site/integrations/role-access-governance.js
           test -f _site/integrations/chart-lite.js
           test -f _site/integrations/optimized-loader.js
+          test -f _site/integrations/frontend-content-cleanup.js
+          test -f _site/integrations/frontend-readability-overrides.js
           test -f _site/integrations/executive-status-seed.js
           test -f _site/integrations/executive-hub-final.js
           test -f _site/integrations/executive-insight-split-layout.js
@@ -161,6 +165,9 @@ jobs:
           test -f _site/data/competitor-source-registry.json
           test -f _site/data/strategic-analysis.json
           test -f _site/data/executive-public-intelligence.json
+          test -f _site/data/laboratory-article-summaries-01.b64
+          test -f _site/data/laboratory-article-summaries-02.b64
+          test -f _site/data/laboratory-article-summaries-03.b64
           if [ -f _site/data/laboratory-workflow-health.json ]; then
             test -f _site/data/laboratory-chatgpt-strategic-synthesis.json
             test -f _site/data/laboratory-chatgpt-summaries.json
