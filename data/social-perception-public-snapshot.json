@@ -1,0 +1,194 @@
+{
+  "generated_at": "2026-08-10T09:55:00Z",
+  "status": "public_web_snapshot",
+  "scope_note": "Publicly observable company-page and company-owned social presence snapshot. This file is not a direct social-platform API feed and must not be represented as real-time or automated social listening.",
+  "platform_status": [
+    {
+      "platform": "LinkedIn",
+      "code": "in",
+      "automated_daily": false,
+      "public_snapshot": true,
+      "status": "Public snapshot available",
+      "detail": "Company pages and recent public updates can be reviewed on the open web, but competitor organization-post retrieval is not connected as an approved daily API feed in this repository."
+    },
+    {
+      "platform": "YouTube",
+      "code": "yt",
+      "automated_daily": false,
+      "public_snapshot": true,
+      "status": "Public channels available",
+      "detail": "Public company video channels and video libraries can be verified, but the repository does not currently contain a configured YouTube Data API key or approved daily connector."
+    },
+    {
+      "platform": "X",
+      "code": "x",
+      "automated_daily": false,
+      "public_snapshot": false,
+      "status": "Connector unavailable",
+      "detail": "No X API application, bearer token or usage credits are configured in this repository, so automated post monitoring is unavailable."
+    },
+    {
+      "platform": "Facebook",
+      "code": "f",
+      "automated_daily": false,
+      "public_snapshot": false,
+      "status": "Connector unavailable",
+      "detail": "No approved Meta application or Page access credentials are configured for automated competitive content monitoring."
+    },
+    {
+      "platform": "Instagram",
+      "code": "ig",
+      "automated_daily": false,
+      "public_snapshot": false,
+      "status": "Connector unavailable",
+      "detail": "No approved Meta application or Instagram access credentials are configured for automated competitive content monitoring."
+    }
+  ],
+  "companies": [
+    {
+      "name": "Quest Diagnostics",
+      "mark": "QD",
+      "linkedin_followers": 378433,
+      "channel_scope": "Dedicated corporate page",
+      "freshness": "Active this week",
+      "narrative": "Broad diagnostic-access, innovation and community-health narrative, with visible emphasis on genomics, oncology workflow integration and health equity.",
+      "themes": ["Advanced diagnostics", "Patient access", "Health systems", "Corporate responsibility"],
+      "audiences": ["Patients", "HCPs", "Health-system leaders", "Employees"],
+      "format_signal": "Mix of clinical education, corporate storytelling and partnership announcements",
+      "source_url": "https://www.linkedin.com/company/quest-diagnostics",
+      "youtube_url": "https://www.youtube.com/user/QuestDiagnosticsTV"
+    },
+    {
+      "name": "Labcorp",
+      "mark": "L",
+      "linkedin_followers": 809437,
+      "channel_scope": "Dedicated corporate page",
+      "freshness": "Active this week",
+      "narrative": "High-volume professional narrative around precision oncology, consumer genetics, colorectal screening and evidence-led testing innovation.",
+      "themes": ["Precision oncology", "Genetics", "Screening", "Clinical evidence"],
+      "audiences": ["HCPs", "Patients", "Biopharma", "Health systems"],
+      "format_signal": "Product education, Q&A content and science-led launch communications",
+      "source_url": "https://www.linkedin.com/company/labcorp",
+      "youtube_url": "https://www.youtube.com/@LabcorpVideo"
+    },
+    {
+      "name": "ARUP Laboratories",
+      "mark": "A",
+      "linkedin_followers": 36873,
+      "channel_scope": "Dedicated corporate page",
+      "freshness": "Active this month",
+      "narrative": "Specialist educational positioning led by laboratory medicine, rare disease, stewardship and practical implementation of new diagnostics and AI.",
+      "themes": ["Clinical education", "Laboratory stewardship", "Rare disease", "AI implementation"],
+      "audiences": ["Laboratory leaders", "Pathologists", "HCPs", "Researchers"],
+      "format_signal": "Expert education, conference amplification and specialist laboratory content",
+      "source_url": "https://www.linkedin.com/company/arup-laboratories",
+      "youtube_url": "https://www.aruplab.com/newsroom/video"
+    },
+    {
+      "name": "Mayo Clinic Laboratories",
+      "mark": "MC",
+      "linkedin_followers": 72239,
+      "channel_scope": "Dedicated laboratory page",
+      "freshness": "Active this week",
+      "narrative": "Premium clinical-authority narrative built on specialty testing, subspecialist expertise and high-complexity diagnostic education.",
+      "themes": ["Specialty testing", "Clinical authority", "Precision diagnostics", "Medical education"],
+      "audiences": ["Specialists", "HCPs", "Laboratory leaders", "Health systems"],
+      "format_signal": "Frequent educational updates and specialist test explainers",
+      "source_url": "https://www.linkedin.com/company/mayo-clinic-laboratories",
+      "youtube_url": "https://www.mayocliniclabs.com/order-tests/MayoLINK-Overview-Video"
+    },
+    {
+      "name": "BioReference Health",
+      "mark": "BR",
+      "linkedin_followers": 30226,
+      "channel_scope": "Dedicated corporate page",
+      "freshness": "Lower recent public cadence",
+      "narrative": "Service and scientific-excellence positioning with emphasis on core clinical diagnostics, women’s health and tailored testing solutions.",
+      "themes": ["Clinical diagnostics", "Women’s health", "Service", "Scientific excellence"],
+      "audiences": ["Providers", "Health systems", "Patients", "Partners"],
+      "format_signal": "Lower observed public cadence; brand and service positioning dominates",
+      "source_url": "https://www.linkedin.com/company/bioreference-laboratories",
+      "youtube_url": "https://www.bioreference.com/bioreference-celebrates-40-years/"
+    },
+    {
+      "name": "Sonic Healthcare USA",
+      "mark": "SH",
+      "linkedin_followers": 14404,
+      "channel_scope": "Dedicated U.S. page",
+      "freshness": "Active this week",
+      "narrative": "Regional-network and employer-brand narrative, increasingly supported by strategic-partnership and healthcare-innovation messaging.",
+      "themes": ["Strategic partnerships", "Regional service", "Talent", "Patient care"],
+      "audiences": ["HCPs", "Health systems", "Employees", "Local communities"],
+      "format_signal": "Employer branding plus partnership and operational-service storytelling",
+      "source_url": "https://www.linkedin.com/company/sonic-healthcare-usa",
+      "youtube_url": ""
+    },
+    {
+      "name": "Cleveland Clinic Laboratories",
+      "mark": "CC",
+      "linkedin_followers": 925947,
+      "channel_scope": "Parent Cleveland Clinic channel proxy",
+      "freshness": "Parent channel active this week",
+      "narrative": "Laboratory perception benefits from the parent Cleveland Clinic authority halo; public content is predominantly patient education, research and specialty-care leadership rather than laboratory-only promotion.",
+      "themes": ["Clinical authority", "Patient education", "Research", "Specialty care"],
+      "audiences": ["Patients", "HCPs", "Researchers", "Global health audiences"],
+      "format_signal": "High-volume parent-brand education; laboratory-specific attribution is limited",
+      "source_url": "https://www.linkedin.com/company/cleveland-clinic",
+      "youtube_url": "https://health.youtube/"
+    },
+    {
+      "name": "NeoGenomics Laboratories",
+      "mark": "NG",
+      "linkedin_followers": 74216,
+      "channel_scope": "Dedicated corporate page",
+      "freshness": "Active this week",
+      "narrative": "Highly focused oncology narrative around companion diagnostics, MRD, population-scale cancer data and personalized treatment decisions.",
+      "themes": ["Oncology", "Companion diagnostics", "MRD", "Real-world data"],
+      "audiences": ["Oncologists", "Biopharma", "Pathologists", "Researchers"],
+      "format_signal": "Product-science updates and precision-oncology evidence",
+      "source_url": "https://www.linkedin.com/company/neogenomics-laboratories",
+      "youtube_url": ""
+    }
+  ],
+  "healthcare_benchmarks": [
+    {"platform": "LinkedIn", "engagement_rate": 3.3, "note": "2025 healthcare/pharma/biotech benchmark context"},
+    {"platform": "Instagram", "engagement_rate": 3.7, "note": "2025 healthcare/pharma/biotech benchmark context"},
+    {"platform": "X", "engagement_rate": 2.3, "note": "2025 healthcare/pharma/biotech benchmark context"},
+    {"platform": "Facebook", "engagement_rate": 1.9, "note": "2025 healthcare/pharma/biotech benchmark context"}
+  ],
+  "executive_insights": [
+    {
+      "title": "Professional social is the clearest competitive battleground",
+      "detail": "The strongest observable competitor signals are concentrated on LinkedIn, where Labcorp has the largest public audience in this peer set and Quest has a substantial but smaller corporate following."
+    },
+    {
+      "title": "Clinical authority beats generic corporate volume",
+      "detail": "Mayo Clinic Laboratories and ARUP use specialist education to build credibility with clinicians and laboratory leaders; this is a different strategic role from broad consumer reach."
+    },
+    {
+      "title": "Oncology and genomics are increasingly narrative-dense",
+      "detail": "Labcorp, Quest and NeoGenomics are all visibly using precision oncology, genetics, MRD or companion-diagnostic themes, making differentiation in evidence quality and workflow integration more important."
+    },
+    {
+      "title": "Video should be treated as a trust and education channel",
+      "detail": "Healthcare benchmark research and public company channels reinforce the value of educational video, but the current platform should not claim YouTube performance metrics until an approved connector is configured."
+    }
+  ],
+  "methodology_sources": [
+    {
+      "name": "Sprout Social 2025 Healthcare Content Benchmarks",
+      "url": "https://sproutsocial.com/insights/data/social-media-healthcare-benchmarks/",
+      "use": "Channel performance, trust, community engagement and healthcare content benchmarking."
+    },
+    {
+      "name": "Hootsuite Healthcare Social Media Benchmarks 2025",
+      "url": "https://blog.hootsuite.com/healthcare-social-media-benchmarks/",
+      "use": "Network-specific posting and engagement-rate context for healthcare, pharma and biotech."
+    },
+    {
+      "name": "Rival IQ Healthcare Live Benchmarks",
+      "url": "https://www.rivaliq.com/live-benchmarks/healthcare/",
+      "use": "Competitive landscape framing around posting cadence, engagement and audience growth."
+    }
+  ]
+}
