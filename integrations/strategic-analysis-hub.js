@@ -1,8 +1,9 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810g';
+  const RELEASE = '20260810h';
   const SCRIPTS = [
+    ['integrations/social-perception-v2.js', 'socialPerceptionV2Loader'],
     ['integrations/strategic-analysis-final-fixes.js', 'strategicAnalysisFinalFixLoader'],
     ['integrations/strategic-analysis-v2.js', 'strategicAnalysisV2Loader']
   ];
@@ -30,7 +31,7 @@
         detail: { path: 'integrations/strategic-analysis-v2.js' }
       }));
     } catch (error) {
-      console.error('Unable to load Strategic Analysis v2:', error);
+      console.error('Unable to load strategic intelligence modules:', error);
     }
   }
 
