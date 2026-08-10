@@ -15,7 +15,7 @@
   <div class="q-boot"><div class="q-boot-card"><strong>Quest Intelligence 360</strong><span>Loading the optimized dashboard and visual system…</span><div class="q-boot-line"><i></i></div></div></div>
   <script>
   (async()=>{try{
-    const release='20260810s';
+    const release='20260810t';
     const shellKey='./.quest-shell-'+release+'.html';
     const scrubShell=html=>{try{
       const doc=new DOMParser().parseFromString(html,'text/html');
@@ -26,6 +26,8 @@
       Array.from(doc.querySelectorAll('[aria-label],[title]')).forEach(node=>{const label=norm(node.getAttribute('aria-label')||node.getAttribute('title'));if(/^competitive landscape$/i.test(label))node.remove()});
 
       const navItems=Array.from(doc.querySelectorAll('.nav-item'));
+      const surveyNav=navItems.find(node=>/^survey analytics$/i.test(norm(node.textContent)));
+      if(surveyNav)surveyNav.dataset.view='survey';
       const tracker=navItems.find(node=>/^project tracker$/i.test(norm(node.textContent)));
       const evidence=navItems.find(node=>/^evidence library$/i.test(norm(node.textContent)));
       if(tracker&&evidence&&tracker.parentElement===evidence.parentElement&&tracker.nextElementSibling!==evidence)tracker.insertAdjacentElement('afterend',evidence);
@@ -34,7 +36,7 @@
       if(pmr){pmr.dataset.view='pmr';pmr.innerHTML='<div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading PMR repository and analysis dashboard…</div>'}
       const experts=doc.querySelector('.view[data-view="experts"]')||Array.from(doc.querySelectorAll('.view[data-view]')).find(view=>/Voice of Experts/i.test(norm(view.querySelector('h1')&&view.querySelector('h1').textContent)));
       if(experts){experts.dataset.view='experts';experts.innerHTML='<div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading Voice of Experts persona analysis…</div>'}
-      const survey=doc.querySelector('.view[data-view="survey"]')||Array.from(doc.querySelectorAll('.view[data-view]')).find(view=>/Survey Analytics/i.test(norm(view.querySelector('h1')&&view.querySelector('h1').textContent)));
+      const survey=doc.querySelector('.view[data-view="survey"],.view[data-view="surveys"]')||Array.from(doc.querySelectorAll('.view[data-view]')).find(view=>/Survey Analytics/i.test(norm(view.querySelector('h1')&&view.querySelector('h1').textContent)));
       if(survey){survey.dataset.view='survey';survey.innerHTML='<div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading multi-project Survey Analytics…</div>'}
       return '<!doctype html>'+doc.documentElement.outerHTML;
     }catch(_){return html}};
