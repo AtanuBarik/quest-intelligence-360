@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810b';
+  const RELEASE = '20260810c';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
@@ -161,6 +161,7 @@
       await loadScript('integrations/quest-brand-system.js');
       await loadScript('integrations/frontend-performance-layout.js');
       await loadScript('integrations/frontend-readability-overrides.js');
+      await loadScript('integrations/frontend-stability-guard.js');
       await loadScript('integrations/local-data-fetch-bridge.js');
       await loadScript('integrations/executive-status-seed.js');
       await loadScript('integrations/executive-hub-final.js');
