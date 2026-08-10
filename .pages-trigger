@@ -1,3 +1,3 @@
-repair-run=20260810-2130
-reason=direct-pages-deployment-and-legacy-build-fallback
-release=20260810r
+repair-run=20260810-2208
+reason=materialize-shell-and-add-survey-failsafe
+release=20260810s
