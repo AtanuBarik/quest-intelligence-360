@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810l';
+  const RELEASE = '20260810m';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
@@ -12,7 +12,7 @@
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
     insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-v3.js','integrations/insights-engine-evidence-placement-final.js'],
     library: ['integrations/knowledge-repository-lite.js'],
-    pmr: ['integrations/pmr-repository-dashboard-v2.js'],
+    pmr: ['integrations/pmr-repository-dashboard-final.js'],
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js','integrations/approved-insights-panel.js']
   };
@@ -48,9 +48,7 @@
       const headingText = Array.from(view.querySelectorAll('h1,h2,h3,[class*="title"]'))
         .map(node => normalizedText(node.textContent))
         .join(' | ');
-      if ((retiredView && view.dataset.view === retiredView) || /competitive landscape/i.test(headingText)) {
-        view.remove();
-      }
+      if ((retiredView && view.dataset.view === retiredView) || /competitive landscape/i.test(headingText)) view.remove();
     });
 
     Array.from(document.querySelectorAll('a,button,[aria-label],[title]')).forEach(node => {
@@ -130,7 +128,7 @@
     if (/news intelligence|strategic analysis|social|perception/.test(text)) return 'strategic';
     if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
     if (/knowledge repository|research repository/.test(text)) return 'library';
-    if (/pmr projects|pmr reports|primary market research hub/.test(text)) return 'pmr';
+    if (/pmr projects|pmr reports|primary market research hub|primary market research knowledge hub/.test(text)) return 'pmr';
     if (/microsoft|sharepoint|local data|local repository|local file/.test(text)) return 'microsoft';
     if (/project tracker|methodology|audit|survey analytics|voice of experts/.test(text)) return 'governance';
     return '';
@@ -172,9 +170,7 @@
       await loadScript('integrations/knowledge-legacy-guard.js');
       await loadScript('integrations/public-demo-evidence.js');
       await loadScript('integrations/executive-typography-benchmark-cleanup.js');
-      // PMR repository is part of the stable shell so the legacy PMR view is replaced
-      // before navigation and cannot win a later lazy-load race.
-      await loadScript('integrations/pmr-repository-dashboard-v2.js');
+      await loadScript('integrations/pmr-repository-dashboard-final.js');
       removeRetiredNavigation();
     } catch (error) {
       console.error('Quest core load failed:', error);
