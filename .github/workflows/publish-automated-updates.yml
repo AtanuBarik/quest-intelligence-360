@@ -65,6 +65,7 @@ jobs:
           node --check integrations/strategic-analysis-hub.js
           node --check integrations/strategic-analysis-v2.js
           python -m py_compile scripts/summarize_laboratory_news_openai.py
+          python -m json.tool data/pmr-insight-library.json >/dev/null
 
           python - <<'PY'
           import base64
@@ -72,7 +73,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260810m'
+          release = '20260810n'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -160,6 +161,7 @@ jobs:
           test -f _site/integrations/insights-engine-evidence-placement-final.js
           test -f _site/integrations/pmr-repository-dashboard-final.js
           test -f _site/data/pmr-repository-dashboard.json
+          test -f _site/data/pmr-insight-library.json
           test -f _site/data/project-tracker.json
           test -f _site/integrations/laboratory-news-monitor.js
           test -f _site/integrations/alerts-resilience-fix.js
