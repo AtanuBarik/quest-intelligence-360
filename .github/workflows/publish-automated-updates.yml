@@ -49,6 +49,7 @@ jobs:
           node --check integrations/optimized-loader.js
           node --check integrations/frontend-content-cleanup.js
           node --check integrations/frontend-readability-overrides.js
+          node --check integrations/frontend-stability-guard.js
           node --check integrations/executive-status-seed.js
           node --check integrations/executive-hub-final.js
           node --check integrations/executive-insight-split-layout.js
@@ -66,7 +67,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260810b'
+          release = '20260810c'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -77,43 +78,20 @@ jobs:
           html = html.replace('id="username" type="email" value="quest@medtech.com"', 'id="username" type="email" value=""')
           html = html.replace('id="password" type="password" value="evalueserve"', 'id="password" type="password" value=""')
 
-          # Permanently remove the retired Competitive Landscape navigation, view content,
-          # route title, and chart initialization from the generated Pages artifact.
           html = re.sub(
               r'\s*<button class="nav-item" data-view="landscape">.*?</button>\s*',
-              '\n',
-              html,
-              count=1,
-              flags=re.IGNORECASE | re.DOTALL,
+              '\n', html, count=1, flags=re.IGNORECASE | re.DOTALL,
           )
           html = re.sub(
               r'\s*<!--\s*LANDSCAPE\s*-->\s*<section class="view" data-view="landscape">.*?</section>\s*',
-              '\n',
-              html,
-              count=1,
-              flags=re.IGNORECASE | re.DOTALL,
+              '\n', html, count=1, flags=re.IGNORECASE | re.DOTALL,
           )
           html = re.sub(
               r",\s*landscape\s*:\s*['\"]Competitive Landscape['\"]",
-              '',
-              html,
-              count=1,
-              flags=re.IGNORECASE,
+              '', html, count=1, flags=re.IGNORECASE,
           )
-          html = re.sub(
-              r"\s*chart\('positioningBubble'.*?\);\s*",
-              '\n',
-              html,
-              count=1,
-              flags=re.DOTALL,
-          )
-          html = re.sub(
-              r"\s*chart\('capabilityRadar'.*?\);\s*",
-              '\n',
-              html,
-              count=1,
-              flags=re.DOTALL,
-          )
+          html = re.sub(r"\s*chart\('positioningBubble'.*?\);\s*", '\n', html, count=1, flags=re.DOTALL)
+          html = re.sub(r"\s*chart\('capabilityRadar'.*?\);\s*", '\n', html, count=1, flags=re.DOTALL)
           if re.search(r'>\s*Competitive Landscape\s*<|data-view=["\']landscape["\']', html, flags=re.IGNORECASE):
               raise SystemExit('Competitive Landscape survived the Pages build scrub.')
 
@@ -146,6 +124,7 @@ jobs:
           test -f _site/integrations/optimized-loader.js
           test -f _site/integrations/frontend-content-cleanup.js
           test -f _site/integrations/frontend-readability-overrides.js
+          test -f _site/integrations/frontend-stability-guard.js
           test -f _site/integrations/executive-status-seed.js
           test -f _site/integrations/executive-hub-final.js
           test -f _site/integrations/executive-insight-split-layout.js
