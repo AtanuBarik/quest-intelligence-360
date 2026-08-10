@@ -1,4 +1,5 @@
 name: Diagnose Quest Pages Deployment
+# Final verification for release 20260810r
 
 on:
   workflow_dispatch:
