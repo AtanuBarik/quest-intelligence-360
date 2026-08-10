@@ -1,2 +1,2 @@
-repair-run=20260806-1500
-reason=clear-stale-pages-deployments-publish-local-charts-and-request-one-build
+repair-run=20260810-1235
+reason=force-publish-authoritative-pmr-data-view-fix-and-strip-legacy-pmr-shell
