@@ -6,11 +6,11 @@ on:
     branches:
       - main
     paths:
-      - index.html
       - chunks/**
       - integrations/**
       - data/**
       - assets/**
+      - scripts/build_pages_materialized.py
       - .pages-trigger
       - .github/workflows/force-pages-deploy.yml
   workflow_run:
@@ -42,7 +42,7 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Validate frontend modules and data
+      - name: Validate frontend and build logic
         shell: bash
         run: |
           set -euo pipefail
@@ -52,101 +52,16 @@ jobs:
           node --check integrations/optimized-loader.js
           node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/voice-experts-dashboard-final.js
+          python -m py_compile scripts/build_pages_materialized.py
           python -m json.tool data/survey-analytics-demo.json >/dev/null
           python -m json.tool data/pmr-insight-library.json >/dev/null
           python -m json.tool data/voice-experts-analysis.json >/dev/null
 
-      - name: Materialize cleaned application shell
+      - name: Build materialized frontend
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf _site
-          mkdir -p _site
-
-          python - <<'PY'
-          import base64
-          import gzip
-          import re
-          from pathlib import Path
-
-          release = '20260810s'
-          chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
-          missing = [str(p) for p in chunks if not p.exists()]
-          if missing:
-              raise SystemExit(f'Missing frontend chunks: {missing}')
-
-          encoded = ''.join(p.read_text(encoding='utf-8').strip() for p in chunks)
-          html = gzip.decompress(base64.b64decode(encoded)).decode('utf-8')
-          html = html.replace('id="username" type="email" value="quest@medtech.com"', 'id="username" type="email" value=""')
-          html = html.replace('id="password" type="password" value="evalueserve"', 'id="password" type="password" value=""')
-
-          html = re.sub(r'\s*<button class="nav-item" data-view="landscape">.*?</button>\s*', '\n', html, count=1, flags=re.I|re.S)
-          html = re.sub(r'\s*<!--\s*LANDSCAPE\s*-->\s*<section class="view" data-view="landscape">.*?</section>\s*', '\n', html, count=1, flags=re.I|re.S)
-          html = re.sub(r",\s*landscape\s*:\s*['\"]Competitive Landscape['\"]", '', html, count=1, flags=re.I)
-          html = re.sub(r"\s*chart\('positioningBubble'.*?\);\s*", '\n', html, count=1, flags=re.S)
-          html = re.sub(r"\s*chart\('capabilityRadar'.*?\);\s*", '\n', html, count=1, flags=re.S)
-          if re.search(r'>\s*Competitive Landscape\s*<|data-view=["\']landscape["\']', html, flags=re.I):
-              raise SystemExit('Competitive Landscape survived materialization.')
-
-          buttons = re.findall(r'<button\s+class="nav-item"[^>]*>.*?</button>', html, flags=re.I|re.S)
-          tracker = next((b for b in buttons if re.search(r'>\s*Project Tracker\s*<', b, flags=re.I)), None)
-          evidence = next((b for b in buttons if re.search(r'>\s*Evidence Library\s*<', b, flags=re.I)), None)
-          if not tracker or not evidence:
-              raise SystemExit('Project Tracker or Evidence Library navigation item is missing.')
-          html = html.replace(evidence, '', 1)
-          html = html.replace(tracker, tracker + '\n' + evidence, 1)
-
-          replacements = {
-              'pmr': ('PMR', 'Loading PMR repository and analysis dashboard...'),
-              'experts': ('EXPERTS', 'Loading Voice of Experts persona analysis...'),
-              'survey': ('SURVEY', 'Loading multi-project Survey Analytics...'),
-          }
-          for view, (label, message) in replacements.items():
-              pattern = rf'\s*(?:<!--\s*{label}\s*-->\s*)?<section class="view" data-view="{view}">.*?</section>\s*'
-              replacement = f'\n<!-- {label} -->\n<section class="view" data-view="{view}"><div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">{message}</div></section>\n'
-              html, count = re.subn(pattern, replacement, html, count=1, flags=re.I|re.S)
-              if count != 1:
-                  raise SystemExit(f'Expected one {view} section; replaced {count}.')
-
-          html = re.sub(
-              r'<script\b[^>]*\bsrc=["\']https://cdn\.jsdelivr\.net/npm/chart\.js[^"\']*["\'][^>]*>\s*</script>',
-              f'<script src="integrations/chart-lite.js?v={release}"></script>',
-              html,
-              flags=re.I,
-          )
-          html = re.sub(
-              r'<script\b[^>]*\bsrc=["\'](?:\.\/)?integrations/[^"\']+["\'][^>]*>\s*</script>',
-              lambda m: m.group(0) if 'chart-lite.js' in m.group(0) else '',
-              html,
-              flags=re.I,
-          )
-          scripts = ''.join([
-              f'<script src="integrations/frontend-critical-nav-survey.js?v={release}"></script>',
-              f'<script src="integrations/survey-analytics-dashboard-final.js?v={release}"></script>',
-              f'<script src="integrations/survey-analytics-failsafe.js?v={release}"></script>',
-              f'<script src="integrations/optimized-loader.js?v={release}"></script>',
-          ])
-          if '</body>' not in html:
-              raise SystemExit('Materialized shell has no closing body tag.')
-          html = html.replace('</body>', scripts + '</body>', 1)
-
-          if 'Loading multi-project Survey Analytics' not in html:
-              raise SystemExit('Survey placeholder missing after materialization.')
-          if html.find(evidence) < html.find(tracker):
-              raise SystemExit('Evidence Library is not after Project Tracker.')
-          for path in ['frontend-critical-nav-survey.js','survey-analytics-dashboard-final.js','survey-analytics-failsafe.js','optimized-loader.js']:
-              if path not in html:
-                  raise SystemExit(f'Missing critical script {path}.')
-
-          Path('_site/index.html').write_text(html, encoding='utf-8')
-          print(f'Materialized release {release}: {len(html):,} chars')
-          PY
-
-          cp -R integrations _site/integrations
-          cp -R data _site/data
-          if [ -d assets ]; then cp -R assets _site/assets; fi
-          touch _site/.nojekyll
-
+          python scripts/build_pages_materialized.py
           test -f _site/index.html
           test -f _site/integrations/frontend-critical-nav-survey.js
           test -f _site/integrations/survey-analytics-dashboard-final.js
@@ -155,9 +70,8 @@ jobs:
           test -f _site/data/survey-analytics-demo.json
           grep -q 'Loading multi-project Survey Analytics' _site/index.html
           grep -q 'survey-analytics-failsafe.js?v=20260810s' _site/index.html
-          if grep -qi 'Competitive Landscape' _site/index.html; then exit 1; fi
 
-      - name: Keep gh-pages branch synchronized
+      - name: Keep gh-pages synchronized
         shell: bash
         run: |
           set -euo pipefail
@@ -219,5 +133,5 @@ jobs:
           if [ "${{ steps.deployment.outcome }}" = "success" ]; then
             echo "Direct GitHub Pages artifact deployment succeeded."
           else
-            echo "Legacy Pages build request is authoritative for this repository."
+            echo "Legacy Pages branch build was requested and remains authoritative."
           fi
