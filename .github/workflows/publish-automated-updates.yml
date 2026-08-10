@@ -47,6 +47,7 @@ jobs:
           mkdir -p _site
 
           node --check integrations/optimized-loader.js
+          node --check integrations/frontend-critical-nav-survey.js
           node --check integrations/frontend-content-cleanup.js
           node --check integrations/frontend-readability-overrides.js
           node --check integrations/frontend-stability-guard.js
@@ -77,7 +78,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260810p'
+          release = '20260810q'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -184,12 +185,19 @@ jobs:
               html,
               flags=re.IGNORECASE,
           )
+          critical = f'<script src="integrations/frontend-critical-nav-survey.js?v={release}"></script>'
+          survey = f'<script src="integrations/survey-analytics-dashboard-final.js?v={release}"></script>'
           loader = f'<script src="integrations/optimized-loader.js?v={release}"></script>'
           if '</body>' not in html:
               raise SystemExit('The decompressed application shell has no closing body tag.')
-          html = html.replace('</body>', loader + '</body>', 1)
-          if f'optimized-loader.js?v={release}' not in html:
-              raise SystemExit('Optimized loader release was not injected into the Pages shell.')
+          html = html.replace('</body>', critical + survey + loader + '</body>', 1)
+          for expected in [
+              f'frontend-critical-nav-survey.js?v={release}',
+              f'survey-analytics-dashboard-final.js?v={release}',
+              f'optimized-loader.js?v={release}',
+          ]:
+              if expected not in html:
+                  raise SystemExit(f'Missing critical Pages script: {expected}')
           Path('_site/index.html').write_text(html, encoding='utf-8')
           print(f'Built optimized application shell: {len(html):,} characters')
           PY
@@ -201,6 +209,7 @@ jobs:
           test -f _site/integrations/role-access-governance.js
           test -f _site/integrations/chart-lite.js
           test -f _site/integrations/optimized-loader.js
+          test -f _site/integrations/frontend-critical-nav-survey.js
           test -f _site/integrations/frontend-content-cleanup.js
           test -f _site/integrations/frontend-readability-overrides.js
           test -f _site/integrations/frontend-stability-guard.js
