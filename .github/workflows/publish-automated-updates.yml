@@ -56,6 +56,7 @@ jobs:
           node --check integrations/executive-typography-benchmark-cleanup.js
           node --check integrations/insights-engine-layout-v3.js
           node --check integrations/insights-engine-evidence-placement-final.js
+          node --check integrations/pmr-repository-dashboard-v2.js
           node --check integrations/laboratory-news-monitor.js
           node --check integrations/alerts-resilience-fix.js
           node --check integrations/alerts-signals-final.js
@@ -71,7 +72,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260810f'
+          release = '20260810l'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -115,6 +116,8 @@ jobs:
           if '</body>' not in html:
               raise SystemExit('The decompressed application shell has no closing body tag.')
           html = html.replace('</body>', loader + '</body>', 1)
+          if f'optimized-loader.js?v={release}' not in html:
+              raise SystemExit('Optimized loader release was not injected into the Pages shell.')
           Path('_site/index.html').write_text(html, encoding='utf-8')
           print(f'Built optimized application shell: {len(html):,} characters')
           PY
@@ -135,6 +138,8 @@ jobs:
           test -f _site/integrations/executive-typography-benchmark-cleanup.js
           test -f _site/integrations/insights-engine-layout-v3.js
           test -f _site/integrations/insights-engine-evidence-placement-final.js
+          test -f _site/integrations/pmr-repository-dashboard-v2.js
+          test -f _site/data/pmr-repository-dashboard.json
           test -f _site/integrations/laboratory-news-monitor.js
           test -f _site/integrations/alerts-resilience-fix.js
           test -f _site/integrations/alerts-signals-final.js
