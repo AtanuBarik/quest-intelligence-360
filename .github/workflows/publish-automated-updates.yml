@@ -58,6 +58,7 @@ jobs:
           node --check integrations/insights-engine-evidence-placement-final.js
           node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/voice-experts-dashboard-final.js
+          node --check integrations/survey-analytics-dashboard-final.js
           node --check integrations/laboratory-news-monitor.js
           node --check integrations/alerts-resilience-fix.js
           node --check integrations/alerts-signals-final.js
@@ -68,6 +69,7 @@ jobs:
           python -m py_compile scripts/summarize_laboratory_news_openai.py
           python -m json.tool data/pmr-insight-library.json >/dev/null
           python -m json.tool data/voice-experts-analysis.json >/dev/null
+          python -m json.tool data/survey-analytics-demo.json >/dev/null
 
           python - <<'PY'
           import base64
@@ -75,7 +77,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260810o'
+          release = '20260810p'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -102,6 +104,15 @@ jobs:
           html = re.sub(r"\s*chart\('capabilityRadar'.*?\);\s*", '\n', html, count=1, flags=re.DOTALL)
           if re.search(r'>\s*Competitive Landscape\s*<|data-view=["\']landscape["\']', html, flags=re.IGNORECASE):
               raise SystemExit('Competitive Landscape survived the Pages build scrub.')
+
+          nav_buttons = re.findall(r'<button\s+class="nav-item"[^>]*>.*?</button>', html, flags=re.IGNORECASE | re.DOTALL)
+          tracker_button = next((button for button in nav_buttons if re.search(r'>\s*Project Tracker\s*<', button, flags=re.IGNORECASE)), None)
+          evidence_button = next((button for button in nav_buttons if re.search(r'>\s*Evidence Library\s*<', button, flags=re.IGNORECASE)), None)
+          if tracker_button and evidence_button:
+              html = html.replace(evidence_button, '', 1)
+              html = html.replace(tracker_button, tracker_button + '\n' + evidence_button, 1)
+              if html.find(evidence_button) < html.find(tracker_button):
+                  raise SystemExit('Evidence Library was not positioned after Project Tracker.')
 
           pmr_placeholder = '''
         <!-- PMR -->
@@ -143,6 +154,24 @@ jobs:
           if 'data-view="experts"' not in html or 'Loading Voice of Experts persona analysis' not in html:
               raise SystemExit('Voice of Experts placeholder missing after Pages build scrub.')
 
+          survey_placeholder = '''
+        <!-- SURVEY -->
+        <section class="view" data-view="survey">
+          <div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading multi-project Survey Analytics…</div>
+        </section>
+'''
+          html, survey_replacements = re.subn(
+              r'\s*(?:<!--\s*SURVEY\s*-->\s*)?<section class="view" data-view="survey">.*?</section>\s*',
+              survey_placeholder,
+              html,
+              count=1,
+              flags=re.IGNORECASE | re.DOTALL,
+          )
+          if survey_replacements != 1:
+              raise SystemExit(f'Expected to replace one legacy Survey Analytics section; replaced {survey_replacements}.')
+          if 'data-view="survey"' not in html or 'Loading multi-project Survey Analytics' not in html:
+              raise SystemExit('Survey Analytics placeholder missing after Pages build scrub.')
+
           html = re.sub(
               r'<script\b[^>]*\bsrc=["\']https://cdn\.jsdelivr\.net/npm/chart\.js[^"\']*["\'][^>]*>\s*</script>',
               f'<script src="integrations/chart-lite.js?v={release}"></script>',
@@ -150,7 +179,7 @@ jobs:
               flags=re.IGNORECASE,
           )
           html = re.sub(
-              r'<script\b[^>]*\bsrc=["\'](?:\./)?integrations/[^"\']+["\'][^>]*>\s*</script>',
+              r'<script\b[^>]*\bsrc=["\'](?:\.\/)?integrations/[^"\']+["\'][^>]*>\s*</script>',
               lambda match: match.group(0) if 'chart-lite.js' in match.group(0) else '',
               html,
               flags=re.IGNORECASE,
@@ -183,9 +212,11 @@ jobs:
           test -f _site/integrations/insights-engine-evidence-placement-final.js
           test -f _site/integrations/pmr-repository-dashboard-final.js
           test -f _site/integrations/voice-experts-dashboard-final.js
+          test -f _site/integrations/survey-analytics-dashboard-final.js
           test -f _site/data/pmr-repository-dashboard.json
           test -f _site/data/pmr-insight-library.json
           test -f _site/data/voice-experts-analysis.json
+          test -f _site/data/survey-analytics-demo.json
           test -f _site/data/project-tracker.json
           test -f _site/integrations/laboratory-news-monitor.js
           test -f _site/integrations/alerts-resilience-fix.js
