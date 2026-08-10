@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810o';
+  const RELEASE = '20260810p';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
@@ -14,6 +14,7 @@
     library: ['integrations/knowledge-repository-lite.js'],
     pmr: ['integrations/pmr-repository-dashboard-final.js'],
     experts: ['integrations/voice-experts-dashboard-final.js'],
+    survey: ['integrations/survey-analytics-dashboard-final.js'],
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js','integrations/approved-insights-panel.js']
   };
@@ -56,6 +57,13 @@
       const label = normalizedText(node.getAttribute('aria-label') || node.getAttribute('title') || node.textContent);
       if (/^competitive landscape$/i.test(label)) node.remove();
     });
+
+    const navItems = Array.from(document.querySelectorAll('.nav-item'));
+    const tracker = navItems.find(node => /^project tracker$/i.test(normalizedText(node.textContent)));
+    const evidence = navItems.find(node => /^evidence library$/i.test(normalizedText(node.textContent)));
+    if (tracker && evidence && tracker.parentElement === evidence.parentElement && tracker.nextElementSibling !== evidence) {
+      tracker.insertAdjacentElement('afterend', evidence);
+    }
   }
 
   function scheduleRetiredSweep() {
@@ -129,10 +137,11 @@
     if (/news intelligence|strategic analysis|social|perception/.test(text)) return 'strategic';
     if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
     if (/voice of experts|persona intelligence|expert analysis/.test(text)) return 'experts';
-    if (/knowledge repository|research repository/.test(text)) return 'library';
+    if (/survey analytics|survey intelligence/.test(text)) return 'survey';
+    if (/knowledge repository|research repository|evidence library/.test(text)) return 'library';
     if (/pmr projects|pmr reports|primary market research hub|primary market research knowledge hub/.test(text)) return 'pmr';
     if (/microsoft|sharepoint|local data|local repository|local file/.test(text)) return 'microsoft';
-    if (/project tracker|methodology|audit|survey analytics/.test(text)) return 'governance';
+    if (/project tracker|methodology|audit/.test(text)) return 'governance';
     return '';
   }
 
@@ -174,6 +183,7 @@
       await loadScript('integrations/executive-typography-benchmark-cleanup.js');
       await loadScript('integrations/pmr-repository-dashboard-final.js');
       await loadScript('integrations/voice-experts-dashboard-final.js');
+      await loadScript('integrations/survey-analytics-dashboard-final.js');
       removeRetiredNavigation();
     } catch (error) {
       console.error('Quest core load failed:', error);
