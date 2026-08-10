@@ -6,6 +6,7 @@ on:
     branches:
       - main
     paths:
+      - index.html
       - chunks/**
       - integrations/**
       - data/**
@@ -69,7 +70,12 @@ jobs:
           test -f _site/integrations/optimized-loader.js
           test -f _site/data/survey-analytics-demo.json
           grep -q 'Loading multi-project Survey Analytics' _site/index.html
-          grep -q 'survey-analytics-failsafe.js?v=20260810s' _site/index.html
+          grep -q 'survey-analytics-failsafe.js?v=20260810t' _site/index.html
+          grep -q 'data-view="survey"' _site/index.html
+          if grep -q 'data-view="surveys"' _site/index.html; then
+            echo 'Legacy Survey Analytics route alias survived build.' >&2
+            exit 1
+          fi
 
       - name: Keep gh-pages synchronized
         shell: bash
@@ -85,9 +91,9 @@ jobs:
           cd /tmp/quest-pages
           git add -A
           if git diff --cached --quiet; then
-            git commit --allow-empty -m "Redeploy Quest Pages release 20260810s"
+            git commit --allow-empty -m "Redeploy Quest Pages release 20260810t"
           else
-            git commit -m "Publish Quest Pages release 20260810s"
+            git commit -m "Publish Quest Pages release 20260810t"
           fi
           git push origin gh-pages
 
