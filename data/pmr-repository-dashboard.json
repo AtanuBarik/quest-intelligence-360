@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-08-10T10:35:00Z",
+  "source": "Quest project tracker plus curated repository mapping",
+  "method_note": "Delivery status, respondent counts and milestones are sourced from data/project-tracker.json. Repository counts and analysis summaries are a demo mapping for the public prototype where confidential PMR source files are not stored in GitHub.",
+  "projects": [
+    {
+      "id": "health-system-experience",
+      "name": "Redefining the Health System Experience: Enterprise Decision-Making & Value Proposition",
+      "short_name": "Health System Experience",
+      "objective": "Understand enterprise laboratory decision-making, value propositions, ambulatory settings and behavioural segments across health systems.",
+      "objective_group": "Health-system strategy",
+      "themes": ["Health systems", "Enterprise value", "Physician networks", "Ambulatory strategy"],
+      "research_types": ["Qualitative IDIs"],
+      "status": "Final output complete",
+      "priority": "High",
+      "respondents": 18,
+      "final_progress": 100,
+      "evidence_files": 25,
+      "analysis_status": "Demo synthesis",
+      "key_findings": [
+        "Enterprise laboratory value is judged on access, workflow fit and measurable health-system impact rather than testing price alone.",
+        "Physician-network needs can differ materially from central health-system priorities, creating a need for segmented value propositions.",
+        "Ambulatory growth increases the importance of service consistency, turnaround visibility and integrated decision support."
+      ],
+      "executive_implication": "Quest should package diagnostics, analytics and service governance into enterprise propositions tailored by decision-maker and care setting.",
+      "artifacts": [
+        {"type":"Transcript","label":"Health-system IDI transcripts","count":18,"availability":"Mapped repository inventory"},
+        {"type":"Report","label":"Final executive report","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Presentation","label":"Interim and final readouts","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Research instrument","label":"Screener and discussion guide","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Analysis","label":"Coding framework and evidence table","count":2,"availability":"Demo repository mapping"}
+      ]
+    },
+    {
+      "id": "digital-customer-journey",
+      "name": "Digital Customer Journey & Solutions Roadmap – Health Systems & Physician Groups",
+      "short_name": "Digital Customer Journey",
+      "objective": "Identify digital touchpoints, workflow friction, interoperability barriers and implementation needs across health systems and physician groups.",
+      "objective_group": "Digital customer experience",
+      "themes": ["Digital journey", "Workflow integration", "Interoperability", "Onboarding"],
+      "research_types": ["Qualitative IDIs", "Quantitative Survey"],
+      "status": "Final output in progress",
+      "priority": "High",
+      "respondents": 120,
+      "final_progress": 90,
+      "evidence_files": 31,
+      "analysis_status": "Demo synthesis",
+      "key_findings": [
+        "Workflow integration and onboarding friction are recurring determinants of adoption across both health systems and physician groups.",
+        "Digital value depends on reducing handoffs and surfacing status information at the point of work rather than adding another standalone portal.",
+        "The quantitative layer indicates that journey pain points vary by customer setting, making segment-specific roadmap prioritization important."
+      ],
+      "executive_implication": "Prioritize interoperability, onboarding simplicity and role-specific workflow support before expanding feature breadth.",
+      "artifacts": [
+        {"type":"Transcript","label":"Health-system and physician-group IDI transcripts","count":20,"availability":"Mapped repository inventory"},
+        {"type":"Survey data","label":"Survey response dataset (100 completes)","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Report","label":"Final report / roadmap deck","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Research instrument","label":"IDI guide and survey instrument","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Presentation","label":"Interim and pre-read outputs","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Analysis","label":"Journey maps, segmentation and analysis workbooks","count":5,"availability":"Demo repository mapping"}
+      ]
+    },
+    {
+      "id": "data-ecosystem-needs",
+      "name": "Data Ecosystem Needs",
+      "short_name": "Data Ecosystem Needs",
+      "objective": "Explore HCP behaviours, AI and next-best-action use cases, population-health analytics, interoperability and digital investment priorities.",
+      "objective_group": "Data & AI strategy",
+      "themes": ["Data ecosystem", "AI", "Population health", "Interoperability"],
+      "research_types": ["Qualitative IDIs"],
+      "status": "Final output complete",
+      "priority": "High",
+      "respondents": 8,
+      "final_progress": 100,
+      "evidence_files": 13,
+      "analysis_status": "Demo synthesis",
+      "key_findings": [
+        "AI is most credible when embedded into trusted clinical workflows rather than positioned as a standalone capability.",
+        "Interoperability and data access remain foundational barriers to realizing analytics and next-best-action value.",
+        "Population-health use cases increase demand for longitudinal, governed and context-rich diagnostic data."
+      ],
+      "executive_implication": "Lead with workflow-embedded data products and governance, using interoperability as the foundation for AI-enabled value propositions.",
+      "artifacts": [
+        {"type":"Transcript","label":"HCP and organization-leader transcripts","count":8,"availability":"Mapped repository inventory"},
+        {"type":"Report","label":"Final report","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Research instrument","label":"Screener and interview guide","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Presentation","label":"Executive readout","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Analysis","label":"Use-case prioritization workbook","count":1,"availability":"Demo repository mapping"}
+      ]
+    },
+    {
+      "id": "data-ecosystem-extended",
+      "name": "Data Ecosystem Needs (Extended Study)",
+      "short_name": "Data Ecosystem Extended",
+      "objective": "Assess partner and data-ecosystem capabilities, interoperability challenges, priority use cases and partnership opportunities.",
+      "objective_group": "Partnership strategy",
+      "themes": ["Data ecosystem", "Partnerships", "Interoperability", "Use cases"],
+      "research_types": ["Qualitative IDIs"],
+      "status": "Final output in progress",
+      "priority": "High",
+      "respondents": 8,
+      "final_progress": 80,
+      "evidence_files": 12,
+      "analysis_status": "Demo synthesis",
+      "key_findings": [
+        "Partnership value is strongest where external capabilities shorten time-to-value for health-system integration and analytics.",
+        "Clear data rights, implementation accountability and workflow ownership are critical to ecosystem adoption.",
+        "Partner selection should balance technical fit with the ability to support enterprise governance and scale."
+      ],
+      "executive_implication": "Use a partnership scorecard that weighs interoperability, implementation ownership, data governance and enterprise scalability—not technology fit alone.",
+      "artifacts": [
+        {"type":"Transcript","label":"Partner and ecosystem IDI transcripts","count":8,"availability":"Mapped repository inventory"},
+        {"type":"Report","label":"Final deck in progress","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Research instrument","label":"Screener and discussion guide","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Analysis","label":"Partnership opportunity matrix","count":1,"availability":"Demo repository mapping"}
+      ]
+    },
+    {
+      "id": "lab-stewardship",
+      "name": "Lab Stewardship & Analytics Competitive Positioning Research",
+      "short_name": "Lab Stewardship & Analytics",
+      "objective": "Identify unmet customer needs, product gaps, competitive positioning, messaging opportunities and make-versus-buy implications for stewardship and analytics.",
+      "objective_group": "Product & competitive positioning",
+      "themes": ["Lab stewardship", "Analytics", "Competitive positioning", "Unmet needs"],
+      "research_types": ["Qualitative IDIs"],
+      "status": "Final output complete",
+      "priority": "High",
+      "respondents": 10,
+      "final_progress": 100,
+      "evidence_files": 17,
+      "analysis_status": "Demo synthesis",
+      "key_findings": [
+        "Customers value stewardship when analytics translate into measurable utilization decisions rather than dashboards alone.",
+        "Clinical credibility and workflow integration are important differentiators in a market with expanding analytics options.",
+        "Evidence-backed decision support creates room for differentiated managed-service and partnership models."
+      ],
+      "executive_implication": "Position stewardship as an outcomes and decision-support proposition supported by analytics, clinical expertise and operational integration.",
+      "artifacts": [
+        {"type":"Transcript","label":"Stewardship stakeholder transcripts","count":10,"availability":"Mapped repository inventory"},
+        {"type":"Report","label":"Final competitive positioning report","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Presentation","label":"Interim and final presentations","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Research instrument","label":"Screener and interview guide","count":2,"availability":"Mapped repository inventory"},
+        {"type":"Analysis","label":"Competitive matrix and unmet-needs synthesis","count":2,"availability":"Demo repository mapping"}
+      ]
+    },
+    {
+      "id": "consumer-testing",
+      "name": "US Consumer Testing Market: Company Profiles Refresh & Expansion 2026",
+      "short_name": "US Consumer Testing Market",
+      "objective": "Refresh and expand consumer-testing company profiles across digital health, wearables, telehealth and retail health.",
+      "objective_group": "Consumer market intelligence",
+      "themes": ["Consumer testing", "Digital health", "Retail health", "Company profiles"],
+      "research_types": ["Secondary Research"],
+      "status": "Completed",
+      "priority": "High",
+      "respondents": 0,
+      "final_progress": 100,
+      "evidence_files": 2,
+      "analysis_status": "Demo synthesis",
+      "key_findings": [
+        "Consumer testing competition increasingly blends diagnostics with digital access, subscription models and broader wellness propositions.",
+        "Retail and telehealth channels lower access friction but place more weight on simple packaging, trust and follow-through.",
+        "Differentiation depends on connecting testing to actionable interpretation rather than selling isolated tests."
+      ],
+      "executive_implication": "Quest should defend trust and clinical credibility while simplifying consumer access and connecting results to longitudinal guidance.",
+      "artifacts": [
+        {"type":"Report","label":"Final company-profile report","count":1,"availability":"Mapped repository inventory"},
+        {"type":"Analysis","label":"Company profile comparison workbook","count":1,"availability":"Mapped repository inventory"}
+      ]
+    },
+    {
+      "id": "ci-always-on",
+      "name": "Clinical Laboratory Competitive Intelligence — Always On",
+      "short_name": "Clinical Lab CI — Always On",
+      "objective": "Maintain an always-on view of competitor moves, product launches, partnerships, financial developments and strategic implications for Quest.",
+      "objective_group": "Always-on competitive intelligence",
+      "themes": ["Competitor monitoring", "Strategic signals", "Partnerships", "Market moves"],
+      "research_types": ["Secondary Research", "Competitive Intelligence"],
+      "status": "Always on",
+      "priority": "High",
+      "respondents": 0,
+      "final_progress": 100,
+      "evidence_files": 6,
+      "analysis_status": "Demo synthesis",
+      "key_findings": [
+        "Competitive activity is concentrating around precision oncology, health-system integration, AI-enabled workflows and consumer access.",
+        "Scale players are using partnerships and acquisitions to increase specialty depth while focused diagnostics companies compete on clinical evidence and data assets.",
+        "Quest's strongest differentiation opportunity is to connect broad access and diagnostic scale with workflow-integrated decision support."
+      ],
+      "executive_implication": "Use always-on signals to connect competitor moves to PMR themes and trigger targeted follow-up research when market evidence challenges current assumptions.",
+      "artifacts": [
+        {"type":"News dataset","label":"Competitor signal dataset","count":1,"availability":"Public repository dataset"},
+        {"type":"Report","label":"Strategic signal summary","count":1,"availability":"Demo repository mapping"},
+        {"type":"Analysis","label":"Source log and implication matrix","count":2,"availability":"Demo repository mapping"},
+        {"type":"Presentation","label":"Executive briefing","count":1,"availability":"Demo repository mapping"},
+        {"type":"Methodology","label":"Monitoring methodology","count":1,"availability":"Demo repository mapping"}
+      ]
+    }
+  ]
+}
