@@ -14,6 +14,12 @@ on:
       - .pages-trigger
       - .github/workflows/force-pages-deploy.yml
       - .github/workflows/publish-automated-updates.yml
+  workflow_run:
+    workflows:
+      - Sync laboratory news data
+      - Refresh live operations status
+      - Refresh competitor profiles daily
+    types: [completed]
 
 permissions:
   contents: write
@@ -22,19 +28,33 @@ permissions:
   actions: read
 
 concurrency:
-  group: quest-pages-direct-deploy
+  group: quest-pages-authoritative-deploy
   cancel-in-progress: true
 
 jobs:
   build:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - name: Check out main
+      - name: Check out latest main
         uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 0
+
+      - name: Validate frontend modules and data
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check integrations/frontend-critical-nav-survey.js
+          node --check integrations/survey-analytics-dashboard-final.js
+          node --check integrations/optimized-loader.js
+          node --check integrations/pmr-repository-dashboard-final.js
+          node --check integrations/voice-experts-dashboard-final.js
+          python -m json.tool data/survey-analytics-demo.json >/dev/null
+          python -m json.tool data/pmr-insight-library.json >/dev/null
+          python -m json.tool data/voice-experts-analysis.json >/dev/null
 
       - name: Assemble deployable site
         shell: bash
@@ -77,7 +97,7 @@ jobs:
           fi
           git push origin gh-pages
 
-      - name: Request legacy Pages build fallback
+      - name: Request legacy Pages build
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -97,6 +117,7 @@ jobs:
 
   deploy:
     needs: build
+    if: ${{ needs.build.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 12
     permissions:
@@ -118,5 +139,5 @@ jobs:
           if [ "${{ steps.deployment.outcome }}" = "success" ]; then
             echo "Direct GitHub Pages artifact deployment succeeded."
           else
-            echo "Direct artifact deployment was unavailable; the legacy Pages build fallback was already requested."
+            echo "The repository is still configured for legacy Pages; the explicit Pages build request was used instead."
           fi
