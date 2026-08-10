@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810c';
+  const RELEASE = '20260810d';
   const SUMMARY_PARTS = [
     'data/laboratory-article-summaries-01.b64',
     'data/laboratory-article-summaries-02.b64',
@@ -12,12 +12,18 @@
   let ready = false;
   let applying = false;
   let timer = 0;
+  let observer = null;
 
   const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
   const norm = value => clean(value).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
     '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
   }[char]));
+
+  function observe() {
+    if (!observer || !document.body) return;
+    observer.observe(document.body, {childList:true, subtree:true, characterData:true});
+  }
 
   function injectStyles() {
     let style = document.getElementById('qPermanentFrontendStabilityStyles');
@@ -26,6 +32,8 @@
       style.id = 'qPermanentFrontendStabilityStyles';
       document.head.appendChild(style);
     }
+    if (style.dataset.release === RELEASE) return;
+    style.dataset.release = RELEASE;
     style.textContent = `
       .view[data-view="alerts"] .q-final-summary,
       .view[data-view="alerts"] .q-visible-news-summary,
@@ -145,6 +153,7 @@
       if (Number(payload?.item_count) !== 82 || records.length !== 82) {
         throw new Error(`Expected 82 reviewed summaries, received ${records.length}.`);
       }
+      summaries.clear();
       records.forEach(record => {
         if (record?.title && clean(record.summary)) summaries.set(norm(record.title), record);
       });
@@ -186,6 +195,24 @@
       .filter(card => card.querySelector('h3,h4') && card.querySelector('a[href]'));
   }
 
+  function summaryMarkup(record) {
+    if (!record) {
+      return {
+        key: 'unavailable',
+        className: 'q-stable-article-summary unavailable',
+        html: '<strong>Reviewed summary not yet available</strong><div class="q-stable-summary-copy">This item was added after the latest reviewed summary set and will be included in the next article-content review.</div>'
+      };
+    }
+    const retrieval = clean(record.retrieval_status || '');
+    const note = retrieval && !/publisher article accessed directly/i.test(retrieval)
+      ? `<div class="q-stable-summary-note">Evidence basis: ${esc(retrieval)}</div>` : '';
+    return {
+      key: `reviewed:${norm(record.title)}:${clean(record.summary).length}`,
+      className: 'q-stable-article-summary',
+      html: `<strong>Article summary</strong><div class="q-stable-summary-copy">${esc(clean(record.summary))}</div>${note}`
+    };
+  }
+
   function renderSummaries() {
     const root = document.querySelector('.view[data-view="alerts"]');
     if (!root || !ready) return;
@@ -193,26 +220,28 @@
     let matched = 0;
 
     cards.forEach(card => {
-      card.querySelectorAll('.q-stable-article-summary').forEach(node => node.remove());
       const title = card.querySelector('h3,h4')?.textContent || '';
       const record = findRecord(title);
-      const box = document.createElement('div');
-      box.className = `q-stable-article-summary${record ? '' : ' unavailable'}`;
+      if (record) matched += 1;
+      const desired = summaryMarkup(record);
+      const existing = card.querySelector('.q-stable-article-summary');
+      const duplicates = card.querySelectorAll('.q-stable-article-summary');
+      if (duplicates.length > 1) Array.from(duplicates).slice(1).forEach(node => node.remove());
 
-      if (record) {
-        matched += 1;
-        const retrieval = clean(record.retrieval_status || '');
-        const note = retrieval && !/publisher article accessed directly/i.test(retrieval)
-          ? `<div class="q-stable-summary-note">Evidence basis: ${esc(retrieval)}</div>` : '';
-        box.innerHTML = `<strong>Article summary</strong><div class="q-stable-summary-copy">${esc(clean(record.summary))}</div>${note}`;
-        box.dataset.summaryTitle = record.title || '';
-      } else {
-        box.innerHTML = '<strong>Reviewed summary not yet available</strong><div class="q-stable-summary-copy">This item was added after the latest reviewed summary set and will be included in the next article-content review.</div>';
+      if (existing && existing.dataset.summaryKey === desired.key) return;
+
+      const box = existing || document.createElement('div');
+      box.className = desired.className;
+      box.dataset.summaryKey = desired.key;
+      box.innerHTML = desired.html;
+      if (record) box.dataset.summaryTitle = record.title || '';
+      else delete box.dataset.summaryTitle;
+
+      if (!existing) {
+        const footer = card.querySelector('.live-card-footer');
+        if (footer) footer.insertAdjacentElement('beforebegin', box);
+        else card.appendChild(box);
       }
-
-      const footer = card.querySelector('.live-card-footer');
-      if (footer) footer.insertAdjacentElement('beforebegin', box);
-      else card.appendChild(box);
     });
 
     document.documentElement.dataset.visibleReviewedSummaryMatches = String(matched);
@@ -222,6 +251,7 @@
   function apply() {
     if (applying) return;
     applying = true;
+    if (observer) observer.disconnect();
     try {
       injectStyles();
       removeStrategicSynthesis();
@@ -230,6 +260,7 @@
       document.documentElement.dataset.frontendStabilityRelease = RELEASE;
     } finally {
       applying = false;
+      observe();
     }
   }
 
@@ -238,25 +269,37 @@
     timer = setTimeout(apply, delay);
   }
 
+  function shouldSchedule(mutation) {
+    if (mutation.type === 'characterData') {
+      return !mutation.target.parentElement?.closest?.('.q-stable-article-summary');
+    }
+    if (mutation.type !== 'childList') return false;
+    const changed = [...mutation.addedNodes, ...mutation.removedNodes];
+    if (!changed.length) return false;
+    const ownedOnly = changed.every(node => {
+      if (node.nodeType !== Node.ELEMENT_NODE) return node.parentElement?.closest?.('.q-stable-article-summary');
+      return node.matches?.('.q-stable-article-summary') || node.closest?.('.q-stable-article-summary');
+    });
+    return !ownedOnly;
+  }
+
   async function boot() {
     injectStyles();
     scrubBranding(document.body);
     removeStrategicSynthesis();
     await loadReviewedSummaries();
     apply();
-    [120,300,650,1200,2200,4000].forEach(delay => setTimeout(() => schedule(0), delay));
 
-    const observer = new MutationObserver(mutations => {
+    observer = new MutationObserver(mutations => {
       if (applying) return;
-      if (mutations.some(mutation => mutation.addedNodes?.length || mutation.type === 'characterData')) {
-        schedule(60);
-      }
+      if (mutations.some(shouldSchedule)) schedule(70);
     });
-    observer.observe(document.body, {childList:true,subtree:true,characterData:true});
+    observe();
 
-    window.addEventListener('quest:module-loaded', () => schedule(40));
-    window.addEventListener('quest:layout-refresh', () => schedule(40));
-    window.addEventListener('hashchange', () => schedule(40));
+    [250,700,1500,3000].forEach(delay => setTimeout(() => schedule(0), delay));
+    window.addEventListener('quest:module-loaded', () => schedule(50));
+    window.addEventListener('quest:layout-refresh', () => schedule(50));
+    window.addEventListener('hashchange', () => schedule(50));
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, {once:true});
