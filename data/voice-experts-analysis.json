@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T14:05:00Z",
+  "source": "Quest PMR tracker plus illustrative persona synthesis for the public prototype",
+  "method_note": "Project names, research types and delivery context are grounded in data/project-tracker.json. Persona-level observations, quotes, scores and recommendations are demo synthesis designed to show how approved PMR reports and transcripts could power a filter-responsive expert-analysis dashboard; they are not verbatim confidential respondent findings.",
+  "projects": [
+    {"id":"health-system-experience","name":"Redefining the Health System Experience: Enterprise Decision-Making & Value Proposition","short_name":"Health System Experience","research_types":["Qualitative IDIs"]},
+    {"id":"digital-customer-journey","name":"Digital Customer Journey & Solutions Roadmap – Health Systems & Physician Groups","short_name":"Digital Customer Journey","research_types":["Qualitative IDIs","Quantitative Survey"]},
+    {"id":"data-ecosystem-needs","name":"Data Ecosystem Needs","short_name":"Data Ecosystem Needs","research_types":["Qualitative IDIs"]},
+    {"id":"data-ecosystem-extended","name":"Data Ecosystem Needs (Extended Study)","short_name":"Data Ecosystem Extended","research_types":["Qualitative IDIs"]},
+    {"id":"lab-stewardship","name":"Lab Stewardship & Analytics Competitive Positioning Research","short_name":"Lab Stewardship & Analytics","research_types":["Qualitative IDIs"]},
+    {"id":"consumer-testing","name":"US Consumer Testing Market: Company Profiles Refresh & Expansion 2026","short_name":"Consumer Testing Market","research_types":["Secondary Research"]}
+  ],
+  "segments": [
+    {
+      "id":"hs-mainstay-executive",
+      "persona":"Health-System Executive (HS)",
+      "organization_type":"Health System",
+      "organization_archetype":"Mainstay",
+      "organization_level":"Enterprise / C-suite",
+      "role_family":"Strategy & enterprise leadership",
+      "icon":"HS",
+      "metrics":{"decision_influence":96,"digital_readiness":82,"workflow_friction":68,"change_appetite":78,"quest_trust":87},
+      "core_perception":"Views the laboratory relationship as an enterprise operating partnership. Values governance, consistency, access and proof of system-level outcomes more than isolated product features.",
+      "observations":[
+        {"project_id":"health-system-experience","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Enterprise value","stance":"Positive opportunity","priority":"P1","confidence":91,"impact":96,"headline":"Enterprise value must be measurable","insight":"Mainstay executives are likely to judge laboratory value through access, operating reliability, strategic governance and measurable enterprise outcomes rather than test price alone.","implication":"Quest should translate scale into a small executive scorecard that connects laboratory performance to access, operational and clinical outcomes.","recommendation":"Use enterprise governance reviews built around 5–7 outcome measures instead of broad capability presentations.","quote":"Illustrative paraphrase: I need to see how the laboratory relationship improves the system, not only how well an individual test performs."},
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Data governance","stance":"Conditional","priority":"P1","confidence":86,"impact":92,"headline":"Data trust precedes AI enthusiasm","insight":"Enterprise leaders can support AI-enabled diagnostics when data provenance, governance and accountability are clear enough to defend the resulting decisions.","implication":"Lead AI conversations with governance, explainability and workflow ownership.","recommendation":"Package AI propositions with a transparent data lineage and executive governance model.","quote":"Illustrative paraphrase: AI is interesting, but accountability and the quality of the underlying data have to be obvious."},
+        {"project_id":"lab-stewardship","research_type":"Qualitative IDIs","evidence_type":"Report","theme":"Stewardship value","stance":"Positive opportunity","priority":"P1","confidence":88,"impact":93,"headline":"Stewardship earns attention when economics are visible","insight":"Executives are more likely to sponsor stewardship when it is translated into utilization, labor, quality or avoidable-cost outcomes rather than described as a dashboard capability.","implication":"Tie stewardship to CFO/COO-level metrics and governance.","recommendation":"Build an executive stewardship value case using avoided waste, workflow efficiency and quality measures.","quote":"Illustrative synthesis: The conversation moves faster when stewardship is expressed as an operating and financial outcome."}
+      ]
+    },
+    {
+      "id":"hs-operator-executive",
+      "persona":"Health-System Executive (HS)",
+      "organization_type":"Health System",
+      "organization_archetype":"Operator",
+      "organization_level":"Enterprise / C-suite",
+      "role_family":"Operations & performance leadership",
+      "icon":"OP",
+      "metrics":{"decision_influence":94,"digital_readiness":70,"workflow_friction":84,"change_appetite":74,"quest_trust":81},
+      "core_perception":"Prioritizes reliability, execution, escalation and measurable service improvement. Is less interested in innovation language unless it reduces operational burden quickly.",
+      "observations":[
+        {"project_id":"health-system-experience","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Service reliability","stance":"Mixed","priority":"P1","confidence":90,"impact":95,"headline":"Reliability can outweigh feature sophistication","insight":"Operator executives are likely to prioritize predictable service, escalation and turnaround visibility before advanced strategic propositions.","implication":"Service consistency is a prerequisite for enterprise expansion.","recommendation":"Make exception management and root-cause closure visible in account governance.","quote":"Illustrative paraphrase: Fixing recurring service issues is more valuable than adding another feature we cannot operationalize."},
+        {"project_id":"digital-customer-journey","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Workflow integration","stance":"High friction","priority":"P1","confidence":92,"impact":96,"headline":"Manual handoffs create disproportionate pain","insight":"Operational executives see fragmented status checks, manual follow-up and ownership ambiguity as avoidable cost and execution risk.","implication":"Digital roadmaps should target handoff removal and exception visibility first.","recommendation":"Prioritize high-frequency workflow handoffs using customer-effort and labor-savings measures.","quote":"Illustrative paraphrase: The pain is not one screen; it is the number of people and calls needed to move an issue across the finish line."},
+        {"project_id":"lab-stewardship","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Operational actionability","stance":"Positive opportunity","priority":"P1","confidence":89,"impact":94,"headline":"Actionable queues beat retrospective dashboards","insight":"Operators are likely to value prioritized worklists with ownership and closed-loop resolution more than broad retrospective analytics.","implication":"Stewardship should be designed as an operating workflow.","recommendation":"Create role-based intervention queues with action owner, status and measured outcome.","quote":"Illustrative paraphrase: Tell my team what needs action today, who owns it and whether the intervention worked."}
+      ]
+    },
+    {
+      "id":"it-mainstay-data",
+      "persona":"IT / Data Leader",
+      "organization_type":"Health System",
+      "organization_archetype":"Mainstay",
+      "organization_level":"Enterprise functional leader",
+      "role_family":"IT, data & interoperability",
+      "icon":"IT",
+      "metrics":{"decision_influence":86,"digital_readiness":94,"workflow_friction":73,"change_appetite":88,"quest_trust":79},
+      "core_perception":"Values interoperability, governed data models, implementation discipline and architectural fit. Skeptical of standalone portals or AI claims that create another integration burden.",
+      "observations":[
+        {"project_id":"digital-customer-journey","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Interoperability","stance":"Critical need","priority":"P1","confidence":95,"impact":97,"headline":"Integration reliability is the foundation","insight":"IT leaders are likely to judge digital value first through interface reliability, identity, mapping, provisioning and supportability rather than user-interface novelty.","implication":"Quest should measure integration health as a core customer-experience metric.","recommendation":"Create an integration reliability scorecard and segment implementation patterns by customer architecture.","quote":"Illustrative paraphrase: If the interface is unreliable, every downstream digital feature becomes harder to trust."},
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"AI governance","stance":"Conditional","priority":"P1","confidence":93,"impact":95,"headline":"AI needs lineage, explainability and controls","insight":"Data leaders can support AI when model inputs, provenance, auditability and human override are designed into the workflow.","implication":"Governance is a product requirement, not a compliance appendix.","recommendation":"Expose data lineage, decision rationale and intervention history in AI-enabled workflows.","quote":"Illustrative paraphrase: I need to know where the data came from, what changed the recommendation and how we can audit it."},
+        {"project_id":"data-ecosystem-extended","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Partner architecture","stance":"Selective opportunity","priority":"P2","confidence":87,"impact":88,"headline":"Partner fit includes operating model, not only API fit","insight":"Technical compatibility alone is insufficient; IT leaders care about support ownership, implementation model, security, roadmap dependencies and exit options.","implication":"Partnership evaluation needs an enterprise architecture and operating-model lens.","recommendation":"Add integration support, security, ownership and portability to partner scorecards.","quote":"Illustrative paraphrase: A good API is not enough if implementation ownership and long-term support are unclear."}
+      ]
+    },
+    {
+      "id":"it-operator-integration",
+      "persona":"IT / Data Leader",
+      "organization_type":"Health System",
+      "organization_archetype":"Operator",
+      "organization_level":"System / regional functional leader",
+      "role_family":"IT operations & integration",
+      "icon":"DX",
+      "metrics":{"decision_influence":80,"digital_readiness":75,"workflow_friction":92,"change_appetite":72,"quest_trust":75},
+      "core_perception":"Focuses on practical deployment effort, support tickets, interface variance and resource constraints. Prefers incremental integration improvements over large transformation programs.",
+      "observations":[
+        {"project_id":"digital-customer-journey","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Onboarding","stance":"High friction","priority":"P1","confidence":92,"impact":93,"headline":"Implementation effort shapes perception early","insight":"Resource-constrained IT teams may form their view of the relationship during setup, provisioning, testing and troubleshooting long before advanced capabilities are used.","implication":"Time-to-value and implementation effort should be managed as customer outcomes.","recommendation":"Define onboarding milestones, owners, elapsed-time targets and proactive exception triggers.","quote":"Illustrative paraphrase: The first impression is made during setup, when every unclear dependency turns into another ticket."},
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Data integration","stance":"Pragmatic","priority":"P1","confidence":89,"impact":91,"headline":"Standardization reduces support burden","insight":"Operators favor repeatable interfaces, shared definitions and fewer one-off customizations that increase long-term maintenance.","implication":"Productize common integration patterns and publish support expectations clearly.","recommendation":"Create reference architectures and standard implementation bundles for common customer environments.","quote":"Illustrative paraphrase: Every custom interface looks manageable at launch and expensive three years later."}
+      ]
+    },
+    {
+      "id":"clinical-mainstay-lab",
+      "persona":"Clinical / Laboratory Leader",
+      "organization_type":"Health System",
+      "organization_archetype":"Mainstay",
+      "organization_level":"System clinical leader",
+      "role_family":"Clinical quality & laboratory leadership",
+      "icon":"CL",
+      "metrics":{"decision_influence":88,"digital_readiness":80,"workflow_friction":69,"change_appetite":76,"quest_trust":91},
+      "core_perception":"Prioritizes clinical credibility, appropriateness, explainability and specialist support. Supports analytics when it improves decisions without weakening clinician autonomy.",
+      "observations":[
+        {"project_id":"lab-stewardship","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Clinical decision support","stance":"Positive opportunity","priority":"P1","confidence":94,"impact":96,"headline":"Clinical credibility differentiates stewardship","insight":"Clinical leaders are more likely to trust stewardship when recommendations are transparent, evidence-linked and supported by credible laboratory expertise.","implication":"Quest can differentiate analytics through clinical interpretation and advisory support.","recommendation":"Pair high-impact stewardship interventions with evidence rationale and specialist escalation pathways.","quote":"Illustrative paraphrase: A recommendation is much easier to act on when I can see the evidence and know who stands behind it."},
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"AI explainability","stance":"Conditional","priority":"P1","confidence":91,"impact":94,"headline":"AI must augment rather than replace judgment","insight":"Clinical leaders may welcome prioritization and pattern detection but resist opaque recommendations that bypass clinical context.","implication":"Design AI as explainable augmentation with clear human review points.","recommendation":"Surface rationale, confidence and exceptions instead of a single prescriptive output.","quote":"Illustrative paraphrase: Help me see what I might miss, but do not hide the reasoning or remove clinical judgment."},
+        {"project_id":"health-system-experience","research_type":"Qualitative IDIs","evidence_type":"Report","theme":"Clinical partnership","stance":"Positive","priority":"P2","confidence":85,"impact":87,"headline":"Advisory support reinforces strategic trust","insight":"Clinical leaders can view specialist access, interpretation support and education as relationship-level differentiators.","implication":"Make clinical advisory capabilities visible within the enterprise account proposition.","recommendation":"Quantify specialist-access and decision-support value in health-system governance.","quote":"Illustrative synthesis: Clinical partnership becomes tangible when expertise is easy to access at the moment of uncertainty."}
+      ]
+    },
+    {
+      "id":"operational-operator-lab",
+      "persona":"Operational Leader",
+      "organization_type":"Health System",
+      "organization_archetype":"Operator",
+      "organization_level":"Hospital / site operations",
+      "role_family":"Laboratory operations",
+      "icon":"OL",
+      "metrics":{"decision_influence":76,"digital_readiness":65,"workflow_friction":95,"change_appetite":71,"quest_trust":78},
+      "core_perception":"Experiences the relationship through daily exceptions: specimen flow, turnaround, send-outs, staffing, escalation and manual reconciliation. Values simple operational control more than strategic abstraction.",
+      "observations":[
+        {"project_id":"lab-stewardship","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Workflow actionability","stance":"High need","priority":"P1","confidence":95,"impact":97,"headline":"Operational value is closed-loop execution","insight":"Operational leaders need prioritized exceptions, ownership and confirmation that an intervention changed behavior or performance.","implication":"Analytics without workflow closure can create more review work without delivering measurable improvement.","recommendation":"Design stewardship workflows around detect → assign → intervene → resolve → measure.","quote":"Illustrative paraphrase: Do not just show me the problem; show me who owns it and whether it was actually fixed."},
+        {"project_id":"digital-customer-journey","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Status visibility","stance":"High friction","priority":"P1","confidence":93,"impact":95,"headline":"Status uncertainty drives manual work","insight":"When order, specimen, support or implementation status is not visible, operational teams compensate with calls, emails and spreadsheets.","implication":"Status transparency can deliver immediate labor and experience benefits.","recommendation":"Create role-specific status and exception views for high-frequency operational events.","quote":"Illustrative paraphrase: We spend too much time asking where something is instead of acting on the answer."},
+        {"project_id":"health-system-experience","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Service consistency","stance":"Mixed","priority":"P1","confidence":88,"impact":92,"headline":"Local experience determines enterprise credibility","insight":"Operational inconsistency across locations can undermine a strong corporate relationship story.","implication":"Enterprise promises should be supported by site-level visibility and escalation.","recommendation":"Monitor service variance across locations and include persistent exceptions in governance reviews.","quote":"Illustrative paraphrase: The enterprise relationship is only as strong as what my team experiences at the site level."}
+      ]
+    },
+    {
+      "id":"lpg-administrator",
+      "persona":"LPG Administrator / Practice Executive",
+      "organization_type":"Large Physician Group",
+      "organization_archetype":"LPG",
+      "organization_level":"Group / network leadership",
+      "role_family":"Physician-group administration",
+      "icon":"PG",
+      "metrics":{"decision_influence":85,"digital_readiness":72,"workflow_friction":87,"change_appetite":82,"quest_trust":80},
+      "core_perception":"Values ease of use, access, staff burden, predictable service and physician adoption. Has less tolerance for health-system-style complexity and wants solutions that fit high-volume ambulatory workflows.",
+      "observations":[
+        {"project_id":"digital-customer-journey","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Practice workflow","stance":"High friction","priority":"P1","confidence":91,"impact":95,"headline":"Staff effort is a primary adoption metric","insight":"LPG administrators are likely to judge digital solutions by the number of clicks, calls, exceptions and training steps required across high-volume practice workflows.","implication":"Physician-group experience should be designed separately from large health-system workflows.","recommendation":"Benchmark task time and handoffs for ordering, status, results and support in LPG settings.","quote":"Illustrative paraphrase: If it adds steps for front-desk or clinical staff, adoption becomes a daily battle."},
+        {"project_id":"health-system-experience","research_type":"Qualitative IDIs","evidence_type":"Report","theme":"Physician network value","stance":"Distinct needs","priority":"P1","confidence":87,"impact":91,"headline":"Physician networks need their own value story","insight":"Access, convenience, staff burden and responsiveness can matter more to LPG decision makers than enterprise governance language.","implication":"Quest should create an ambulatory/LPG proposition within broader enterprise relationships.","recommendation":"Use separate proof points for network growth, staff effort, access and service responsiveness.","quote":"Illustrative synthesis: The physician network experiences value through convenience and operating simplicity more than enterprise architecture."},
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Actionable data","stance":"Selective opportunity","priority":"P2","confidence":80,"impact":84,"headline":"Analytics must be lightweight and relevant","insight":"LPG leaders may value targeted, role-specific insights but have limited appetite for complex enterprise analytics requiring dedicated teams.","implication":"Offer simple, embedded decision support rather than broad analytics platforms.","recommendation":"Prioritize a small number of high-frequency use cases with minimal setup and clear staff value.","quote":"Illustrative paraphrase: Give us the few signals that change what the practice does today; we do not need another analytics program."}
+      ]
+    },
+    {
+      "id":"ambulatory-operator",
+      "persona":"Ambulatory Operations Leader",
+      "organization_type":"Physician Network / Ambulatory",
+      "organization_archetype":"LPG",
+      "organization_level":"Regional / multi-site operations",
+      "role_family":"Ambulatory operations",
+      "icon":"AM",
+      "metrics":{"decision_influence":74,"digital_readiness":68,"workflow_friction":93,"change_appetite":79,"quest_trust":77},
+      "core_perception":"Focused on consistency across distributed sites, staffing burden, logistics, patient access and fast issue resolution. Strongly values standardization that does not remove local flexibility.",
+      "observations":[
+        {"project_id":"health-system-experience","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Ambulatory strategy","stance":"High opportunity","priority":"P1","confidence":90,"impact":94,"headline":"Distributed growth magnifies inconsistency","insight":"As networks expand, small differences in service, logistics and escalation multiply into a larger operational burden.","implication":"Quest can differentiate through standardized multi-site operating support.","recommendation":"Offer an ambulatory network management bundle with site-level service visibility and exception escalation.","quote":"Illustrative paraphrase: One inconsistent site creates a local problem; twenty sites create a network problem."},
+        {"project_id":"digital-customer-journey","research_type":"Quantitative Survey","evidence_type":"Survey data","theme":"Ease of use","stance":"High need","priority":"P1","confidence":86,"impact":91,"headline":"Simplicity matters more as site count increases","insight":"Multi-site environments amplify the cost of training, permissions and process variation, making standardized easy-to-use workflows more valuable.","implication":"Design for low training burden and repeatable rollout.","recommendation":"Use adoption, task completion and support-contact rates by site as rollout metrics.","quote":"Illustrative synthesis: Scale changes the economics of small usability problems because every extra step is repeated across many sites."}
+      ]
+    },
+    {
+      "id":"population-health-leader",
+      "persona":"Population Health / Analytics Leader",
+      "organization_type":"Health System",
+      "organization_archetype":"Mainstay",
+      "organization_level":"Enterprise functional leader",
+      "role_family":"Population health & analytics",
+      "icon":"PH",
+      "metrics":{"decision_influence":81,"digital_readiness":96,"workflow_friction":64,"change_appetite":91,"quest_trust":76},
+      "core_perception":"Sees diagnostic data as a longitudinal signal that can support risk identification, care management and measurement. Values data completeness, timeliness, interoperability and context.",
+      "observations":[
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Population health","stance":"High opportunity","priority":"P1","confidence":89,"impact":94,"headline":"Longitudinal diagnostics can create new value","insight":"Population-health leaders may see greater value when diagnostic data is longitudinal, governed and linked to clinical context rather than delivered as isolated results.","implication":"Quest can explore data products organized around populations and risk use cases.","recommendation":"Prioritize 2–3 population-health use cases with measurable intervention pathways and clear data rights.","quote":"Illustrative paraphrase: A single result matters clinically; a longitudinal pattern can matter operationally for a population."},
+        {"project_id":"data-ecosystem-extended","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Partner ecosystem","stance":"Positive opportunity","priority":"P2","confidence":83,"impact":88,"headline":"Ecosystem value depends on combined context","insight":"Partnerships are more compelling when they combine diagnostics with other clinical or operational data to unlock a specific use case.","implication":"Partnerships should be selected against use-case value rather than data volume alone.","recommendation":"Evaluate partners by incremental context, actionability and pathway to measurable outcomes.","quote":"Illustrative paraphrase: More data is not the objective; better context for a decision is."}
+      ]
+    },
+    {
+      "id":"value-based-care-leader",
+      "persona":"Value-Based Care / Finance Leader",
+      "organization_type":"Health System",
+      "organization_archetype":"Mainstay",
+      "organization_level":"Enterprise functional leader",
+      "role_family":"Finance, VBC & performance",
+      "icon":"VB",
+      "metrics":{"decision_influence":88,"digital_readiness":78,"workflow_friction":61,"change_appetite":77,"quest_trust":78},
+      "core_perception":"Looks for measurable economics, avoidable utilization, quality impact and accountability. Is skeptical of premium analytics unless outcomes can be quantified and attributed.",
+      "observations":[
+        {"project_id":"lab-stewardship","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Economic value","stance":"Conditional opportunity","priority":"P1","confidence":91,"impact":96,"headline":"Premium value requires attributable outcomes","insight":"Finance and VBC leaders are likely to distinguish baseline reporting from premium services based on whether an intervention produces measurable economic or quality impact.","implication":"Packaging should separate included visibility from outcome-linked advanced services.","recommendation":"Build outcome cases around avoided waste, downstream utilization, labor and care-quality measures.","quote":"Illustrative paraphrase: Data feels like part of the relationship; premium value starts when the insight changes a measurable outcome."},
+        {"project_id":"health-system-experience","research_type":"Qualitative IDIs","evidence_type":"Report","theme":"Enterprise economics","stance":"Positive opportunity","priority":"P1","confidence":85,"impact":92,"headline":"Enterprise relationships need a total-value model","insight":"Laboratory economics can extend beyond price when access, utilization, service efficiency and downstream decisions are quantified together.","implication":"Quest can elevate procurement discussions by using a broader total-value framework.","recommendation":"Create a total-value model with transparent assumptions and customer-specific baselines.","quote":"Illustrative synthesis: A lower unit price is not automatically a better enterprise outcome if it shifts cost elsewhere in the system."}
+      ]
+    },
+    {
+      "id":"clinical-physician-champion",
+      "persona":"Physician / Clinical Champion",
+      "organization_type":"Large Physician Group",
+      "organization_archetype":"LPG",
+      "organization_level":"Practice / clinical leadership",
+      "role_family":"Physician leadership",
+      "icon":"MD",
+      "metrics":{"decision_influence":72,"digital_readiness":76,"workflow_friction":82,"change_appetite":75,"quest_trust":88},
+      "core_perception":"Values clinical relevance, fast access, clear results and minimal interruption to patient care. Adoption depends on whether a tool fits naturally into the existing clinical workflow.",
+      "observations":[
+        {"project_id":"digital-customer-journey","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Clinical workflow","stance":"High need","priority":"P1","confidence":89,"impact":93,"headline":"Clinical adoption follows workflow fit","insight":"Physician champions may support digital capabilities when they reduce uncertainty or cognitive burden without forcing a separate workflow.","implication":"Embed clinically relevant information where ordering and results decisions already occur.","recommendation":"Test role-specific embedded guidance for high-friction diagnostic decisions.","quote":"Illustrative paraphrase: If the useful information is outside the workflow, it will be used less than everyone expects."},
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Next-best action","stance":"Conditional","priority":"P2","confidence":84,"impact":90,"headline":"Next-best action must respect clinical context","insight":"Clinicians can value recommendation support when it is transparent, relevant and easy to override based on context not visible to the model.","implication":"Use recommendations as explainable prompts rather than directives.","recommendation":"Show rationale, confidence and clinical exceptions alongside suggested actions.","quote":"Illustrative paraphrase: A suggestion can help; a black-box instruction creates resistance."}
+      ]
+    },
+    {
+      "id":"innovation-partnership-leader",
+      "persona":"Innovation / Partnership Leader",
+      "organization_type":"Health System",
+      "organization_archetype":"Mainstay",
+      "organization_level":"Enterprise functional leader",
+      "role_family":"Innovation & strategic partnerships",
+      "icon":"IN",
+      "metrics":{"decision_influence":79,"digital_readiness":95,"workflow_friction":55,"change_appetite":96,"quest_trust":74},
+      "core_perception":"Open to new models but expects a credible implementation path, differentiated capabilities and evidence that pilots can scale into the enterprise.",
+      "observations":[
+        {"project_id":"data-ecosystem-extended","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"Partnership strategy","stance":"High opportunity","priority":"P1","confidence":88,"impact":93,"headline":"Pilot-to-scale is the real partnership test","insight":"Innovation leaders may be enthusiastic about partnerships but judge them ultimately on integration, ownership, governance and enterprise scalability.","implication":"Quest should design partnership pilots with scale criteria from the beginning.","recommendation":"Define success, integration ownership, economic pathway and enterprise rollout criteria before launching pilots.","quote":"Illustrative paraphrase: A pilot is easy to start; the question is whether it can survive governance, integration and scale."},
+        {"project_id":"data-ecosystem-needs","research_type":"Qualitative IDIs","evidence_type":"Transcript","theme":"AI use cases","stance":"Positive opportunity","priority":"P1","confidence":86,"impact":92,"headline":"Use-case specificity increases AI credibility","insight":"Innovation leaders are more likely to sponsor AI initiatives when the customer problem, workflow insertion point and measurable outcome are explicit.","implication":"Avoid generic AI positioning and lead with narrow, testable use cases.","recommendation":"Create a portfolio of AI use cases scored by customer pain, data readiness, workflow fit and measurable value.","quote":"Illustrative paraphrase: The strongest AI conversation starts with a specific decision that needs to improve."}
+      ]
+    },
+    {
+      "id":"consumer-digital-strategist",
+      "persona":"Consumer Access / Digital Health Strategist",
+      "organization_type":"Digital Health / Retail",
+      "organization_archetype":"Consumer platform",
+      "organization_level":"Enterprise strategy",
+      "role_family":"Consumer growth & digital strategy",
+      "icon":"CX",
+      "metrics":{"decision_influence":83,"digital_readiness":97,"workflow_friction":48,"change_appetite":94,"quest_trust":72},
+      "core_perception":"Treats testing as an end-to-end consumer journey encompassing discovery, purchase, access, trust, results, interpretation and follow-through. This segment is based on secondary-market synthesis rather than direct Quest expert interviews.",
+      "observations":[
+        {"project_id":"consumer-testing","research_type":"Secondary Research","evidence_type":"Report","theme":"Consumer experience","stance":"High opportunity","priority":"P1","confidence":78,"impact":92,"headline":"The competitive unit is the end-to-end journey","insight":"Consumer testing propositions increasingly compete on convenience, trust, transparent access and interpretation rather than the test alone.","implication":"Quest should benchmark the complete journey against digital-native expectations.","recommendation":"Score discovery, purchase, scheduling, collection, status, results, interpretation and next steps as one experience.","quote":"Illustrative market synthesis: The test can be clinically excellent and still lose if the surrounding consumer journey feels difficult."},
+        {"project_id":"consumer-testing","research_type":"Secondary Research","evidence_type":"Analysis","theme":"Result-to-action","stance":"Positive opportunity","priority":"P1","confidence":76,"impact":89,"headline":"Interpretation creates post-test differentiation","insight":"Digital-health competitors increasingly connect results to education, navigation or ongoing engagement, making result delivery only one part of the value proposition.","implication":"Quest can use clinical trust to extend value beyond the result event.","recommendation":"Design clear result-to-action pathways around priority consumer-testing use cases.","quote":"Illustrative market synthesis: Convenience creates access; interpretation and follow-through create perceived completeness."}
+      ]
+    }
+  ]
+}
