@@ -1,0 +1,81 @@
+name: Diagnose Quest Pages Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/pages-diagnostics.yml
+
+permissions:
+  contents: write
+  pages: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read Pages configuration and latest build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/pages-diagnostics
+          curl --fail-with-body --silent --show-error \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
+            > /tmp/pages-diagnostics/site.json
+          curl --fail-with-body --silent --show-error \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds/latest" \
+            > /tmp/pages-diagnostics/latest-build.json || printf '{"status":"not-available"}\n' > /tmp/pages-diagnostics/latest-build.json
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          site = json.loads(Path('/tmp/pages-diagnostics/site.json').read_text())
+          latest = json.loads(Path('/tmp/pages-diagnostics/latest-build.json').read_text())
+          out = {
+              'checked_at': datetime.now(timezone.utc).isoformat(),
+              'html_url': site.get('html_url'),
+              'status': site.get('status'),
+              'build_type': site.get('build_type'),
+              'source': site.get('source'),
+              'latest_build': {
+                  'status': latest.get('status'),
+                  'commit': latest.get('commit'),
+                  'created_at': latest.get('created_at'),
+                  'updated_at': latest.get('updated_at'),
+                  'error': latest.get('error'),
+              },
+          }
+          Path('/tmp/pages-diagnostics/pages-deployment-status.json').write_text(json.dumps(out, indent=2) + '\n')
+          print(json.dumps(out, indent=2))
+          PY
+
+      - name: Store diagnostic snapshot on gh-pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-pages-diagnostics[bot]'
+          git config user.email 'quest-pages-diagnostics[bot]@users.noreply.github.com'
+          git fetch origin gh-pages:gh-pages
+          rm -rf /tmp/quest-pages-diagnostics
+          git worktree add /tmp/quest-pages-diagnostics gh-pages
+          cp /tmp/pages-diagnostics/pages-deployment-status.json /tmp/quest-pages-diagnostics/pages-deployment-status.json
+          cd /tmp/quest-pages-diagnostics
+          git add pages-deployment-status.json
+          git commit -m "Record GitHub Pages deployment status" || true
+          git push origin gh-pages
