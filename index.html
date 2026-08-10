@@ -15,14 +15,14 @@
   <div class="q-boot"><div class="q-boot-card"><strong>Quest Intelligence 360</strong><span>Loading the optimized dashboard and visual system…</span><div class="q-boot-line"><i></i></div></div></div>
   <script>
   (async()=>{try{
-    const release='20260810p';
+    const release='20260810q';
     const shellKey='./.quest-shell-'+release+'.html';
     const scrubShell=html=>{try{
       const doc=new DOMParser().parseFromString(html,'text/html');
       const norm=v=>String(v||'').replace(/\s+/g,' ').trim();
       let retiredView='';
       Array.from(doc.querySelectorAll('.nav-item')).forEach(node=>{if(/^competitive landscape$/i.test(norm(node.textContent))){retiredView=node.dataset&&node.dataset.view||retiredView;node.remove()}});
-      Array.from(doc.querySelectorAll('.view[data-view]')).forEach(view=>{const heading=Array.from(view.querySelectorAll('h1,h2,h3,[class*=title]')).map(n=>norm(n.textContent)).join(' | ');if((retiredView&&view.dataset.view===retiredView)||/competitive landscape/i.test(heading))view.remove()});
+      Array.from(doc.querySelectorAll('.view[data-view]')).forEach(view=>{const heading=Array.from(view.querySelectorAll('h1,h2,h3,[class*=title]')).map(n=>norm(n.textContent)).join(' | ');if((retiredView&&view.dataset.view===retiredView)||view.dataset.view==='landscape'||/competitive landscape/i.test(heading))view.remove()});
       Array.from(doc.querySelectorAll('[aria-label],[title]')).forEach(node=>{const label=norm(node.getAttribute('aria-label')||node.getAttribute('title'));if(/^competitive landscape$/i.test(label))node.remove()});
 
       const navItems=Array.from(doc.querySelectorAll('.nav-item'));
@@ -51,7 +51,10 @@
       h=scrubShell(h);
       if('caches'in window){try{const cache=await caches.open('quest-shell-cache');await cache.put(shellKey,new Response(h,{headers:{'Content-Type':'text/html;charset=utf-8'}}))}catch(_){}}
     }else h=scrubShell(h);
-    h=h.replace('</body>','<script src="integrations/optimized-loader.js?v='+release+'"><\/script></body>');
+    const critical='<script src="integrations/frontend-critical-nav-survey.js?v='+release+'"><\/script>';
+    const survey='<script src="integrations/survey-analytics-dashboard-final.js?v='+release+'"><\/script>';
+    const loader='<script src="integrations/optimized-loader.js?v='+release+'"><\/script>';
+    h=h.replace('</body>',critical+survey+loader+'</body>');
     document.open();document.write(h);document.close();
   }catch(e){document.body.innerHTML='<div class="q-boot"><div class="q-boot-card"><strong>Unable to load the dashboard</strong><span>Please refresh the page or serve the repository over HTTP. '+String(e.message||e)+'</span></div></div>'}})();
   </script>
