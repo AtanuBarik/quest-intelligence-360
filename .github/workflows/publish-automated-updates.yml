@@ -56,6 +56,8 @@ jobs:
           node --check integrations/executive-typography-benchmark-cleanup.js
           node --check integrations/insights-engine-layout-v3.js
           node --check integrations/insights-engine-evidence-placement-final.js
+          node --check integrations/laboratory-news-monitor.js
+          node --check integrations/alerts-resilience-fix.js
           node --check integrations/alerts-signals-final.js
           node --check integrations/competitor-intelligence-profiles/loader.js
           node --check integrations/competitor-profiles-final.js
@@ -67,7 +69,7 @@ jobs:
           import re
           from pathlib import Path
 
-          release = '20260810d'
+          release = '20260810e'
           chunks = [Path(f'chunks/chunk-{i:02d}.txt') for i in range(7)]
           missing = [str(path) for path in chunks if not path.exists()]
           if missing:
@@ -131,6 +133,8 @@ jobs:
           test -f _site/integrations/executive-typography-benchmark-cleanup.js
           test -f _site/integrations/insights-engine-layout-v3.js
           test -f _site/integrations/insights-engine-evidence-placement-final.js
+          test -f _site/integrations/laboratory-news-monitor.js
+          test -f _site/integrations/alerts-resilience-fix.js
           test -f _site/integrations/alerts-signals-final.js
           test -f _site/integrations/competitor-intelligence-profiles/loader.js
           test -f _site/integrations/competitor-profiles-final.js
@@ -140,10 +144,10 @@ jobs:
           test -f _site/integrations/strategic-analysis-hub.js
           test -f _site/integrations/strategic-source-watch-status.js
           test -f _site/integrations/laboratory-news-sync.js
-          test -f _site/integrations/alerts-resilience-fix.js
           test -f _site/data/competitor-source-registry.json
           test -f _site/data/strategic-analysis.json
           test -f _site/data/executive-public-intelligence.json
+          test -f _site/data/laboratory-openai-summaries.json
           test -f _site/data/laboratory-article-summaries-01.b64
           test -f _site/data/laboratory-article-summaries-02.b64
           test -f _site/data/laboratory-article-summaries-03.b64
