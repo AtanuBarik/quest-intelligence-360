@@ -48,6 +48,22 @@
     document.head.appendChild(style);
   }
 
+  function patchChartLite() {
+    const Chart = window.Chart;
+    const proto = Chart && Chart.prototype;
+    if (!proto || proto.__questAlignmentPatched) return;
+    proto.__questAlignmentPatched = true;
+
+    ['_doughnut','_radar'].forEach(name => {
+      const original = proto[name];
+      if (typeof original !== 'function') return;
+      proto[name] = function(ctx, area) {
+        const radialArea = area ? { ...area, x: Math.max(12, area.x - 16) } : area;
+        return original.call(this, ctx, radialArea);
+      };
+    });
+  }
+
   function parsePercent(value) {
     const n = parseFloat(String(value || '').replace('%',''));
     return Number.isFinite(n) ? n : 50;
@@ -155,6 +171,7 @@
 
   function apply(root = document) {
     installStyles();
+    patchChartLite();
     normalizeCustomCharts(root);
     attachResizeObservers(root);
     refreshCanvasCharts();
