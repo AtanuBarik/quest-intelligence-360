@@ -50,6 +50,7 @@ jobs:
           node --check integrations/frontend-critical-nav-survey.js
           node --check integrations/survey-analytics-dashboard-final.js
           node --check integrations/survey-analytics-failsafe.js
+          node --check integrations/chart-alignment-system.js
           node --check integrations/optimized-loader.js
           node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/voice-experts-dashboard-final.js
@@ -67,10 +68,12 @@ jobs:
           test -f _site/integrations/frontend-critical-nav-survey.js
           test -f _site/integrations/survey-analytics-dashboard-final.js
           test -f _site/integrations/survey-analytics-failsafe.js
+          test -f _site/integrations/chart-alignment-system.js
           test -f _site/integrations/optimized-loader.js
           test -f _site/data/survey-analytics-demo.json
           grep -q 'Loading multi-project Survey Analytics' _site/index.html
-          grep -q 'survey-analytics-failsafe.js?v=20260810t' _site/index.html
+          grep -q 'survey-analytics-failsafe.js?v=20260810u' _site/index.html
+          grep -q 'chart-alignment-system.js?v=20260810u' _site/index.html
           grep -q 'data-view="survey"' _site/index.html
           if grep -q 'data-view="surveys"' _site/index.html; then
             echo 'Legacy Survey Analytics route alias survived build.' >&2
@@ -95,9 +98,9 @@ jobs:
           cd /tmp/quest-pages
           git add -A
           if git diff --cached --quiet; then
-            git commit --allow-empty -m "Redeploy Quest Pages release 20260810t"
+            git commit --allow-empty -m "Redeploy Quest Pages release 20260810u"
           else
-            git commit -m "Publish Quest Pages release 20260810t"
+            git commit -m "Publish Quest Pages release 20260810u"
           fi
           git push origin gh-pages
 
