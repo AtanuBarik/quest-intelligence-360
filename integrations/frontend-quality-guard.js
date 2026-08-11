@@ -23,12 +23,12 @@
 
   function scrubTerms(value) {
     let text = String(value ?? '');
-    TERM_RULES.forEach(([pattern, replacement]) => { text = text.replace(pattern, replacement); });
+    TERM_RULES.forEach(([pattern,replacement]) => { text = text.replace(pattern,replacement); });
     return text;
   }
 
   function scrubNode(root = document) {
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    const walker = document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
       acceptNode(node) {
         const parent = node.parentElement;
         if (!parent || parent.closest('script,style,noscript,template')) return NodeFilter.FILTER_REJECT;
@@ -42,14 +42,13 @@
       const next = scrubTerms(textNode.nodeValue);
       if (next !== textNode.nodeValue) textNode.nodeValue = next;
     });
-    const attrSelector = '[title],[aria-label],[placeholder],[alt]';
-    const elements = root.querySelectorAll ? root.querySelectorAll(attrSelector) : [];
-    elements.forEach(element => {
+    if (!root.querySelectorAll) return;
+    root.querySelectorAll('[title],[aria-label],[placeholder],[alt]').forEach(element => {
       ['title','aria-label','placeholder','alt'].forEach(attr => {
         if (!element.hasAttribute(attr)) return;
         const current = element.getAttribute(attr) || '';
         const next = scrubTerms(current);
-        if (next !== current) element.setAttribute(attr, next);
+        if (next !== current) element.setAttribute(attr,next);
       });
     });
   }
@@ -62,83 +61,89 @@
     return '';
   }
 
-  function isGenericOption(value) {
-    const text = clean(value);
-    return !text || /^(all|any|select|choose)\b/i.test(text) || /^last\s+\d+/i.test(text) || /^portfolio view$/i.test(text);
+  function hasNativeFilters(view) {
+    return Boolean(view?.matches('.saf,.voef,.pmrf,.sa2-shell,.sp2-shell') || view?.querySelector('[data-filter],#liveSearch,.cp-shell'));
   }
 
-  function selectedTokens(filterBar) {
-    return Array.from(filterBar.querySelectorAll('select')).map(select => {
-      const option = select.options?.[select.selectedIndex];
-      return clean(option?.textContent || select.value);
-    }).filter(value => !isGenericOption(value)).map(norm).filter(Boolean);
+  function genericSelection(text) {
+    const value = clean(text);
+    return !value || /^(all|any|select|choose)\b/i.test(value) || /^last\s+\d+/i.test(value) || /^portfolio view$/i.test(value);
   }
 
-  function searchTerms(filterBar) {
-    return Array.from(filterBar.querySelectorAll('input[type="search"],input:not([type])')).map(input => norm(input.value)).filter(Boolean);
+  function aliasSelection(text) {
+    const value = norm(text);
+    const aliases = {
+      'tier 1':'high',
+      'tier 2':'medium',
+      'approved only':'approved',
+      'mayo clinic labs':'mayo clinic laboratories',
+      'academic specialty lab':'academic specialty',
+      'regional laboratory network':'regional laboratory network',
+      'national reference lab':'national reference'
+    };
+    return aliases[value] || value;
   }
 
-  function ensureEmptyState(view, visible, total) {
-    let box = view.querySelector(':scope > .q-filter-empty');
-    if (visible || !total) {
-      box?.remove();
-      return;
+  function matchesSelection(hay, optionText) {
+    const raw = clean(optionText);
+    if (genericSelection(raw)) return true;
+    if (/^\d{4}$/.test(raw)) {
+      const year = Number(raw);
+      if (year === new Date().getFullYear()) return true;
+      return hay.includes(raw);
     }
-    if (!box) {
-      box = document.createElement('div');
-      box.className = 'q-filter-empty';
-      box.textContent = 'No records match the selected filters. Adjust one or more parameters to broaden the view.';
-      const bar = view.querySelector('.filter-bar');
-      bar?.insertAdjacentElement('afterend', box);
-    }
+    const token = aliasSelection(raw);
+    return !token || hay.includes(token);
   }
 
   function applyGenericFilter(view) {
-    if (!view || view.matches('.saf,.voef,.pmrf,.sa2-shell') || view.querySelector('[data-filter],#liveSearch,.cp-shell')) return;
-    const filterBar = view.querySelector('.filter-bar');
+    if (!view || hasNativeFilters(view)) return;
+    const bar = view.querySelector('.filter-bar');
     const selector = itemSelector(view.dataset.view);
-    if (!filterBar || !selector) return;
+    if (!bar || !selector) return;
     const items = Array.from(view.querySelectorAll(selector));
     if (!items.length) return;
-    const tokens = selectedTokens(filterBar);
-    const searches = searchTerms(filterBar);
+    const selections = Array.from(bar.querySelectorAll('select')).map(select => clean(select.options?.[select.selectedIndex]?.textContent || select.value));
+    const searches = Array.from(bar.querySelectorAll('input[type="search"],input:not([type])')).map(input => norm(input.value)).filter(Boolean);
     let visible = 0;
     items.forEach(item => {
       const hay = norm(item.textContent);
-      const matches = tokens.every(token => hay.includes(token)) && searches.every(term => hay.includes(term));
+      const matches = selections.every(value => matchesSelection(hay,value)) && searches.every(term => hay.includes(term));
       item.style.display = matches ? '' : 'none';
       item.dataset.qFilterVisible = matches ? 'true' : 'false';
       if (matches) visible += 1;
     });
-    ensureEmptyState(view, visible, items.length);
+    let empty = view.querySelector(':scope > .q-filter-empty');
+    if (visible || !items.length) { empty?.remove(); return; }
+    if (!empty) {
+      empty = document.createElement('div');
+      empty.className = 'q-filter-empty';
+      empty.textContent = 'No records match the selected filters. Adjust one or more parameters to broaden the view.';
+      bar.insertAdjacentElement('afterend',empty);
+    }
   }
 
-  function resetGenericFilter(view, bar) {
+  function resetGenericFilter(view,bar) {
     bar.querySelectorAll('input').forEach(input => { input.value = ''; });
     bar.querySelectorAll('select').forEach(select => { select.selectedIndex = 0; });
     applyGenericFilter(view);
   }
 
   function bindGenericFilters(root = document) {
+    if (!root.querySelectorAll) return;
     root.querySelectorAll('.view[data-view] .filter-bar').forEach(bar => {
       if (bar.dataset.qFilterGuard === 'true') return;
       const view = bar.closest('.view[data-view]');
-      if (!view || view.matches('.saf,.voef,.pmrf,.sa2-shell') || view.querySelector('[data-filter],#liveSearch,.cp-shell')) return;
-      if (!itemSelector(view.dataset.view)) return;
+      if (!view || hasNativeFilters(view) || !itemSelector(view.dataset.view)) return;
       bar.dataset.qFilterGuard = 'true';
-      bar.addEventListener('input', () => applyGenericFilter(view));
-      bar.addEventListener('change', () => applyGenericFilter(view));
-      bar.addEventListener('click', event => {
+      bar.addEventListener('input',() => applyGenericFilter(view));
+      bar.addEventListener('change',() => applyGenericFilter(view));
+      bar.addEventListener('click',event => {
         const button = event.target.closest('button');
         if (!button) return;
         const label = clean(button.textContent);
-        if (/^reset\b/i.test(label)) {
-          event.preventDefault();
-          resetGenericFilter(view, bar);
-        } else if (/^(apply|filter)\b/i.test(label)) {
-          event.preventDefault();
-          applyGenericFilter(view);
-        }
+        if (/^reset\b/i.test(label)) { event.preventDefault(); resetGenericFilter(view,bar); }
+        else if (/^(apply|filter)\b/i.test(label)) { event.preventDefault(); applyGenericFilter(view); }
       });
       applyGenericFilter(view);
     });
@@ -150,18 +155,18 @@
   }
 
   function cloneDatasets(datasets) {
-    return (datasets || []).map(dataset => ({...dataset, data:Array.isArray(dataset.data) ? dataset.data.map(point => typeof point === 'object' && point !== null ? {...point} : point) : dataset.data}));
+    return (datasets || []).map(dataset => ({...dataset,data:Array.isArray(dataset.data) ? dataset.data.map(point => typeof point === 'object' && point !== null ? {...point} : point) : dataset.data}));
   }
 
   function bindChartSelectors(root = document) {
-    root.querySelectorAll('.panel select,.chart-wrap').forEach(() => {});
+    if (!root.querySelectorAll) return;
     root.querySelectorAll('.panel select').forEach(select => {
       if (select.dataset.qChartSelector === 'true') return;
       const panel = select.closest('.panel');
       const canvas = panel?.querySelector('canvas');
       if (!canvas) return;
-      const labels = Array.from(select.options || []).map(option => clean(option.textContent));
-      if (!labels.some(label => /^all\b/i.test(label))) return;
+      const options = Array.from(select.options || []).map(option => clean(option.textContent));
+      if (!options.some(option => /^all\b/i.test(option))) return;
       select.dataset.qChartSelector = 'true';
       const apply = () => {
         const chart = chartForCanvas(canvas);
@@ -171,16 +176,16 @@
         const originals = cloneDatasets(chart.__qOriginalDatasets);
         if (/^all\b/i.test(selected)) chart.data.datasets = originals;
         else {
-          const selectedNorm = norm(selected);
+          const wanted = norm(selected);
           const matches = originals.filter(dataset => {
             const label = norm(dataset.label);
-            return label && (label.includes(selectedNorm) || selectedNorm.includes(label));
+            return label && (label.includes(wanted) || wanted.includes(label));
           });
           chart.data.datasets = matches.length ? matches : originals;
         }
         try { chart.update?.('none'); chart.resize?.(); } catch (_) {}
       };
-      select.addEventListener('change', () => window.setTimeout(apply, 0));
+      select.addEventListener('change',() => setTimeout(apply,0));
     });
   }
 
@@ -192,35 +197,32 @@
     const buckets = new Map([['On track',[]],['At risk',[]],['Blocked',[]],['Other',[]]]);
     rows.forEach(row => {
       const cells = Array.from(row.children).map(node => clean(node.textContent));
-      const status = cells[cells.length - 1] || 'Other';
+      const status = cells[cells.length-1] || 'Other';
       const key = /on track/i.test(status) ? 'On track' : /at risk/i.test(status) ? 'At risk' : /blocked/i.test(status) ? 'Blocked' : 'Other';
-      buckets.get(key).push({title:cells[0] || 'Work item', project:cells[1] || '', owner:cells[2] || '', due:cells[3] || '', status});
+      buckets.get(key).push({title:cells[0]||'Work item',project:cells[1]||'',owner:cells[2]||'',due:cells[3]||''});
     });
     board = document.createElement('section');
     board.className = 'panel q-project-kanban';
     board.innerHTML = `<div class="panel-head"><div><span class="section-kicker">KANBAN VIEW</span><h3>Milestones by status</h3></div></div><div class="q-kanban-grid">${Array.from(buckets.entries()).map(([name,items]) => `<div class="q-kanban-col"><strong>${name}</strong>${items.length ? items.map(item => `<article><b>${item.title}</b><span>${item.project}</span><small>${[item.owner,item.due].filter(Boolean).join(' · ')}</small></article>`).join('') : '<small>No items</small>'}</div>`).join('')}</div>`;
     const kpis = view.querySelector('.kpi-grid');
-    if (kpis) kpis.insertAdjacentElement('afterend', board); else view.prepend(board);
+    if (kpis) kpis.insertAdjacentElement('afterend',board); else view.prepend(board);
     return board;
   }
 
   function bindProjectViewSelector(root = document) {
+    if (!root.querySelectorAll) return;
     root.querySelectorAll('.view[data-view="projects"] .page-heading select').forEach(select => {
       if (select.dataset.qProjectView === 'true') return;
       const options = Array.from(select.options || []).map(option => clean(option.textContent));
       if (!options.some(option => /timeline view/i.test(option)) || !options.some(option => /kanban view/i.test(option))) return;
       select.dataset.qProjectView = 'true';
-      select.addEventListener('change', () => {
+      select.addEventListener('change',() => {
         const view = select.closest('.view[data-view="projects"]');
         if (!view) return;
         const mode = clean(select.options?.[select.selectedIndex]?.textContent || select.value);
-        if (/timeline/i.test(mode)) {
-          view.querySelector('.gantt')?.closest('.panel')?.scrollIntoView({behavior:'smooth',block:'start'});
-        } else if (/kanban/i.test(mode)) {
-          ensureKanban(view)?.scrollIntoView({behavior:'smooth',block:'start'});
-        } else {
-          view.querySelector('.page-heading')?.scrollIntoView({behavior:'smooth',block:'start'});
-        }
+        if (/timeline/i.test(mode)) view.querySelector('.gantt')?.closest('.panel')?.scrollIntoView({behavior:'smooth',block:'start'});
+        else if (/kanban/i.test(mode)) ensureKanban(view)?.scrollIntoView({behavior:'smooth',block:'start'});
+        else view.querySelector('.page-heading')?.scrollIntoView({behavior:'smooth',block:'start'});
       });
     });
   }
@@ -247,28 +249,24 @@
   }
 
   function schedule(delay = 50) {
-    window.clearTimeout(scheduled);
-    scheduled = window.setTimeout(() => apply(document), delay);
+    clearTimeout(scheduled);
+    scheduled = setTimeout(() => apply(document),delay);
   }
 
   function boot() {
     apply(document);
     const observer = new MutationObserver(mutations => {
-      const added = mutations.some(mutation => mutation.addedNodes && mutation.addedNodes.length);
-      const text = mutations.some(mutation => mutation.type === 'characterData');
-      if (added || text) schedule(60);
+      if (mutations.some(mutation => (mutation.addedNodes && mutation.addedNodes.length) || mutation.type === 'characterData')) schedule(60);
     });
-    observer.observe(document.body, {childList:true,subtree:true,characterData:true});
-    document.addEventListener('change', event => {
-      if (event.target.matches('select,input')) schedule(20);
-    }, true);
-    window.addEventListener('quest:module-loaded', () => schedule(50));
-    window.addEventListener('quest:layout-refresh', () => schedule(50));
-    window.addEventListener('resize', () => schedule(100), {passive:true});
-    [300,900,1800,3500].forEach(delay => window.setTimeout(() => apply(document), delay));
+    observer.observe(document.body,{childList:true,subtree:true,characterData:true});
+    document.addEventListener('change',event => { if (event.target.matches?.('select,input')) schedule(20); },true);
+    window.addEventListener('quest:module-loaded',() => schedule(50));
+    window.addEventListener('quest:layout-refresh',() => schedule(50));
+    window.addEventListener('resize',() => schedule(100),{passive:true});
+    [300,900,1800,3500].forEach(delay => setTimeout(() => apply(document),delay));
   }
 
-  window.QuestFrontendQuality = {scrubTerms, apply};
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, {once:true});
+  window.QuestFrontendQuality = {scrubTerms,apply};
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
   else boot();
 })();
