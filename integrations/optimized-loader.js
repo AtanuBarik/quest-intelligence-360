@@ -165,6 +165,8 @@
     try {
       removeRetiredNavigation();
       await loadScript('integrations/chart-lite.js');
+      await loadScript('integrations/chart-alignment-system.js');
+      await loadScript('integrations/frontend-quality-guard.js');
       if (window.Chart && typeof window.initCharts === 'function' && !Object.keys(window.Chart.instances || {}).length) {
         try { window.initCharts(); } catch (error) { console.warn('Initial chart creation deferred:', error); }
       }
@@ -184,8 +186,6 @@
       await loadScript('integrations/pmr-repository-dashboard-final.js');
       await loadScript('integrations/voice-experts-dashboard-final.js');
       await loadScript('integrations/survey-analytics-dashboard-final.js');
-      await loadScript('integrations/chart-alignment-system.js');
-      await loadScript('integrations/frontend-quality-guard.js');
       removeRetiredNavigation();
     } catch (error) {
       console.error('Quest core load failed:', error);
