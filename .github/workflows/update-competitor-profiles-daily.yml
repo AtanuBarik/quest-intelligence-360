@@ -46,11 +46,27 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          path = Path('data/competitor-daily-refresh.json')
-          payload = json.loads(path.read_text(encoding='utf-8'))
+
+          registry_path = Path('data/competitor-source-registry.json')
+          refresh_path = Path('data/competitor-daily-refresh.json')
+          registry = json.loads(registry_path.read_text(encoding='utf-8'))
+          payload = json.loads(refresh_path.read_text(encoding='utf-8'))
+
+          expected = [item.get('id') for item in (registry.get('competitors') or []) if item.get('id')]
           competitors = payload.get('competitors') or []
-          if len(competitors) < 10:
-              raise SystemExit(f'Expected at least 10 monitored competitors, found {len(competitors)}')
+          actual = [item.get('id') for item in competitors if item.get('id')]
+          if not expected:
+              raise SystemExit('Competitor source registry has no approved competitors')
+
+          missing = sorted(set(expected) - set(actual))
+          extras = sorted(set(actual) - set(expected))
+          if missing:
+              raise SystemExit(f'Missing approved competitor refresh records: {missing}')
+          if extras:
+              raise SystemExit(f'Unexpected competitor refresh records outside the approved registry: {extras}')
+          if len(actual) != len(expected):
+              raise SystemExit(f'Expected {len(expected)} approved competitor records, found {len(actual)}')
+
           invalid = []
           partial = []
           for item in competitors:
@@ -60,7 +76,8 @@ jobs:
                   partial.append(item.get('id'))
           if invalid:
               raise SystemExit(f'Invalid refresh records: {invalid}')
-          print('Validated competitor refresh records:', len(competitors))
+
+          print('Validated approved competitor refresh records:', len(competitors))
           print('Changed competitors:', ', '.join(payload.get('changed_competitors') or []) or 'none')
           print('Partial/error competitors retained with source diagnostics:', ', '.join(partial) or 'none')
           PY
