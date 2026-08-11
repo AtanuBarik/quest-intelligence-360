@@ -5,7 +5,7 @@
     "schedule": "daily",
     "source_priority": ["official_company", "investor_relations", "regulatory", "public_news"],
     "change_rule": "A competitor last_updated_at changes only when normalized monitored information is added, removed or modified.",
-    "ai_policy": "No paid LLM API is required. ChatGPT Pro or Gemini may be used as an analyst review layer, but the scheduled job uses deterministic public-web extraction so it can run without API keys."
+    "automation_policy": "No paid language-model API is required. Analyst review may be used as an optional review layer, while the scheduled job uses deterministic public-web extraction and runs without API keys."
   },
   "competitors": [
     {
@@ -80,11 +80,11 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "news_query": "NeoGenomics oncology diagnostics",
+      "news_query": "NeoGenomics Laboratories oncology diagnostics",
       "official_sources": [
-        {"label": "NeoGenomics press releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
-        {"label": "NeoGenomics financial results", "url": "https://ir.neogenomics.com/financial-information/financial-results", "kind": "financial"},
-        {"label": "NeoGenomics SEC filings", "url": "https://ir.neogenomics.com/sec-filings", "kind": "regulatory"}
+        {"label": "NeoGenomics investor relations", "url": "https://ir.neogenomics.com/", "kind": "financial"},
+        {"label": "NeoGenomics news releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
+        {"label": "NeoGenomics corporate site", "url": "https://www.neogenomics.com/", "kind": "company"}
       ]
     }
   ]
