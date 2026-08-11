@@ -98,8 +98,9 @@
         tile.classList.toggle('q-tree-tiny', tiny);
         const labelNode = tile.querySelector('b');
         if (labelNode) {
-          labelNode.textContent = compact ? shortCompany(label) : label;
-          labelNode.title = label;
+          const desiredLabel = compact ? shortCompany(label) : label;
+          if (labelNode.textContent !== desiredLabel) labelNode.textContent = desiredLabel;
+          if (labelNode.title !== label) labelNode.title = label;
         }
         if (compact) needsKey = true;
         entries.push({label,detail,color:tile.style.background || window.getComputedStyle(tile).backgroundColor});
