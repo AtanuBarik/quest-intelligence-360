@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260811a';
+  const RELEASE = '20260811b';
   let scheduled = 0;
 
   function installStyles() {
@@ -13,6 +13,7 @@
       canvas{display:block!important;max-width:100%!important;margin-left:auto!important;margin-right:auto!important}
       .chart-wrap,.si-chart,.live-chart,[class*="chart-wrap"],[class*="chart-box"]{position:relative;min-width:0;overflow:visible!important}
       .chart-wrap>canvas,.si-chart>canvas,.live-chart>canvas{display:block!important;margin-inline:auto!important}
+      .legend-row,[class*="legend"]{max-width:100%}
 
       .voe-donutwrap,.pmrf-donutwrap,.sa-donutwrap{align-items:center!important;justify-content:center!important;min-width:0!important}
       .voe-donutbox,.pmrf-donutbox,.sa-donutbox{position:relative!important;display:grid!important;place-items:center!important;flex:0 0 auto!important;margin-inline:auto!important}
@@ -44,20 +45,9 @@
       .view[data-view="alerts"] .q-treemap-key i{display:inline-block;width:8px;height:8px;border-radius:2px;flex:0 0 8px}
       .view[data-view="alerts"] .q-treemap-key b{color:#034c1f;font-size:10.5px;white-space:nowrap}
 
-      .qef-bubble-wrap{min-width:0!important}
-      .qef-bubble-svg{display:block!important;width:100%!important;max-width:100%!important;margin-inline:auto!important;overflow:visible!important}
-      .qef-legend{justify-content:center!important;row-gap:8px!important}
-
-      @media(max-width:900px){
-        .voe-donutwrap,.pmrf-donutwrap,.sa-donutwrap{grid-template-columns:1fr!important}
-        .voe-donutbox,.pmrf-donutbox,.sa-donutbox{margin-bottom:8px!important}
-      }
-      @media(max-width:620px){
-        .voe-scatter-wrap,.pmra-scatter-wrap{padding:18px 14px 38px 46px!important}
-        .sa-scatter{margin:18px 14px 38px 46px!important}
-        .voe-point,.sa-point{width:26px!important;height:26px!important;margin:-13px 0 0 -13px!important;font-size:7.5px!important}
-        .pmra-point{width:20px!important;height:20px!important;margin:-10px 0 0 -10px!important;font-size:8px!important}
-      }
+      .qef-bubble-wrap{min-width:0!important}.qef-bubble-svg{display:block!important;width:100%!important;max-width:100%!important;margin-inline:auto!important;overflow:visible!important}.qef-legend{justify-content:center!important;row-gap:8px!important}
+      @media(max-width:900px){.voe-donutwrap,.pmrf-donutwrap,.sa-donutwrap{grid-template-columns:1fr!important}.voe-donutbox,.pmrf-donutbox,.sa-donutbox{margin-bottom:8px!important}}
+      @media(max-width:620px){.voe-scatter-wrap,.pmra-scatter-wrap{padding:18px 14px 38px 46px!important}.sa-scatter{margin:18px 14px 38px 46px!important}.voe-point,.sa-point{width:26px!important;height:26px!important;margin:-13px 0 0 -13px!important;font-size:7.5px!important}.pmra-point{width:20px!important;height:20px!important;margin:-10px 0 0 -10px!important;font-size:8px!important}}
     `;
     document.head.appendChild(style);
   }
@@ -72,12 +62,15 @@
     if (/^quest diagnostics$/i.test(text)) return 'Quest';
     if (/^arup laboratories$/i.test(text)) return 'ARUP';
     if (/^mayo clinic laboratories$/i.test(text)) return 'Mayo';
-    if (/^sonic healthcare$/i.test(text)) return 'Sonic';
+    if (/^sonic healthcare/i.test(text)) return 'Sonic';
+    if (/^cleveland clinic laboratories$/i.test(text)) return 'Cleveland';
+    if (/^bioreference/i.test(text)) return 'BioRef';
+    if (/^neogenomics/i.test(text)) return 'NeoGenomics';
     if (/^labcorp$/i.test(text)) return 'Labcorp';
     const words = text.split(/\s+/).filter(Boolean);
     if (text.length <= 10) return text;
-    if (words.length > 1) return words.map(word => word[0]).join('').slice(0,5).toUpperCase();
-    return text.slice(0,8);
+    if (words.length > 1) return words.map(word => word[0]).join('').slice(0,6).toUpperCase();
+    return text.slice(0,9);
   }
 
   function normalizeTreemap(root = document) {
@@ -92,32 +85,25 @@
         const detail = title.includes(':') ? title.slice(title.lastIndexOf(':') + 1).trim() : (tile.querySelector('span')?.textContent || '').trim();
         const width = parsePercent(tile.style.width);
         const height = parsePercent(tile.style.height);
-        const compact = height < 14 || width < 18;
-        const tiny = height < 9 || width < 9;
+        const compact = height < 15 || width < 20;
+        const tiny = height < 9 || width < 10;
         tile.classList.toggle('q-tree-compact', compact);
         tile.classList.toggle('q-tree-tiny', tiny);
         const labelNode = tile.querySelector('b');
         if (labelNode) {
-          const desiredLabel = compact ? shortCompany(label) : label;
-          if (labelNode.textContent !== desiredLabel) labelNode.textContent = desiredLabel;
+          const desired = compact ? shortCompany(label) : label;
+          if (labelNode.textContent !== desired) labelNode.textContent = desired;
           if (labelNode.title !== label) labelNode.title = label;
         }
         if (compact) needsKey = true;
-        entries.push({label,detail,color:tile.style.background || window.getComputedStyle(tile).backgroundColor});
+        entries.push({label,detail,color:tile.style.background || getComputedStyle(tile).backgroundColor});
       });
       const parent = box.parentElement;
       if (!parent) return;
       let key = parent.querySelector(':scope > .q-treemap-key');
-      if (!needsKey) {
-        if (key) key.remove();
-        return;
-      }
-      if (!key) {
-        key = document.createElement('div');
-        key.className = 'q-treemap-key';
-        box.insertAdjacentElement('afterend', key);
-      }
-      const signature = JSON.stringify(entries.map(x => [x.label,x.detail]));
+      if (!needsKey) { key?.remove(); return; }
+      if (!key) { key = document.createElement('div'); key.className = 'q-treemap-key'; box.insertAdjacentElement('afterend', key); }
+      const signature = JSON.stringify(entries.map(entry => [entry.label,entry.detail]));
       if (key.dataset.signature !== signature) {
         key.dataset.signature = signature;
         key.innerHTML = entries.map(entry => `<span title="${entry.label}"><i style="background:${entry.color}"></i><b>${entry.label}</b>${entry.detail ? ` · ${entry.detail}` : ''}</span>`).join('');
@@ -128,100 +114,139 @@
   function spreadScatter(container, pointSelector) {
     if (!container || container.offsetWidth < 80 || container.offsetHeight < 80) return;
     const points = Array.from(container.querySelectorAll(pointSelector));
-    if (points.length < 2) {
-      points.forEach(point => {
-        point.style.removeProperty('--q-chart-nudge-x');
-        point.style.removeProperty('--q-chart-nudge-y');
-        point.removeAttribute('data-q-collision-group');
-      });
-      return;
-    }
-
+    if (points.length < 2) return;
     const width = container.clientWidth;
     const height = container.clientHeight;
-    const items = points.map((point, index) => {
+    const items = points.map((point,index) => {
       point.style.setProperty('--q-chart-nudge-x','0px');
       point.style.setProperty('--q-chart-nudge-y','0px');
       point.removeAttribute('data-q-collision-group');
       const left = parsePercent(point.style.left);
       const bottom = parsePercent(point.style.bottom);
       const size = Math.max(point.offsetWidth || 22, point.offsetHeight || 22, 20);
-      return { point, index, x: width * left / 100, y: height - (height * bottom / 100), size };
+      return {point,index,x:width*left/100,y:height-height*bottom/100,size};
     });
-
     const visited = new Set();
     const groups = [];
     for (const item of items) {
       if (visited.has(item.index)) continue;
-      const group = [];
-      const queue = [item];
+      const group = [], queue = [item];
       visited.add(item.index);
       while (queue.length) {
         const current = queue.shift();
         group.push(current);
         for (const other of items) {
           if (visited.has(other.index)) continue;
-          const dx = current.x - other.x;
-          const dy = current.y - other.y;
           const minDistance = (current.size + other.size) / 2 + 8;
-          if (Math.hypot(dx, dy) < minDistance) {
-            visited.add(other.index);
-            queue.push(other);
-          }
+          if (Math.hypot(current.x-other.x,current.y-other.y) < minDistance) { visited.add(other.index); queue.push(other); }
         }
       }
       groups.push(group);
     }
-
     groups.filter(group => group.length > 1).forEach(group => {
       const count = group.length;
       const largest = Math.max(...group.map(item => item.size));
-      const radius = Math.min(28, Math.max(13, largest * (count > 4 ? .8 : .62)));
-      group.forEach((item, i) => {
-        const angle = -Math.PI / 2 + (Math.PI * 2 * i / count);
-        let dx = Math.cos(angle) * radius;
-        let dy = Math.sin(angle) * radius;
-        const half = item.size / 2 + 3;
-        const targetX = item.x + dx;
-        const targetY = item.y + dy;
-        if (targetX < half) dx += half - targetX;
-        if (targetX > width - half) dx -= targetX - (width - half);
-        if (targetY < half) dy += half - targetY;
-        if (targetY > height - half) dy -= targetY - (height - half);
-        item.point.style.setProperty('--q-chart-nudge-x', `${Math.round(dx)}px`);
-        item.point.style.setProperty('--q-chart-nudge-y', `${Math.round(dy)}px`);
+      const radius = Math.min(30,Math.max(14,largest*(count > 4 ? .85 : .66)));
+      group.forEach((item,i) => {
+        const angle = -Math.PI/2 + Math.PI*2*i/count;
+        let dx = Math.cos(angle)*radius;
+        let dy = Math.sin(angle)*radius;
+        const half = item.size/2 + 3;
+        const tx = item.x+dx, ty = item.y+dy;
+        if (tx < half) dx += half-tx;
+        if (tx > width-half) dx -= tx-(width-half);
+        if (ty < half) dy += half-ty;
+        if (ty > height-half) dy -= ty-(height-half);
+        item.point.style.setProperty('--q-chart-nudge-x',`${Math.round(dx)}px`);
+        item.point.style.setProperty('--q-chart-nudge-y',`${Math.round(dy)}px`);
         item.point.dataset.qCollisionGroup = String(count);
-        item.point.style.zIndex = String(3 + i);
+        item.point.style.zIndex = String(3+i);
       });
     });
   }
 
+  function ellipsis(ctx, text, maxWidth) {
+    let value = String(text ?? '');
+    if (ctx.measureText(value).width <= maxWidth) return value;
+    while (value.length > 2 && ctx.measureText(value + '…').width > maxWidth) value = value.slice(0,-1);
+    return value + '…';
+  }
+
   function patchChartLite() {
     const ChartCtor = window.Chart;
-    if (!ChartCtor?.prototype?.draw || ChartCtor.prototype.qRadialAlignmentPatched) return;
-    if (typeof ChartCtor.prototype._size !== 'function' || typeof ChartCtor.prototype._legend !== 'function') return;
-    const original = ChartCtor.prototype.draw;
-    ChartCtor.prototype.draw = function() {
+    if (!ChartCtor?.prototype?.draw || ChartCtor.prototype.qFormattingPatched) return;
+    const proto = ChartCtor.prototype;
+    if (typeof proto._size !== 'function' || typeof proto._legend !== 'function') return;
+
+    const originalDraw = proto.draw;
+    proto.draw = function() {
       const type = this.config?.type;
-      if (!['doughnut','pie','polarArea','radar'].includes(type)) return original.call(this);
+      const radial = ['doughnut','pie','polarArea','radar'].includes(type);
+      const horizontal = type === 'bar' && this.options?.indexAxis === 'y';
+      if (!radial && !horizontal) return originalDraw.call(this);
       if (!this.canvas?.isConnected) return;
       const {w,h} = this._size();
       const ctx = this.ctx;
       ctx.clearRect(0,0,w,h);
-      ctx.fillStyle = 'rgba(255,255,255,0)';
-      ctx.fillRect(0,0,w,h);
       const leg = this._legend(ctx,w,h);
-      const padX = 16;
-      const area = {x:padX,y:leg.top+8,w:w-padX*2,h:h-leg.top-leg.bottom-24};
-      if (area.w < 80 || area.h < 60) return;
+      let left = 16;
+      let right = 16;
+      let bottom = 24;
+      if (horizontal) {
+        ctx.save();
+        ctx.font = '9px Arial';
+        const labels = this.data?.labels || [];
+        const longest = labels.reduce((max,label) => Math.max(max,ctx.measureText(String(label)).width),0);
+        ctx.restore();
+        left = Math.min(Math.max(72,Math.ceil(longest)+18),Math.max(90,w*.34));
+        right = 22;
+        bottom = 34;
+      }
+      const area = {x:left,y:leg.top+8,w:w-left-right,h:h-leg.top-leg.bottom-bottom};
+      if (area.w < 80 || area.h < 60) return originalDraw.call(this);
       try {
         if (type === 'radar') return this._radar(ctx,area);
-        return this._doughnut(ctx,area);
+        if (radial) return this._doughnut(ctx,area);
+        return this._bar(ctx,area);
       } catch (_) {
-        return original.call(this);
+        return originalDraw.call(this);
       }
     };
-    ChartCtor.prototype.qRadialAlignmentPatched = true;
+
+    if (typeof proto._labels === 'function') {
+      proto._labels = function(ctx,a,labels) {
+        const list = Array.isArray(labels) ? labels : [];
+        if (!list.length) return;
+        ctx.save();
+        ctx.fillStyle = ChartCtor.defaults?.color || '#646464';
+        ctx.font = '9px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        const slot = a.w / list.length;
+        const minLabelWidth = 52;
+        const step = Math.max(1,Math.ceil(minLabelWidth / Math.max(1,slot)));
+        list.forEach((label,i) => {
+          if (i % step !== 0 && i !== list.length-1) return;
+          const x = a.x + a.w*(i+.5)/list.length;
+          const maxWidth = Math.max(38,Math.min(110,slot*step-6));
+          ctx.fillText(ellipsis(ctx,label,maxWidth),x,a.y+a.h+8);
+        });
+        ctx.restore();
+      };
+    }
+
+    if (typeof proto._bubble === 'function') {
+      const originalBubble = proto._bubble;
+      proto._bubble = function(ctx,a) {
+        const datasets = this.data?.datasets || [];
+        const saved = datasets.map(dataset => dataset.label);
+        datasets.forEach(dataset => { if ((dataset.data || []).length > 1) dataset.label = ''; });
+        try { return originalBubble.call(this,ctx,a); }
+        finally { datasets.forEach((dataset,i) => { dataset.label = saved[i]; }); }
+      };
+    }
+
+    proto.qFormattingPatched = true;
   }
 
   function normalizeCustomCharts(root = document) {
@@ -234,25 +259,21 @@
   function refreshCanvasCharts() {
     try {
       if (!window.Chart?.instances) return;
-      Object.values(window.Chart.instances).forEach(chart => {
-        try {
-          if (typeof chart.resize === 'function') chart.resize();
-          else if (typeof chart.update === 'function') chart.update('none');
-        } catch (_) {}
-      });
+      Object.values(window.Chart.instances).forEach(chart => { try { chart.resize?.(); chart.update?.('none'); } catch (_) {} });
     } catch (_) {}
   }
 
   function attachResizeObservers(root = document) {
     if (!window.ResizeObserver) return;
-    root.querySelectorAll('.voe-scatter,.pmra-scatter,.sa-scatter,.q-final-treemap').forEach(container => {
+    root.querySelectorAll('.voe-scatter,.pmra-scatter,.sa-scatter,.q-final-treemap,.chart-wrap').forEach(container => {
       if (container.dataset.qChartResizeObserved === 'true') return;
       container.dataset.qChartResizeObserved = 'true';
       const observer = new ResizeObserver(() => {
         if (container.classList.contains('voe-scatter')) spreadScatter(container,'.voe-point');
         else if (container.classList.contains('pmra-scatter')) spreadScatter(container,'.pmra-point');
         else if (container.classList.contains('sa-scatter')) spreadScatter(container,'.sa-point');
-        else normalizeTreemap(container.parentElement || document);
+        else if (container.classList.contains('q-final-treemap')) normalizeTreemap(container.parentElement || document);
+        else refreshCanvasCharts();
       });
       observer.observe(container);
     });
@@ -267,27 +288,25 @@
     document.documentElement.dataset.chartAlignmentRelease = RELEASE;
   }
 
-  function schedule(delay = 40) {
-    window.clearTimeout(scheduled);
-    scheduled = window.setTimeout(() => apply(document), delay);
+  function schedule(delay = 50) {
+    clearTimeout(scheduled);
+    scheduled = setTimeout(() => apply(document),delay);
   }
 
   function boot() {
     apply(document);
     const observer = new MutationObserver(mutations => {
-      if (mutations.some(mutation => mutation.addedNodes && mutation.addedNodes.length)) schedule(60);
+      if (mutations.some(mutation => mutation.addedNodes && mutation.addedNodes.length)) schedule(70);
     });
-    observer.observe(document.body, { childList:true, subtree:true });
-    window.addEventListener('resize', () => schedule(80), { passive:true });
-    window.addEventListener('quest:module-loaded', () => schedule(70));
-    window.addEventListener('quest:layout-refresh', () => schedule(70));
-    window.addEventListener('quest:chart-engine-ready', () => schedule(30));
-    document.addEventListener('click', event => {
-      if (event.target.closest('.nav-item,[data-view],button,a,select')) schedule(120);
-    }, { capture:true, passive:true });
-    [250,700,1500].forEach(delay => window.setTimeout(() => apply(document), delay));
+    observer.observe(document.body,{childList:true,subtree:true});
+    window.addEventListener('resize',() => schedule(100),{passive:true});
+    window.addEventListener('quest:module-loaded',() => schedule(70));
+    window.addEventListener('quest:layout-refresh',() => schedule(70));
+    window.addEventListener('quest:chart-engine-ready',() => schedule(30));
+    document.addEventListener('change',event => { if (event.target.matches('select,input')) schedule(80); },true);
+    [250,800,1700,3200].forEach(delay => setTimeout(() => apply(document),delay));
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once:true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
   else boot();
 })();
