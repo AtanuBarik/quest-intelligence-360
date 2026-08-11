@@ -15,7 +15,7 @@
   <div class="q-boot"><div class="q-boot-card"><strong>Quest Intelligence 360</strong><span>Loading the optimized dashboard and visual system…</span><div class="q-boot-line"><i></i></div></div></div>
   <script>
   (async()=>{try{
-    const release='20260810r';
+    const release='20260810u';
     const shellKey='./.quest-shell-'+release+'.html';
     const scrubShell=html=>{try{
       const doc=new DOMParser().parseFromString(html,'text/html');
@@ -34,8 +34,9 @@
       if(pmr){pmr.dataset.view='pmr';pmr.innerHTML='<div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading PMR repository and analysis dashboard…</div>'}
       const experts=doc.querySelector('.view[data-view="experts"]')||Array.from(doc.querySelectorAll('.view[data-view]')).find(view=>/Voice of Experts/i.test(norm(view.querySelector('h1')&&view.querySelector('h1').textContent)));
       if(experts){experts.dataset.view='experts';experts.innerHTML='<div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading Voice of Experts persona analysis…</div>'}
-      const survey=doc.querySelector('.view[data-view="survey"]')||Array.from(doc.querySelectorAll('.view[data-view]')).find(view=>/Survey Analytics/i.test(norm(view.querySelector('h1')&&view.querySelector('h1').textContent)));
+      const survey=doc.querySelector('.view[data-view="survey"]')||doc.querySelector('.view[data-view="surveys"]')||Array.from(doc.querySelectorAll('.view[data-view]')).find(view=>/Survey Analytics/i.test(norm(view.querySelector('h1')&&view.querySelector('h1').textContent)));
       if(survey){survey.dataset.view='survey';survey.innerHTML='<div style="padding:28px;border:1px solid #dce6de;border-radius:14px;background:#fff;color:#034c1f;font:600 14px Arial,sans-serif">Loading multi-project Survey Analytics…</div>'}
+      const surveyNav=Array.from(doc.querySelectorAll('.nav-item')).find(node=>/^survey analytics$/i.test(norm(node.textContent)));if(surveyNav)surveyNav.dataset.view='survey';
       return '<!doctype html>'+doc.documentElement.outerHTML;
     }catch(_){return html}};
 
@@ -53,8 +54,9 @@
     }else h=scrubShell(h);
     const critical='<script src="integrations/frontend-critical-nav-survey.js?v='+release+'"><\/script>';
     const survey='<script src="integrations/survey-analytics-dashboard-final.js?v='+release+'"><\/script>';
+    const chartAlign='<script src="integrations/chart-alignment-system.js?v='+release+'"><\/script>';
     const loader='<script src="integrations/optimized-loader.js?v='+release+'"><\/script>';
-    h=h.replace('</body>',critical+survey+loader+'</body>');
+    h=h.replace('</body>',critical+survey+chartAlign+loader+'</body>');
     document.open();document.write(h);document.close();
   }catch(e){document.body.innerHTML='<div class="q-boot"><div class="q-boot-card"><strong>Unable to load the dashboard</strong><span>Please refresh the page or serve the repository over HTTP. '+String(e.message||e)+'</span></div></div>'}})();
   </script>
