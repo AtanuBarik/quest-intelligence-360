@@ -15,7 +15,7 @@
   <div class="q-boot"><div class="q-boot-card"><strong>Quest Intelligence 360</strong><span>Loading the optimized dashboard and visual system…</span><div class="q-boot-line"><i></i></div></div></div>
   <script>
   (async()=>{try{
-    const release='20260811b';
+    const release='20260811c';
     const shellKey='./.quest-shell-'+release+'.html';
     const scrubText=value=>String(value||'')
       .replace(/ChatGPT/gi,'Insight assistant')
@@ -76,8 +76,9 @@
     const survey='<script src="integrations/survey-analytics-dashboard-final.js?v='+release+'"><\/script>';
     const chartAlign='<script src="integrations/chart-alignment-system.js?v='+release+'"><\/script>';
     const quality='<script src="integrations/frontend-quality-guard.js?v='+release+'"><\/script>';
+    const stability='<script src="integrations/platform-runtime-stability.js?v='+release+'"><\/script>';
     const loader='<script src="integrations/optimized-loader.js?v='+release+'"><\/script>';
-    h=h.replace('</body>',critical+survey+chartAlign+quality+loader+'</body>');
+    h=h.replace('</body>',critical+survey+chartAlign+quality+stability+loader+'</body>');
     document.open();document.write(h);document.close();
   }catch(e){document.body.innerHTML='<div class="q-boot"><div class="q-boot-card"><strong>Unable to load the dashboard</strong><span>Please refresh the page or serve the repository over HTTP. '+String(e.message||e)+'</span></div></div>'}})();
   </script>
