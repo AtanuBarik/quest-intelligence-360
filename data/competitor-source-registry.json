@@ -80,11 +80,11 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "news_query": "NeoGenomics Laboratories oncology diagnostics",
+      "news_query": "NeoGenomics oncology diagnostics",
       "official_sources": [
-        {"label": "NeoGenomics investor relations", "url": "https://ir.neogenomics.com/", "kind": "financial"},
-        {"label": "NeoGenomics news releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
-        {"label": "NeoGenomics corporate site", "url": "https://www.neogenomics.com/", "kind": "company"}
+        {"label": "NeoGenomics press releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
+        {"label": "NeoGenomics financial results", "url": "https://ir.neogenomics.com/financial-information/financial-results", "kind": "financial"},
+        {"label": "NeoGenomics SEC filings", "url": "https://ir.neogenomics.com/sec-filings", "kind": "regulatory"}
       ]
     }
   ]
