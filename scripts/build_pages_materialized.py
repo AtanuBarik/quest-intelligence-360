@@ -6,7 +6,7 @@ import re
 import shutil
 from pathlib import Path
 
-RELEASE = "20260811b"
+RELEASE = "20260811c"
 ROOT = Path(".")
 SITE = ROOT / "_site"
 
@@ -25,6 +25,33 @@ def replace_view(html: str, view: str, label: str, message: str, aliases: tuple[
     if count != 1:
         raise RuntimeError(f"Expected one {view} section (aliases: {aliases}); replaced {count}.")
     return html
+
+
+def route_values(html: str, attribute: str) -> list[str]:
+    return [value.strip().lower() for value in re.findall(rf'{re.escape(attribute)}=["\']([^"\']+)["\']', html, flags=re.I)]
+
+
+def validate_navigation_contract(html: str) -> None:
+    nav_routes = route_values(html, "data-view")
+    section_routes = [
+        value.strip().lower()
+        for value in re.findall(r'<section\b[^>]*\bclass=["\'][^"\']*\bview\b[^"\']*["\'][^>]*\bdata-view=["\']([^"\']+)["\']', html, flags=re.I)
+    ]
+    button_routes = [
+        value.strip().lower()
+        for value in re.findall(r'<button\b[^>]*\bclass=["\'][^"\']*\bnav-item\b[^"\']*["\'][^>]*\bdata-view=["\']([^"\']+)["\']', html, flags=re.I)
+    ]
+    section_set = set(section_routes)
+    unresolved = sorted(set(button_routes) - section_set)
+    duplicate_sections = sorted(route for route in section_set if section_routes.count(route) > 1)
+    if unresolved:
+        raise RuntimeError(f"Navigation routes without matching views: {unresolved}")
+    if duplicate_sections:
+        raise RuntimeError(f"Duplicate view routes detected: {duplicate_sections}")
+    if "survey" not in button_routes or "survey" not in section_set:
+        raise RuntimeError("Survey Analytics must use the canonical 'survey' route in navigation and content.")
+    if "surveys" in nav_routes:
+        raise RuntimeError("Legacy Survey Analytics route alias survived materialization.")
 
 
 def build() -> None:
@@ -86,6 +113,7 @@ def build() -> None:
             f'<script src="integrations/survey-analytics-failsafe.js?v={RELEASE}"></script>',
             f'<script src="integrations/chart-alignment-system.js?v={RELEASE}"></script>',
             f'<script src="integrations/frontend-quality-guard.js?v={RELEASE}"></script>',
+            f'<script src="integrations/platform-runtime-stability.js?v={RELEASE}"></script>',
             f'<script src="integrations/optimized-loader.js?v={RELEASE}"></script>',
         ]
     )
@@ -101,13 +129,14 @@ def build() -> None:
         "survey-analytics-failsafe.js",
         "chart-alignment-system.js",
         "frontend-quality-guard.js",
+        "platform-runtime-stability.js",
         "optimized-loader.js",
     ]
     missing_tokens = [token for token in required if token not in html]
     if missing_tokens:
         raise RuntimeError(f"Materialized shell missing required tokens: {missing_tokens}")
-    if 'data-view="surveys"' in html:
-        raise RuntimeError("Legacy Survey Analytics route alias survived materialization.")
+
+    validate_navigation_contract(html)
 
     if SITE.exists():
         shutil.rmtree(SITE)
