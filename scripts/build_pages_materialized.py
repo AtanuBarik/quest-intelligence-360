@@ -6,7 +6,7 @@ import re
 import shutil
 from pathlib import Path
 
-RELEASE = "20260810t"
+RELEASE = "20260810u"
 ROOT = Path(".")
 SITE = ROOT / "_site"
 
@@ -84,6 +84,7 @@ def build() -> None:
             f'<script src="integrations/frontend-critical-nav-survey.js?v={RELEASE}"></script>',
             f'<script src="integrations/survey-analytics-dashboard-final.js?v={RELEASE}"></script>',
             f'<script src="integrations/survey-analytics-failsafe.js?v={RELEASE}"></script>',
+            f'<script src="integrations/chart-alignment-system.js?v={RELEASE}"></script>',
             f'<script src="integrations/optimized-loader.js?v={RELEASE}"></script>',
         ]
     )
@@ -97,6 +98,7 @@ def build() -> None:
         "frontend-critical-nav-survey.js",
         "survey-analytics-dashboard-final.js",
         "survey-analytics-failsafe.js",
+        "chart-alignment-system.js",
         "optimized-loader.js",
     ]
     missing_tokens = [token for token in required if token not in html]
