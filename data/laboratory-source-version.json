@@ -1,8 +1,8 @@
 {
   "source_repository": "AtanuBarik/laboratory-news-monitor",
-  "source_transport": "public_repository_clone",
+  "source_transport": "raw_public_repository_fallback",
   "source_version_hash": "b8713a8662514bb8b4ef285564bddfdfaebbc55162f872414faeeac9b377a696",
-  "synchronized_at": "2026-08-11T16:13:06.089580+00:00",
+  "synchronized_at": "2026-08-11T21:30:55.288248+00:00",
   "news_generated_at": "2026-08-11T21:40:27.544340+05:30",
   "news_generated_at_display": "11 Aug 2026, 9:40 PM IST",
   "news_item_count": 96,
@@ -34,5 +34,26 @@
     "strategic_repository_chat"
   ],
   "knowledge_generated_at": "2026-08-11T21:40:27.544340+05:30",
-  "sync_warnings": []
+  "sync_warnings": [
+    "public-repository-clone-failed",
+    "data/news.json",
+    "data/email_status.json",
+    "data/workflow_health.json",
+    "data/chatgpt_strategic_synthesis.json",
+    "data/chatgpt_summaries.json",
+    "knowledge/manifest.json",
+    "knowledge/latest.md",
+    "knowledge/quest-diagnostics.md",
+    "knowledge/labcorp.md",
+    "knowledge/arup-laboratories.md",
+    "knowledge/mayo-clinic-laboratories.md",
+    "knowledge/sonic-healthcare.md",
+    "assets/email-icons/rendered/product-services.png",
+    "assets/email-icons/rendered/clinical-rd.png",
+    "assets/email-icons/rendered/partnership-ma.png",
+    "assets/email-icons/rendered/financials.png",
+    "assets/email-icons/rendered/organizational.png",
+    "assets/email-icons/rendered/leadership.png",
+    "assets/email-icons/rendered/other.png"
+  ]
 }
