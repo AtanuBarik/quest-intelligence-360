@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260810q';
+  const RELEASE = '20260811a';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
@@ -184,6 +184,7 @@
       await loadScript('integrations/pmr-repository-dashboard-final.js');
       await loadScript('integrations/voice-experts-dashboard-final.js');
       await loadScript('integrations/survey-analytics-dashboard-final.js');
+      await loadScript('integrations/chart-alignment-system.js');
       removeRetiredNavigation();
     } catch (error) {
       console.error('Quest core load failed:', error);
