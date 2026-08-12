@@ -1,6 +1,6 @@
 # Quest Diagnostics News
 
-- **Repository generated:** 12 Aug 2026, 4:09 PM IST
+- **Repository generated:** 12 Aug 2026, 9:38 PM IST
 - **Distinct events in this file:** 53
 - **Scope:** Relevant public updates where the monitored company is the main subject or an active party.
 - **De-duplication:** Similar coverage is merged and all identified source links are retained.
@@ -283,25 +283,25 @@
 
 - **Company:** Quest Diagnostics
 - **Publication date:** 27 Jul 2026
-- **Category:** Financials
+- **Category:** Partnership, M&A
 - **Coverage count:** 1
 - **Official source involved:** No
 - **Sources:**
   - Kalkine Media: https://news.google.com/rss/articles/CBMi7gFBVV95cUxNVWZpdzRsdnhlZlluV21OdHpWVWctTFRUQktCa1RjeXBwMXM1ZWFUMVZKTkI3NDhZeWZzS1Y3ZTFtSnhldDFqaElsalgzbXpVM1Z1aE9ENUNWY19VeTBNZnNqcjJiVUpyR3dxd0IySkdHSHlPRmwzYlQ2MGFUMXM0UjBZVUJ2ME9rM3Y1V2NjNG9CWXJKbWkySzVkU2ZaZXRFU0tqdDRkeExWS3BEMnQ0by1qaEk1dlFoWExlTjg1cFoweExjMUhnYnM5ZWYyZXlOMUFCemNVb3dMdi02andXWEpCTXgxdGtKNFp3Skl3?oc=5
 
-**Feed description:** Quest Diagnostics SVP Karthik Kuppusamy Boosts Equity Stake via Dividend Reinvestment and Employee Stock Plans kalkinemedia.com
+**Feed description:** Quest Diagnostics Senior Vice President for Clinical Solutions Karthik Kuppusamy reported acquiring 37 Quest common shares on July 22, 2026 at $206.807 per share through a dividend-reinvestment transaction. The Form 4 lists transaction code “L” and shows direct beneficial ownership of 13,557 shares after the acquisition. The filing’s first footnote says the shares were acquired under a dividend reinvestment plan administered by Kuppusamy’s broker and were eligible for deferred reporting on Form 5 under Rule 16a-6, but he elected to report the transaction early on Form 4. The filing also updates other holdings rather than describing additional open-market purchases. It reports 358 shares held indirectly through a trust and 1,691 shares held indirectly through Quest’s tax-qualified Profit Sharing (401(k)) Plan. A footnote says the direct ownership amount includes exempt purchases made under the company’s employee stock purchase plan since Kuppusamy’s previous Form 4, while the 401(k) balance reflects periodic trustee acquisitions and is calculated from the company-stock-fund account balance using the current stock price. Attorney-in-fact Sean D. Mersten signed the filing on July 27, 2026. The disclosed 37-share acquisition is therefore a plan-driven reinvestment, not a discretionary market purchase signaling a separately announced strategic action.
 
 ## 24. Quest Diagnostics Director Vicky B. Gregg Boosts Stake with 72 Shares via Dividend Reinvestment Plan
 
 - **Company:** Quest Diagnostics
 - **Publication date:** 27 Jul 2026
-- **Category:** Financials
+- **Category:** Partnership, M&A
 - **Coverage count:** 1
 - **Official source involved:** No
 - **Sources:**
   - Kalkine Media: https://news.google.com/rss/articles/CBMi3wFBVV95cUxPVEQ5bWllZnprM3JTajBFQXRvVkY2dC1EbjU5TWl2RUdZcXhlT2VQNHR2TllONGszNkpxRmdKZTNQaERNNC1yckR0VWd6MWs0ZDVHeG1iZVJGUGhBYVhpMGJIRDNMalZwWGFFZlpLc1BnNGJWQm9nRzBPWXpRQ3BqQzBBd1pwdnNqVUItdjVrYV8tdk5WWXBNSnhUSm02NXNUVTRlbFZtbG1NUDNjQ3Jkb3pfQTJqQXduTXBTSWx6RE9TRmgtaHJaT1RkX1ptaVNmTnU3VmU3VHFlM3hvZ3Q4?oc=5
 
-**Feed description:** Quest Diagnostics Director Vicky B. Gregg Boosts Stake with 72 Shares via Dividend Reinvestment Plan kalkinemedia.com
+**Feed description:** Quest Diagnostics director Vicky B. Gregg reported acquiring 72 Quest common shares on July 22, 2026 at $206.808 per share through a dividend reinvestment plan. The Form 4 shows that her direct beneficial ownership increased to 18,386 shares after the transaction. The filing uses transaction code “A” for the acquisition and identifies July 22 as the earliest transaction date. Its explanatory footnote states that the shares were acquired through a dividend reinvestment plan administered by Gregg’s broker. Such acquisitions are eligible for deferred reporting on Form 5 under Rule 16a-6, but Gregg elected to report the transaction early on Form 4. Sean D. Mersten, acting as attorney-in-fact for Gregg, signed the filing on July 27, 2026. The filing does not describe an open-market purchase, option exercise, sale or change in Gregg’s board role; it records an automatic reinvestment-related increase in her existing direct equity position. At the reported acquisition price, the 72 shares represent about $14,890 of stock value. The transaction is best understood as a routine ownership update tied to Quest’s dividend-reinvestment mechanism rather than a separately negotiated investment or a material corporate capital-allocation action.
 
 ## 25. Form 4 Quest Diagnostics orporated For: 27 July By Investing.com
 
@@ -342,9 +342,9 @@
 - **Coverage count:** 1
 - **Official source involved:** No
 - **Sources:**
-  - finance.yahoo.com: https://news.google.com/rss/articles/CBMilwFBVV95cUxNU2QwbGVPV3pJd2lIWU5oYlc2Q3gxWFVmZml6UVBrblk3SHNrSGNvZHdiU0VqUlRqMzZmeS16NWV4MFZ6ODBBaC10ZFo1UU8xU0JLaklCdlU4YlViUFFpUXZRLXlla3RVc3JsRnNMUGFXeExyTFFsa29HOU9uQ1pkbTFseEZPNjJXal9yLW10bEhSSTQwdUpj?oc=5
+  - Yahoo Finance: https://news.google.com/rss/articles/CBMilwFBVV95cUxNU2QwbGVPV3pJd2lIWU5oYlc2Q3gxWFVmZml6UVBrblk3SHNrSGNvZHdiU0VqUlRqMzZmeS16NWV4MFZ6ODBBaC10ZFo1UU8xU0JLaklCdlU4YlViUFFpUXZRLXlla3RVc3JsRnNMUGFXeExyTFFsa29HOU9uQ1pkbTFseEZPNjJXal9yLW10bEhSSTQwdUpj?oc=5
 
-**Feed description:** Why Quest Diagnostics (DGX) Is Up 8.2% After Raising 2026 Guidance And Boosting Buybacks finance.yahoo.com
+**Feed description:** Why Quest Diagnostics (DGX) Is Up 8.2% After Raising 2026 Guidance And Boosting Buybacks Yahoo Finance
 
 ## 28. Quest Diagnostics Revenue Breakdown: Business Segments, Regional Revenue & Profit Contribution
 
@@ -392,7 +392,7 @@
 - **Sources:**
   - Sahm: https://news.google.com/rss/articles/CBMi0gFBVV95cUxPZExVMEhGUWs0al9OcWtJTU5nQUVPdE10bnVtTDRJc3FPYlNLZ1VHWkdsUmFhUlUxRnZSV2RDaElId1NtQ3RFYXJlQVJQXy1PMVJBUjRDYTEzd0V6cVlQZkU4eDFud3JqR0NWdGFWUG5hUnE2RmhrQ3ZBSV9YWm1sRXJ4Z2EyY3pCN2t2X2hnNS03cHZad3RzWGlvMHRoRXhuLW9jUGFCOHJVdlluVWFLS3R3QUVkeHh4SjJROXcxRjd3WUtuRUF4U3p0a0VlRUc1a3c?oc=5
 
-**Feed description:** Quest Diagnostics (DGX) Stock Earnings Beat Supports Defensive Profitability Narrative sahmcapital.com
+**Feed description:** Simply Wall St’s July 25 analysis framed Quest Diagnostics’ second-quarter 2026 results as supporting a defensive profitability case while also flagging leverage and slower long-term growth. The article reported quarterly revenue of about $3.0 billion, basic EPS of $2.88 and net income of $320 million, compared with $2.76 billion of revenue and $2.51 EPS in the year-earlier quarter. On a trailing-12-month basis, it cited $11.56 billion of revenue, $1.06 billion of net income, basic EPS of $9.62 and a 9.2% net margin versus 9.0% previously. The analysis contrasted the recent 12% earnings growth with a five-year average earnings decline of 18.6% per year and a forecast revenue-growth rate of 4.3% annually. Its valuation snapshot showed a 23.8 times P/E multiple versus 25.5 times for the U.S. healthcare industry and 40.2 times for peers, with a $227.86 share price, $328.86 DCF fair value and $239.38 analyst target. Simply Wall St also flagged high debt and a 1.51% dividend yield. These are third-party valuation and historical-data observations, not Quest guidance, but the article’s underlying operating point is that recent earnings and margin improvement strengthened the near-term profitability narrative.
 
 ## 32. Quest Diagnostics Soars to 52-Week High, Time to Cash Out?
 
