@@ -1,16 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-12T06:59:13Z",
+  "generated_at": "2026-08-13T07:03:29Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "quest"
+  ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-08-12T06:59:13Z",
-      "refresh_status": "ok",
+      "last_checked_at": "2026-08-13T07:03:29Z",
+      "refresh_status": "partial",
       "verified_fields": {
         "financial": "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -23,20 +25,20 @@
         "Delivers a broad range of customizable services for health systems and hospitals through Collaboration Lab Solutions (Co-Lab)",
         "Derived from one of the world's largest databases of de-identifiable clinical lab results, Quest's diagnostic insights reveal new avenues to identify and treat disease, inspire healthy behaviors and improve healthcare management.",
         "Engages workforce of nearly 57,000 employees dedicated to putting patients first every day",
-        "Hair test positivity among American workers reached 19.1% in 2025, potentially reflecting recurring or chronic drug use 15.1% of workers screened for drugs using a hair test were positive for...",
         "How Amyloid Blood Test Could Transform Alzheimer’s Diagnostics",
         "Increases in HbA1c Testing Follow Expanded Medicare Screening Coverage",
         "On a laboratory table that normally sits empty, hundreds of feces samples are arranged in stacks six vials high.",
-        "One in Five American Workers Tested Had a Positive Hair Drug Test in 2025, Signaling Persistent Long-Term Substance Use Patterns",
         "Provides a broad range of solutions for employers, including workplace drug testing for employers and government agencies; our Workforce Health Solutions wellness screenings; and risk assessment services for the life insurance industry",
         "Provides an industry-leading menu of thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions",
+        "Quest Diagnostics (NYSE: DGX), a leader in diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on October...",
         "Quest Diagnostics CEO on Using Blood Testing for Alzheimer’s Diagnosis",
         "Quest Diagnostics Reports Second Quarter 2026 Financial Results; Raises Revenue and EPS Guidance for Full Year 2026",
         "Quest Diagnostics Team Tests Impact of Teplizumab’s FDA Approval on Screening for Type 1 Diabetes",
         "Quest Diagnostics annually serves one in three adult Americans and half the physicians and hospitals in the United States, and our nearly 50,000 employees understand that, in the right hands and with the right context, our diagnostic insights can inspire actions that transform lives and create a healthier world.",
         "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
         "Quest announces 1st PFAS blood test for consumers.",
-        "Quest provides thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions."
+        "Quest provides thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions.",
+        "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and..."
       ],
       "source_status": [
         {
@@ -50,11 +52,11 @@
             "Quest announces 1st PFAS blood test for consumers.",
             "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health.",
             "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
+            "Quest Diagnostics (NYSE: DGX), a leader in diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on October...",
             "Quest Diagnostics Reports Second Quarter 2026 Financial Results; Raises Revenue and EPS Guidance for Full Year 2026",
             "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
-            "One in Five American Workers Tested Had a Positive Hair Drug Test in 2025, Signaling Persistent Long-Term Substance Use Patterns",
-            "Hair test positivity among American workers reached 19.1% in 2025, potentially reflecting recurring or chronic drug use 15.1% of workers screened for drugs using a hair test were positive for...",
-            "Quest Diagnostics Team Tests Impact of Teplizumab’s FDA Approval on Screening for Type 1 Diabetes"
+            "Quest Diagnostics Team Tests Impact of Teplizumab’s FDA Approval on Screening for Type 1 Diabetes",
+            "Increases in HbA1c Testing Follow Expanded Medicare Screening Coverage"
           ]
         },
         {
@@ -85,10 +87,12 @@
           ]
         }
       ],
-      "errors": [],
-      "content_hash": "b7ba84a019e3fb07869567fe85e0f890a539d045b7f9e42a9293e209d5fb6062",
-      "last_updated_at": "2026-08-11T10:46:26Z",
-      "change_detected": false,
+      "errors": [
+        "Unable to fetch https://news.google.com/rss/search?q=%22Quest+Diagnostics+laboratory+diagnostics%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
+      ],
+      "content_hash": "72ceab7080640866d529191b3de82d28a25085feee3ff41f66577df34118b325",
+      "last_updated_at": "2026-08-13T07:03:29Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -116,8 +120,8 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-12T06:59:13Z",
-      "refresh_status": "ok",
+      "last_checked_at": "2026-08-13T07:03:29Z",
+      "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
       },
@@ -193,7 +197,9 @@
           ]
         }
       ],
-      "errors": [],
+      "errors": [
+        "Unable to fetch https://news.google.com/rss/search?q=%22Labcorp+laboratory+diagnostics%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
+      ],
       "content_hash": "03d476560517f0440f4ab808077f4a7e6228fa246dc208ea0c3fee0d4a672835",
       "last_updated_at": "2026-08-11T10:46:26Z",
       "change_detected": false,
@@ -223,8 +229,8 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-12T06:59:13Z",
-      "refresh_status": "ok",
+      "last_checked_at": "2026-08-13T07:03:29Z",
+      "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
@@ -287,7 +293,9 @@
           ]
         }
       ],
-      "errors": [],
+      "errors": [
+        "Unable to fetch https://news.google.com/rss/search?q=%22ARUP+Laboratories+diagnostics%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
+      ],
       "content_hash": "9c808a9eed3604497af28390d01b74abbc20139bd56da0de66a7e11023c68f19",
       "last_updated_at": "2026-08-07T08:29:04Z",
       "change_detected": false,
@@ -312,7 +320,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-12T06:59:13Z",
+      "last_checked_at": "2026-08-13T07:03:29Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -346,7 +354,8 @@
       "errors": [
         "Unable to fetch https://news.mayocliniclabs.com/homepage/news/: HTTP Error 403: Forbidden",
         "Unable to fetch https://news.mayocliniclabs.com/homepage/news/newsroom/: HTTP Error 403: Forbidden",
-        "Unable to fetch https://news.mayocliniclabs.com/about-us/: HTTP Error 403: Forbidden"
+        "Unable to fetch https://news.mayocliniclabs.com/about-us/: HTTP Error 403: Forbidden",
+        "Unable to fetch https://news.google.com/rss/search?q=%22Mayo+Clinic+Laboratories%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
       ],
       "content_hash": "ef1ed9ed5b26049f544b653603367590977521e76e171b63e5b30214f7567a54",
       "last_updated_at": "2026-08-09T08:18:12Z",
@@ -376,7 +385,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-12T06:59:13Z",
+      "last_checked_at": "2026-08-13T07:03:29Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -421,7 +430,8 @@
         }
       ],
       "errors": [
-        "Unable to fetch https://www.bioreference.com/news/: HTTP Error 403: Forbidden"
+        "Unable to fetch https://www.bioreference.com/news/: HTTP Error 403: Forbidden",
+        "Unable to fetch https://news.google.com/rss/search?q=%22BioReference+Health+laboratory+OPKO+diagnostics%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
       ],
       "content_hash": "218a76cb0643ed148c87bb112cc268ee82ad68af94994e49542442223359d25d",
       "last_updated_at": "2026-08-08T08:34:30Z",
@@ -451,8 +461,8 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare",
-      "last_checked_at": "2026-08-12T06:59:13Z",
-      "refresh_status": "ok",
+      "last_checked_at": "2026-08-13T07:03:29Z",
+      "refresh_status": "partial",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
       },
@@ -498,7 +508,9 @@
           "signals": []
         }
       ],
-      "errors": [],
+      "errors": [
+        "Unable to fetch https://news.google.com/rss/search?q=%22Sonic+Healthcare+laboratory+diagnostics+USA%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
+      ],
       "content_hash": "cfd5dcc60149973a9943fba5141ba90dd071bfd9c2d7999255863ca655ceb942",
       "last_updated_at": "2026-08-08T06:30:30Z",
       "change_detected": false,
@@ -528,8 +540,8 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-08-12T06:59:13Z",
-      "refresh_status": "ok",
+      "last_checked_at": "2026-08-13T07:03:29Z",
+      "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
@@ -610,7 +622,9 @@
           ]
         }
       ],
-      "errors": [],
+      "errors": [
+        "Unable to fetch https://news.google.com/rss/search?q=%22Cleveland+Clinic+Laboratories+pathology+laboratory+medicine%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
+      ],
       "content_hash": "276a05a0cd23455271cd3ebee597141c81e4c135f79ea6d3213d16cf9c73f3fe",
       "last_updated_at": "2026-08-11T10:46:26Z",
       "change_detected": false,
@@ -639,8 +653,8 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-08-12T06:59:13Z",
-      "refresh_status": "ok",
+      "last_checked_at": "2026-08-13T07:03:29Z",
+      "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
@@ -675,7 +689,9 @@
           ]
         }
       ],
-      "errors": [],
+      "errors": [
+        "Unable to fetch https://news.google.com/rss/search?q=%22NeoGenomics+oncology+diagnostics%22+when%3A14d&hl=en-US&gl=US&ceid=US:en: HTTP Error 503: Service Unavailable"
+      ],
       "content_hash": "7058f678f2d24aef9c5e11af9012cba1a41c3bcb6fa6daff7be7bbdb32063b77",
       "last_updated_at": "2026-08-08T06:30:30Z",
       "change_detected": false,

@@ -129,6 +129,23 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-08-13T07:03:29Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "quest"
+      ],
+      "partial_or_failed": [
+        "quest",
+        "labcorp",
+        "arup",
+        "mayo",
+        "bioreference",
+        "sonic",
+        "cleveland",
+        "neogenomics"
+      ]
     }
   ]
 }
