@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T06:05:18.749262+00:00",
+  "generated_at": "2026-08-13T06:07:42.356147+00:00",
   "overall_status": "healthy",
   "errors": [],
   "sources": {
@@ -15,7 +15,7 @@
     },
     "laboratory_news": {
       "status": "ready",
-      "updated_at": "2026-08-11T21:40:27.544340+05:30",
+      "updated_at": "2026-08-13T11:34:55.804902+05:30",
       "records": 96
     },
     "social_intelligence": {
@@ -25,9 +25,9 @@
       "mode": "illustrative_connector_ready"
     },
     "email_workflow": {
-      "status": "awaiting_chatgpt_summaries",
+      "status": "email_sent",
       "updated_at": null,
-      "items": 0
+      "items": 1
     },
     "ai_worker": {
       "status": "ready",
