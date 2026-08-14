@@ -146,6 +146,17 @@
         "cleveland",
         "neogenomics"
       ]
+    },
+    {
+      "checked_at": "2026-08-14T06:59:49Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "bioreference"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
     }
   ]
 }
