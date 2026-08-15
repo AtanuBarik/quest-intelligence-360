@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-14T06:59:49Z",
+  "generated_at": "2026-08-15T04:06:58Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "bioreference"
+    "mayo"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
@@ -118,7 +118,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -225,7 +225,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -314,10 +314,17 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "partial",
       "verified_fields": {},
-      "latest_developments": [],
+      "latest_developments": [
+        {
+          "title": "'Creating this Mayo experience': Patient-focused expertise for complex spinal surgery",
+          "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQc2JWX1lBWVlXX2MyQnNlWnY2YmtuSU1HaFozcy1rM3h5TFJsTU5vSVhhaHZrM3RXamUwTTB0V0NmdlBtUVhpUldnd0NkM21UTHVDZW5BVGl3ZC0zX1c0Z0dyYWcwU0tjVDdpWXozME9YY0FmRmY2QzlKaUExRm1rendFa2FpVllSYlJKMWhVREtZNThKcHlTcWdTSkZyTUVlU3c2MGphOHZRVUp3TFk0LVR3YnJWcVZXYTF4UFl2WnRjbk5qQVFHQ1FSVzJmWFgyZC11WUs5Z0tYQVkyMmJYRVdjTktfQkk2bW9ET3QxUWFhOHJzcjk4Rk1ROG1KbXhIcHc?oc=5",
+          "published": "Fri, 14 Aug 2026 18:42:59 GMT",
+          "source_type": "public_news"
+        }
+      ],
       "official_signals": [],
       "source_status": [
         {
@@ -350,15 +357,20 @@
         "Unable to fetch https://news.mayocliniclabs.com/homepage/news/newsroom/: HTTP Error 403: Forbidden",
         "Unable to fetch https://news.mayocliniclabs.com/about-us/: HTTP Error 403: Forbidden"
       ],
-      "content_hash": "ef1ed9ed5b26049f544b653603367590977521e76e171b63e5b30214f7567a54",
-      "last_updated_at": "2026-08-09T08:18:12Z",
-      "change_detected": false,
+      "content_hash": "6f77d55560e0f86bf260bc25f457124df48d4c1d32dc1bc68f4b143e0a744e60",
+      "last_updated_at": "2026-08-15T04:06:58Z",
+      "change_detected": true,
       "changes": {
-        "added": [],
+        "added": [
+          "'Creating this Mayo experience': Patient-focused expertise for complex spinal surgery"
+        ],
         "removed": [],
         "modified": []
       },
       "profile_patch": {
+        "moves": [
+          "'Creating this Mayo experience': Patient-focused expertise for complex spinal surgery"
+        ],
         "sources": [
           [
             "Mayo Clinic Laboratories news",
@@ -371,6 +383,10 @@
           [
             "About Mayo Clinic Laboratories",
             "https://news.mayocliniclabs.com/about-us/"
+          ],
+          [
+            "Latest public development",
+            "https://news.google.com/rss/articles/CBMiggJBVV95cUxQc2JWX1lBWVlXX2MyQnNlWnY2YmtuSU1HaFozcy1rM3h5TFJsTU5vSVhhaHZrM3RXamUwTTB0V0NmdlBtUVhpUldnd0NkM21UTHVDZW5BVGl3ZC0zX1c0Z0dyYWcwU0tjVDdpWXozME9YY0FmRmY2QzlKaUExRm1rendFa2FpVllSYlJKMWhVREtZNThKcHlTcWdTSkZyTUVlU3c2MGphOHZRVUp3TFk0LVR3YnJWcVZXYTF4UFl2WnRjbk5qQVFHQ1FSVzJmWFgyZC11WUs5Z0tYQVkyMmJYRVdjTktfQkk2bW9ET3QxUWFhOHJzcjk4Rk1ROG1KbXhIcHc?oc=5"
           ]
         ]
       }
@@ -378,7 +394,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -425,7 +441,7 @@
       ],
       "content_hash": "ee1e55a7fb413cb8ee18207850719bb0b46b4dd83d3b57d8ee174c8d2f4c2e80",
       "last_updated_at": "2026-08-14T06:59:49Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -451,7 +467,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -528,7 +544,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -639,7 +655,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-08-14T06:59:49Z",
+      "last_checked_at": "2026-08-15T04:06:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
