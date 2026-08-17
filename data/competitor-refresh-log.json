@@ -177,6 +177,17 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-08-17T04:27:37Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "neogenomics"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
     }
   ]
 }
