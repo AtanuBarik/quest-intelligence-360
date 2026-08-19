@@ -200,6 +200,17 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-08-19T04:22:34Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "labcorp"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
     }
   ]
 }
