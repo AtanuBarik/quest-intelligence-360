@@ -1,0 +1,12 @@
+.git
+.github
+.gitignore
+Dockerfile
+docker-compose.yml
+DEPLOYMENT_DOCKER.md
+README.md
+.pages-trigger
+.competitor-refresh-trigger
+.nojekyll
+*.log
+.DS_Store
