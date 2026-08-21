@@ -1,6 +1,6 @@
 # Quest Diagnostics News
 
-- **Repository generated:** 21 Aug 2026, 1:51 PM IST
+- **Repository generated:** 21 Aug 2026, 7:50 PM IST
 - **Distinct events in this file:** 72
 - **Scope:** Relevant public updates where the monitored company is the main subject or an active party.
 - **De-duplication:** Similar coverage is merged and all identified source links are retained.
@@ -21,13 +21,13 @@
 
 - **Company:** Quest Diagnostics
 - **Publication date:** 20 Aug 2026
-- **Category:** Other
+- **Category:** Partnership, M&A
 - **Coverage count:** 1
 - **Official source involved:** No
 - **Sources:**
   - Yahoo Finance: https://news.google.com/rss/articles/CBMinwFBVV95cUxQaHhrV2tGOWVmeWt5blNRbGhYWFNYaXFVUS1RUGJsQ2Npdm50UjI0NXpmZU5rSzVyaXNSdlV4cUQtQnJQa2VlWDBMaWctX0FkYzlsSkt5VzRFdjA4a05yVmdYMnp1WDRmbkFZNlZ2bWJCck9SV2dFLVkyMHVNTEl6RmU2RVQ0dkk4WGQ0V0FtSFE2TVBYQks2S2Q0Z0tJcm8?oc=5
 
-**Feed description:** Is Quest Diagnostics (DGX) Still Worth A Look After A 92% Run? Yahoo Finance
+**Feed description:** Yahoo Finance’s Simply Wall St analysis asks whether Quest Diagnostics’ strong share-price run is justified by projected cash flows rather than reporting a new company operating event. The article says Quest shares had returned 92.2% over three years and 33.4% over the prior year. Its discounted-cash-flow model starts from roughly $1.4 billion of latest-twelve-month free cash flow and estimates intrinsic value near $348 per share, implying about a 30.5% discount to the market price used in the analysis. By contrast, valuation on earnings looks much closer to peers: Quest traded at about 25.2 times earnings versus roughly 25.0 times for the healthcare industry and 25.4 times for the peer group, while Simply Wall St’s modeled fair P/E was about 26.3 times. The site gave Quest a mixed value score of 4 out of 6. The analysis points to expansion of WHOOP Advanced Labs, powered in the U.S. by Quest, and broader access to Galleri testing as potential supports for future testing volumes and cash flow, while emphasizing execution risk around newer partnerships and services. The $348 DCF value, fair-P/E estimate and long-term valuation conclusions are third-party modeling assumptions rather than Quest guidance or reported financial targets.
 
 ## 3. Quest Diagnostics stock hits a fresh high as Q2 earnings beat expectations
 
@@ -39,7 +39,7 @@
 - **Sources:**
   - AD HOC NEWS: https://news.google.com/rss/articles/CBMi0wFBVV95cUxOLUpmQm5jMGM4dHAya1hibUVmU3F6amJMY2R4UElNOUFGeXdTLUFSMy1XMjdTTGcxWkhkQklMZG01Q1o2SlpLNG9Cd09iNEdGRHludXE5RHRiUk44N1ZUWDFJYm9neG94NEh5b2N6UF95M1J2YjZ6YXZSaXoydnBiZlcxQnoxUmQyQWdILXVSU2ZxNlVMc1N4MTZ2Nk5VVkJlWmx6bXY2aTlMb1J5aWV1cjZPMGw4aDc3cjdISGloaUVTVDVPVm9HRC1jajRFSm5iNkc4?oc=5
 
-**Feed description:** Quest Diagnostics stock hits a fresh high as Q2 earnings beat expectations Ad-hoc-news.de
+**Feed description:** Quest Diagnostics shares reached a new high on August 19, 2026, extending a three-session advance after the company’s strong second-quarter report and raised full-year outlook. MarketWatch reported that the shares rose 2.33% that day to close at $241.76, above the prior 52-week peak of $240.13 set on July 28. Trading volume was 923,732 shares, slightly below the 50-day average of 957,070. The operating backdrop was Quest’s second quarter: revenue was $3.043 billion, up 10.2% year over year, with 10.0% organic revenue growth. Reported diluted EPS rose 15.0% to $2.84 and adjusted diluted EPS increased 19.1% to $3.12. MarketBeat’s earnings data show adjusted EPS beat its $2.82 consensus by $0.30, while revenue exceeded the roughly $2.97 billion expectation. Quest raised 2026 revenue guidance to $11.95-$12.05 billion and adjusted diluted EPS guidance to $11.05-$11.25. The share-price milestone is a market reaction rather than a new operating announcement, but it followed stronger-than-expected earnings, double-digit organic growth and improved company guidance in the public market.
 
 ## 4. Quest Diagnostics stock hits all-time high at 240.15 USD By Investing.com
 
@@ -131,27 +131,17 @@
 
 **Feed description:** Quest Diagnostics' board declared a quarterly cash dividend of $0.86 per common share on August 12, 2026. The dividend is payable October 21, 2026 to shareholders of record at the close of business on October 6, 2026. The action keeps the quarterly rate unchanged from the $0.86 level the board established in February 2026, when Quest raised the dividend 7.5% from $0.80 per share. That February increase set the annualized cash dividend at $3.44 per share and marked the company's fifteenth consecutive year of dividend increases. The August declaration does not announce a new increase, change full-year operating guidance or alter the share-repurchase program; it authorizes the next payment at the previously approved rate. Quest's February capital-allocation announcement also increased share-repurchase authorization by $1.0 billion on top of approximately $0.4 billion available at December 31, 2025. The August release separately describes Quest's current operating scale as serving half of U.S. physicians and hospitals and one in three American adults each year, with nearly 60,000 employees. The material development in the queued item is therefore the confirmation of the October dividend timetable and continuation of the $0.86 quarterly distribution.
 
-## 11. Quest Diagnostics Declares Quarterly Cash Dividend
+## 11. Quest Diagnostics Declares Quarterly Cash Dividend, Payable on October 21, 2026
 
 - **Company:** Quest Diagnostics
 - **Publication date:** 12 Aug 2026
 - **Category:** Financials
-- **Coverage count:** 11
+- **Coverage count:** 1
 - **Official source involved:** No
 - **Sources:**
-  - PR Newswire: https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT3BJNUowMmpSa2FTaHlCYjNpdjByd2JVNUlaXzdNSFZlV1E4bnpfTV9NZ0ZVTEJ6c3dleGVod2NvT1MyTjUyNG1CSldzVm4xVks1dnJ4aU92ck5JSnhvaTdPNHNzU3c3UFFMbW5rbEd2eDc1dlQ0cDdaRzVRZXN3aHZNQkJiZlNrd2ZUR0JfZVUxa2lsQzBiV0NVbW4yaW9EZURKWXJBZWZWUQ?oc=5
-  - Stock Titan: https://news.google.com/rss/articles/CBMimwFBVV95cUxNTW1ieDBzdHJsMVJOcFJTQkIyalNEaUVsTjFhaDR5VmJHRVpRRklMRm8zRThrTVdGYTRYSC1jX0dKTzFwNHdwdFA0T0lfZXpxYnFtMUtXMExSLWR4QnFEbl9oZ054UE1zdHFrRldtQXJpNmpnUF9mT1praS04b2tIYVJoanFENjFPMDhYSEJaS1kzQ0Jzb3E1a25hVQ?oc=5
-  - Investing.com: https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcDVqU1NfcS1vcGtDblJReTlLUHd5Q2NSeXgxaGI5czBkVkZzT1lLTmFWZG5EbmVrZEVXRXU1MWxDNGhubTltTDBMUUowOGNWYXRIMVNKV3NkOF9qZVhUdXNVNmFHTms0a2ZURzB1ckJiREVXQnpCOXFnZXFqMVJfTkRHV0VrX09EUjI0UHdlZ29jTDhDaUxRb2l2UGowZVI4cjRfX2VmVU16dw?oc=5
-  - Investing.com UK: https://news.google.com/rss/articles/CBMirwFBVV95cUxNMjdJZllLaEpSX0JXT2MzcEx2QUdLZElCampZTkY1aUhzeTFDYzlVNXlqQTZvWnlSUGNkblNXSDdEQW12YTNyVzNpakE0bXFKYUVuanZGZ0sycWpWcGVsT3FfakpVaDlLYUVxaFRaR19RalRiaDZ1amJqZHNkQWt4RkhsMnI3Rk9TSWhVaW9OTzRKYk9JdjJ4clVRWk1DSzJnMUwxVXVMVmJsUGxlcE1j?oc=5
-  - AOL.com: https://news.google.com/rss/articles/CBMijgFBVV95cUxPTDFLX0hpM1dYOGlFS2xRM1FHaVl5dmdWQi02dmNweTN5SjRqQVZIdFF2enI2UUZndUl0NGFvYUV1NHNFNWFUdERkNkhURTVNdmc0aENqTTFRVExud1B0eWFRMVlKRTlSTS1WRFBNTDU1dlV4UFZiVTh6cUZqZThDeEVGZTh0d0ZlaDVCTHdB?oc=5
-  - Investing.com Canada: https://news.google.com/rss/articles/CBMirwFBVV95cUxQU291NVR5M2lQOTRQZ1I4YmozTVFsbEpCNmxpZkhQcENqRmtISUlWOUs0WjZjaWJrN1BBeExuYmJWdVQtMldHa2pUak5HdElkZ2JadE1hb0RFVlg0WXZVZWx3dEV2Wm9laHdoMDlrc1lzOE5HVFdKTXp3YmRZRlY2UWE5TE1CUmhQMkJtemw1dGxwZkRack5ZZlItX21JZjFpOER6NzRYZWZVUW5NTXk0?oc=5
-  - MarketBeat: https://news.google.com/rss/articles/CBMiwgFBVV95cUxOQUtFc1lHd2xSYWhVcVNXd3BIMWhDR242QTl3VmFrejN6dDlTN2RiRC11NlhYYWNMTG5maEg3SlZmSS1CU0NXeEo3djJHdmFsblZIRE9sUDV1d3RIVHl4c01IaEJINmFaNzluUS1LTXFJcHNnMDZiTFFTMkUxWFZvaVZnNEszY2lSR3BBSExxd3J5bFMzU3MwckwtYS1mM0ZmWHZ3VFFEM0s3SGw2NHliUFpQLWVUaWVvZFZHWnlYenNiQQ?oc=5
-  - Investing.com South Africa: https://news.google.com/rss/articles/CBMirwFBVV95cUxQcVRJd3VpLW1iVEo4VkRKdGxfb3QzaE5EQkdkN25UNm50RXNYdC1GT3NZbDB6bklTQXgyWVNJTjJNVFpGTmdtOTZIeW14T1h5S3lNS3paTW50d0dSYVBIVE1iUGtJNVVoVkRzUzQ4M1FOcjBSQ3EtZ3JNMVNvNkJxbWJlcDcwcUw5OHAyRXNCX0FJcXhSVjBESi13dm1mMlc4MzhyVDFORTZzVDQtZUlZ?oc=5
-  - Investing.com Nigeria: https://news.google.com/rss/articles/CBMirwFBVV95cUxPSTVkNWRZeGhXLU9RMHY0cGNHbmN2ZkpDcDNyUFFvN01uSkV6UUdhVXRMZkZPUjVWbERLdXM2MVp1dlpCdnVzWnlPNW1tTno1ZWhmZUNEYkE2bDZaN3FCZ19Vek5RejJjbHhPbHA5WmRWZmFwOW5lRjVkSUZXRmkyQU9wUjlTamd4WXp4NnY2VVNHakhRaVhJVERXcjRyRjdtb1IzbmhKb1FxVXpXWVJZ?oc=5
-  - Investing.com Australia: https://news.google.com/rss/articles/CBMirwFBVV95cUxPZV80ZHdEODdlRkNtakRXNzdlSVlmS3FuRW9nb1hLVmlVb1RlWUR6R3A2VGp0VW1wWXBGc0ZubWhGOXBkc25MWG0wLTNRbXN0NmxsSW1naFZRVmxnVnoyQllETWozTVlnRTZkTzRfdVlCXzU0a0xrbHNCRDZDT1dKN2w0YzJMaklZV2luVEhEd0lESlFtakU5S3JKUW10dlpJbU1Ud0RiOUFaTHp6N2VR?oc=5
   - marketscreener.com: https://news.google.com/rss/articles/CBMi2wFBVV95cUxQU3VacThaTEc4SDJuc04yYW92LXl3dmw1cmFNRFd2TldoYjdrSUV6MTNkblRBb0tsM1ZKVjdCREk0ekVXU1d6R2dxWlNRRmltR3RMLXRJVi16cVhkcEFpU1BxTkFQUHBneWtSTDJKdS1haVphUFFuLV8yM3Z4LXRGLW1ESTEwRTJ1b0JwdzdyWUg0MGtZWEtoUXNnbHBfWEVuQ3F5dGJLa1JuOXJBMlU5QjRJS29udkxleWdzakdZbnpmNkg4Y3ZVVXozanhacDlWaTNKVFoyTkEtT2c?oc=5
 
-**Feed description:** Quest Diagnostics announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share. The dividend will be paid on October 21, 2026 to holders of Quest common stock who are shareholders of record on October 6, 2026. The declaration continues the dividend rate established earlier in 2026 rather than increasing it again. On February 10, Quest authorized a 7.5% increase in the quarterly dividend from $0.80 to $0.86 per share, which set an annualized cash dividend of $3.44 per share and extended the company's record to fifteen consecutive years of dividend increases. The same February capital-allocation action increased Quest's share-repurchase authorization by $1 billion in addition to roughly $0.4 billion that remained available at the end of 2025. The August 12 release does not revise earnings guidance, announce a new repurchase authorization or change the dividend rate; its operative terms are the $0.86 amount, October 6 record date and October 21 payment date. Quest also states that it serves half of U.S. physicians and hospitals and one in three American adults annually, with a workforce of nearly 60,000 employees. The announcement therefore represents continuity in shareholder cash returns rather than a new operating or strategic initiative.
+**Feed description:** Quest Diagnostics Incorporated Declares Quarterly Cash Dividend, Payable on October 21, 2026 marketscreener.com
 
 ## 12. Wrapped Quest Diagnostics Tokenized Stock (xStock) price today, wDGXx to USD live price, marketcap and chart
 
