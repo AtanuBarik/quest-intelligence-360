@@ -1,6 +1,6 @@
 # Quest Diagnostics News
 
-- **Repository generated:** 22 Aug 2026, 1:13 AM IST
+- **Repository generated:** 22 Aug 2026, 8:53 AM IST
 - **Distinct events in this file:** 73
 - **Scope:** Relevant public updates where the monitored company is the main subject or an active party.
 - **De-duplication:** Similar coverage is merged and all identified source links are retained.
@@ -9,13 +9,13 @@
 
 - **Company:** Quest Diagnostics
 - **Publication date:** 21 Aug 2026
-- **Category:** Other
+- **Category:** Financials
 - **Coverage count:** 1
 - **Official source involved:** No
 - **Sources:**
   - Yahoo Finance: https://news.google.com/rss/articles/CBMipgFBVV95cUxNdVd6VHN5R1FtRERhM1Ryd2tGRWY0VGdhWjlyZ3RLb0tLSkhSQWRKZnlfOXNTNXNNNHF2RGk4cXF3ZmJnUE1FWk4yN2JHTVE5WDFZS1hFdzlTUTByT0wtcnhsbW1tN3pqSTdHR2pIeUlIMDk1TVZrZzB3dXBiT2t0OGR4MG01OWpoLVB0YkVyMGF0ZFdEdnAtUVJUdXJpcEk2Mkc0ckdn?oc=5
 
-**Feed description:** Quest Diagnostics Incorporated (DGX) Hit a 52 Week High, Can the Run Continue? Yahoo Finance
+**Feed description:** Zacks’ August 21 analysis said Quest Diagnostics shares reached a new 52-week high of $245.68 in the prior session after gaining 5.9% over the preceding month. DGX was up 39.1% year to date, compared with 5.2% for the Zacks Medical sector and 22.7% for its Medical–Outpatient and Home Healthcare industry. Zacks linked the move to earnings execution and upward estimate revisions. Quest’s July 23 quarter delivered adjusted EPS of $3.12 versus the $2.81 consensus used by Zacks, while revenue exceeded consensus by 2.15%. Zacks’ current full-year 2026 consensus was $11.15 of EPS on about $12.01 billion of revenue, implying 13.2% EPS growth and 8.87% revenue growth; for the following year it modeled $11.97 of EPS on $12.56 billion of revenue, representing 7.31% EPS growth and 4.58% revenue growth. The article also noted that DGX traded at 21.6 times current-year EPS estimates versus 21.3 times for the peer industry, while its trailing cash-flow multiple was 15.9 times versus 17.2 times for peers. Quest carried a Zacks Rank #2 (Buy), with Value and Growth scores of B, Momentum D and VGM B. These are third-party market estimates and valuation signals, not new company guidance or an operating announcement.
 
 ## 2. Quest Diagnostics Executive Recruited to Quanterix’s Senior Management Team
 
@@ -143,16 +143,18 @@
 
 **Feed description:** Quest Diagnostics' board declared a quarterly cash dividend of $0.86 per common share on August 12, 2026. The dividend is payable October 21, 2026 to shareholders of record at the close of business on October 6, 2026. The action keeps the quarterly rate unchanged from the $0.86 level the board established in February 2026, when Quest raised the dividend 7.5% from $0.80 per share. That February increase set the annualized cash dividend at $3.44 per share and marked the company's fifteenth consecutive year of dividend increases. The August declaration does not announce a new increase, change full-year operating guidance or alter the share-repurchase program; it authorizes the next payment at the previously approved rate. Quest's February capital-allocation announcement also increased share-repurchase authorization by $1.0 billion on top of approximately $0.4 billion available at December 31, 2025. The August release separately describes Quest's current operating scale as serving half of U.S. physicians and hospitals and one in three American adults each year, with nearly 60,000 employees. The material development in the queued item is therefore the confirmation of the October dividend timetable and continuation of the $0.86 quarterly distribution.
 
-## 12. Quest Diagnostics Declares Quarterly Cash Dividend, Payable on October 21, 2026
+## 12. Quest Diagnostics Declares Quarterly Cash Dividend
 
 - **Company:** Quest Diagnostics
 - **Publication date:** 12 Aug 2026
 - **Category:** Financials
-- **Coverage count:** 2
+- **Coverage count:** 4
 - **Official source involved:** No
 - **Sources:**
+  - AOL.com: https://news.google.com/rss/articles/CBMijgFBVV95cUxPTDFLX0hpM1dYOGlFS2xRM1FHaVl5dmdWQi02dmNweTN5SjRqQVZIdFF2enI2UUZndUl0NGFvYUV1NHNFNWFUdERkNkhURTVNdmc0aENqTTFRVExud1B0eWFRMVlKRTlSTS1WRFBNTDU1dlV4UFZiVTh6cUZqZThDeEVGZTh0d0ZlaDVCTHdB?oc=5
   - marketscreener.com: https://news.google.com/rss/articles/CBMi2wFBVV95cUxQU3VacThaTEc4SDJuc04yYW92LXl3dmw1cmFNRFd2TldoYjdrSUV6MTNkblRBb0tsM1ZKVjdCREk0ekVXU1d6R2dxWlNRRmltR3RMLXRJVi16cVhkcEFpU1BxTkFQUHBneWtSTDJKdS1haVphUFFuLV8yM3Z4LXRGLW1ESTEwRTJ1b0JwdzdyWUg0MGtZWEtoUXNnbHBfWEVuQ3F5dGJLa1JuOXJBMlU5QjRJS29udkxleWdzakdZbnpmNkg4Y3ZVVXozanhacDlWaTNKVFoyTkEtT2c?oc=5
   - PR Newswire: https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT3BJNUowMmpSa2FTaHlCYjNpdjByd2JVNUlaXzdNSFZlV1E4bnpfTV9NZ0ZVTEJ6c3dleGVod2NvT1MyTjUyNG1CSldzVm4xVks1dnJ4aU92ck5JSnhvaTdPNHNzU3c3UFFMbW5rbEd2eDc1dlQ0cDdaRzVRZXN3aHZNQkJiZlNrd2ZUR0JfZVUxa2lsQzBiV0NVbW4yaW9EZURKWXJBZWZWUQ?oc=5
+  - Stock Titan: https://news.google.com/rss/articles/CBMimwFBVV95cUxNTW1ieDBzdHJsMVJOcFJTQkIyalNEaUVsTjFhaDR5VmJHRVpRRklMRm8zRThrTVdGYTRYSC1jX0dKTzFwNHdwdFA0T0lfZXpxYnFtMUtXMExSLWR4QnFEbl9oZ054UE1zdHFrRldtQXJpNmpnUF9mT1praS04b2tIYVJoanFENjFPMDhYSEJaS1kzQ0Jzb3E1a25hVQ?oc=5
 
 **Feed description:** Quest Diagnostics Incorporated Declares Quarterly Cash Dividend, Payable on October 21, 2026 marketscreener.com
 
