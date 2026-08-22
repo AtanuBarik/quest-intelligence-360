@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T04:24:32Z",
+  "generated_at": "2026-08-22T04:17:23Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
@@ -9,7 +9,7 @@
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
@@ -116,7 +116,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -222,7 +222,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -311,7 +311,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -389,7 +389,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -462,7 +462,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -539,7 +539,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -650,7 +650,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-08-21T04:24:32Z",
+      "last_checked_at": "2026-08-22T04:17:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
