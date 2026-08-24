@@ -249,6 +249,15 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-08-24T05:06:26Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
     }
   ]
 }
