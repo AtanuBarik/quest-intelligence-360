@@ -1,18 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T05:06:26Z",
+  "generated_at": "2026-08-25T04:24:37Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "quest",
+    "labcorp"
+  ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "ok",
       "verified_fields": {
-        "financial": "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
       },
       "latest_developments": [],
@@ -29,14 +31,14 @@
         "Provides an industry-leading menu of thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions",
         "Quest Diagnostics (NYSE: DGX), a leader in diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on October...",
         "Quest Diagnostics CEO on Using Blood Testing for Alzheimer’s Diagnosis",
-        "Quest Diagnostics Reports Second Quarter 2026 Financial Results; Raises Revenue and EPS Guidance for Full Year 2026",
+        "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced that Sam Samad, Executive Vice President & Chief Financial Officer, will speak on the company's...",
         "Quest Diagnostics Team Tests Impact of Teplizumab’s FDA Approval on Screening for Type 1 Diabetes",
         "Quest Diagnostics annually serves one in three adult Americans and half the physicians and hospitals in the United States, and our nearly 50,000 employees understand that, in the right hands and with the right context, our diagnostic insights can inspire actions that transform lives and create a healthier world.",
         "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
+        "Quest Diagnostics to Offer FDA-Cleared Roche pTau217 Blood Test to Assess Alzheimer's Disease Pathology",
         "Quest announces 1st PFAS blood test for consumers.",
         "Quest provides thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions.",
-        "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
-        "The Science Lab Where Technicians Are Drowning in Feces"
+        "Test to join the company's expansive portfolio of Quest AD-Detect® blood tests for assessing symptomatic patients Quest also launching a new multi-biomarker AD-Detect® lab-developed blood test..."
       ],
       "source_status": [
         {
@@ -50,11 +52,11 @@
             "Quest announces 1st PFAS blood test for consumers.",
             "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health.",
             "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
+            "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced that Sam Samad, Executive Vice President & Chief Financial Officer, will speak on the company's...",
+            "Quest Diagnostics to Offer FDA-Cleared Roche pTau217 Blood Test to Assess Alzheimer's Disease Pathology",
+            "Test to join the company's expansive portfolio of Quest AD-Detect® blood tests for assessing symptomatic patients Quest also launching a new multi-biomarker AD-Detect® lab-developed blood test...",
             "Quest Diagnostics (NYSE: DGX), a leader in diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on October...",
-            "Quest Diagnostics Reports Second Quarter 2026 Financial Results; Raises Revenue and EPS Guidance for Full Year 2026",
-            "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
-            "Quest Diagnostics Team Tests Impact of Teplizumab’s FDA Approval on Screening for Type 1 Diabetes",
-            "The Science Lab Where Technicians Are Drowning in Feces"
+            "Quest Diagnostics Team Tests Impact of Teplizumab’s FDA Approval on Screening for Type 1 Diabetes"
           ]
         },
         {
@@ -86,16 +88,17 @@
         }
       ],
       "errors": [],
-      "content_hash": "c61486c872118b4095a16bd5c26f1e72ff0f6e4d9aa1f30e0c2d600068ab13e0",
-      "last_updated_at": "2026-08-20T04:22:03Z",
-      "change_detected": false,
+      "content_hash": "ec18e1dbf6397cf7407ad0fddea3a4130d24a8c4b9471fb62061847403a209fd",
+      "last_updated_at": "2026-08-25T04:24:37Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": []
+        "modified": [
+          "financial"
+        ]
       },
       "profile_patch": {
-        "financial": "Second quarter revenues of $3.04 billion, up 10.2% from 2025, with 10.0% organic revenue growth Second quarter reported diluted earnings per share (\"EPS\") of $2.84, up 15.0% from 2025; and...",
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…",
         "sources": [
           [
@@ -116,7 +119,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -155,9 +158,9 @@
             "Labcorp (NYSE: LH) is a global leader of innovative and comprehensive laboratory services that helps doctors, hospitals, pharmaceutical companies, researchers and patients make clear and confident decisions.",
             "We provide insights and advance science to improve health and improve lives through our unparalleled diagnostics and drug development laboratory capabilities.",
             "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700 million tests annually for patients around the world.",
+            "Labcorp to Offer First FDA-Cleared Blood Test to Detect Alzheimer's Disease Pathology in Both Primary and Specialty Care Settings",
             "Labcorp and NACHC Launch Strategic Alliance to Strengthen Health Center Leadership and Advance Community Health",
-            "Labcorp Announces FDA Approval of Companion Diagnostic Supporting Patients with Advanced Melanoma",
-            "Labcorp Launches FDA-Approved PTEN Companion Diagnostic for Prostate Cancer"
+            "Labcorp Announces FDA Approval of Companion Diagnostic Supporting Patients with Advanced Melanoma"
           ]
         },
         {
@@ -167,6 +170,7 @@
           "status": "ok",
           "signals": [
             "Labcorp Biopharma Lab Services",
+            "Labcorp to Offer First FDA-Cleared Blood Test to Detect Alzheimer's Disease Pathology in Both Primary and Specialty Care Settings",
             "Labcorp and NACHC Launch Strategic Alliance to Strengthen Health Center Leadership and Advance Community Health",
             "Labcorp Announces FDA Approval of Companion Diagnostic Supporting Patients with Advanced Melanoma",
             "Labcorp Launches FDA-Approved PTEN Companion Diagnostic for Prostate Cancer",
@@ -174,8 +178,7 @@
             "Labcorp Launches Marker by Labcorp™ Genetic Health Panel, Expanding Consumer Access to Hereditary Genetic Risk Testing",
             "Labcorp Announces Nationwide Availability of ColoSense®, the First FDA-Approved RNA-Based At-Home Colorectal Cancer Screening Test",
             "Labcorp Supports Multi-Institution Trial to Expand Genetic Testing in Colorectal Cancer",
-            "Labcorp Launches Expanded DPYD Test to Identify Cancer Patients at Risk for Severe Chemotherapy Side Effects",
-            "Labcorp Launches MyLabcorp™, a New AI-Powered Mobile App Designed to Help Consumers Understand Lab Results and Track Health Trends Over Time"
+            "Labcorp Launches Expanded DPYD Test to Identify Cancer Patients at Risk for Severe Chemotherapy Side Effects"
           ]
         },
         {
@@ -193,9 +196,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "80ca2ba6aaf6c3da4a01bf76c6a5ad56a84b62b72675e7dc88626b076114f023",
-      "last_updated_at": "2026-08-19T04:22:34Z",
-      "change_detected": false,
+      "content_hash": "73fa4bef6ecdeff449c3a6df33bf8309b235ba3a9d39e8234a02dac1538d96c2",
+      "last_updated_at": "2026-08-25T04:24:37Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -222,7 +225,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -311,7 +314,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -389,7 +392,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -462,7 +465,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -539,7 +542,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -650,7 +653,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-08-24T05:06:26Z",
+      "last_checked_at": "2026-08-25T04:24:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
