@@ -281,6 +281,18 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-08-28T07:07:40Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "cleveland",
+        "neogenomics"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
     }
   ]
 }

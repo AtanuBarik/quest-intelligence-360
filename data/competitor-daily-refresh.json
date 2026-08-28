@@ -1,17 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T04:26:23Z",
+  "generated_at": "2026-08-28T07:07:40Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "quest"
+    "cleveland",
+    "neogenomics"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -89,7 +90,7 @@
       "errors": [],
       "content_hash": "ef70701e8c14d99de92143edbbaeb8fc928869562293e6d2fec37183af6a4767",
       "last_updated_at": "2026-08-26T04:26:23Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -116,7 +117,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 70,000 employees serve clients in approximately 100 countries, provided support for more than 75% of the new drugs and therapeutic products approved in 2024 by the FDA, and perform more than 700…"
@@ -222,7 +223,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -311,7 +312,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -389,7 +390,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -462,7 +463,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Sonic Healthcare delivered a solid performance for the 2025 financial year, reporting revenue of A$9.6 billion and a net profit of A$514 million."
@@ -539,7 +540,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -549,21 +550,21 @@
         "Cleveland Clinic Laboratories | Pathology & Laboratory Medicine Services",
         "Cleveland Clinic’s Department of Pathology and Laboratory Medicine touches virtually every patient at Cleveland Clinic and thousands of patients across the world.",
         "Clinical Biochemistry Clinical Microbiology",
-        "Contact Laboratory Customer Service",
-        "Create an Account & Order a Test",
         "Department of Laboratory Medicine",
         "Department of Laboratory Medicine | Cleveland Clinic",
-        "Find a Location | Pay Your Lab Bill",
         "In addition to providing an ever-expanding menu of tests available for clinical use, Laboratory Medicine provides the facilities and expertise to support translational research projects.",
-        "L15 - Pathology & Laboratory Medicine",
         "Lab Appointments & Locations",
-        "Laboratory Genetic Counseling",
         "Laboratory Medicine Overview",
         "Laboratory Medicine Services",
-        "March 2025: Test Changes to Oxidized Low-Density-Lipoprotein & Lipoprotein-associated Phospholipase A2 Activity",
-        "New Test: Alzheimer’s Disease Biomarker Panel, Cerebrospinal Fluid",
-        "October 2024: Stool Testing Universal Laboratory (STUL) Kit for Microbiology",
-        "Order A Test or Consultation"
+        "Order A Test or Consultation",
+        "PLM also provides pathology and laboratory services to external clients through our reference laboratory, Cleveland Clinic Laboratories.",
+        "Pathology & Laboratory Medicine",
+        "Pathology & Laboratory Medicine Institute Menu",
+        "Pathology & Laboratory Medicine Institute | Cleveland Clinic",
+        "Productive collaborative multidisciplinary research working groups are functioning with clinical departments and the Lerner Research Institute at Cleveland Clinic .",
+        "Providing health systems and hospitals with their specialized laboratory testing needs.",
+        "The Department of Laboratory Medicine has been at the forefront of introducing new testing methods for clinical and research uses at Cleveland Clinic.",
+        "The Department of Laboratory Medicine is responsible for quantitative and qualitative analysis and interpretation of patient specimens, including tissue, blood, urine, and other body fluids."
       ],
       "source_status": [
         {
@@ -572,16 +573,7 @@
           "kind": "company",
           "status": "ok",
           "signals": [
-            "Cleveland Clinic Laboratories | Pathology & Laboratory Medicine Services",
-            "Create an Account & Order a Test",
-            "Laboratory Genetic Counseling",
-            "Outpatient Laboratory Service Center Locations",
-            "March 2025: Test Changes to Oxidized Low-Density-Lipoprotein & Lipoprotein-associated Phospholipase A2 Activity",
-            "October 2024: Stool Testing Universal Laboratory (STUL) Kit for Microbiology",
-            "September 2024: Test Update – Vasoactive Intestinal Polypeptide (VIP), Plasma",
-            "Test Discontinuation: Creatine Kinase-Myocardial Band",
-            "New Test: Alzheimer’s Disease Biomarker Panel, Cerebrospinal Fluid",
-            "Find a Location | Pay Your Lab Bill"
+            "Cleveland Clinic Laboratories | Pathology & Laboratory Medicine Services"
           ]
         },
         {
@@ -622,9 +614,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "276a05a0cd23455271cd3ebee597141c81e4c135f79ea6d3213d16cf9c73f3fe",
-      "last_updated_at": "2026-08-11T10:46:26Z",
-      "change_detected": false,
+      "content_hash": "c35f4985cfa5e6efe63b8a39fab2ecea664cd9d84694a4a7cc8a0611038bbe8b",
+      "last_updated_at": "2026-08-28T07:07:40Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -650,7 +642,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-08-26T04:26:23Z",
+      "last_checked_at": "2026-08-28T07:07:40Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -672,24 +664,20 @@
           "url": "https://ir.neogenomics.com/financial-information/financial-results",
           "kind": "financial",
           "status": "ok",
-          "signals": [
-            "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer"
-          ]
+          "signals": []
         },
         {
           "label": "NeoGenomics SEC filings",
           "url": "https://ir.neogenomics.com/sec-filings",
           "kind": "regulatory",
           "status": "ok",
-          "signals": [
-            "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer"
-          ]
+          "signals": []
         }
       ],
       "errors": [],
-      "content_hash": "7058f678f2d24aef9c5e11af9012cba1a41c3bcb6fa6daff7be7bbdb32063b77",
-      "last_updated_at": "2026-08-18T04:20:24Z",
-      "change_detected": false,
+      "content_hash": "1c9a1c5a54326d253d43ed50bf6b250d1ba837c8aee014dbb587ebabf380e897",
+      "last_updated_at": "2026-08-28T07:07:40Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
