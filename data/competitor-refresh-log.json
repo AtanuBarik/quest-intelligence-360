@@ -323,6 +323,26 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-08-31T13:10:21Z",
+      "competitors_checked": 12,
+      "competitors_changed": [
+        "quest",
+        "labcorp",
+        "bioreference",
+        "sonic",
+        "cleveland",
+        "neogenomics",
+        "eurofins",
+        "guardant",
+        "natera",
+        "exact"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
     }
   ]
 }
