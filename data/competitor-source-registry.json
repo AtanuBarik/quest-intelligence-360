@@ -1,91 +1,25 @@
 {
-  "version": 3,
-  "purpose": "Authoritative public-source registry for the eight approved Quest Intelligence 360 competitor profiles.",
+  "version": 4,
+  "purpose": "Authoritative public-source registry for the 12 Quest Intelligence 360 laboratory and diagnostics competitor/comparator profiles.",
   "refresh_policy": {
     "schedule": "daily",
-    "source_priority": ["official_company", "investor_relations", "regulatory", "public_news"],
+    "source_priority": ["official_company", "regulatory", "official_news", "public_news"],
     "change_rule": "A competitor last_updated_at changes only when normalized monitored information is added, removed or modified.",
-    "ai_policy": "No paid LLM API is required. ChatGPT Pro or Gemini may be used as an analyst review layer, but the scheduled job uses deterministic public-web extraction so it can run without API keys."
+    "content_policy": "Prioritize clinical, product, regulatory, partnership, acquisition, technology, health-system, coverage, operational and strategic developments. Exclude stock-price moves, analyst ratings, dividends, share repurchases, investor-conference notices and earnings-only updates unless the item contains a distinct operational or strategic development.",
+    "automation_policy": "No paid language-model API is required. Analyst review may be used as an optional review layer, while the scheduled job uses deterministic public-web extraction and runs without API keys."
   },
   "competitors": [
-    {
-      "id": "quest",
-      "name": "Quest Diagnostics",
-      "news_query": "Quest Diagnostics laboratory diagnostics",
-      "official_sources": [
-        {"label": "Quest Diagnostics newsroom", "url": "https://newsroom.questdiagnostics.com/", "kind": "news"},
-        {"label": "Quest Diagnostics fact sheet", "url": "https://newsroom.questdiagnostics.com/Fact-sheet?mobile=No", "kind": "company"},
-        {"label": "Quest investor relations", "url": "https://ir.questdiagnostics.com/overview/default.aspx", "kind": "financial"}
-      ]
-    },
-    {
-      "id": "labcorp",
-      "name": "Labcorp",
-      "news_query": "Labcorp laboratory diagnostics",
-      "official_sources": [
-        {"label": "Investor relations", "url": "https://ir.labcorp.com/", "kind": "financial"},
-        {"label": "Labcorp news releases", "url": "https://ir.labcorp.com/news-and-events/news-releases", "kind": "news"},
-        {"label": "Corporate facts", "url": "https://www.labcorp.com/about/corporate-facts", "kind": "company"}
-      ]
-    },
-    {
-      "id": "arup",
-      "name": "ARUP Laboratories",
-      "news_query": "ARUP Laboratories diagnostics",
-      "official_sources": [
-        {"label": "ARUP newsroom", "url": "https://www.aruplab.com/newsroom", "kind": "news"},
-        {"label": "Corporate overview", "url": "https://www.aruplab.com/newsroom/media/corporate", "kind": "company"}
-      ]
-    },
-    {
-      "id": "mayo",
-      "name": "Mayo Clinic Laboratories",
-      "news_query": "Mayo Clinic Laboratories",
-      "official_sources": [
-        {"label": "Mayo Clinic Laboratories news", "url": "https://news.mayocliniclabs.com/homepage/news/", "kind": "news"},
-        {"label": "Mayo Clinic Laboratories newsroom", "url": "https://news.mayocliniclabs.com/homepage/news/newsroom/", "kind": "news"},
-        {"label": "About Mayo Clinic Laboratories", "url": "https://news.mayocliniclabs.com/about-us/", "kind": "company"}
-      ]
-    },
-    {
-      "id": "bioreference",
-      "name": "BioReference Health",
-      "news_query": "BioReference Health laboratory OPKO diagnostics",
-      "official_sources": [
-        {"label": "BioReference news", "url": "https://www.bioreference.com/news/", "kind": "news"},
-        {"label": "OPKO investor relations", "url": "https://www.opko.com/investors/", "kind": "financial"},
-        {"label": "OPKO press releases", "url": "https://www.opko.com/news-media/press-releases", "kind": "news"}
-      ]
-    },
-    {
-      "id": "sonic",
-      "name": "Sonic Healthcare",
-      "news_query": "Sonic Healthcare laboratory diagnostics USA",
-      "official_sources": [
-        {"label": "Sonic investor overview", "url": "https://investors.sonichealthcare.com/Investors/", "kind": "company"},
-        {"label": "Sonic media releases", "url": "https://investors.sonichealthcare.com/investors/?page=media-releases", "kind": "news"},
-        {"label": "Financial reports", "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports", "kind": "financial"}
-      ]
-    },
-    {
-      "id": "cleveland",
-      "name": "Cleveland Clinic Laboratories",
-      "news_query": "Cleveland Clinic Laboratories pathology laboratory medicine",
-      "official_sources": [
-        {"label": "Cleveland Clinic Laboratories", "url": "https://clevelandcliniclabs.com/", "kind": "company"},
-        {"label": "Pathology & Laboratory Medicine Institute", "url": "https://my.clevelandclinic.org/departments/pathology", "kind": "company"},
-        {"label": "Laboratory Medicine", "url": "https://my.clevelandclinic.org/departments/pathology/depts/laboratory-medicine", "kind": "company"}
-      ]
-    },
-    {
-      "id": "neogenomics",
-      "name": "NeoGenomics Laboratories",
-      "news_query": "NeoGenomics oncology diagnostics",
-      "official_sources": [
-        {"label": "NeoGenomics press releases", "url": "https://ir.neogenomics.com/news-events/press-releases", "kind": "news"},
-        {"label": "NeoGenomics financial results", "url": "https://ir.neogenomics.com/financial-information/financial-results", "kind": "financial"},
-        {"label": "NeoGenomics SEC filings", "url": "https://ir.neogenomics.com/sec-filings", "kind": "regulatory"}
-      ]
-    }
+    {"id":"quest","name":"Quest Diagnostics","news_query":"Quest Diagnostics laboratory diagnostics clinical partnership testing","official_sources":[{"label":"Quest Diagnostics newsroom","url":"https://newsroom.questdiagnostics.com/","kind":"news"},{"label":"Quest Diagnostics fact sheet","url":"https://newsroom.questdiagnostics.com/Fact-sheet?mobile=No","kind":"company"}]},
+    {"id":"labcorp","name":"Labcorp","news_query":"Labcorp laboratory diagnostics clinical partnership testing","official_sources":[{"label":"Labcorp news releases","url":"https://ir.labcorp.com/news-and-events/news-releases","kind":"news"},{"label":"Corporate facts","url":"https://www.labcorp.com/about/corporate-facts","kind":"company"}]},
+    {"id":"arup","name":"ARUP Laboratories","news_query":"ARUP Laboratories diagnostics clinical laboratory medicine","official_sources":[{"label":"ARUP newsroom","url":"https://www.aruplab.com/newsroom","kind":"news"},{"label":"Corporate overview","url":"https://www.aruplab.com/newsroom/media/corporate","kind":"company"}]},
+    {"id":"mayo","name":"Mayo Clinic Laboratories","news_query":"Mayo Clinic Laboratories diagnostics testing collaboration","official_sources":[{"label":"Mayo Clinic Laboratories news","url":"https://news.mayocliniclabs.com/homepage/news/","kind":"news"},{"label":"About Mayo Clinic Laboratories","url":"https://news.mayocliniclabs.com/about-us/","kind":"company"}]},
+    {"id":"bioreference","name":"BioReference Health","news_query":"BioReference Health laboratory diagnostics testing","official_sources":[{"label":"BioReference news","url":"https://www.bioreference.com/news/","kind":"news"},{"label":"OPKO press releases","url":"https://www.opko.com/news-media/press-releases","kind":"news"}]},
+    {"id":"sonic","name":"Sonic Healthcare USA","news_query":"Sonic Healthcare USA laboratory diagnostics pathology partnership","official_sources":[{"label":"Sonic Healthcare USA","url":"https://sonichealthcareusa.com/","kind":"company"},{"label":"Sonic media releases","url":"https://investors.sonichealthcare.com/investors/?page=media-releases","kind":"news"}]},
+    {"id":"cleveland","name":"Cleveland Clinic Laboratories","news_query":"Cleveland Clinic Laboratories pathology laboratory medicine diagnostics","official_sources":[{"label":"Cleveland Clinic Laboratories","url":"https://clevelandcliniclabs.com/","kind":"company"},{"label":"Pathology & Laboratory Medicine Institute","url":"https://my.clevelandclinic.org/departments/pathology","kind":"company"}]},
+    {"id":"neogenomics","name":"NeoGenomics Laboratories","news_query":"NeoGenomics oncology diagnostics MRD companion diagnostic","official_sources":[{"label":"NeoGenomics press releases","url":"https://ir.neogenomics.com/news-events/press-releases","kind":"news"},{"label":"NeoGenomics company","url":"https://www.neogenomics.com/","kind":"company"}]},
+    {"id":"eurofins","name":"Eurofins","news_query":"Eurofins clinical diagnostics laboratory testing North America","official_sources":[{"label":"Eurofins media centre","url":"https://www.eurofins.com/en/media-centre/","kind":"news"},{"label":"Eurofins clinical diagnostics","url":"https://www.eurofins.com/clinical-diagnostics/","kind":"company"}]},
+    {"id":"guardant","name":"Guardant Health","news_query":"Guardant Health liquid biopsy Shield Guardant360 cancer diagnostics","official_sources":[{"label":"Guardant Health press releases","url":"https://guardanthealth.com/newsroom/press-releases/","kind":"news"},{"label":"Guardant Health newsroom","url":"https://www.guardanthealth.com/newsroom/","kind":"news"}]},
+    {"id":"natera","name":"Natera","news_query":"Natera Signatera Prospera Panorama diagnostics precision medicine","official_sources":[{"label":"Natera news","url":"https://www.natera.com/company/news/","kind":"news"},{"label":"Natera investor news","url":"https://investor.natera.com/news/","kind":"news"}]},
+    {"id":"exact","name":"Exact Sciences (Abbott)","news_query":"Exact Sciences Abbott Cologuard Oncotype DX cancer diagnostics","official_sources":[{"label":"Exact Sciences news and events","url":"https://www.exactsciences.com/news-events","kind":"news"},{"label":"Abbott newsroom","url":"https://www.abbott.com/corpnewsroom.html","kind":"news"}]}
   ]
 }
