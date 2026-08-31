@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const RELEASE='20260831ci2';
+  const RELEASE='20260831ci3';
   let queued=false;
   const clean=v=>String(v||'').replace(/\s+/g,' ').trim();
 
@@ -40,8 +40,17 @@
   }
 
   function loadScript(path,attr){
-    if([...document.scripts].some(s=>(s.src||'').includes(path)))return;
-    const s=document.createElement('script');s.src=new URL(`${path}?v=${RELEASE}`,document.baseURI).href;s.async=false;if(attr)s.dataset[attr]='true';document.body.appendChild(s);
+    const existing=[...document.scripts].find(s=>(s.src||'').includes(path));
+    if(existing){
+      if(path.includes('competitive-intelligence-live-refresh')&&!existing.src.includes(RELEASE))existing.remove();
+      else return existing;
+    }
+    const s=document.createElement('script');s.src=new URL(`${path}?v=${RELEASE}`,document.baseURI).href;s.async=false;if(attr)s.dataset[attr]='true';document.body.appendChild(s);return s;
+  }
+
+  function ensureCompetitiveRefresh(){
+    loadScript('integrations/competitive-intelligence-live-refresh/loader.js','qCiLiveRefresh');
+    document.documentElement.dataset.permanentCompetitiveIntelligence=RELEASE;
   }
 
   function ensureSurvey(){
@@ -55,12 +64,11 @@
     },t));
   }
 
-  function apply(){queued=false;fixNavigation();ensureSurvey();if(surveyIsSelected())activateSurvey();document.documentElement.dataset.criticalFrontendRelease=RELEASE;}
+  function apply(){queued=false;fixNavigation();ensureSurvey();ensureCompetitiveRefresh();if(surveyIsSelected())activateSurvey();document.documentElement.dataset.criticalFrontendRelease=RELEASE;}
   function schedule(delay=0){if(delay){setTimeout(apply,delay);return}if(queued)return;queued=true;(window.requestAnimationFrame||setTimeout)(apply)}
   function boot(){
     apply();
-    loadScript('integrations/competitive-intelligence-live-refresh/loader.js','qCiLiveRefresh');
-    document.addEventListener('click',e=>{const n=e.target.closest('.nav-item');if(!n)return;fixNavigation();if(n.dataset.view==='survey'||n.dataset.view==='surveys'||/^survey analytics$/i.test(clean(n.textContent)))[0,40,150,500,1200].forEach(schedule);else schedule()},true);
+    document.addEventListener('click',e=>{const n=e.target.closest('.nav-item');if(!n)return;fixNavigation();if(/alert|strategic signal|competitor profile|strategic analysis|social|perception/i.test(clean(n.textContent)))ensureCompetitiveRefresh();if(n.dataset.view==='survey'||n.dataset.view==='surveys'||/^survey analytics$/i.test(clean(n.textContent)))[0,40,150,500,1200].forEach(schedule);else schedule()},true);
     window.addEventListener('hashchange',()=>[0,100,400].forEach(schedule));
     window.addEventListener('quest:layout-refresh',()=>[0,100,400].forEach(schedule));
     const o=new MutationObserver(m=>{if(m.some(x=>x.addedNodes&&x.addedNodes.length))schedule()});o.observe(document.body,{childList:true,subtree:true});
