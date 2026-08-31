@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const RELEASE='20260810t';
+  const RELEASE='20260831ci2';
   let queued=false;
   const clean=v=>String(v||'').replace(/\s+/g,' ').trim();
 
@@ -59,6 +59,7 @@
   function schedule(delay=0){if(delay){setTimeout(apply,delay);return}if(queued)return;queued=true;(window.requestAnimationFrame||setTimeout)(apply)}
   function boot(){
     apply();
+    loadScript('integrations/competitive-intelligence-live-refresh/loader.js','qCiLiveRefresh');
     document.addEventListener('click',e=>{const n=e.target.closest('.nav-item');if(!n)return;fixNavigation();if(n.dataset.view==='survey'||n.dataset.view==='surveys'||/^survey analytics$/i.test(clean(n.textContent)))[0,40,150,500,1200].forEach(schedule);else schedule()},true);
     window.addEventListener('hashchange',()=>[0,100,400].forEach(schedule));
     window.addEventListener('quest:layout-refresh',()=>[0,100,400].forEach(schedule));
