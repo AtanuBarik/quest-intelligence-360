@@ -1,0 +1,27 @@
+{
+  "version": "2026-08-31a",
+  "questions": [
+    {
+      "id": "portfolio-project-themes-outcomes-recommendations",
+      "question": "What are the key themes of all the projects, what are the key outcomes, and what are the key recommendations from each project for Quest?",
+      "answer_parts": [
+        "data/insights-engine-answers/q1-00.b64",
+        "data/insights-engine-answers/q1-01.b64",
+        "data/insights-engine-answers/q1-02.b64",
+        "data/insights-engine-answers/q1-03.b64"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "cross-project-persona-comparison",
+      "question": "Build a detailed table comparing the findings across different types of persona participated in different projects and mentioned in survey, interview transcript, final report, and other files. Group by each category of personas and cover their preference, opinion, and perception for Quest and other players.",
+      "answer_parts": [
+        "data/insights-engine-answers/q2-00.b64",
+        "data/insights-engine-answers/q2-01.b64",
+        "data/insights-engine-answers/q2-02.b64",
+        "data/insights-engine-answers/q2-03.b64"
+      ],
+      "downloads": []
+    }
+  ]
+}
