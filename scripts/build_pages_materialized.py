@@ -6,7 +6,7 @@ import re
 import shutil
 from pathlib import Path
 
-RELEASE = "20260811c"
+RELEASE = "20260831a"
 ROOT = Path(".")
 SITE = ROOT / "_site"
 
@@ -115,6 +115,7 @@ def build() -> None:
             f'<script src="integrations/frontend-quality-guard.js?v={RELEASE}"></script>',
             f'<script src="integrations/platform-runtime-stability.js?v={RELEASE}"></script>',
             f'<script src="integrations/optimized-loader.js?v={RELEASE}"></script>',
+            f'<script src="integrations/quest-enterprise-insights-override.js?v={RELEASE}"></script>',
         ]
     )
     if "</body>" not in html:
@@ -131,6 +132,7 @@ def build() -> None:
         "frontend-quality-guard.js",
         "platform-runtime-stability.js",
         "optimized-loader.js",
+        "quest-enterprise-insights-override.js",
     ]
     missing_tokens = [token for token in required if token not in html]
     if missing_tokens:
