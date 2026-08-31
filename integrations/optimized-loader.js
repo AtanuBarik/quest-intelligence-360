@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260811b';
+  const RELEASE = '20260831a';
   const loaded = new Map();
   const groupLoads = new Map();
   let retireSweepQueued = false;
@@ -10,7 +10,7 @@
     alerts: ['integrations/laboratory-news-monitor.js','integrations/alerts-resilience-fix.js','integrations/alerts-signals-final.js'],
     competitor: ['integrations/competitor-intelligence-profiles/loader.js','integrations/competitor-daily-refresh.js','integrations/competitor-profiles-final.js'],
     strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
-    insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-v3.js','integrations/insights-engine-evidence-placement-final.js'],
+    insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-v3.js','integrations/insights-engine-evidence-placement-final.js','integrations/quest-enterprise-insights-override.js'],
     library: ['integrations/knowledge-repository-lite.js'],
     pmr: ['integrations/pmr-repository-dashboard-final.js'],
     experts: ['integrations/voice-experts-dashboard-final.js'],
