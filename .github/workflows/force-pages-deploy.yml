@@ -57,11 +57,14 @@ jobs:
           node --check integrations/optimized-loader.js
           node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/voice-experts-dashboard-final.js
+          node --check integrations/quest-enterprise-insights-override.js
           python -m py_compile scripts/build_pages_materialized.py
           python -m json.tool data/survey-analytics-demo.json >/dev/null
           python -m json.tool data/pmr-insight-library.json >/dev/null
           python -m json.tool data/voice-experts-analysis.json >/dev/null
           python -m json.tool data/competitor-source-registry.json >/dev/null
+          test -s data/quest-insights-q1.gz.b64
+          test -s data/quest-insights-q2.gz.b64
 
       - name: Build materialized frontend
         shell: bash
@@ -76,12 +79,16 @@ jobs:
           test -f _site/integrations/frontend-quality-guard.js
           test -f _site/integrations/platform-runtime-stability.js
           test -f _site/integrations/optimized-loader.js
+          test -f _site/integrations/quest-enterprise-insights-override.js
           test -f _site/data/survey-analytics-demo.json
+          test -s _site/data/quest-insights-q1.gz.b64
+          test -s _site/data/quest-insights-q2.gz.b64
           grep -q 'Loading multi-project Survey Analytics' _site/index.html
-          grep -q 'survey-analytics-failsafe.js?v=20260811c' _site/index.html
-          grep -q 'chart-alignment-system.js?v=20260811c' _site/index.html
-          grep -q 'frontend-quality-guard.js?v=20260811c' _site/index.html
-          grep -q 'platform-runtime-stability.js?v=20260811c' _site/index.html
+          grep -q 'survey-analytics-failsafe.js?v=20260831a' _site/index.html
+          grep -q 'chart-alignment-system.js?v=20260831a' _site/index.html
+          grep -q 'frontend-quality-guard.js?v=20260831a' _site/index.html
+          grep -q 'platform-runtime-stability.js?v=20260831a' _site/index.html
+          grep -q 'quest-enterprise-insights-override.js?v=20260831a' _site/index.html
           grep -q 'data-view="survey"' _site/index.html
           if grep -q 'data-view="surveys"' _site/index.html; then
             echo 'Legacy Survey Analytics route alias survived build.' >&2
@@ -106,9 +113,9 @@ jobs:
           cd /tmp/quest-pages
           git add -A
           if git diff --cached --quiet; then
-            git commit --allow-empty -m "Redeploy Quest Pages release 20260811c"
+            git commit --allow-empty -m "Redeploy Quest Pages release 20260831a"
           else
-            git commit -m "Publish Quest Pages release 20260811c"
+            git commit -m "Publish Quest Pages release 20260831a"
           fi
           git push origin gh-pages
 
