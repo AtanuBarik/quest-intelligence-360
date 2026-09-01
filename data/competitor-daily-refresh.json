@@ -1,26 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T13:10:21Z",
+  "generated_at": "2026-09-01T02:41:20Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "quest",
-    "labcorp",
-    "bioreference",
-    "sonic",
-    "cleveland",
-    "neogenomics",
-    "eurofins",
-    "guardant",
-    "natera",
-    "exact"
+    "guardant"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -86,7 +77,7 @@
       "errors": [],
       "content_hash": "4243a09d0ac2c2841b2fa51ac659f9bee6019b3a03ce026eff7bfcc37273fb49",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -109,7 +100,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -173,13 +164,11 @@
       "errors": [],
       "content_hash": "23c0ee7f2115c6900037e986087a27b4190113796c25f2bbfb473581244ec27a",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": [
-          "employees"
-        ]
+        "modified": []
       },
       "profile_patch": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…",
@@ -198,7 +187,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -287,7 +276,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -360,7 +349,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -395,7 +384,7 @@
       ],
       "content_hash": "f9cdede3a5603fb5f029d0c9e83991656832c393ec882e333ba10116fea759e1",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -417,7 +406,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -474,13 +463,11 @@
       "errors": [],
       "content_hash": "d3250c5d5a71a5820d0d37813bed175e05abe2fe2e03b46496cd1fefa3ec7491",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": [
-          "financial"
-        ]
+        "modified": []
       },
       "profile_patch": {
         "sources": [
@@ -498,7 +485,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -565,7 +552,7 @@
       "errors": [],
       "content_hash": "56350060022507138062b6928fd6d4d5d4466f0766edb2187f07340c41b09af1",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -587,7 +574,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -641,7 +628,7 @@
       "errors": [],
       "content_hash": "f80f03b7cc422f7628222c40a9907d87ddaa2838e849ffaf6e29ee82f1107d74",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -663,7 +650,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -719,11 +706,9 @@
       "errors": [],
       "content_hash": "fc254798f95099751c84bd261813171172caef10f97f74f3eecc5c136cc6bbdc",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -743,7 +728,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -752,7 +737,6 @@
         "American Cancer Society Recommends Guardant Health’s Shield Blood Test in Updated Colorectal Cancer Screening Guidelines",
         "Biotech co-CEO explains how his company is using AI to detect cancer",
         "Blood test added to colorectal cancer screening options by cancer group",
-        "Blood testing is now included in screening recommendations for colon and rectal cancer",
         "FDA Approves New Guardant360 Liquid CDx, the Largest FDA-Approved Liquid Biopsy Panel with a 100x Expanded Footprint",
         "Guardant Health Reports Second Quarter 2026 Financial Results and Increases 2026 Revenue Guidance",
         "The latest releases from Guardant®, including product launches, partnership announcements, and financial reporting.",
@@ -781,19 +765,16 @@
             "The latest releases from Guardant®, including product launches, partnership announcements, and financial reporting.",
             "Biotech co-CEO explains how his company is using AI to detect cancer",
             "A Blood Test Found Cancer Anyway",
-            "Blood test added to colorectal cancer screening options by cancer group",
-            "Blood testing is now included in screening recommendations for colon and rectal cancer"
+            "Blood test added to colorectal cancer screening options by cancer group"
           ]
         }
       ],
       "errors": [],
-      "content_hash": "411800821235e490303fa08c7c45feb18e957bb8ee98d992c48dee18606e18b2",
-      "last_updated_at": "2026-08-31T13:10:21Z",
+      "content_hash": "166b5f04b2f1383dedc666614d6a32c8024e3be1d01ed1dee81d23984514ee7f",
+      "last_updated_at": "2026-09-01T02:41:20Z",
       "change_detected": true,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -813,7 +794,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -858,11 +839,9 @@
       "errors": [],
       "content_hash": "2591e6721be58eea9127cde1d0c923495cb8ccaf6d1b6d03d670935e730830b5",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -882,7 +861,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-08-31T13:10:21Z",
+      "last_checked_at": "2026-09-01T02:41:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -920,11 +899,9 @@
       "errors": [],
       "content_hash": "f71357058b6b749fb772cf8c619794b42a03e9d8789e28c495fda40797d26e76",
       "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },

@@ -343,6 +343,17 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-09-01T02:41:20Z",
+      "competitors_checked": 12,
+      "competitors_changed": [
+        "guardant"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
     }
   ]
 }
