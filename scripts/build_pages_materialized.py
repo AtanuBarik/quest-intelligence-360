@@ -68,12 +68,14 @@ def build() -> None:
 
     html = re.sub(r'\s*<button class="nav-item" data-view="landscape">.*?</button>\s*', '\n', html, count=1, flags=re.I | re.S)
     html = re.sub(r'\s*<!--\s*LANDSCAPE\s*-->\s*<section class="view" data-view="landscape">.*?</section>\s*', '\n', html, count=1, flags=re.I | re.S)
+    html = re.sub(r'\s*<(?P<tag>button|a)\b[^>]*\bdata-view-jump=["\']landscape["\'][^>]*>.*?</(?P=tag)>\s*', '\n', html, flags=re.I | re.S)
+    html = re.sub(r'\sdata-view-jump=["\']landscape["\']', '', html, flags=re.I)
     html = re.sub(r",\s*landscape\s*:\s*['\"]Competitive Landscape['\"]", "", html, count=1, flags=re.I)
     html = re.sub(r"\s*chart\('positioningBubble'.*?\);\s*", "\n", html, count=1, flags=re.S)
     html = re.sub(r"\s*chart\('capabilityRadar'.*?\);\s*", "\n", html, count=1, flags=re.S)
 
-    if re.search(r'>\s*Competitive Landscape\s*<|data-view=["\']landscape["\']', html, flags=re.I):
-        raise RuntimeError("Visible Competitive Landscape markup survived materialization.")
+    if re.search(r'>\s*Competitive Landscape\s*<|data-view=["\']landscape["\']|data-view-jump=["\']landscape["\']', html, flags=re.I):
+        raise RuntimeError("Competitive Landscape markup or navigation residue survived materialization.")
 
     buttons = re.findall(r'<button\s+class="nav-item"[^>]*>.*?</button>', html, flags=re.I | re.S)
     tracker = next((b for b in buttons if re.search(r'>\s*Project Tracker\s*<', b, flags=re.I)), None)
