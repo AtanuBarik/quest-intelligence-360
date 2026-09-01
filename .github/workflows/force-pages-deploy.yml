@@ -58,6 +58,8 @@ jobs:
           node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/voice-experts-dashboard-final.js
           node --check integrations/quest-enterprise-insights-override.js
+          node --check integrations/competitive-intelligence-live-refresh/loader.js
+          node --check integrations/alerts-chatgpt-summaries.js
           python -m py_compile scripts/build_pages_materialized.py
           python -m json.tool data/survey-analytics-demo.json >/dev/null
           python -m json.tool data/pmr-insight-library.json >/dev/null
@@ -65,6 +67,7 @@ jobs:
           python -m json.tool data/competitor-source-registry.json >/dev/null
           test -s data/quest-insights-q1.gz.b64
           test -s data/quest-insights-q2.gz.b64
+          test -s data/alerts-chatgpt-summaries.gz.b64
 
       - name: Build materialized frontend
         shell: bash
@@ -80,24 +83,41 @@ jobs:
           test -f _site/integrations/platform-runtime-stability.js
           test -f _site/integrations/optimized-loader.js
           test -f _site/integrations/quest-enterprise-insights-override.js
+          test -f _site/integrations/competitive-intelligence-live-refresh/loader.js
+          test -f _site/integrations/alerts-chatgpt-summaries.js
           test -f _site/data/survey-analytics-demo.json
           test -s _site/data/quest-insights-q1.gz.b64
           test -s _site/data/quest-insights-q2.gz.b64
+          test -s _site/data/alerts-chatgpt-summaries.gz.b64
           grep -q 'Loading multi-project Survey Analytics' _site/index.html
-          grep -q 'survey-analytics-failsafe.js?v=20260831a' _site/index.html
-          grep -q 'chart-alignment-system.js?v=20260831a' _site/index.html
-          grep -q 'frontend-quality-guard.js?v=20260831a' _site/index.html
-          grep -q 'platform-runtime-stability.js?v=20260831a' _site/index.html
-          grep -q 'quest-enterprise-insights-override.js?v=20260831a' _site/index.html
-          grep -q 'data-view="survey"' _site/index.html
-          if grep -q 'data-view="surveys"' _site/index.html; then
-            echo 'Legacy Survey Analytics route alias survived build.' >&2
-            exit 1
-          fi
-          if grep -Eiq 'Competitive Landscape|data-view=["'"']landscape["'"']|data-view-jump=["'"']landscape["'"']|positioningBubble|capabilityRadar' _site/index.html; then
-            echo 'Competitive Landscape residue survived build.' >&2
-            exit 1
-          fi
+          grep -q 'survey-analytics-failsafe.js?v=20260901stable2' _site/index.html
+          grep -q 'chart-alignment-system.js?v=20260901stable2' _site/index.html
+          grep -q 'frontend-quality-guard.js?v=20260901stable2' _site/index.html
+          grep -q 'platform-runtime-stability.js?v=20260901stable2' _site/index.html
+          grep -q 'quest-enterprise-insights-override.js?v=20260901stable2' _site/index.html
+          grep -q 'competitive-intelligence-live-refresh/loader.js?v=20260901stable2' _site/index.html
+          grep -q 'alerts-chatgpt-summaries.js?v=20260901stable2' _site/index.html
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          html = Path('_site/index.html').read_text(encoding='utf-8')
+          if 'data-view="survey"' not in html:
+              raise SystemExit('Canonical Survey Analytics route missing from materialized frontend.')
+          if 'data-view="surveys"' in html:
+              raise SystemExit('Legacy Survey Analytics route alias survived build.')
+          forbidden = [
+              r'Competitive Landscape',
+              r'data-view=["\']landscape["\']',
+              r'data-view-jump=["\']landscape["\']',
+              r'positioningBubble',
+              r'capabilityRadar',
+          ]
+          for pattern in forbidden:
+              if re.search(pattern, html, flags=re.I):
+                  raise SystemExit(f'Competitive Landscape residue survived build: {pattern}')
+          print('Materialized navigation and stable release checks passed.')
+          PY
 
       - name: Keep gh-pages synchronized
         shell: bash
@@ -113,9 +133,9 @@ jobs:
           cd /tmp/quest-pages
           git add -A
           if git diff --cached --quiet; then
-            git commit --allow-empty -m "Redeploy Quest Pages release 20260831a"
+            git commit --allow-empty -m "Redeploy Quest Pages release 20260901stable2"
           else
-            git commit -m "Publish Quest Pages release 20260831a"
+            git commit -m "Publish Quest Pages release 20260901stable2"
           fi
           git push origin gh-pages
 
