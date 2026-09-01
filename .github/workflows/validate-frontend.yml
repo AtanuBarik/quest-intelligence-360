@@ -48,22 +48,62 @@ jobs:
               print(f'Validated {path}')
           PY
 
-      - name: Confirm stable application entry point
+      - name: Confirm Aug 30 design with current data architecture
         shell: bash
         run: |
           set -euo pipefail
+
+          # Stable application bootstrap and visual safeguards.
           grep -q 'integrations/optimized-loader.js' index.html
+          grep -q 'integrations/chart-alignment-system.js' index.html
+          grep -q 'integrations/platform-runtime-stability.js' index.html
           grep -q 'quest-brand-system.js' integrations/optimized-loader.js
           grep -q 'frontend-performance-layout.js' integrations/optimized-loader.js
           grep -q 'local-data-fetch-bridge.js' integrations/optimized-loader.js
           grep -q 'no-cost-live-operations.js' integrations/optimized-loader.js
-          grep -q 'platform-runtime-stability.js' integrations/frontend-critical-nav-survey.js
-          grep -q 'competitive-intelligence-live-refresh/loader.js' integrations/frontend-critical-nav-survey.js
-          grep -q 'alerts-chatgpt-summaries.js' integrations/frontend-critical-nav-survey.js
-          test -s integrations/competitive-intelligence-live-refresh/loader.js
-          test -s integrations/alerts-chatgpt-summaries.js
-          if grep -Eq 'laboratory-news-monitor\.js|competitor-daily-refresh\.js|strategic-news-social-hubs\.js' integrations/optimized-loader.js; then
-            echo 'Legacy competitive modules must not be lazy-loaded by optimized-loader.js.' >&2
+          grep -q "questDesignBaseline = '20260830'" integrations/optimized-loader.js
+
+          # Alerts must use the established Aug-30 renderer, with current summaries supplied as data.
+          grep -q 'alerts-chatgpt-summaries.js' integrations/optimized-loader.js
+          grep -q 'laboratory-news-monitor.js' integrations/optimized-loader.js
+          grep -q 'alerts-resilience-fix.js' integrations/optimized-loader.js
+          grep -q 'alerts-signals-final.js' integrations/optimized-loader.js
+          grep -q "legacy-design-current-data" integrations/alerts-chatgpt-summaries.js
+          test -s data/alerts-chatgpt-summaries.gz.b64
+          if grep -q 'view\.innerHTML' integrations/alerts-chatgpt-summaries.js; then
+            echo 'Alerts data adapter must not replace the established Alerts view.' >&2
             exit 1
           fi
-          echo 'Stable navigation, filters, Alerts summaries, and competitive intelligence loaders are configured.'
+
+          # Competitor and strategic modules retain their established presentation layer.
+          grep -q 'competitor-intelligence-profiles/loader.js' integrations/optimized-loader.js
+          grep -q 'competitor-daily-refresh.js' integrations/optimized-loader.js
+          grep -q 'competitor-profiles-final.js' integrations/optimized-loader.js
+          grep -q 'strategic-news-social-hubs.js' integrations/optimized-loader.js
+          grep -q 'strategic-analysis-hub.js' integrations/optimized-loader.js
+          grep -q 'strategic-source-watch-status.js' integrations/optimized-loader.js
+          grep -q "legacy-design-current-data" integrations/competitive-intelligence-live-refresh/loader.js
+
+          # Insights keeps the established workspace layout and the current mapped responses.
+          grep -q 'insights-engine-layout-v3.js' integrations/optimized-loader.js
+          grep -q 'insights-engine-evidence-placement-final.js' integrations/optimized-loader.js
+          test -s data/quest-insights-q1.gz.b64
+          test -s data/quest-insights-q2.gz.b64
+
+          # Source bootstrap and materializer must use the same release marker.
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          index = Path('index.html').read_text(encoding='utf-8')
+          materializer = Path('scripts/build_pages_materialized.py').read_text(encoding='utf-8')
+          index_match = re.search(r"const release='([^']+)'", index)
+          build_match = re.search(r'^RELEASE\s*=\s*["\']([^"\']+)["\']', materializer, flags=re.M)
+          if not index_match or not build_match:
+              raise SystemExit('Release marker missing from index or materializer.')
+          if index_match.group(1) != build_match.group(1):
+              raise SystemExit(f'Release mismatch: index={index_match.group(1)} materializer={build_match.group(1)}')
+          print(f'Validated shared release {index_match.group(1)}.')
+          PY
+
+          echo 'Aug-30 design baseline, current content adapters, navigation and chart safeguards are configured.'
