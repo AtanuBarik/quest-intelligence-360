@@ -58,6 +58,7 @@ jobs:
           node --check integrations/quest-enterprise-insights-override.js
           node --check integrations/competitive-intelligence-live-refresh/loader.js
           node --check integrations/alerts-chatgpt-summaries.js
+          node --check integrations/insights-engine-evidence-placement-final.js
           python -m py_compile scripts/build_pages_materialized.py
           python -m json.tool data/survey-analytics-demo.json >/dev/null
           python -m json.tool data/pmr-insight-library.json >/dev/null
@@ -72,6 +73,17 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/build_pages_materialized.py
+          RELEASE="$(python - <<'PY'
+          import re
+          from pathlib import Path
+          text = Path('scripts/build_pages_materialized.py').read_text(encoding='utf-8')
+          match = re.search(r'^RELEASE\s*=\s*["\']([^"\']+)["\']', text, flags=re.M)
+          if not match:
+              raise SystemExit('Materializer release marker missing.')
+          print(match.group(1))
+          PY
+          )"
+          echo "Validating materialized release: $RELEASE"
           test -f _site/index.html
           test -f _site/integrations/frontend-critical-nav-survey.js
           test -f _site/integrations/survey-analytics-dashboard-final.js
@@ -83,18 +95,18 @@ jobs:
           test -f _site/integrations/quest-enterprise-insights-override.js
           test -f _site/integrations/competitive-intelligence-live-refresh/loader.js
           test -f _site/integrations/alerts-chatgpt-summaries.js
+          test -f _site/integrations/insights-engine-evidence-placement-final.js
           test -f _site/data/survey-analytics-demo.json
           test -s _site/data/quest-insights-q1.gz.b64
           test -s _site/data/quest-insights-q2.gz.b64
           test -s _site/data/alerts-chatgpt-summaries.gz.b64
           grep -q 'Loading multi-project Survey Analytics' _site/index.html
-          grep -q 'survey-analytics-failsafe.js?v=20260901stable2' _site/index.html
-          grep -q 'chart-alignment-system.js?v=20260901stable2' _site/index.html
-          grep -q 'frontend-quality-guard.js?v=20260901stable2' _site/index.html
-          grep -q 'platform-runtime-stability.js?v=20260901stable2' _site/index.html
-          grep -q 'quest-enterprise-insights-override.js?v=20260901stable2' _site/index.html
-          grep -q 'competitive-intelligence-live-refresh/loader.js?v=20260901stable2' _site/index.html
-          grep -q 'alerts-chatgpt-summaries.js?v=20260901stable2' _site/index.html
+          grep -q "survey-analytics-failsafe.js?v=$RELEASE" _site/index.html
+          grep -q "chart-alignment-system.js?v=$RELEASE" _site/index.html
+          grep -q "frontend-quality-guard.js?v=$RELEASE" _site/index.html
+          grep -q "platform-runtime-stability.js?v=$RELEASE" _site/index.html
+          grep -q "quest-enterprise-insights-override.js?v=$RELEASE" _site/index.html
+          grep -q "alerts-chatgpt-summaries.js?v=$RELEASE" _site/index.html
           python - <<'PY'
           from pathlib import Path
           import re
@@ -114,13 +126,23 @@ jobs:
           for pattern in forbidden:
               if re.search(pattern, html, flags=re.I):
                   raise SystemExit(f'Competitive Landscape residue survived build: {pattern}')
-          print('Materialized navigation and stable release checks passed.')
+          print('Materialized navigation and release checks passed.')
           PY
 
       - name: Publish materialized site to gh-pages
         shell: bash
         run: |
           set -euo pipefail
+          RELEASE="$(python - <<'PY'
+          import re
+          from pathlib import Path
+          text = Path('scripts/build_pages_materialized.py').read_text(encoding='utf-8')
+          match = re.search(r'^RELEASE\s*=\s*["\']([^"\']+)["\']', text, flags=re.M)
+          if not match:
+              raise SystemExit('Materializer release marker missing.')
+          print(match.group(1))
+          PY
+          )"
           git config user.name 'quest-pages[bot]'
           git config user.email 'quest-pages[bot]@users.noreply.github.com'
           git fetch origin gh-pages:gh-pages
@@ -134,6 +156,6 @@ jobs:
             echo "No materialized site changes to publish."
             exit 0
           fi
-          git commit -m "Publish Quest Pages release 20260901stable2"
+          git commit -m "Publish Quest Pages release $RELEASE"
           git push origin gh-pages
           echo "gh-pages synchronized. GitHub Pages native deployment is the sole deployment path."
