@@ -8,12 +8,14 @@ on:
       - 'index.html'
       - 'integrations/**/*.js'
       - 'data/**/*.json'
+      - 'scripts/build_pages_materialized.py'
       - '.github/workflows/validate-frontend.yml'
   pull_request:
     paths:
       - 'index.html'
       - 'integrations/**/*.js'
       - 'data/**/*.json'
+      - 'scripts/build_pages_materialized.py'
 
 permissions:
   contents: read
@@ -23,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Check JavaScript syntax
         shell: bash
@@ -46,7 +48,7 @@ jobs:
               print(f'Validated {path}')
           PY
 
-      - name: Confirm optimized application entry point
+      - name: Confirm stable application entry point
         shell: bash
         run: |
           set -euo pipefail
@@ -55,5 +57,13 @@ jobs:
           grep -q 'frontend-performance-layout.js' integrations/optimized-loader.js
           grep -q 'local-data-fetch-bridge.js' integrations/optimized-loader.js
           grep -q 'no-cost-live-operations.js' integrations/optimized-loader.js
-          grep -q 'laboratory-news-monitor.js' integrations/optimized-loader.js
-          echo 'Optimized entry point and lazy feature groups are configured.'
+          grep -q 'platform-runtime-stability.js' integrations/frontend-critical-nav-survey.js
+          grep -q 'competitive-intelligence-live-refresh/loader.js' integrations/frontend-critical-nav-survey.js
+          grep -q 'alerts-chatgpt-summaries.js' integrations/frontend-critical-nav-survey.js
+          test -s integrations/competitive-intelligence-live-refresh/loader.js
+          test -s integrations/alerts-chatgpt-summaries.js
+          if grep -Eq 'laboratory-news-monitor\.js|competitor-daily-refresh\.js|strategic-news-social-hubs\.js' integrations/optimized-loader.js; then
+            echo 'Legacy competitive modules must not be lazy-loaded by optimized-loader.js.' >&2
+            exit 1
+          fi
+          echo 'Stable navigation, filters, Alerts summaries, and competitive intelligence loaders are configured.'
