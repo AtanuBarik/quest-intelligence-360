@@ -1,17 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T02:41:20Z",
+  "generated_at": "2026-09-01T06:53:46Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "guardant"
+    "guardant",
+    "pathgroup",
+    "healthtrackrx",
+    "tempus",
+    "genedx"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -100,7 +104,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -187,7 +191,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -276,7 +280,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -349,7 +353,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -380,7 +384,8 @@
         }
       ],
       "errors": [
-        "Unable to fetch https://www.bioreference.com/news/: HTTP Error 403: Forbidden"
+        "Unable to fetch https://www.bioreference.com/news/: HTTP Error 403: Forbidden",
+        "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden"
       ],
       "content_hash": "f9cdede3a5603fb5f029d0c9e83991656832c393ec882e333ba10116fea759e1",
       "last_updated_at": "2026-08-31T13:10:21Z",
@@ -397,8 +402,8 @@
             "https://www.bioreference.com/news/"
           ],
           [
-            "OPKO press releases",
-            "https://www.opko.com/news-media/press-releases"
+            "BioReference company",
+            "https://www.bioreference.com/"
           ]
         ]
       }
@@ -406,7 +411,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -485,7 +490,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -574,7 +579,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -650,7 +655,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -728,18 +733,14 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
-        "A Blood Test Found Cancer Anyway",
         "American Cancer Society Recommends Guardant Health’s Shield Blood Test in Updated Colorectal Cancer Screening Guidelines",
-        "Biotech co-CEO explains how his company is using AI to detect cancer",
-        "Blood test added to colorectal cancer screening options by cancer group",
         "FDA Approves New Guardant360 Liquid CDx, the Largest FDA-Approved Liquid Biopsy Panel with a 100x Expanded Footprint",
         "Guardant Health Reports Second Quarter 2026 Financial Results and Increases 2026 Revenue Guidance",
-        "The latest releases from Guardant®, including product launches, partnership announcements, and financial reporting.",
         "View all of our screening, early-stage cancer, and advanced cancer clinical studies."
       ],
       "source_status": [
@@ -756,22 +757,16 @@
           ]
         },
         {
-          "label": "Guardant Health newsroom",
-          "url": "https://www.guardanthealth.com/newsroom/",
+          "label": "Guardant investor releases",
+          "url": "https://investors.guardanthealth.com/press-releases/press-releases/",
           "kind": "news",
           "status": "ok",
-          "signals": [
-            "View all of our screening, early-stage cancer, and advanced cancer clinical studies.",
-            "The latest releases from Guardant®, including product launches, partnership announcements, and financial reporting.",
-            "Biotech co-CEO explains how his company is using AI to detect cancer",
-            "A Blood Test Found Cancer Anyway",
-            "Blood test added to colorectal cancer screening options by cancer group"
-          ]
+          "signals": []
         }
       ],
       "errors": [],
-      "content_hash": "166b5f04b2f1383dedc666614d6a32c8024e3be1d01ed1dee81d23984514ee7f",
-      "last_updated_at": "2026-09-01T02:41:20Z",
+      "content_hash": "618d9f5124297c9100bb5596f9935419e20e6c14918b4e4f593cf2e68e195f34",
+      "last_updated_at": "2026-09-01T06:53:46Z",
       "change_detected": true,
       "changes": {
         "added": [],
@@ -785,8 +780,8 @@
             "https://guardanthealth.com/newsroom/press-releases/"
           ],
           [
-            "Guardant Health newsroom",
-            "https://www.guardanthealth.com/newsroom/"
+            "Guardant investor releases",
+            "https://investors.guardanthealth.com/press-releases/press-releases/"
           ]
         ]
       }
@@ -794,7 +789,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -861,7 +856,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-09-01T02:41:20Z",
+      "last_checked_at": "2026-09-01T06:53:46Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -914,6 +909,310 @@
           [
             "Abbott newsroom",
             "https://www.abbott.com/corpnewsroom.html"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "pathgroup",
+      "name": "PathGroup",
+      "last_checked_at": "2026-09-01T06:53:46Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
+        "Anatomic, Clinical & Molecular Pathology",
+        "As an industry leader, PathGroup provides comprehensive anatomic, clinical and molecular pathology services.",
+        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
+        "Championing Men’s Health: Top 10 Diagnostic Strategies for Enhanced Wellness and Early Detection",
+        "Combined with the doctor’s knowledge of a patient’s medical history, PathGroup’s team of specialists provides the most comprehensive diagnostic information from which to determine a course of treatment",
+        "Digital Pathology for Health Systems: Enhancing hospital efficiency through virtual slide sharing and AI tools",
+        "Fast, accurate, clinical pathology services.",
+        "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
+        "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
+        "Hematology and Molecular Oncology",
+        "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
+        "Morphologic review and interpretation of biopsy material continues to be the backbone of oncology diagnostics, and is the basis on which PathGroup deploys complement technologies to give the clearest, most accurate picture of a patient’s malignancy from original diagnosis to the presence of minimal residual disease.",
+        "MyResults and MyResultsPAP give patients access to their test results quickly and conveniently, 24 hours a day.",
+        "Our staff functions as a partner to physician practices, providing expert laboratory interpretation and consultation for the best in patient care.",
+        "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
+        "PathGroup is a physician-led, patient-focused organization providing a wide range of anatomic, clinical, and molecular services to hospitals, multi-specialty groups, surgery centers and physician offices since our founding in 1965.",
+        "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
+        "PathGroup is one of the country’s largest providers of comprehensive women’s health laboratory services.",
+        "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
+      ],
+      "source_status": [
+        {
+          "label": "PathGroup news",
+          "url": "https://www.pathgroup.com/category/news/",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
+            "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
+            "The rollout of twelve Sentinel units will strengthen PathGroup’s commitment to innovation, diagnostic precision, and operational excellence.",
+            "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
+            "The collaboration marks a significant milestone in the evolution of AI-driven pathology, uniting Mindpeak’s proprietary image analysis technology with PathGroup’s extensive, pathologist-led diagnostic network.",
+            "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
+            "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
+            "The partnership will bring Shield to more than 250 hospitals and health […]"
+          ]
+        },
+        {
+          "label": "PathGroup company",
+          "url": "https://www.pathgroup.com/",
+          "kind": "company",
+          "status": "ok",
+          "signals": [
+            "Pathology Services by PathGroup | Anatomic, Clinical & Molecular Oncology Services",
+            "Anatomic, Clinical & Molecular Pathology",
+            "With more than 240 subspecialty expert pathologists, PathGroup provides comprehensive anatomic, clinical and molecular pathology services, using the latest advancements in digital pathology and AI.",
+            "We provide the highest quality pathology & clinical lab services",
+            "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
+            "Hematology and Molecular Oncology",
+            "With advanced digital pathology linking more than 240 subspecialty expert pathologists, PathGroup’s anatomic laboratory provides a full range of professional and technical services, operating 24 hours a day, 365 days per year.",
+            "PathGroup’s clinical pathology laboratory is committed to personalized, around-the-clock service, with same-day testing available.",
+            "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
+            "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "b5506fb2b8e08abe42cd2f2f83ff1de396a0ae523d61c4c9ac9cecbad99a07c3",
+      "last_updated_at": "2026-09-01T06:53:46Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "PathGroup news",
+            "https://www.pathgroup.com/category/news/"
+          ],
+          [
+            "PathGroup company",
+            "https://www.pathgroup.com/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "healthtrackrx",
+      "name": "HealthTrackRx",
+      "last_checked_at": "2026-09-01T06:53:46Z",
+      "refresh_status": "ok",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "A Precision-Driven Approach to Molecular Diagnostics: The Right Test for the Right Patient at the Right Time",
+        "A Precision-Driven Approach to Molecular Diagnostics: The Right Test for the Right…",
+        "Antibiotic Stewardship in Urgent Care: How Next-Morning Diagnostics Are Reshaping Clinical Decision-Making",
+        "Clinical Insights & News at HealthTrack",
+        "Connect with one of our sales representatives and find out how you can get next-morning lab results.",
+        "Contact a Sales Representative",
+        "Every day, we are Getting People Healthier Faster through cutting-edge PCR diagnostic testing.",
+        "Fast, accurate laboratory test results are proven to make a difference in patients’ health.",
+        "Google Ads is an online advertising platform that enables businesses to create targeted ads displayed on Google search results and partner sites.",
+        "Next-Morning Results Designed for Clinical Confidence",
+        "Our expert panel examines the clinical, operational, and behavioral drivers of inappropriate antibiotic prescribing.",
+        "Used to determine whether a user is included in an A / B or Multivariate test."
+      ],
+      "source_status": [
+        {
+          "label": "HealthTrackRx insights and news",
+          "url": "https://www.healthtrackrx.com/insights-news/",
+          "kind": "news",
+          "status": "ok",
+          "signals": [
+            "Every day, we are Getting People Healthier Faster through cutting-edge PCR diagnostic testing.",
+            "Antibiotic Stewardship in Urgent Care: How Next-Morning Diagnostics Are Reshaping Clinical Decision-Making",
+            "A Precision-Driven Approach to Molecular Diagnostics: The Right Test for the Right Patient at the Right Time",
+            "Connect with one of our sales representatives and find out how you can get next-morning lab results.",
+            "Contact a Sales Representative",
+            "Google Ads is an online advertising platform that enables businesses to create targeted ads displayed on Google search results and partner sites.",
+            "Used to determine whether a user is included in an A / B or Multivariate test."
+          ]
+        },
+        {
+          "label": "HealthTrackRx company",
+          "url": "https://www.healthtrackrx.com/",
+          "kind": "company",
+          "status": "ok",
+          "signals": [
+            "Next-Morning Results Designed for Clinical Confidence",
+            "Fast, accurate laboratory test results are proven to make a difference in patients’ health.",
+            "Our expert panel examines the clinical, operational, and behavioral drivers of inappropriate antibiotic prescribing.",
+            "Clinical Insights & News at HealthTrack",
+            "A Precision-Driven Approach to Molecular Diagnostics: The Right Test for the Right…",
+            "Connect with one of our sales representatives and find out how you can get next-morning lab results.",
+            "Contact a Sales Representative",
+            "Google Ads is an online advertising platform that enables businesses to create targeted ads displayed on Google search results and partner sites.",
+            "Used to determine whether a user is included in an A / B or Multivariate test."
+          ]
+        }
+      ],
+      "errors": [],
+      "content_hash": "04cc3a4d728841639d24183f9694debbce7820049d85ca9d9ad12eab88ad69ea",
+      "last_updated_at": "2026-09-01T06:53:46Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "HealthTrackRx insights and news",
+            "https://www.healthtrackrx.com/insights-news/"
+          ],
+          [
+            "HealthTrackRx company",
+            "https://www.healthtrackrx.com/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "tempus",
+      "name": "Tempus AI",
+      "last_checked_at": "2026-09-01T06:53:46Z",
+      "refresh_status": "partial",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [],
+      "source_status": [
+        {
+          "label": "Tempus news",
+          "url": "https://www.tempus.com/news/",
+          "kind": "news",
+          "status": "error",
+          "error": "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests",
+          "signals": []
+        },
+        {
+          "label": "Tempus investor releases",
+          "url": "https://investors.tempus.com/news-releases/",
+          "kind": "news",
+          "status": "error",
+          "error": "Unable to fetch https://investors.tempus.com/news-releases/: The read operation timed out",
+          "signals": []
+        }
+      ],
+      "errors": [
+        "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests",
+        "Unable to fetch https://investors.tempus.com/news-releases/: The read operation timed out"
+      ],
+      "content_hash": "5aaf5e2e4580137d8a8723a8593b3886bcf3e137aff13b1bb251244d47d00d1f",
+      "last_updated_at": "2026-09-01T06:53:46Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "Tempus news",
+            "https://www.tempus.com/news/"
+          ],
+          [
+            "Tempus investor releases",
+            "https://investors.tempus.com/news-releases/"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "genedx",
+      "name": "GeneDx",
+      "last_checked_at": "2026-09-01T06:53:46Z",
+      "refresh_status": "partial",
+      "verified_fields": {},
+      "latest_developments": [],
+      "official_signals": [
+        "2.5 million genetic tests and counting",
+        "AAP genetic testing recommendations",
+        "Accelerate research, therapeutic discovery, and clinical development with genomic insights powered by rare disease data.",
+        "Covered by most major insurers, with Medicaid coverage in 38 states 7 —helping make genetic testing more accessible for patients and families.",
+        "Deliver earlier, more accurate diagnoses with advanced genetic testing and expert clinical support for rare and inherited conditions.",
+        "Discover how we're advancing genomic medicine through innovation, clinical expertise, and trusted partnerships.",
+        "Exome sequencing is comprehensive genetic testing that analyzes protein-coding regions of the genome to help identify genetic variants associated with rare and inherited conditions.",
+        "Explore GeneDx's genetic testing services for rare and inherited conditions.",
+        "Explore how GeneDx supports providers, patients, health systems, and biopharma through advanced genetic testing and genomic diagnostics.",
+        "Explore key counseling considerations and clinical decision-making in the evolving era of prenatal genomic testing.",
+        "Find clearer answers and guidance through genetic testing designed to help diagnose rare and inherited conditions.",
+        "GeneDx helps providers, patients, and partners find earlier answers through advanced genetic testing, expert clinical interpretation, and the world's largest rare disease dataset.",
+        "Genetic Testing for Rare Disease Diagnosis | GeneDx",
+        "Genetic testing access programs",
+        "Genetic testing for rare disease diagnosis",
+        "Genetic testing is recommended as a first-line test for many children with global developmental delay and intellectual disability , epilepsy , congenital anomalies , and other rare and inherited conditions.",
+        "Geneticists & genetic counselors",
+        "Integrated genetic testing solutions for hospitals, health systems, and care networks.",
+        "Is genetic testing right for my",
+        "Leaders in genetic testing for rare disease"
+      ],
+      "source_status": [
+        {
+          "label": "GeneDx news releases",
+          "url": "https://ir.genedx.com/news-releases",
+          "kind": "news",
+          "status": "error",
+          "error": "Unable to fetch https://ir.genedx.com/news-releases: The read operation timed out",
+          "signals": []
+        },
+        {
+          "label": "GeneDx company",
+          "url": "https://www.genedx.com/",
+          "kind": "company",
+          "status": "ok",
+          "signals": [
+            "Genetic Testing for Rare Disease Diagnosis | GeneDx",
+            "Genetic testing access programs",
+            "Geneticists & genetic counselors",
+            "Is genetic testing right for my",
+            "The largest clinically confirmed rare disease genomic dataset—built to accelerate discovery and clinical development.",
+            "AAP genetic testing recommendations",
+            "Learn how pediatric guidance supports earlier genetic diagnosis for children.",
+            "Discover how we're advancing genomic medicine through innovation, clinical expertise, and trusted partnerships.",
+            "Genetic testing for rare disease diagnosis",
+            "Preferred by more than 75,000 clinicians 1 and recognized as the #1 genetic test by pediatric and genetic specialists 1 ."
+          ]
+        }
+      ],
+      "errors": [
+        "Unable to fetch https://ir.genedx.com/news-releases: The read operation timed out"
+      ],
+      "content_hash": "fa19c0e29cc5c834b92fb11a76c485f688993a06ba5933b17ac2d9d21bda9b3e",
+      "last_updated_at": "2026-09-01T06:53:46Z",
+      "change_detected": true,
+      "changes": {
+        "added": [
+          "Initial automated public-source baseline"
+        ],
+        "removed": [],
+        "modified": []
+      },
+      "profile_patch": {
+        "sources": [
+          [
+            "GeneDx news releases",
+            "https://ir.genedx.com/news-releases"
+          ],
+          [
+            "GeneDx company",
+            "https://www.genedx.com/"
           ]
         ]
       }
