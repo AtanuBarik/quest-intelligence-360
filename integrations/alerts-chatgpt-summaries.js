@@ -1,28 +1,130 @@
 (() => {
   'use strict';
-  const RELEASE='20260901stable1';
-  const DATA_URL=`data/alerts-chatgpt-summaries.gz.b64?v=${RELEASE}`;
-  let payload=null,loading=null,rendered=false;
-  const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const clean=(v='')=>String(v).replace(/\s+/g,' ').trim();
-  const dateObj=v=>{const d=new Date(`${v}T12:00:00`);return Number.isNaN(d.getTime())?null:d};
-  const pretty=v=>{const d=dateObj(v);return d?d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):v};
-  async function loadData(){if(payload)return payload;if(loading)return loading;loading=fetch(new URL(DATA_URL,document.baseURI),{cache:'no-store'}).then(async r=>{if(!r.ok)throw new Error(`Alerts summary data ${r.status}`);const encoded=(await r.text()).replace(/\s+/g,'');const binary=atob(encoded),bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));return new Response(stream).json()}).then(j=>(payload=j)).catch(e=>{console.error('Quest Alerts data failed:',e);return null});return loading}
-  function findView(){return document.querySelector('.view[data-view="alerts"]')||[...document.querySelectorAll('.view[data-view]')].find(v=>/alerts\s*&|strategic signals/i.test(clean(v.querySelector('h1,h2,h3')?.textContent||'')))}
-  const priorityClass=p=>p==='High'?'high':p==='Medium'?'medium':'approved';
-  const statusClass=p=>p==='High'?'red':p==='Medium'?'amber':'green';
-  const statusText=p=>p==='High'?'High priority':p==='Medium'?'Medium priority':'Monitor';
-  function renderOnce(data){
-    const view=findView();if(!view||rendered)return;
-    const articles=[...(data.articles||[])].sort((a,b)=>String(b.date).localeCompare(String(a.date))),companies=[...new Set(articles.map(x=>x.company))].sort(),categories=[...new Set(articles.map(x=>x.category))].sort(),high=articles.filter(x=>x.priority==='High').length,latest=articles[0]?.date||'',additions=new Set(['PathGroup','HealthTrackRx','Tempus AI','GeneDx']),themeCounts={};
-    articles.forEach(x=>themeCounts[x.category]=(themeCounts[x.category]||0)+1);const topThemes=Object.entries(themeCounts).sort((a,b)=>b[1]-a[1]).slice(0,4);
-    view.innerHTML=`<div class="page-heading"><div><span class="section-kicker">COMPETITIVE SIGNAL CENTER</span><h1>Alerts &amp; Strategic Signals</h1><p>Triaged laboratory and diagnostics updates with completed article summaries, source links and strategic relevance.</p></div><div class="heading-actions"><span class="security-pill">✓ 0 summaries pending</span></div></div><div class="kpi-grid four"><article class="kpi-card"><span>Summarized developments</span><strong>${articles.length}</strong><small>All displayed items summarized</small></article><article class="kpi-card"><span>Companies monitored</span><strong>${companies.length}</strong><small>Expanded diagnostic set</small></article><article class="kpi-card"><span>High priority</span><strong class="danger">${high}</strong><small>Clinical / strategic relevance</small></article><article class="kpi-card"><span>Latest refresh</span><strong>${esc(pretty(latest).replace(/, 2026/,''))}</strong><small>Public-source intelligence</small></article></div><div class="filter-bar" data-filter-bar="alerts"><select id="qasCompany"><option value="">All competitors</option>${companies.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select><select id="qasTheme"><option value="">All themes</option>${categories.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select><select id="qasPriority"><option value="">All priorities</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option></select><input id="qasSearch" type="search" autocomplete="off" placeholder="Search alerts…"><button type="button" class="secondary-button" id="qasApply">Apply filters</button></div><div class="alert-layout"><section class="alert-feed panel"><div class="feed-tabs" id="qasTabs"><button type="button" class="active" data-tab="all">All <span>${articles.length}</span></button><button type="button" data-tab="high">High priority <span>${high}</span></button><button type="button" data-tab="new">New competitors <span>${articles.filter(x=>additions.has(x.company)).length}</span></button><button type="button" data-tab="recent">Latest 30d <span>${articles.filter(x=>{const d=dateObj(x.date);return d&&(new Date()-d)<=30*86400000}).length}</span></button></div><div id="qasFeed">${articles.map(x=>`<article class="alert-card ${priorityClass(x.priority)}" data-q-company="${esc(x.company)}" data-q-theme="${esc(x.category)}" data-q-priority="${esc(x.priority)}" data-q-date="${esc(x.date)}" data-q-new="${additions.has(x.company)?'1':'0'}"><header><div><span class="status ${statusClass(x.priority)}">${statusText(x.priority)}</span><span class="status blue">${esc(x.category)}</span><span class="tag">${esc(x.company)}</span></div><time>${esc(pretty(x.date))}</time></header><h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p><div class="implication"><strong>Source</strong><span>${esc(x.sourceLabel||'Public source')}</span></div><footer><a class="secondary-button" href="${esc(x.source)}" target="_blank" rel="noopener noreferrer">View evidence ↗</a></footer></article>`).join('')}</div><div id="qasEmpty" class="muted" style="display:none;padding:24px;text-align:center">No alerts match the selected filters.</div></section><aside class="panel signal-sidebar"><div class="panel-head"><h3>Signal analytics</h3></div><h4>Fast-rising themes</h4><div class="theme-tags">${topThemes.map(([k,v])=>`<span>${esc(k)} · ${v}</span>`).join('')}</div><h4>Coverage</h4><ul class="queue-list"><li><b>${companies.length}</b><span>Companies monitored</span></li><li><b>${articles.length}</b><span>Completed summaries</span></li><li><b>0</b><span>Summaries pending</span></li></ul><h4>Newly added competitors</h4><div class="theme-tags"><span>PathGroup</span><span>HealthTrackRx</span><span>Tempus AI</span><span>GeneDx</span></div></aside></div>`;
-    const company=view.querySelector('#qasCompany'),theme=view.querySelector('#qasTheme'),priority=view.querySelector('#qasPriority'),search=view.querySelector('#qasSearch'),feed=view.querySelector('#qasFeed'),empty=view.querySelector('#qasEmpty'),tabs=view.querySelector('#qasTabs');let activeTab='all';
-    const apply=()=>{const q=clean(search.value).toLowerCase();let visible=0;[...feed.querySelectorAll('.alert-card')].forEach(card=>{const d=dateObj(card.dataset.qDate),recent=d&&(new Date()-d)<=30*86400000,tabOk=activeTab==='all'||(activeTab==='high'&&card.dataset.qPriority==='High')||(activeTab==='new'&&card.dataset.qNew==='1')||(activeTab==='recent'&&recent),text=clean(card.textContent).toLowerCase(),ok=tabOk&&(!company.value||card.dataset.qCompany===company.value)&&(!theme.value||card.dataset.qTheme===theme.value)&&(!priority.value||card.dataset.qPriority===priority.value)&&(!q||text.includes(q));card.style.display=ok?'':'none';if(ok)visible++});empty.style.display=visible?'none':''};
-    view.addEventListener('change',e=>{if(e.target.matches('#qasCompany,#qasTheme,#qasPriority'))apply()});view.addEventListener('input',e=>{if(e.target.matches('#qasSearch'))apply()});view.addEventListener('click',e=>{if(e.target.closest('#qasApply')){apply();return}const tab=e.target.closest('#qasTabs button[data-tab]');if(!tab)return;activeTab=tab.dataset.tab;[...tabs.querySelectorAll('button')].forEach(b=>b.classList.toggle('active',b===tab));apply()});
-    view.dataset.alertsStableRelease=RELEASE;document.documentElement.dataset.alertsSummaryRelease=RELEASE;rendered=true;
+
+  const RELEASE = '20260901layout1';
+  const DATA_URL = 'data/alerts-chatgpt-summaries.gz.b64';
+  const nativeFetch = window.fetch.bind(window);
+  let payloadPromise = null;
+
+  const clean = value => String(value || '').replace(/\s+/g,' ').trim();
+  const isoDate = value => /^\d{4}-\d{2}-\d{2}$/.test(String(value || '')) ? `${value}T12:00:00Z` : value;
+  const displayDate = value => {
+    const d = new Date(isoDate(value));
+    return Number.isNaN(d.getTime()) ? String(value || '') : d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+  };
+  const domain = value => { try { return new URL(value).hostname.replace(/^www\./,''); } catch (_) { return ''; } };
+
+  async function loadPayload() {
+    if (payloadPromise) return payloadPromise;
+    payloadPromise = (async () => {
+      const response = await nativeFetch(new URL(`${DATA_URL}?v=${RELEASE}`,document.baseURI),{cache:'no-store'});
+      if (!response.ok) throw new Error(`Curated alerts data ${response.status}`);
+      const encoded = (await response.text()).replace(/\s+/g,'');
+      const binary = atob(encoded);
+      const bytes = new Uint8Array(binary.length);
+      for (let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
+      if (!('DecompressionStream' in window)) throw new Error('Gzip decompression is not supported by this browser.');
+      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+      return new Response(stream).json();
+    })().catch(error => { console.error('Quest curated Alerts feed failed:',error); throw error; });
+    return payloadPromise;
   }
-  async function ensure(){const data=await loadData();if(data)renderOnce(data)}
-  function boot(){ensure();document.addEventListener('click',e=>{const n=e.target.closest?.('.nav-item[data-view],[data-view-jump]'),r=n?.dataset?.view||n?.dataset?.viewJump;if(r==='alerts')requestAnimationFrame(ensure)},false);window.addEventListener('quest:stable-route',e=>{if(e.detail?.route==='alerts')ensure()})}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+
+  function toNewsPayload(source) {
+    const articles = [...(source?.articles || [])].sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    const items = articles.map((article,index) => {
+      const url = article.source || article.url || '#';
+      const published = isoDate(article.date);
+      const sourceLabel = article.sourceLabel || article.company || 'Public source';
+      return {
+        id: article.id || `curated-${index}-${String(article.date || '').replace(/\D/g,'')}`,
+        company: article.company,
+        title: article.title,
+        url,
+        description: article.summary,
+        source: sourceLabel,
+        source_url: url,
+        source_domain: domain(url),
+        published_at: published,
+        published_display: displayDate(article.date),
+        category: article.category || 'Other',
+        official_source: /newsroom|press release|official|company/i.test(clean(sourceLabel)),
+        sources: [{name:sourceLabel,url,domain:domain(url),published_at:published}],
+        coverage_count: 1,
+        event_signature: article.id || article.title,
+        priority: article.priority || 'Medium',
+        chatgpt_summary: article.summary,
+        summary_provider: 'ChatGPT (OpenAI)',
+        summary_status: 'complete'
+      };
+    });
+    return {
+      generated_at: source?.generatedAt || source?.generated_at || new Date().toISOString(),
+      generated_at_display: '01 Sep 2026',
+      item_count: items.length,
+      raw_relevant_item_count: items.length,
+      duplicates_merged: 0,
+      failures: [],
+      curated: true,
+      content_policy: source?.contentPolicy || source?.content_policy || '',
+      items
+    };
+  }
+
+  function toSummaryPayload(source) {
+    const summaries = {};
+    (source?.articles || []).forEach((article,index) => {
+      const id = article.id || `curated-${index}-${String(article.date || '').replace(/\D/g,'')}`;
+      summaries[id] = {
+        title: article.title,
+        company: article.company,
+        source: article.sourceLabel || 'Public source',
+        source_url: article.source || article.url || '',
+        summary: article.summary,
+        provider: 'ChatGPT (OpenAI)',
+        model: 'GPT-5.6 Sol',
+        updated_at: source?.generatedAt || new Date().toISOString(),
+        verification: 'curated_public_source'
+      };
+    });
+    return {
+      provider: 'ChatGPT (OpenAI)',
+      model: 'GPT-5.6 Sol',
+      updated_at: source?.generatedAt || new Date().toISOString(),
+      news_item_count: Object.keys(summaries).length,
+      summary_count: Object.keys(summaries).length,
+      remaining_unsummarized: 0,
+      generation_mode: 'curated_current_feed',
+      summaries
+    };
+  }
+
+  function requestKind(input) {
+    const raw = typeof input === 'string' ? input : input?.url || '';
+    let url;
+    try { url = new URL(raw,document.baseURI); } catch (_) { return ''; }
+    const path = url.pathname;
+    if (url.hostname === 'atanubarik.github.io' && /\/laboratory-news-monitor\/data\/news\.json$/i.test(path)) return 'news';
+    if (/\/data\/laboratory-openai-summaries\.json$/i.test(path)) return 'summaries';
+    if (url.hostname === 'atanubarik.github.io' && /\/laboratory-news-monitor\/data\/chatgpt_summaries\.json$/i.test(path)) return 'summaries';
+    return '';
+  }
+
+  window.fetch = async function questCuratedFetch(input, init) {
+    const kind = requestKind(input);
+    if (!kind) return nativeFetch(input, init);
+    try {
+      const source = await loadPayload();
+      const body = kind === 'news' ? toNewsPayload(source) : toSummaryPayload(source);
+      return new Response(JSON.stringify(body), {status:200,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Quest-Data-Layer':RELEASE}});
+    } catch (_) {
+      return nativeFetch(input, init);
+    }
+  };
+
+  loadPayload().then(source => {
+    document.documentElement.dataset.alertsDataLayerRelease = RELEASE;
+    document.documentElement.dataset.alertsDataLayerMode = 'legacy-design-current-data';
+    window.dispatchEvent(new CustomEvent('quest:curated-alerts-ready',{detail:{count:source?.articles?.length || 0,release:RELEASE}}));
+  }).catch(()=>{});
 })();
