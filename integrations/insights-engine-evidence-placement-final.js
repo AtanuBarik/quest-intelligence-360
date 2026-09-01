@@ -1,147 +1,32 @@
 (() => {
   'use strict';
-
-  const RELEASE = '20260809r';
-  let observer = null;
-  let timer = 0;
-  let applying = false;
-
-  const $ = (selector, root = document) => root.querySelector(selector);
-
-  function injectStyles() {
-    let style = document.getElementById('qieEvidencePlacementFinalStyles');
-    if (!style) {
-      style = document.createElement('style');
-      style.id = 'qieEvidencePlacementFinalStyles';
-      document.head.appendChild(style);
-    }
-    style.textContent = `
-      #qieWorkspaceV3{
-        grid-template-columns:minmax(305px,340px) minmax(0,1fr)!important;
-        grid-template-areas:"repos repos" "sidebar main"!important;
-        align-items:start!important;
-        gap:16px!important;
-      }
-      #qieRepositoriesSlotV3{grid-area:repos!important;min-width:0!important;width:100%!important}
-      #qieSidebarV3{grid-area:sidebar!important;min-width:0!important;width:100%!important}
-      #qieMainColumnFinal{
-        grid-area:main!important;
-        display:grid!important;
-        grid-template-columns:minmax(0,1fr)!important;
-        gap:16px!important;
-        min-width:0!important;
-        width:100%!important;
-        align-content:start!important;
-      }
-      #qieEvidenceSlotV3{display:none!important}
-      #qieMainColumnFinal > #qieEvidenceV3,
-      #qieMainColumnFinal > #qieMainV3{
-        grid-area:auto!important;
-        width:100%!important;
-        min-width:0!important;
-        max-width:none!important;
-        margin:0!important;
-      }
-      #qieMainColumnFinal > #qieEvidenceV3{order:1!important}
-      #qieMainColumnFinal > #qieMainV3{order:2!important}
-
-      #qieWorkspaceV3 .qie-desc,
-      #qieWorkspaceV3 .qie-header-actions button,
-      #qieWorkspaceV3 .qie-option-card :is(p,span,small,label,button,strong,a),
-      #qieWorkspaceV3 .qie-option-card,
-      #qieMainV3 :is(p,small,label,button,input,textarea,a),
-      #qieMainV3 :is([class*="meta"],[class*="sub"],[class*="helper"],[class*="caption"],[class*="description"],[class*="status"],[class*="scope"],[class*="evidence"]){
-        font-size:12px!important;
-        line-height:1.4!important;
-      }
-      #qieMainV3 textarea,
-      #qieMainV3 input{font-size:12px!important}
-      #qieMainV3 button{font-size:12px!important;line-height:1.35!important}
-      #qieMainV3 h1,#qieMainV3 h2,#qieMainV3 h3,#qieMainV3 h4{font-size:inherit}
-      #qieWorkspaceV3 .qie-title{font-size:16px!important}
-      #qieWorkspaceV3 .qie-icon{font-size:15px!important}
-
-      @media(max-width:960px){
-        #qieWorkspaceV3{
-          grid-template-columns:1fr!important;
-          grid-template-areas:"repos" "sidebar" "main"!important;
-        }
-      }
-    `;
+  const V='20260831a', ROOT='qieApprovedBusinessQuestions', MAN=`data/insights-engine-business-questions.json?v=${V}`;
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const clean=v=>String(v||'').replace(/[\u200B-\u200D\uFEFF]/g,'').replace(/\s+/g,' ').trim();
+  const esc=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let manifest=null, timer=0, token=0;
+  const inline=t=>esc(t).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  function cells(line){let x=line.trim().replace(/^\|/,'').replace(/\|$/,'');return x.split(/(?<!\\)\|/).map(v=>v.trim().replace(/\\\|/g,'|'));}
+  const divider=a=>a.length>1&&a.every(v=>/^:?-{3,}:?$/.test(v.replace(/\s/g,'')));
+  function md(text){
+    const l=String(text).replace(/\r/g,'').split('\n'), out=[]; let i=0;
+    while(i<l.length){let s=l[i].trim(); if(!s){i++;continue;}
+      let h=s.match(/^(#{1,4})\s+(.+)$/); if(h){let n=Math.min(4,h[1].length+1);out.push(`<h${n}>${inline(h[2])}</h${n}>`);i++;continue;}
+      if(/^---+$/.test(s)){out.push('<hr>');i++;continue;} if(s.startsWith('> ')){out.push(`<blockquote>${inline(s.slice(2))}</blockquote>`);i++;continue;}
+      if(l[i].includes('|')&&i+1<l.length&&divider(cells(l[i+1]))){let head=cells(l[i]);i+=2;let rows=[];while(i<l.length&&l[i].trim()&&l[i].includes('|'))rows.push(cells(l[i++]));out.push(`<div class="qie-twrap"><table><thead><tr>${head.map(x=>`<th>${inline(x)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${head.map((_,j)=>`<td>${inline(r[j]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);continue;}
+      let u=s.match(/^[-*]\s+(.+)$/), o=s.match(/^\d+[.)]\s+(.+)$/); if(u||o){let arr=[],re=u?/^[-*]\s+(.+)$/:/^\d+[.)]\s+(.+)$/;while(i<l.length){let m=l[i].trim().match(re);if(!m)break;arr.push(m[1]);i++;}let tag=u?'ul':'ol';out.push(`<${tag}>${arr.map(x=>`<li>${inline(x)}</li>`).join('')}</${tag}>`);continue;}
+      let p=[s];i++;while(i<l.length){let n=l[i].trim();if(!n||/^(#{1,4})\s+/.test(n)||/^[-*]\s+/.test(n)||/^\d+[.)]\s+/.test(n)||n.startsWith('> ')||/^---+$/.test(n)||(l[i].includes('|')&&i+1<l.length&&divider(cells(l[i+1]))))break;p.push(n);i++;}out.push(`<p>${inline(p.join(' '))}</p>`);
+    } return out.join('');
   }
-
-  function layoutReady() {
-    return document.getElementById('qieWorkspaceV3') &&
-      document.getElementById('qieEvidenceV3') &&
-      document.getElementById('qieMainV3') &&
-      document.getElementById('qieRepositoriesSlotV3') &&
-      document.getElementById('qieSidebarV3');
-  }
-
-  function needsRepair() {
-    if (!layoutReady()) return true;
-    const wrapper = document.getElementById('qieMainColumnFinal');
-    if (!wrapper) return true;
-    return document.getElementById('qieEvidenceV3')?.parentElement !== wrapper ||
-      document.getElementById('qieMainV3')?.parentElement !== wrapper;
-  }
-
-  function apply() {
-    if (applying || !layoutReady()) return;
-    applying = true;
-    observer?.disconnect();
-    try {
-      injectStyles();
-      const shell = document.getElementById('qieWorkspaceV3');
-      const evidence = document.getElementById('qieEvidenceV3');
-      const main = document.getElementById('qieMainV3');
-      let wrapper = document.getElementById('qieMainColumnFinal');
-      if (!wrapper) {
-        wrapper = document.createElement('div');
-        wrapper.id = 'qieMainColumnFinal';
-        wrapper.setAttribute('aria-label', 'Evidence selection and Quest Enterprise Insights Engine');
-        shell.appendChild(wrapper);
-      }
-      if (evidence.parentElement !== wrapper) wrapper.appendChild(evidence);
-      if (main.parentElement !== wrapper) wrapper.appendChild(main);
-      document.documentElement.dataset.insightsEvidencePlacement = RELEASE;
-      requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
-    } finally {
-      applying = false;
-      watch();
-    }
-  }
-
-  function schedule(delay = 0) {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      if (needsRepair()) apply();
-      else injectStyles();
-    }, delay);
-  }
-
-  function watch() {
-    observer?.disconnect();
-    const shell = document.getElementById('qieWorkspaceV3');
-    if (!shell) return;
-    observer = new MutationObserver(() => {
-      if (needsRepair()) schedule(100);
-    });
-    observer.observe(shell, { childList:true, subtree:true });
-  }
-
-  function boot() {
-    injectStyles();
-    schedule(120);
-    [450,1000,1800,3000].forEach(delay => setTimeout(() => schedule(0), delay));
-    window.addEventListener('quest:layout-refresh', () => schedule(120));
-    window.addEventListener('hashchange', () => schedule(180));
-    document.addEventListener('click', event => {
-      const nav = event.target.closest?.('.nav-item');
-      if (nav && /Insights Engine|Insights Copilot/i.test(nav.textContent || '')) schedule(260);
-    }, true);
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once:true });
-  else boot();
+  async function answer(parts){let rs=await Promise.all(parts.map(p=>fetch(`${p}?v=${V}`,{cache:'no-store'})));if(rs.some(r=>!r.ok))throw Error('Response asset unavailable');let b=(await Promise.all(rs.map(r=>r.text()))).join('').replace(/\s/g,''),raw=atob(b),bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);return new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();}
+  function css(){if($('#qieApprovedStyle'))return;let s=document.createElement('style');s.id='qieApprovedStyle';s.textContent=`#${ROOT}{--g:#034c1f;--m:#35792a;--l:#c6d52f;--line:#dbe6dc;background:#fff;min-height:690px;color:#33443a;font-family:Arial,sans-serif}#${ROOT} *{box-sizing:border-box}#${ROOT} .head{padding:20px 22px 16px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#f7fbf6,#fff)}#${ROOT} .k{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--m)}#${ROOT} h2{color:var(--g);font-size:22px;margin:7px 0 5px}#${ROOT} .sub{font-size:12px;color:#68776e;margin:0;line-height:1.45}#${ROOT} .body,#${ROOT} .resp{padding:18px 22px}#${ROOT} .lbl{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#53665a;margin:0 0 8px}#${ROOT} .qs{display:grid;gap:9px;margin-bottom:16px}#${ROOT} .q{border:1px solid #d8e5d8;background:#f8fbf7;border-radius:10px;padding:12px 13px;text-align:left;color:#244631;font:12.5px/1.45 Arial;cursor:pointer}#${ROOT} .q:hover{border-color:#7dac6e;background:#eff7ec}#${ROOT} textarea{width:100%;min-height:92px;border:1px solid #ccd9cf;border-radius:10px;padding:12px;font:13px/1.45 Arial;resize:vertical}#${ROOT} .actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}#${ROOT} .go{border:0;border-radius:9px;background:var(--g);color:#fff;font-weight:800;padding:10px 16px;cursor:pointer}#${ROOT} .go:disabled{opacity:.55}#${ROOT} .note{font-size:11.5px;color:#718078}#${ROOT} .resp{display:none;border-top:1px solid var(--line);background:#fbfdfb}#${ROOT} .resp.on{display:block}#${ROOT} .wait{display:flex;gap:12px;padding:16px;border:1px solid #d8e5d8;border-radius:10px;background:#f7faf6}#${ROOT} .spin{width:22px;height:22px;border:3px solid #dde7de;border-top-color:var(--m);border-radius:50%;animation:sp .8s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}#${ROOT} .wait strong{color:var(--g);font-size:13px}#${ROOT} .wait span{display:block;color:#6c786f;font-size:12px;margin-top:3px}#${ROOT} .tools{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:12px}#${ROOT} .tools button,#${ROOT} .dl{border:1px solid #cbdacb;background:#fff;color:var(--g);border-radius:7px;padding:6px 9px;font-size:11px;font-weight:700;text-decoration:none;cursor:pointer}#${ROOT} .answer{font-size:12.5px;line-height:1.58;max-height:880px;overflow:auto}#${ROOT} .answer h2{font-size:18px;margin:21px 0 8px}#${ROOT} .answer h3{font-size:15px;color:#245c31;margin:17px 0 7px}#${ROOT} .answer p{margin:8px 0}#${ROOT} .answer li{margin:4px 0}#${ROOT} blockquote{margin:12px 0;padding:10px 13px;border-left:3px solid var(--l);background:#f4f8ef;font-weight:700}#${ROOT} .qie-twrap{overflow:auto;margin:12px 0 18px;border:1px solid #d9e3da;border-radius:9px;background:#fff}#${ROOT} table{border-collapse:collapse;width:max-content;min-width:100%;font-size:11.5px}#${ROOT} th{position:sticky;top:0;background:#edf5e9;color:#174523;padding:10px;min-width:180px;text-align:left;border:1px solid #d7e1d8}#${ROOT} td{vertical-align:top;padding:10px;min-width:180px;max-width:360px;border:1px solid #e3e9e3}#${ROOT} .downloads{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}#${ROOT} .err{padding:13px;border:1px solid #e3c9c9;background:#fff8f8;border-radius:9px;color:#7f2f2f;font-size:12px}`;document.head.appendChild(s);}
+  function itemFor(q){let n=clean(q).toLowerCase();return manifest.questions.find(x=>clean(x.question).toLowerCase()===n);}
+  function processing(r,d){r.classList.add('on');r.innerHTML='<div class="wait"><i class="spin"></i><div><strong>Analyzing Quest research evidence</strong><span id="qStage">Retrieving approved project evidence…</span></div></div>';let st=$('#qStage',r),a=['Comparing findings across reports, transcripts and survey evidence…','Synthesizing the validated cross-project response…'];a.forEach((x,i)=>setTimeout(()=>{if(st?.isConnected)st.textContent=x},Math.floor(d/3)*(i+1)));}
+  function download(text,name){let u=URL.createObjectURL(new Blob([text],{type:'text/markdown'})),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+  function show(r,it,text){let ds=it.downloads||[];r.innerHTML=`<div class="tools"><strong>Validated response</strong><span><button data-copy>Copy response</button> <button data-save>Download answer (.md)</button></span></div>${ds.length?`<div class="downloads">${ds.map(f=>`<a class="dl" href="${esc(f.path)}" download>Download ${esc(f.label||f.filename||'report')}</a>`).join('')}</div>`:''}<div class="answer">${md(text)}</div>`;$('[data-copy]',r).onclick=async e=>{try{await navigator.clipboard.writeText(text);e.target.textContent='Copied'}catch{}};$('[data-save]',r).onclick=()=>download(text,`${it.id}.md`);}
+  async function run(root,it){let id=++token,b=$('.go',root),r=$('.resp',root),d=5000+Math.floor(Math.random()*5001);b.disabled=true;processing(r,d);try{let [text]=await Promise.all([answer(it.answer_parts),new Promise(x=>setTimeout(x,d))]);if(id===token&&root.isConnected)show(r,it,text);}catch(e){if(id===token)r.innerHTML=`<div class="err">Unable to load the approved response: ${esc(e.message)}</div>`}finally{if(id===token&&b.isConnected)b.disabled=false;}}
+  async function mount(){let main=$('#qieMainV3');if(!main||$(`#${ROOT}`,main))return;css();try{if(!manifest){let r=await fetch(MAN,{cache:'no-store'});if(!r.ok)throw Error('Question manifest unavailable');manifest=await r.json();}if(!main.isConnected)return;let root=document.createElement('section');root.id=ROOT;root.innerHTML=`<div class="head"><div class="k">Approved cross-project intelligence</div><h2>Quest Enterprise Insights Engine</h2><p class="sub">Select an approved business question. Each question is mapped to its validated response.</p></div><div class="body"><div class="lbl">Business questions</div><div class="qs">${manifest.questions.map((x,i)=>`<button class="q" data-id="${esc(x.id)}"><strong>${i+1}.</strong> ${esc(x.question)}</button>`).join('')}</div><div class="lbl">Ask the Insights Engine</div><textarea placeholder="Select an approved question above or paste it here."></textarea><div class="actions"><button class="go">Generate answer</button><span class="note">Governed response simulation · processing takes 5–10 seconds</span></div></div><div class="resp" aria-live="polite"></div>`;main.replaceChildren(root);let ta=$('textarea',root);$$('.q',root).forEach(b=>b.onclick=()=>{let it=manifest.questions.find(x=>x.id===b.dataset.id);ta.value=it.question;run(root,it)});$('.go',root).onclick=()=>{let it=itemFor(ta.value);if(it)run(root,it);else{let r=$('.resp',root);r.classList.add('on');r.innerHTML='<div class="err">Please select one of the approved business questions above so the validated response is mapped correctly.</div>';}};document.documentElement.dataset.insightsBusinessQuestions=V;}catch(e){console.error(e)}}
+  function schedule(d=0){clearTimeout(timer);timer=setTimeout(mount,d)}
+  function boot(){schedule(100);[450,900,1600,2600,4200].forEach(d=>setTimeout(()=>schedule(),d));new MutationObserver(()=>{if($('#qieMainV3')&&!$(`#${ROOT}`))schedule(120)}).observe(document.body,{childList:true,subtree:true});window.addEventListener('quest:layout-refresh',()=>schedule(160));window.addEventListener('quest:module-loaded',e=>{/insights/i.test(e.detail?.path||'')&&schedule(180)});}
+  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot,{once:true}):boot();
 })();

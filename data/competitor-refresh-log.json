@@ -107,6 +107,270 @@
         "mayo",
         "bioreference"
       ]
+    },
+    {
+      "checked_at": "2026-08-11T10:46:26Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "quest",
+        "labcorp",
+        "cleveland"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-12T06:59:13Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-13T07:03:29Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "quest"
+      ],
+      "partial_or_failed": [
+        "quest",
+        "labcorp",
+        "arup",
+        "mayo",
+        "bioreference",
+        "sonic",
+        "cleveland",
+        "neogenomics"
+      ]
+    },
+    {
+      "checked_at": "2026-08-14T06:59:49Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "bioreference"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-15T04:06:58Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "mayo"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-16T04:21:37Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-17T04:27:37Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "neogenomics"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-18T04:20:24Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "labcorp",
+        "neogenomics"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-19T04:22:34Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "labcorp"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-20T04:22:03Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "quest"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-21T04:24:32Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-22T04:17:23Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-23T04:23:46Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-24T05:06:26Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-25T04:24:37Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "quest",
+        "labcorp"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-26T04:26:23Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "quest"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-28T07:07:40Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "cleveland",
+        "neogenomics"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-29T02:37:12Z",
+      "competitors_checked": 8,
+      "competitors_changed": [
+        "labcorp",
+        "cleveland"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-30T02:37:16Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-31T02:37:16Z",
+      "competitors_checked": 8,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-08-31T13:10:21Z",
+      "competitors_checked": 12,
+      "competitors_changed": [
+        "quest",
+        "labcorp",
+        "bioreference",
+        "sonic",
+        "cleveland",
+        "neogenomics",
+        "eurofins",
+        "guardant",
+        "natera",
+        "exact"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-09-01T02:41:20Z",
+      "competitors_checked": 12,
+      "competitors_changed": [
+        "guardant"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference"
+      ]
+    },
+    {
+      "checked_at": "2026-09-01T06:53:46Z",
+      "competitors_checked": 16,
+      "competitors_changed": [
+        "guardant",
+        "pathgroup",
+        "healthtrackrx",
+        "tempus",
+        "genedx"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference",
+        "tempus",
+        "genedx"
+      ]
     }
   ]
 }
