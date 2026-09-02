@@ -1,10 +1,9 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260901layout1';
+  const RELEASE = '20260902nav1';
   const loaded = new Map();
   const groupLoads = new Map();
-  let retireSweepQueued = false;
 
   const GROUPS = {
     alerts: [
@@ -44,7 +43,6 @@
     'integrations/quest-brand-system.js',
     'integrations/frontend-performance-layout.js',
     'integrations/frontend-readability-overrides.js',
-    'integrations/frontend-stability-guard.js',
     'integrations/local-data-fetch-bridge.js',
     'integrations/executive-status-seed.js',
     'integrations/executive-hub-final.js',
@@ -87,24 +85,6 @@
       if ((retiredView && view.dataset.view === retiredView) || view.dataset.view === 'landscape' || /competitive landscape/i.test(heading)) view.remove();
     });
     [...document.querySelectorAll('[data-view-jump="landscape"]')].forEach(node => node.remove());
-    const items = [...document.querySelectorAll('.nav-item')];
-    const tracker = items.find(node => /^project tracker$/i.test(clean(node.textContent)));
-    const evidence = items.find(node => /^evidence library$/i.test(clean(node.textContent)));
-    if (tracker && evidence && tracker.parentElement === evidence.parentElement && tracker.nextElementSibling !== evidence) tracker.insertAdjacentElement('afterend', evidence);
-  }
-
-  function scheduleRetiredSweep() {
-    if (retireSweepQueued) return;
-    retireSweepQueued = true;
-    requestAnimationFrame(() => { retireSweepQueued = false; removeRetiredNavigation(); });
-  }
-
-  function watchForRetiredLandscape() {
-    if (!document.body || document.body.dataset.qLandscapeGuard === 'true') return;
-    document.body.dataset.qLandscapeGuard = 'true';
-    new MutationObserver(mutations => {
-      if (mutations.some(m => m.addedNodes?.length)) scheduleRetiredSweep();
-    }).observe(document.body, { childList: true, subtree: true });
   }
 
   function loadScript(path) {
@@ -115,6 +95,7 @@
       loaded.set(path, promise);
       return promise;
     }
+
     const promise = new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.src = new URL(`${path}?v=${RELEASE}`, document.baseURI).href;
@@ -136,6 +117,7 @@
   async function loadGroup(name) {
     if (!GROUPS[name]?.length) return;
     if (groupLoads.has(name)) return groupLoads.get(name);
+
     const promise = (async () => {
       progress(true);
       try {
@@ -146,37 +128,12 @@
         removeRetiredNavigation();
         progress(false, true);
         window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: name, reason: 'module-loaded' } }));
-        setTimeout(() => window.dispatchEvent(new Event('resize')), 80);
+        setTimeout(() => window.dispatchEvent(new Event('resize')), 60);
       }
     })();
+
     groupLoads.set(name, promise);
     return promise;
-  }
-
-  function groupFromText(value = '') {
-    const text = String(value).toLowerCase();
-    if (/alert|strategic signal/.test(text)) return 'alerts';
-    if (/competitor profile/.test(text)) return 'competitor';
-    if (/news intelligence|strategic analysis|social|perception/.test(text)) return 'strategic';
-    if (/insights engine|insights copilot|ask insights/.test(text)) return 'insights';
-    if (/voice of experts|persona intelligence|expert analysis/.test(text)) return 'experts';
-    if (/survey analytics|survey intelligence/.test(text)) return 'survey';
-    if (/knowledge repository|research repository|evidence library/.test(text)) return 'library';
-    if (/pmr projects|pmr reports|primary market research hub|primary market research knowledge hub/.test(text)) return 'pmr';
-    if (/microsoft|sharepoint|local data|local repository|local file/.test(text)) return 'microsoft';
-    if (/project tracker|methodology|audit/.test(text)) return 'governance';
-    return '';
-  }
-
-  function groupFromElement(target) {
-    const node = target?.closest?.('.nav-item,[data-view],a,button');
-    if (!node) return '';
-    return groupFromText(`${node.dataset?.view || ''} ${node.getAttribute('href') || ''} ${node.getAttribute('aria-label') || ''} ${node.textContent || ''}`);
-  }
-
-  function activeGroup() {
-    const active = document.querySelector('.nav-item.active,[aria-current="page"],[data-view].active');
-    return groupFromText(`${active?.dataset?.view || ''} ${active?.textContent || ''}`);
   }
 
   async function bootCore() {
@@ -191,39 +148,28 @@
     }
   }
 
-  function bindNavigation() {
-    document.addEventListener('pointerover', event => {
-      const group = groupFromElement(event.target);
-      if (group && group !== 'library') loadGroup(group);
-    }, { passive: true, capture: true });
-    document.addEventListener('focusin', event => {
-      const group = groupFromElement(event.target);
-      if (group) loadGroup(group);
-    }, true);
-    document.addEventListener('click', event => {
-      removeRetiredNavigation();
-      const group = groupFromElement(event.target);
-      if (group) loadGroup(group);
-    }, true);
-    window.addEventListener('hashchange', () => {
-      removeRetiredNavigation();
-      const group = activeGroup();
+  function bindRequests() {
+    window.addEventListener('quest:request-module-group', event => {
+      const group = event.detail?.group;
       if (group) loadGroup(group);
     });
   }
 
   async function boot() {
     removeRetiredNavigation();
-    watchForRetiredLandscape();
-    bindNavigation();
-    await bootCore();
-    removeRetiredNavigation();
-    const group = activeGroup();
-    if (group) loadGroup(group);
+    bindRequests();
+    bootCore();
     document.documentElement.dataset.questRelease = RELEASE;
     document.documentElement.dataset.questDesignBaseline = '20260830';
     document.documentElement.classList.add('quest-ready');
   }
+
+  window.QuestModuleLoader = {
+    loadScript,
+    loadGroup,
+    groups: Object.keys(GROUPS),
+    release: RELEASE
+  };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
   else boot();
