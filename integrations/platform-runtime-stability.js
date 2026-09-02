@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260901layout1';
+  const RELEASE = '20260902nav1';
   const ROUTE_ALIASES = new Map([
     ['surveys','survey'],['survey-analytics','survey'],['profile','competitors'],['profiles','competitors'],['competitor-profiles','competitors']
   ]);
@@ -10,15 +10,12 @@
     pmr:'pmr', experts:'experts', survey:'survey', library:'library', projects:'governance', methodology:'governance'
   };
   const FILTER_CONTEXT = '.filter-bar,.sa-filter,.voe-filter,.pmrf-filterbar,.live-filter-bar,.heading-actions,.button-row,.toolbar,[data-filter-bar]';
-  let lastRoute = '';
-  let timer = 0;
-  let observer = null;
-  let applying = false;
+  let activeRoute = '';
+  let activating = false;
 
-  const clean = value => String(value || '').replace(/\s+/g,' ').trim();
-  const norm = value => clean(value).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
   const canonicalRoute = value => {
-    const raw = clean(value).replace(/^#(?:view=)?/,'').toLowerCase();
+    const raw = clean(value).replace(/^#(?:view=)?/, '').toLowerCase();
     return ROUTE_ALIASES.get(raw) || raw;
   };
   const navItems = () => [...document.querySelectorAll('.nav-item[data-view]')];
@@ -31,9 +28,9 @@
       if (/^survey analytics$/i.test(clean(nav.textContent))) nav.dataset.view = 'survey';
     });
     views().forEach(view => {
-      const heading = clean(view.querySelector('h1,h2,h3,[class*="title"]')?.textContent);
       const route = canonicalRoute(view.dataset.view);
       if (route && route !== view.dataset.view) view.dataset.view = route;
+      const heading = clean(view.querySelector('h1,h2,h3,[class*="title"]')?.textContent);
       if (/^survey analytics$/i.test(heading)) view.dataset.view = 'survey';
     });
   }
@@ -43,192 +40,194 @@
     return navItems().find(nav => canonicalRoute(nav.dataset.view) === target) || null;
   }
 
-  function findView(route, nav = null) {
+  function findView(route) {
     const target = canonicalRoute(route);
-    let view = views().find(node => canonicalRoute(node.dataset.view) === target) || null;
-    if (view) return view;
-    const label = norm(nav?.textContent || findNav(target)?.textContent || '');
-    if (!label) return null;
-    view = views().find(node => {
-      const heading = norm(node.querySelector('h1,h2,h3,[class*="title"]')?.textContent);
-      return heading && (heading === label || heading.includes(label) || label.includes(heading));
-    }) || null;
-    if (view && target) view.dataset.view = target;
-    return view;
+    return views().find(view => canonicalRoute(view.dataset.view) === target) || null;
+  }
+
+  function routeGroup(route) {
+    return GROUP_BY_ROUTE[canonicalRoute(route)] || '';
   }
 
   function resizeCharts(view) {
     if (!view) return;
-    try {
-      const canvases = new Set(view.querySelectorAll('canvas'));
-      const instances = window.Chart?.instances || {};
-      Object.values(instances).forEach(chart => {
-        if (!chart?.canvas || !canvases.has(chart.canvas)) return;
-        try { chart.resize?.(); chart.update?.('none'); } catch (_) {}
+    requestAnimationFrame(() => {
+      try {
+        const canvases = new Set(view.querySelectorAll('canvas'));
+        Object.values(window.Chart?.instances || {}).forEach(chart => {
+          if (!chart?.canvas || !canvases.has(chart.canvas)) return;
+          try { chart.resize?.(); chart.update?.('none'); } catch (_) {}
+        });
+      } catch (_) {}
+      view.querySelectorAll('svg[viewBox]').forEach(svg => {
+        svg.style.maxWidth = '100%';
+        svg.style.height = 'auto';
       });
-    } catch (_) {}
-    view.querySelectorAll('svg').forEach(svg => {
-      if (!svg.hasAttribute('viewBox')) return;
-      svg.style.maxWidth = '100%';
-      svg.style.height = 'auto';
+      window.dispatchEvent(new CustomEvent('quest:charts-resized', { detail: { route: canonicalRoute(view.dataset.view) } }));
     });
-    window.dispatchEvent(new CustomEvent('quest:charts-resized', { detail: { route: canonicalRoute(view.dataset.view) } }));
-  }
-
-  function routeGroup(route) { return GROUP_BY_ROUTE[canonicalRoute(route)] || ''; }
-
-  function activateRoute(route, nav = null, options = {}) {
-    const target = canonicalRoute(route);
-    if (!target || target === 'landscape') return false;
-    normalizeKnownAliases();
-    const selectedNav = nav?.matches?.('.nav-item') ? nav : findNav(target);
-    const view = findView(target, selectedNav);
-    if (!view) return false;
-
-    applying = true;
-    try {
-      navItems().forEach(item => {
-        const active = item === selectedNav || (!selectedNav && canonicalRoute(item.dataset.view) === target);
-        item.classList.toggle('active', active);
-        if (active) item.setAttribute('aria-current','page');
-        else if (item.getAttribute('aria-current') === 'page') item.removeAttribute('aria-current');
-      });
-      views().forEach(item => {
-        const active = item === view;
-        item.classList.toggle('active', active);
-        if (active) {
-          item.removeAttribute('hidden');
-          item.removeAttribute('aria-hidden');
-          item.style.removeProperty('display');
-          item.style.removeProperty('visibility');
-          item.style.removeProperty('opacity');
-        }
-      });
-      lastRoute = target;
-      document.documentElement.dataset.questActiveView = target;
-      document.documentElement.dataset.platformStabilityRelease = RELEASE;
-    } finally { applying = false; }
-
-    [0,80,220].forEach(delay => setTimeout(() => requestAnimationFrame(() => {
-      const style = getComputedStyle(view);
-      if (style.display === 'none') view.style.setProperty('display','block','important');
-      if (style.visibility === 'hidden') view.style.setProperty('visibility','visible','important');
-      resizeCharts(view);
-    }), delay));
-
-    if (options.notify) {
-      const group = routeGroup(target);
-      window.dispatchEvent(new CustomEvent('quest:stable-route',{detail:{route:target,group}}));
-      setTimeout(() => window.dispatchEvent(new CustomEvent('quest:layout-refresh',{detail:{group,reason:'stable-route'}})), 60);
-    }
-    return true;
-  }
-
-  function currentRoute() {
-    const activeNav = document.querySelector('.nav-item.active[data-view],[aria-current="page"][data-view]');
-    const activeView = document.querySelector('.view.active[data-view]');
-    return canonicalRoute(activeNav?.dataset?.view || activeView?.dataset?.view || lastRoute || '');
-  }
-
-  function normalizeSelect(select) {
-    if (!select || select.tagName !== 'SELECT') return;
-    const options = [...select.options];
-    if (!options.length) return;
-    if (select.selectedIndex < 0 || !options.some(option => option.selected)) select.selectedIndex = 0;
-    if (options[select.selectedIndex]?.disabled) {
-      const firstEnabled = options.findIndex(option => !option.disabled);
-      if (firstEnabled >= 0) select.selectedIndex = firstEnabled;
-    }
-    select.dataset.qStableSelect = 'true';
   }
 
   function stabilizeControls(root = document) {
     if (!root?.querySelectorAll) return;
-    root.querySelectorAll('select').forEach(normalizeSelect);
-    root.querySelectorAll(`${FILTER_CONTEXT} button:not([type])`).forEach(button => button.setAttribute('type','button'));
+    root.querySelectorAll('select').forEach(select => {
+      if (!select.options.length) return;
+      if (select.selectedIndex < 0) select.selectedIndex = 0;
+      select.dataset.qStableSelect = 'true';
+    });
+    root.querySelectorAll(`${FILTER_CONTEXT} button:not([type])`).forEach(button => button.setAttribute('type', 'button'));
     root.querySelectorAll('input[type="search"],input[data-filter]').forEach(input => {
-      if (!input.hasAttribute('autocomplete')) input.setAttribute('autocomplete','off');
+      if (!input.hasAttribute('autocomplete')) input.setAttribute('autocomplete', 'off');
     });
   }
 
-  function reconcile() {
-    if (applying) return;
+  function setActiveRoute(route, options = {}) {
+    const target = canonicalRoute(route);
+    if (!target || target === 'landscape') return false;
     normalizeKnownAliases();
-    stabilizeControls(document);
-    const route = currentRoute();
-    if (route) activateRoute(route, findNav(route), {notify:false});
-    document.documentElement.dataset.questNavigationAudit = audit().ok ? 'ok' : 'warning';
+    const nav = findNav(target);
+    const view = findView(target);
+    if (!nav || !view) return false;
+
+    activating = true;
+    try {
+      navItems().forEach(item => {
+        const isActive = canonicalRoute(item.dataset.view) === target;
+        item.classList.toggle('active', isActive);
+        if (isActive) item.setAttribute('aria-current', 'page');
+        else item.removeAttribute('aria-current');
+      });
+
+      views().forEach(item => {
+        const isActive = canonicalRoute(item.dataset.view) === target;
+        item.classList.toggle('active', isActive);
+        item.style.removeProperty('display');
+        item.style.removeProperty('visibility');
+        item.style.removeProperty('opacity');
+        if (isActive) {
+          item.removeAttribute('hidden');
+          item.removeAttribute('aria-hidden');
+        } else {
+          item.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      activeRoute = target;
+      document.documentElement.dataset.questActiveView = target;
+      document.documentElement.dataset.platformStabilityRelease = RELEASE;
+      document.documentElement.dataset.questNavigationAudit = 'ok';
+    } finally {
+      activating = false;
+    }
+
+    resizeCharts(view);
+    setTimeout(() => resizeCharts(view), 120);
+
+    if (options.load !== false) {
+      const group = routeGroup(target);
+      if (group) {
+        const loader = window.QuestModuleLoader?.loadGroup;
+        if (typeof loader === 'function') {
+          Promise.resolve(loader(group)).finally(() => {
+            if (activeRoute === target) {
+              const current = findView(target);
+              if (current) {
+                views().forEach(item => {
+                  const isActive = canonicalRoute(item.dataset.view) === target;
+                  item.classList.toggle('active', isActive);
+                  item.style.removeProperty('display');
+                  item.style.removeProperty('visibility');
+                  item.style.removeProperty('opacity');
+                });
+                resizeCharts(current);
+              }
+            }
+          });
+        } else {
+          window.dispatchEvent(new CustomEvent('quest:request-module-group', { detail: { group, route: target } }));
+        }
+      }
+    }
+
+    window.dispatchEvent(new CustomEvent('quest:stable-route', { detail: { route: target, group: routeGroup(target) } }));
+    return true;
   }
 
-  function schedule(delay = 40) {
-    clearTimeout(timer);
-    timer = setTimeout(reconcile, delay);
+  function currentRoute() {
+    if (activeRoute && findView(activeRoute)) return activeRoute;
+    const nav = document.querySelector('.nav-item.active[data-view],[aria-current="page"][data-view]');
+    const view = document.querySelector('.view.active[data-view]');
+    return canonicalRoute(nav?.dataset?.view || view?.dataset?.view || '');
+  }
+
+  function handleNavigation(event) {
+    const nav = event.target.closest?.('.nav-item[data-view]');
+    const jump = event.target.closest?.('[data-view-jump]');
+    if (!nav && !jump) return;
+    const target = canonicalRoute(nav?.dataset?.view || jump?.dataset?.viewJump || '');
+    if (!target || target === 'landscape') return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    setActiveRoute(target, { load: true });
+  }
+
+  function handleHashChange() {
+    const target = canonicalRoute(location.hash);
+    if (target && findNav(target) && findView(target)) setActiveRoute(target, { load: true });
   }
 
   function audit() {
     normalizeKnownAliases();
-    const navs = navItems().filter(nav => canonicalRoute(nav.dataset.view) !== 'landscape');
-    const unresolved = navs.map(nav => canonicalRoute(nav.dataset.view)).filter(route => !findView(route, findNav(route)));
-    const counts = new Map();
-    views().forEach(view => {
-      const route = canonicalRoute(view.dataset.view);
-      if (route && route !== 'landscape') counts.set(route, (counts.get(route) || 0) + 1);
-    });
-    const duplicates = [...counts.entries()].filter(([,count]) => count > 1).map(([route]) => route);
-    const invalidSelects = [...document.querySelectorAll('select')].filter(select => select.options.length && select.selectedIndex < 0).length;
-    return { ok: !unresolved.length && !duplicates.length && invalidSelects === 0, unresolvedRoutes:[...new Set(unresolved)], duplicateRoutes:duplicates, invalidSelects, activeRoute:currentRoute() };
-  }
-
-  function handleClick(event) {
-    const nav = event.target.closest?.('.nav-item[data-view]');
-    if (nav) {
-      const route = canonicalRoute(nav.dataset.view);
-      if (!route || route === 'landscape') return;
-      lastRoute = route;
-      [0,30,120,450,1000].forEach((delay,index) => setTimeout(() => activateRoute(route, nav, {notify:index === 1}), delay));
-      return;
-    }
-    const jump = event.target.closest?.('[data-view-jump]');
-    if (!jump) return;
-    const route = canonicalRoute(jump.dataset.viewJump);
-    const targetNav = findNav(route);
-    if (!route || !targetNav) return;
-    lastRoute = route;
-    [0,40,180].forEach((delay,index) => setTimeout(() => activateRoute(route,targetNav,{notify:index === 1}),delay));
-  }
-
-  function handleControlChange(event) {
-    const control = event.target;
-    if (!control?.matches?.('select,input')) return;
-    if (control.tagName === 'SELECT') normalizeSelect(control);
-    const view = control.closest?.('.view[data-view]');
-    setTimeout(() => {
-      if (view?.classList.contains('active')) resizeCharts(view);
-      schedule(40);
-    }, 20);
+    const unresolved = navItems()
+      .map(nav => canonicalRoute(nav.dataset.view))
+      .filter(route => route && route !== 'landscape' && !findView(route));
+    const activeNavs = navItems().filter(nav => nav.classList.contains('active')).length;
+    const activeViews = views().filter(view => view.classList.contains('active')).length;
+    return {
+      ok: !unresolved.length && activeNavs === 1 && activeViews === 1,
+      unresolvedRoutes: [...new Set(unresolved)],
+      activeNavs,
+      activeViews,
+      activeRoute: currentRoute()
+    };
   }
 
   function boot() {
     normalizeKnownAliases();
     stabilizeControls(document);
-    lastRoute = currentRoute();
-    if (lastRoute) activateRoute(lastRoute, findNav(lastRoute), {notify:false});
-    document.addEventListener('click', handleClick, false);
-    document.addEventListener('change', handleControlChange, true);
-    document.addEventListener('input', event => { if (event.target.matches?.('input[data-filter],input[type="search"]')) schedule(50); }, true);
-    window.addEventListener('hashchange', () => schedule(30));
-    window.addEventListener('quest:module-loaded', () => schedule(40));
-    window.addEventListener('quest:layout-refresh', () => schedule(50));
-    window.addEventListener('resize', () => { const view = findView(currentRoute()); if (view) resizeCharts(view); }, {passive:true});
-    observer = new MutationObserver(mutations => {
-      if (applying) return;
-      if (mutations.some(m => m.type === 'childList' && (m.addedNodes.length || m.removedNodes.length))) schedule(60);
+    const initial = currentRoute() || canonicalRoute(navItems()[0]?.dataset?.view || '');
+    if (initial) setActiveRoute(initial, { load: false });
+
+    document.addEventListener('click', handleNavigation, true);
+    document.addEventListener('change', event => {
+      const view = event.target.closest?.('.view[data-view]');
+      if (view?.classList.contains('active')) resizeCharts(view);
+    }, true);
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('quest:module-loaded', () => {
+      if (!activating && activeRoute) setTimeout(() => setActiveRoute(activeRoute, { load: false }), 0);
     });
-    observer.observe(document.body,{childList:true,subtree:true});
-    [250,700,1500,3000].forEach(delay => setTimeout(reconcile,delay));
+    window.addEventListener('quest:layout-refresh', () => {
+      const view = findView(activeRoute || currentRoute());
+      if (view) resizeCharts(view);
+    });
+    window.addEventListener('resize', () => {
+      const view = findView(activeRoute || currentRoute());
+      if (view) resizeCharts(view);
+    }, { passive: true });
+
+    document.documentElement.dataset.questNavigationController = 'single-authority';
   }
 
-  window.QuestPlatformStability = { activateRoute, reconcile, stabilizeControls, audit, resizeCharts, release: RELEASE };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
+  window.QuestPlatformStability = {
+    activateRoute: setActiveRoute,
+    reconcile: () => setActiveRoute(currentRoute(), { load: false }),
+    stabilizeControls,
+    audit,
+    resizeCharts,
+    release: RELEASE
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
   else boot();
 })();
