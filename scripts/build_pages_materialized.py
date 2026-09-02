@@ -6,7 +6,7 @@ import re
 import shutil
 from pathlib import Path
 
-RELEASE = "20260901layout1"
+RELEASE = "20260902nav1"
 ROOT = Path(".")
 SITE = ROOT / "_site"
 
