@@ -1,21 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T06:53:46Z",
+  "generated_at": "2026-09-02T02:46:56Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "guardant",
-    "pathgroup",
-    "healthtrackrx",
-    "tempus",
-    "genedx"
+    "pathgroup"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -104,7 +100,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -191,7 +187,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -280,7 +276,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -353,7 +349,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -411,7 +407,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -490,7 +486,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -579,7 +575,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -655,7 +651,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -733,7 +729,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -767,7 +763,7 @@
       "errors": [],
       "content_hash": "618d9f5124297c9100bb5596f9935419e20e6c14918b4e4f593cf2e68e195f34",
       "last_updated_at": "2026-09-01T06:53:46Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -789,7 +785,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -856,7 +852,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -916,7 +912,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -925,7 +921,6 @@
         "Anatomic, Clinical & Molecular Pathology",
         "As an industry leader, PathGroup provides comprehensive anatomic, clinical and molecular pathology services.",
         "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-        "Championing Men’s Health: Top 10 Diagnostic Strategies for Enhanced Wellness and Early Detection",
         "Combined with the doctor’s knowledge of a patient’s medical history, PathGroup’s team of specialists provides the most comprehensive diagnostic information from which to determine a course of treatment",
         "Digital Pathology for Health Systems: Enhancing hospital efficiency through virtual slide sharing and AI tools",
         "Fast, accurate, clinical pathology services.",
@@ -933,6 +928,7 @@
         "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
         "Hematology and Molecular Oncology",
         "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
+        "In the complex landscape of modern medicine, the laboratory serves as a cornerstone of diagnostic",
         "Morphologic review and interpretation of biopsy material continues to be the backbone of oncology diagnostics, and is the basis on which PathGroup deploys complement technologies to give the clearest, most accurate picture of a patient’s malignancy from original diagnosis to the presence of minimal residual disease.",
         "MyResults and MyResultsPAP give patients access to their test results quickly and conveniently, 24 hours a day.",
         "Our staff functions as a partner to physician practices, providing expert laboratory interpretation and consultation for the best in patient care.",
@@ -979,13 +975,11 @@
         }
       ],
       "errors": [],
-      "content_hash": "b5506fb2b8e08abe42cd2f2f83ff1de396a0ae523d61c4c9ac9cecbad99a07c3",
-      "last_updated_at": "2026-09-01T06:53:46Z",
+      "content_hash": "f098880e151a71bfaa073052c5b6662567be2e9a825e898a19a25deb1d1bc832",
+      "last_updated_at": "2026-09-02T02:46:56Z",
       "change_detected": true,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -1005,7 +999,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1060,11 +1054,9 @@
       "errors": [],
       "content_hash": "04cc3a4d728841639d24183f9694debbce7820049d85ca9d9ad12eab88ad69ea",
       "last_updated_at": "2026-09-01T06:53:46Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -1084,7 +1076,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1113,11 +1105,9 @@
       ],
       "content_hash": "5aaf5e2e4580137d8a8723a8593b3886bcf3e137aff13b1bb251244d47d00d1f",
       "last_updated_at": "2026-09-01T06:53:46Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
@@ -1137,7 +1127,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-09-01T06:53:46Z",
+      "last_checked_at": "2026-09-02T02:46:56Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1196,11 +1186,9 @@
       ],
       "content_hash": "fa19c0e29cc5c834b92fb11a76c485f688993a06ba5933b17ac2d9d21bda9b3e",
       "last_updated_at": "2026-09-01T06:53:46Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
-        "added": [
-          "Initial automated public-source baseline"
-        ],
+        "added": [],
         "removed": [],
         "modified": []
       },
