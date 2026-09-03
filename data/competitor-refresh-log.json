@@ -384,6 +384,17 @@
         "tempus",
         "genedx"
       ]
+    },
+    {
+      "checked_at": "2026-09-03T05:19:10Z",
+      "competitors_checked": 16,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference",
+        "tempus",
+        "genedx"
+      ]
     }
   ]
 }
