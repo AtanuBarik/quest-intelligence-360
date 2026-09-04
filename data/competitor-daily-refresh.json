@@ -1,15 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T05:19:10Z",
+  "generated_at": "2026-09-04T07:22:05Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "pathgroup"
+  ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -98,7 +100,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -185,7 +187,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -274,7 +276,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -347,7 +349,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -405,7 +407,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -484,7 +486,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -573,7 +575,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -649,7 +651,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -727,7 +729,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -783,7 +785,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -850,7 +852,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -910,72 +912,31 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
-      "official_signals": [
-        "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
-        "Anatomic, Clinical & Molecular Pathology",
-        "As an industry leader, PathGroup provides comprehensive anatomic, clinical and molecular pathology services.",
-        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-        "Combined with the doctor’s knowledge of a patient’s medical history, PathGroup’s team of specialists provides the most comprehensive diagnostic information from which to determine a course of treatment",
-        "Digital Pathology for Health Systems: Enhancing hospital efficiency through virtual slide sharing and AI tools",
-        "Fast, accurate, clinical pathology services.",
-        "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-        "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-        "Hematology and Molecular Oncology",
-        "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-        "In the complex landscape of modern medicine, the laboratory serves as a cornerstone of diagnostic",
-        "Morphologic review and interpretation of biopsy material continues to be the backbone of oncology diagnostics, and is the basis on which PathGroup deploys complement technologies to give the clearest, most accurate picture of a patient’s malignancy from original diagnosis to the presence of minimal residual disease.",
-        "MyResults and MyResultsPAP give patients access to their test results quickly and conveniently, 24 hours a day.",
-        "Our staff functions as a partner to physician practices, providing expert laboratory interpretation and consultation for the best in patient care.",
-        "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-        "PathGroup is a physician-led, patient-focused organization providing a wide range of anatomic, clinical, and molecular services to hospitals, multi-specialty groups, surgery centers and physician offices since our founding in 1965.",
-        "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
-        "PathGroup is one of the country’s largest providers of comprehensive women’s health laboratory services.",
-        "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
-      ],
+      "official_signals": [],
       "source_status": [
         {
           "label": "PathGroup news",
           "url": "https://www.pathgroup.com/category/news/",
           "kind": "news",
           "status": "ok",
-          "signals": [
-            "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-            "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-            "The rollout of twelve Sentinel units will strengthen PathGroup’s commitment to innovation, diagnostic precision, and operational excellence.",
-            "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-            "The collaboration marks a significant milestone in the evolution of AI-driven pathology, uniting Mindpeak’s proprietary image analysis technology with PathGroup’s extensive, pathologist-led diagnostic network.",
-            "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-            "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
-            "The partnership will bring Shield to more than 250 hospitals and health […]"
-          ]
+          "signals": []
         },
         {
           "label": "PathGroup company",
           "url": "https://www.pathgroup.com/",
           "kind": "company",
           "status": "ok",
-          "signals": [
-            "Pathology Services by PathGroup | Anatomic, Clinical & Molecular Oncology Services",
-            "Anatomic, Clinical & Molecular Pathology",
-            "With more than 240 subspecialty expert pathologists, PathGroup provides comprehensive anatomic, clinical and molecular pathology services, using the latest advancements in digital pathology and AI.",
-            "We provide the highest quality pathology & clinical lab services",
-            "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-            "Hematology and Molecular Oncology",
-            "With advanced digital pathology linking more than 240 subspecialty expert pathologists, PathGroup’s anatomic laboratory provides a full range of professional and technical services, operating 24 hours a day, 365 days per year.",
-            "PathGroup’s clinical pathology laboratory is committed to personalized, around-the-clock service, with same-day testing available.",
-            "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
-            "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
-          ]
+          "signals": []
         }
       ],
       "errors": [],
-      "content_hash": "f098880e151a71bfaa073052c5b6662567be2e9a825e898a19a25deb1d1bc832",
-      "last_updated_at": "2026-09-02T02:46:56Z",
-      "change_detected": false,
+      "content_hash": "75855d85e3060a7517d926891eda42a4cfa0584db561d203193ef462b805af28",
+      "last_updated_at": "2026-09-04T07:22:05Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -997,7 +958,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1074,7 +1035,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1125,7 +1086,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-09-03T05:19:10Z",
+      "last_checked_at": "2026-09-04T07:22:05Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
