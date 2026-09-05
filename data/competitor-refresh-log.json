@@ -408,6 +408,20 @@
         "tempus",
         "genedx"
       ]
+    },
+    {
+      "checked_at": "2026-09-05T07:04:19Z",
+      "competitors_checked": 16,
+      "competitors_changed": [
+        "guardant"
+      ],
+      "partial_or_failed": [
+        "arup",
+        "mayo",
+        "bioreference",
+        "tempus",
+        "genedx"
+      ]
     }
   ]
 }
