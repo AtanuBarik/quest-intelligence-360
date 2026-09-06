@@ -1,17 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T07:04:19Z",
+  "generated_at": "2026-09-06T07:15:29Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [
-    "guardant"
-  ],
+  "changed_competitors": [],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -100,7 +98,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -187,8 +185,8 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-09-05T07:04:19Z",
-      "refresh_status": "partial",
+      "last_checked_at": "2026-09-06T07:15:29Z",
+      "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
@@ -251,10 +249,7 @@
           ]
         }
       ],
-      "errors": [
-        "Unable to fetch https://www.aruplab.com/newsroom: <urlopen error timed out>",
-        "Unable to fetch https://www.aruplab.com/newsroom/media/corporate: <urlopen error timed out>"
-      ],
+      "errors": [],
       "content_hash": "9c808a9eed3604497af28390d01b74abbc20139bd56da0de66a7e11023c68f19",
       "last_updated_at": "2026-08-07T08:29:04Z",
       "change_detected": false,
@@ -279,7 +274,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -352,7 +347,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -410,7 +405,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -489,7 +484,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -578,7 +573,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -654,7 +649,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -732,7 +727,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -766,7 +761,7 @@
       "errors": [],
       "content_hash": "cf47e4ebbb6beeac5208c4a168638b6aec164c875cb6b2937f6b96965b800bb0",
       "last_updated_at": "2026-09-05T07:04:19Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -788,7 +783,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -855,7 +850,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -915,7 +910,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -961,7 +956,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1038,7 +1033,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1089,7 +1084,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-09-05T07:04:19Z",
+      "last_checked_at": "2026-09-06T07:15:29Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
