@@ -1,15 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T07:22:46Z",
+  "generated_at": "2026-09-09T07:31:22Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "labcorp",
+    "cleveland"
+  ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -98,7 +101,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -108,6 +111,7 @@
         "Children's Hospital of Philadelphia and Labcorp Announce a Collaboration to Accelerate Access to Advanced Pediatric Diagnostics Nationwide",
         "Diagnostic Reference & Specialty Labs",
         "Labcorp (NYSE: LH) is a global leader of innovative and comprehensive laboratory services that helps doctors, hospitals, pharmaceutical companies, researchers and patients make clear and confident decisions.",
+        "Labcorp Acquires MLM Medical Labs, Expanding Global Central Laboratory and Biomarker Capabilities for Clinical Trials",
         "Labcorp Announces 2026 First Quarter Results; Raises Full Year 2026 Guidance",
         "Labcorp Announces 2026 Second Quarter Results; Raises Full Year 2026 Guidance",
         "Labcorp Announces FDA Approval of Companion Diagnostic Supporting Patients with Advanced Melanoma",
@@ -123,8 +127,7 @@
         "Labcorp Launches Next Generation of Labcorp Global Trial Connect™ to Help Sponsors and Investigator Sites Navigate Clinical Trial Complexity",
         "Labcorp Publishes 2025 Corporate Responsibility Report, Highlighting Progress in Sustainability, Access to Care and Employee Well-Being",
         "Labcorp Supports Multi-Institution Trial to Expand Genetic Testing in Colorectal Cancer",
-        "Labcorp and Epic Expand Collaboration to Advance Diagnostic Integration across Hospitals and Health Systems",
-        "Labcorp and NACHC Launch Strategic Alliance to Strengthen Health Center Leadership and Advance Community Health"
+        "Labcorp and Epic Expand Collaboration to Advance Diagnostic Integration across Hospitals and Health Systems"
       ],
       "source_status": [
         {
@@ -134,6 +137,7 @@
           "status": "ok",
           "signals": [
             "Labcorp Biopharma Lab Services",
+            "Labcorp Acquires MLM Medical Labs, Expanding Global Central Laboratory and Biomarker Capabilities for Clinical Trials",
             "Labcorp Launches Next Generation of Labcorp Global Trial Connect™ to Help Sponsors and Investigator Sites Navigate Clinical Trial Complexity",
             "Labcorp to Offer First FDA-Cleared Blood Test to Detect Alzheimer's Disease Pathology in Both Primary and Specialty Care Settings",
             "Labcorp and NACHC Launch Strategic Alliance to Strengthen Health Center Leadership and Advance Community Health",
@@ -141,8 +145,7 @@
             "Labcorp Launches FDA-Approved PTEN Companion Diagnostic for Prostate Cancer",
             "Labcorp Announces 2026 Second Quarter Results; Raises Full Year 2026 Guidance",
             "Labcorp Launches Marker by Labcorp™ Genetic Health Panel, Expanding Consumer Access to Hereditary Genetic Risk Testing",
-            "Labcorp Announces Nationwide Availability of ColoSense®, the First FDA-Approved RNA-Based At-Home Colorectal Cancer Screening Test",
-            "Labcorp Supports Multi-Institution Trial to Expand Genetic Testing in Colorectal Cancer"
+            "Labcorp Announces Nationwide Availability of ColoSense®, the First FDA-Approved RNA-Based At-Home Colorectal Cancer Screening Test"
           ]
         },
         {
@@ -160,9 +163,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "23c0ee7f2115c6900037e986087a27b4190113796c25f2bbfb473581244ec27a",
-      "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": false,
+      "content_hash": "02d870cdef855905843b23ced598eea7d293c40a86c11bca12953d61b8ca3b09",
+      "last_updated_at": "2026-09-09T07:31:22Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -185,7 +188,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -274,7 +277,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -347,7 +350,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -405,7 +408,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -484,7 +487,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -508,7 +511,7 @@
         "Pathology & Laboratory Medicine Institute Menu",
         "Pathology & Laboratory Medicine Institute | Cleveland Clinic",
         "Providing health systems and hospitals with their specialized laboratory testing needs.",
-        "September 2024: Test Update – Vasoactive Intestinal Polypeptide (VIP), Plasma"
+        "Test Discontinuation: Creatine Kinase-Myocardial Band"
       ],
       "source_status": [
         {
@@ -523,10 +526,10 @@
             "Outpatient Laboratory Service Center Locations",
             "March 2025: Test Changes to Oxidized Low-Density-Lipoprotein & Lipoprotein-associated Phospholipase A2 Activity",
             "October 2024: Stool Testing Universal Laboratory (STUL) Kit for Microbiology",
-            "September 2024: Test Update – Vasoactive Intestinal Polypeptide (VIP), Plasma",
             "Test Discontinuation: Creatine Kinase-Myocardial Band",
             "New Test: Alzheimer’s Disease Biomarker Panel, Cerebrospinal Fluid",
-            "Find a Location | Pay Your Lab Bill"
+            "Find a Location | Pay Your Lab Bill",
+            "L15 - Pathology & Laboratory Medicine"
           ]
         },
         {
@@ -549,9 +552,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "56350060022507138062b6928fd6d4d5d4466f0766edb2187f07340c41b09af1",
-      "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": false,
+      "content_hash": "ffeeb0a84a7bc75c5647f3b5d7cea66414d33b391b63ec974463de18dbd4e55b",
+      "last_updated_at": "2026-09-09T07:31:22Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -573,7 +576,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -649,7 +652,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -727,7 +730,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -783,7 +786,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -850,7 +853,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -910,7 +913,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -997,7 +1000,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1074,7 +1077,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1125,7 +1128,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-09-08T07:22:46Z",
+      "last_checked_at": "2026-09-09T07:31:22Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
