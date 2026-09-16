@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260916ux5';
+  const RELEASE = '20260916ux6';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -29,7 +29,7 @@
       'integrations/insights-modern-redesign.js'
     ],
     library: ['integrations/knowledge-repository-lite.js'],
-    pmr: ['integrations/pmr-repository-dashboard-final.js'],
+    pmr: ['integrations/pmr-repository-dashboard-final.js','integrations/pmr-portfolio-visual-analytics.js'],
     experts: ['integrations/voice-experts-dashboard-final.js'],
     survey: ['integrations/survey-analytics-dashboard-final.js'],
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js'],
@@ -53,6 +53,7 @@
     'integrations/public-demo-evidence.js',
     'integrations/executive-typography-benchmark-cleanup.js',
     'integrations/pmr-repository-dashboard-final.js',
+    'integrations/pmr-portfolio-visual-analytics.js',
     'integrations/voice-experts-dashboard-final.js',
     'integrations/survey-analytics-dashboard-final.js'
   ];
