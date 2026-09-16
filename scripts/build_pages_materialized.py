@@ -6,7 +6,7 @@ import re
 import shutil
 from pathlib import Path
 
-RELEASE = "20260902nav1"
+RELEASE = "20260916ux2"
 ROOT = Path(".")
 SITE = ROOT / "_site"
 
@@ -118,6 +118,7 @@ def build() -> None:
             f'<script src="integrations/platform-runtime-stability.js?v={RELEASE}"></script>',
             f'<script src="integrations/optimized-loader.js?v={RELEASE}"></script>',
             f'<script src="integrations/quest-enterprise-insights-override.js?v={RELEASE}"></script>',
+            f'<script src="integrations/insights-modern-redesign.js?v={RELEASE}"></script>',
             f'<script src="integrations/competitive-intelligence-live-refresh/loader.js?v={RELEASE}"></script>',
             f'<script src="integrations/alerts-chatgpt-summaries.js?v={RELEASE}"></script>',
         ]
@@ -137,6 +138,7 @@ def build() -> None:
         "platform-runtime-stability.js",
         "optimized-loader.js",
         "quest-enterprise-insights-override.js",
+        "insights-modern-redesign.js",
         "competitive-intelligence-live-refresh/loader.js",
         "alerts-chatgpt-summaries.js",
     ]
