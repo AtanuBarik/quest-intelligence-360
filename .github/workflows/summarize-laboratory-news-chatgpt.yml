@@ -7,8 +7,8 @@ on:
       - Sync laboratory news data
     types: [completed]
   schedule:
-    # Safety run after the six-hour source mirror in case workflow_run is delayed.
-    - cron: '45 0,6,12,18 * * *'
+    # Hourly safety pass; the workflow_run trigger still starts immediately after every successful source sync.
+    - cron: '20 * * * *'
       timezone: 'Asia/Kolkata'
   push:
     branches: [main]
@@ -21,7 +21,7 @@ permissions:
 
 concurrency:
   group: summarize-laboratory-news-chatgpt
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   summarize:
@@ -31,7 +31,7 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_SUMMARY_MODEL: gpt-5-chat-latest
-      OPENAI_SUMMARY_MAX_ITEMS: '120'
+      OPENAI_SUMMARY_MAX_ITEMS: '75'
     steps:
       - name: Check out latest main
         uses: actions/checkout@v6
@@ -54,25 +54,50 @@ jobs:
           print(f'Laboratory news items: {len(items)}')
           PY
 
-      - name: Generate missing content-aware ChatGPT summaries
+      - name: Create immediate brief for every new article
         shell: bash
+        env:
+          OPENAI_SUMMARY_MODE: fallback
         run: |
           set -euo pipefail
           python scripts/summarize_laboratory_news_openai.py
 
-      - name: Commit ChatGPT summary cache
+      - name: Publish immediate summary coverage
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'quest-alert-summaries[bot]'
+          git config user.email 'quest-alert-summaries[bot]@users.noreply.github.com'
+          git add data/laboratory-openai-summaries.json
+          if git diff --cached --quiet; then
+            echo 'Immediate article briefs are already current.'
+          else
+            git commit -m 'Add immediate summaries for new laboratory news'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Enrich immediate briefs with content-aware ChatGPT summaries
+        shell: bash
+        env:
+          OPENAI_SUMMARY_MODE: enrich
+        run: |
+          set -euo pipefail
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo 'OPENAI_API_KEY is not configured; immediate feed-grounded briefs remain active for every article.'
+            exit 0
+          fi
+          python scripts/summarize_laboratory_news_openai.py
+
+      - name: Publish content-aware ChatGPT enrichment
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'quest-chatgpt-summaries[bot]'
           git config user.email 'quest-chatgpt-summaries[bot]@users.noreply.github.com'
-          if [ ! -f data/laboratory-openai-summaries.json ]; then
-            echo 'No summary cache was produced.'
-            exit 0
-          fi
           git add data/laboratory-openai-summaries.json
           if git diff --cached --quiet; then
-            echo 'ChatGPT summaries are already current.'
+            echo 'Content-aware ChatGPT summaries are already current.'
             exit 0
           fi
           git commit -m 'Refresh content-aware ChatGPT laboratory summaries'
