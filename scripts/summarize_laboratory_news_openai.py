@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate cached article summaries with the OpenAI Responses API.
+"""Maintain complete article-summary coverage for the Quest Alerts & Signals feed.
 
-The script reads the synchronized laboratory news feed, retrieves the underlying
-article text directly when possible, and asks the ChatGPT API model to summarize
-the exact event. Web search is available to the model as a verification/fallback
-when the publisher page cannot be read directly.
+Every synchronized article receives an immediate feed-grounded brief so there is
+never an unsummarized card. When an OpenAI API key is available, those immediate
+briefs are progressively replaced with content-aware ChatGPT summaries grounded
+in the exact publisher article and web verification.
 """
 
 from __future__ import annotations
@@ -24,10 +24,13 @@ from pathlib import Path
 
 NEWS_PATH = Path("data/laboratory-news.json")
 OUT_PATH = Path("data/laboratory-openai-summaries.json")
+SCHEDULED_PATH = Path("data/laboratory-chatgpt-summaries.json")
 API_URL = "https://api.openai.com/v1/responses"
 MODEL = os.getenv("OPENAI_SUMMARY_MODEL", "gpt-5-chat-latest")
+MODE = os.getenv("OPENAI_SUMMARY_MODE", "both").strip().lower()
 MAX_ARTICLE_CHARS = 28000
-MAX_ITEMS = int(os.getenv("OPENAI_SUMMARY_MAX_ITEMS", "120"))
+MAX_ITEMS = int(os.getenv("OPENAI_SUMMARY_MAX_ITEMS", "90"))
+FALLBACK_VERIFICATION = "feed_metadata_fallback"
 
 
 class TextExtractor(HTMLParser):
@@ -71,20 +74,72 @@ def normalize_title(value: str | None) -> str:
     return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
 
 
-def cached_record_for_item(summaries: dict, item: dict):
+def is_fallback_record(record: dict | None) -> bool:
+    if not isinstance(record, dict):
+        return False
+    return record.get("verification") == FALLBACK_VERIFICATION or record.get("summary_tier") == "instant_feed_brief"
+
+
+def cached_record_for_item(summaries: dict, item: dict, allow_fallback: bool = True):
     item_id = str(item.get("id") or "").strip()
     direct = summaries.get(item_id) if item_id else None
     if isinstance(direct, dict) and str(direct.get("summary") or "").strip():
-        return direct
+        if allow_fallback or not is_fallback_record(direct):
+            return direct
     wanted = normalize_title(item.get("title"))
     if not wanted:
         return None
     for record in summaries.values():
         if not isinstance(record, dict) or not str(record.get("summary") or "").strip():
             continue
+        if not allow_fallback and is_fallback_record(record):
+            continue
         if normalize_title(record.get("title")) == wanted:
             return record
     return None
+
+
+def clean_feed_description(item: dict) -> str:
+    raw = html.unescape(re.sub(r"<[^>]+>", " ", str(item.get("description") or "")))
+    value = re.sub(r"\s+", " ", raw).strip(" -–—|:;")
+    title = normalize_title(item.get("title"))
+    candidate = normalize_title(value)
+    if not value or candidate == title:
+        return ""
+    source = normalize_title(item.get("source"))
+    if source and candidate.endswith(source) and len(value.split()) < 22:
+        return ""
+    return value[:650]
+
+
+def relevance_sentence(category: str, company: str) -> str:
+    category_key = str(category or "Other").lower()
+    actor = str(company or "the monitored company")
+    if any(token in category_key for token in ("product", "innovation", "service")):
+        return f"For Quest monitoring, this is a product or service signal from {actor} that may affect portfolio positioning, customer choice or competitive differentiation."
+    if any(token in category_key for token in ("clinical", "research", "r&d")):
+        return f"For Quest monitoring, this is a clinical or R&D signal from {actor} that may indicate changes in evidence, testing capability or specialty-diagnostics positioning."
+    if any(token in category_key for token in ("partnership", "m&a", "investment", "channel")):
+        return f"For Quest monitoring, this is an ecosystem or transaction signal from {actor} that may change access, scale, channel reach or capability ownership."
+    if "financial" in category_key:
+        return f"For Quest monitoring, this is a financial signal from {actor} that may inform operating momentum, investment capacity or management priorities."
+    if any(token in category_key for token in ("organiz", "leadership", "workforce")):
+        return f"For Quest monitoring, this is an organizational signal from {actor} that may indicate leadership, workforce or execution priorities."
+    return f"For Quest monitoring, this is a market signal involving {actor}; the verified article detail should be used before drawing a broader strategic conclusion."
+
+
+def fallback_summary(item: dict) -> str:
+    title = re.sub(r"\s+", " ", str(item.get("title") or "Untitled article")).strip()
+    company = str(item.get("company") or "Monitored company").strip()
+    source = str(item.get("source") or item.get("source_domain") or "the synchronized public-news feed").strip()
+    published = str(item.get("published_display") or item.get("published_at") or "the latest feed refresh").strip()
+    category = str(item.get("category") or "Other").strip()
+    description = clean_feed_description(item)
+    sentences = [f"{title}. The item was captured for {company} from {source} and is dated {published}."]
+    if description:
+        sentences.append(description.rstrip(". ") + ".")
+    sentences.append(relevance_sentence(category, company))
+    return " ".join(sentences)
 
 
 def article_urls(item: dict) -> list[str]:
@@ -217,8 +272,59 @@ def call_openai(api_key: str, prompt: str) -> str:
     return ""
 
 
-def current_summary_count(items: list[dict], summaries: dict) -> int:
-    return sum(1 for item in items if item.get("id") and cached_record_for_item(summaries, item))
+def merge_scheduled_cache(summaries: dict) -> dict:
+    scheduled = load_json(SCHEDULED_PATH, {})
+    scheduled_summaries = scheduled.get("summaries") if isinstance(scheduled.get("summaries"), dict) else {}
+    merged = dict(summaries)
+    for key, record in scheduled_summaries.items():
+        if not isinstance(record, dict) or not str(record.get("summary") or "").strip():
+            continue
+        existing = merged.get(key)
+        if not existing or is_fallback_record(existing):
+            merged[key] = record
+    return merged
+
+
+def counts(items: list[dict], summaries: dict) -> tuple[int, int, int]:
+    total = 0
+    verified = 0
+    fallback = 0
+    for item in items:
+        if not item.get("id"):
+            continue
+        record = cached_record_for_item(summaries, item, allow_fallback=True)
+        if not record:
+            continue
+        total += 1
+        if is_fallback_record(record):
+            fallback += 1
+        else:
+            verified += 1
+    return total, verified, fallback
+
+
+def write_payload(news: dict, items: list[dict], summaries: dict, generated: int, unavailable: int, fallback_added: int) -> None:
+    total, verified, fallback = counts(items, summaries)
+    now = datetime.now(timezone.utc).isoformat()
+    payload = {
+        "provider": "Quest article-summary pipeline",
+        "model": MODEL,
+        "updated_at": now,
+        "news_generated_at": news.get("generated_at"),
+        "news_item_count": len(items),
+        "summary_count": total,
+        "verified_summary_count": verified,
+        "instant_feed_brief_count": fallback,
+        "remaining_unsummarized": max(0, len([i for i in items if i.get("id")]) - total),
+        "generated_this_run": generated,
+        "instant_briefs_added_this_run": fallback_added,
+        "unavailable_this_run": unavailable,
+        "summary_policy": "Every new article receives an immediate feed-grounded brief; content-aware ChatGPT enrichment replaces the brief when verified article content is available.",
+        "summaries": summaries,
+    }
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(json.dumps({k: payload[k] for k in ["news_item_count", "summary_count", "verified_summary_count", "instant_feed_brief_count", "remaining_unsummarized", "generated_this_run", "instant_briefs_added_this_run"]}, indent=2))
 
 
 def main() -> int:
@@ -230,24 +336,40 @@ def main() -> int:
 
     existing = load_json(OUT_PATH, {})
     summaries = existing.get("summaries") if isinstance(existing.get("summaries"), dict) else {}
-    summaries = dict(summaries)
-    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    summaries = merge_scheduled_cache(dict(summaries))
 
+    fallback_added = 0
+    for item in items:
+        item_id = str(item.get("id") or "").strip()
+        if not item_id:
+            continue
+        cached = cached_record_for_item(summaries, item, allow_fallback=True)
+        if cached:
+            if item_id not in summaries:
+                summaries[item_id] = dict(cached, title=item.get("title"), company=item.get("company"))
+            continue
+        summaries[item_id] = {
+            "summary": fallback_summary(item),
+            "provider": "Automated feed-grounded brief",
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "title": item.get("title"),
+            "company": item.get("company"),
+            "category": item.get("category"),
+            "source_url": item.get("url"),
+            "verification": FALLBACK_VERIFICATION,
+            "summary_tier": "instant_feed_brief",
+            "content_verified": False,
+        }
+        fallback_added += 1
+
+    if MODE == "fallback":
+        write_payload(news, items, summaries, generated=0, unavailable=0, fallback_added=fallback_added)
+        return 0
+
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
     if not api_key:
-        matched = current_summary_count(items, summaries)
-        print(f"OPENAI_API_KEY is not configured; retaining {matched} cached current-feed summaries without generating new ones.")
-        if not OUT_PATH.exists():
-            OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-            OUT_PATH.write_text(json.dumps({
-                "provider": "ChatGPT via OpenAI Responses API",
-                "model": MODEL,
-                "updated_at": None,
-                "news_item_count": len(items),
-                "summary_count": matched,
-                "remaining_unsummarized": max(0, len(items) - matched),
-                "summaries": summaries,
-                "status": "openai_api_key_not_configured",
-            }, indent=2) + "\n", encoding="utf-8")
+        print("OPENAI_API_KEY is not configured; immediate briefs remain available for all items and will be enriched when API access is configured.")
+        write_payload(news, items, summaries, generated=0, unavailable=0, fallback_added=fallback_added)
         return 0
 
     generated = 0
@@ -256,12 +378,10 @@ def main() -> int:
         item_id = str(item.get("id") or "").strip()
         if not item_id:
             continue
-        cached = cached_record_for_item(summaries, item)
-        if cached:
-            # Alias a title-keyed curated record to the current item ID so future runs
-            # remain efficient even when the upstream collector regenerates/merges IDs.
-            if item_id not in summaries:
-                summaries[item_id] = dict(cached, title=item.get("title"), company=item.get("company"))
+        verified = cached_record_for_item(summaries, item, allow_fallback=False)
+        if verified:
+            if item_id not in summaries or is_fallback_record(summaries.get(item_id)):
+                summaries[item_id] = dict(verified, title=item.get("title"), company=item.get("company"))
             continue
         if generated >= MAX_ITEMS:
             break
@@ -269,7 +389,7 @@ def main() -> int:
         try:
             summary = call_openai(api_key, build_prompt(item, article_text, resolved_url))
         except Exception as exc:
-            print(f"Summary failed for {item_id}: {exc}", file=sys.stderr)
+            print(f"Summary enrichment failed for {item_id}: {exc}", file=sys.stderr)
             unavailable += 1
             continue
         if not summary:
@@ -285,28 +405,15 @@ def main() -> int:
             "company": item.get("company"),
             "category": item.get("category"),
             "source_url": resolved_url or item.get("url"),
+            "verification": "content_verified",
+            "summary_tier": "content_aware",
             "content_verified": True,
         }
         generated += 1
-        print(f"Generated ChatGPT summary {generated}: {item.get('title')}")
+        print(f"Generated content-aware ChatGPT summary {generated}: {item.get('title')}")
         time.sleep(0.2)
 
-    matched = current_summary_count(items, summaries)
-    payload = {
-        "provider": "ChatGPT via OpenAI Responses API",
-        "model": MODEL,
-        "updated_at": datetime.now(timezone.utc).isoformat(),
-        "news_generated_at": news.get("generated_at"),
-        "news_item_count": len(items),
-        "summary_count": matched,
-        "remaining_unsummarized": max(0, len([i for i in items if i.get("id")]) - matched),
-        "generated_this_run": generated,
-        "unavailable_this_run": unavailable,
-        "summaries": summaries,
-    }
-    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(json.dumps({k: payload[k] for k in ["news_item_count", "summary_count", "remaining_unsummarized", "generated_this_run", "unavailable_this_run"]}, indent=2))
+    write_payload(news, items, summaries, generated=generated, unavailable=unavailable, fallback_added=fallback_added)
     return 0
 
 
