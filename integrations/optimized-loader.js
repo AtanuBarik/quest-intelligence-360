@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260916ux3';
+  const RELEASE = '20260916ux5';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -25,7 +25,8 @@
     insights: [
       'integrations/enterprise-insights-engine/loader.js',
       'integrations/insights-engine-layout-v3.js',
-      'integrations/insights-engine-evidence-placement-final.js'
+      'integrations/insights-engine-evidence-placement-final.js',
+      'integrations/insights-modern-redesign.js'
     ],
     library: ['integrations/knowledge-repository-lite.js'],
     pmr: ['integrations/pmr-repository-dashboard-final.js'],
