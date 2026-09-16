@@ -63,17 +63,39 @@ jobs:
           grep -q 'no-cost-live-operations.js' integrations/optimized-loader.js
           grep -q "questDesignBaseline = '20260830'" integrations/optimized-loader.js
 
-          # Alerts must use the established Aug-30 renderer, with current summaries supplied as data.
+          # Alerts retain the established presentation layer while using the live feed and complete summary cache.
           grep -q 'alerts-chatgpt-summaries.js' integrations/optimized-loader.js
           grep -q 'laboratory-news-monitor.js' integrations/optimized-loader.js
           grep -q 'alerts-resilience-fix.js' integrations/optimized-loader.js
           grep -q 'alerts-signals-final.js' integrations/optimized-loader.js
-          grep -q "legacy-design-current-data" integrations/alerts-chatgpt-summaries.js
-          test -s data/alerts-chatgpt-summaries.gz.b64
+          grep -q 'live-news-complete-summary-coverage' integrations/alerts-chatgpt-summaries.js
+          grep -q 'data/laboratory-news.json' integrations/alerts-chatgpt-summaries.js
+          grep -q 'data/laboratory-openai-summaries.json' integrations/alerts-chatgpt-summaries.js
+          test -s data/laboratory-news.json
+          test -s data/laboratory-openai-summaries.json
           if grep -q 'view\.innerHTML' integrations/alerts-chatgpt-summaries.js; then
             echo 'Alerts data adapter must not replace the established Alerts view.' >&2
             exit 1
           fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          news=json.loads(Path('data/laboratory-news.json').read_text(encoding='utf-8'))
+          cache=json.loads(Path('data/laboratory-openai-summaries.json').read_text(encoding='utf-8'))
+          items=[item for item in news.get('items',[]) if item.get('id')]
+          summaries=cache.get('summaries') or {}
+          by_title={str(v.get('title','')).strip().lower():v for v in summaries.values() if isinstance(v,dict) and v.get('summary')}
+          missing=[]
+          for item in items:
+              record=summaries.get(str(item['id']))
+              if not (isinstance(record,dict) and record.get('summary')):
+                  record=by_title.get(str(item.get('title','')).strip().lower())
+              if not (isinstance(record,dict) and record.get('summary')):
+                  missing.append(item['id'])
+          if missing:
+              raise SystemExit(f'Alerts articles without summaries: {len(missing)}')
+          print(f'Validated summary coverage for {len(items)} live Alerts articles.')
+          PY
 
           # Competitor and strategic modules retain their established presentation layer.
           grep -q 'competitor-intelligence-profiles/loader.js' integrations/optimized-loader.js
