@@ -56,6 +56,7 @@ jobs:
           node --check integrations/pmr-repository-dashboard-final.js
           node --check integrations/voice-experts-dashboard-final.js
           node --check integrations/quest-enterprise-insights-override.js
+          node --check integrations/insights-modern-redesign.js
           node --check integrations/competitive-intelligence-live-refresh/loader.js
           node --check integrations/alerts-chatgpt-summaries.js
           node --check integrations/insights-engine-evidence-placement-final.js
@@ -93,6 +94,7 @@ jobs:
           test -f _site/integrations/platform-runtime-stability.js
           test -f _site/integrations/optimized-loader.js
           test -f _site/integrations/quest-enterprise-insights-override.js
+          test -f _site/integrations/insights-modern-redesign.js
           test -f _site/integrations/competitive-intelligence-live-refresh/loader.js
           test -f _site/integrations/alerts-chatgpt-summaries.js
           test -f _site/integrations/insights-engine-evidence-placement-final.js
@@ -106,6 +108,7 @@ jobs:
           grep -q "frontend-quality-guard.js?v=$RELEASE" _site/index.html
           grep -q "platform-runtime-stability.js?v=$RELEASE" _site/index.html
           grep -q "quest-enterprise-insights-override.js?v=$RELEASE" _site/index.html
+          grep -q "insights-modern-redesign.js?v=$RELEASE" _site/index.html
           grep -q "alerts-chatgpt-summaries.js?v=$RELEASE" _site/index.html
           python - <<'PY'
           from pathlib import Path
