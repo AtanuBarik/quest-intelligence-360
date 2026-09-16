@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20260902nav1';
+  const RELEASE = '20260916ux3';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -114,22 +114,35 @@
     return promise;
   }
 
+  async function loadPaths(paths, context) {
+    const failures = [];
+    for (const path of paths || []) {
+      try {
+        await loadScript(path);
+      } catch (error) {
+        failures.push({ path, error });
+        console.error(`Quest ${context} module failed (${path}):`, error);
+      }
+    }
+    return failures;
+  }
+
   async function loadGroup(name) {
-    if (!GROUPS[name]?.length) return;
+    if (!GROUPS[name]?.length) return [];
     if (groupLoads.has(name)) return groupLoads.get(name);
 
     const promise = (async () => {
       progress(true);
+      let failures = [];
       try {
-        for (const path of GROUPS[name]) await loadScript(path);
-      } catch (error) {
-        console.error(`Quest ${name} module load failed:`, error);
+        failures = await loadPaths(GROUPS[name], `${name} group`);
       } finally {
         removeRetiredNavigation();
         progress(false, true);
-        window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: name, reason: 'module-loaded' } }));
+        window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: name, reason: 'module-loaded', failures: failures.map(item => item.path) } }));
         setTimeout(() => window.dispatchEvent(new Event('resize')), 60);
       }
+      return failures;
     })();
 
     groupLoads.set(name, promise);
@@ -138,14 +151,15 @@
 
   async function bootCore() {
     progress(true);
+    let failures = [];
     try {
       removeRetiredNavigation();
-      for (const path of CORE) await loadScript(path);
-    } catch (error) {
-      console.error('Quest core load failed:', error);
+      failures = await loadPaths(CORE, 'core');
     } finally {
       progress(false, true);
+      window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: 'core', reason: 'core-loaded', failures: failures.map(item => item.path) } }));
     }
+    return failures;
   }
 
   function bindRequests() {
@@ -167,6 +181,7 @@
   window.QuestModuleLoader = {
     loadScript,
     loadGroup,
+    loadPaths,
     groups: Object.keys(GROUPS),
     release: RELEASE
   };
