@@ -1,15 +1,15 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-09-16T17:17:33.628418+00:00",
-  "news_generated_at": "2026-09-16T17:37:50.809679+05:30",
-  "news_item_count": 277,
-  "summary_count": 277,
+  "updated_at": "2026-09-16T17:26:04.042175+00:00",
+  "news_generated_at": "2026-09-16T22:47:33.519240+05:30",
+  "news_item_count": 280,
+  "summary_count": 280,
   "verified_summary_count": 151,
-  "instant_feed_brief_count": 126,
+  "instant_feed_brief_count": 129,
   "remaining_unsummarized": 0,
   "generated_this_run": 0,
-  "instant_briefs_added_this_run": 0,
+  "instant_briefs_added_this_run": 3,
   "unavailable_this_run": 0,
   "summary_policy": "Every new article receives an immediate feed-grounded brief; content-aware ChatGPT enrichment replaces the brief when verified article content is available.",
   "summaries": {
@@ -4652,6 +4652,42 @@
       "model": "GPT-5.6 Sol",
       "updated_at": "2026-08-10T06:20:00+00:00",
       "verification": "verified_public_context"
+    },
+    "01f9378ca9a6b18d7730": {
+      "summary": "Quest Diagnostics, Apple team up on lab testing via Health app. The item was captured for Quest Diagnostics from NJBIZ and is dated 16 Sep 2026. For Quest monitoring, this is a market signal involving Quest Diagnostics; the verified article detail should be used before drawing a broader strategic conclusion.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-16T17:26:04.039216+00:00",
+      "title": "Quest Diagnostics, Apple team up on lab testing via Health app",
+      "company": "Quest Diagnostics",
+      "category": "Other",
+      "source_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9qY0pFdGxRQTZEUGFuNUNGZTlHR0JfeFVvVGVZdU5xUWstempIbFR4XzZQMUJkTm94cmNfX2I4UU5qN3l1eTBZWFlKcGMwZkhJQ1BiQzVWd0h1eWpDZ0RGeFFqR2gtOWxoVlpyVW5R?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "2bf56e2b19db0f4b0c20": {
+      "summary": "Quest Diagnostics Hits Fresh High: Is There Still Room to Run?. The item was captured for Quest Diagnostics from Yahoo Finance and is dated 16 Sep 2026. For Quest monitoring, this is a market signal involving Quest Diagnostics; the verified article detail should be used before drawing a broader strategic conclusion.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-16T17:26:04.040572+00:00",
+      "title": "Quest Diagnostics Hits Fresh High: Is There Still Room to Run?",
+      "company": "Quest Diagnostics",
+      "category": "Other",
+      "source_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPb2ljVGFPdFZQdUlFVm13N3Z3Y0lBV0d4bXllQVhyc1VOcWctNVFSM3FFM0w4Y2NhR05vWVkzY2ZtbzBaeXRraHM1N2hUYWs0Wjc2ZTV3M1JuLUNuRzV3a0pjRmJZUUsyQUZjM1BfYmlqN2xvNVRZbnh4M25xd0dqeWZ1eWRkelhnb3ZNS1hBbERoNHRlbE5oN09oQUh0LWZpQllWblViSQ?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "9c4833464b625e04a508": {
+      "summary": "Nine in 10 Voters Express Concern That Medicare Lab Payment Cuts Will Harm Patient Access to Diagnostic Lab Testing, Finds National Survey from Quest Diagnostics. The item was captured for Quest Diagnostics from Morningstar and is dated 16 Sep 2026. Nine in 10 Voters Express Concern That Medicare Lab Payment Cuts Will Harm Patient Access to Diagnostic Lab Testing, Finds National Survey from Quest Diagnostics Morningstar. For Quest monitoring, this is a market signal involving Quest Diagnostics; the verified article detail should be used before drawing a broader strategic conclusion.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-16T17:26:04.041888+00:00",
+      "title": "Nine in 10 Voters Express Concern That Medicare Lab Payment Cuts Will Harm Patient Access to Diagnostic Lab Testing, Finds National Survey from Quest Diagnostics",
+      "company": "Quest Diagnostics",
+      "category": "Other",
+      "source_url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxQeDhnOE03b3h5eFNJSmNlQjNSNmZnQl9tTkRTVmNCRWt4TzVPckFFTEFRaWdUWjduU1oxbjh4TFVKa0lWaHFUd2lmTmZBXzJwUW5XcnZmSFRwS0dJNmpyTjBSMGxkU1lZaFdOLWVoZlpkcGJtVkpJSHF4NGhoVFNud1lSUmZNTFVjSWZsTGNfTVF1YzZpaEZuV2NqY2xSMWlDbXlXUktrNlRDMU90UHFFZnFHUFR2dVAtcXZrRkxPR0xiMzVrd1hEUnZ0a2lnTzhlMmxLdDd6TllSanN6aE9DN2l4OGs0Q3dLcUlwc3Z3U3p3UWtBSGEwa3k5SEl4aXljQTZSeDNjajlIT2p4OWduMXpNT3R3YVFjMk1TeUZrSkNNMlJZZWl3Nm1MXzRDRHRVWllqenozTGMzNDlyWTlIR2tBOA?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
     }
   }
 }
