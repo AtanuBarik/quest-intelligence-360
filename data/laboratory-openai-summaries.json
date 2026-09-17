@@ -1,15 +1,15 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-09-17T01:43:43.961240+00:00",
-  "news_generated_at": "2026-09-17T03:14:06.458396+05:30",
+  "updated_at": "2026-09-17T05:40:23.340606+00:00",
+  "news_generated_at": "2026-09-17T10:58:14.113644+05:30",
   "news_item_count": 282,
   "summary_count": 282,
   "verified_summary_count": 151,
   "instant_feed_brief_count": 131,
   "remaining_unsummarized": 0,
   "generated_this_run": 0,
-  "instant_briefs_added_this_run": 0,
+  "instant_briefs_added_this_run": 1,
   "unavailable_this_run": 0,
   "summary_policy": "Every new article receives an immediate feed-grounded brief; content-aware ChatGPT enrichment replaces the brief when verified article content is available.",
   "summaries": {
@@ -4697,6 +4697,18 @@
       "company": "Labcorp",
       "category": "Other",
       "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY2NOaXNJaVlYNThmSElCUEk0Q3N2SDEyVFhPQUFKSVBHd3Z3aUxhc0kxaWRuUko5TnRjVVhIb21ZS19nTV9SV1RQMy03M0ROUGhKaG0tdGpqekpLQ2F0cF9ueEZST3FtS3hPQzNEN0JmMG1pZVh5dXY3XzZiaFRaRHFxZGp2ZVU?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "06ca4720388ccab588e3": {
+      "summary": "Great Point Partners III Sells MLM Medical Labs to Labcorp. The item was captured for Labcorp from BioSpace and is dated 09 Sep 2026. Great Point Partners III Sells Clinical Trial Lab MLM Medical Labs to Labcorp Private Equity Professional. For Quest monitoring, this is a clinical or R&D signal from Labcorp that may indicate changes in evidence, testing capability or specialty-diagnostics positioning.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-17T05:40:23.340410+00:00",
+      "title": "Great Point Partners III Sells MLM Medical Labs to Labcorp",
+      "company": "Labcorp",
+      "category": "Clinical, R&D",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQTHc4R1dIUkNqZWFfY3VPZzM5NFdBMF95cmlaX09FQmJtWFlkeDBwMU9DRnhjcFQzZlB0eEZpeW9PQjA4TmFMT1lXQlZmQlZJa0JUNkRNdzY1UjB6Y2R2dDBuS2RMZHVoQlYzNlcwSWRaODhaRDcwbTRsNnlldTZ0ZWxjckJJdEF2UnlRd0ZVbUltLXdLNkpWRVlXd25YMWc?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
