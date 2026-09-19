@@ -1,27 +1,6 @@
 {
   "runs": [
     {
-      "checked_at": "2026-08-08T06:30:30Z",
-      "competitors_checked": 14,
-      "competitors_changed": [
-        "labcorp",
-        "sonic",
-        "eurofins",
-        "neogenomics",
-        "natera",
-        "exact",
-        "guardant",
-        "tempus",
-        "bioreference",
-        "fulgent",
-        "myriad"
-      ],
-      "partial_or_failed": [
-        "mayo",
-        "bioreference"
-      ]
-    },
-    {
       "checked_at": "2026-08-08T08:34:30Z",
       "competitors_checked": 14,
       "competitors_changed": [
@@ -528,6 +507,17 @@
     },
     {
       "checked_at": "2026-09-18T07:33:49Z",
+      "competitors_checked": 16,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference",
+        "tempus",
+        "genedx"
+      ]
+    },
+    {
+      "checked_at": "2026-09-19T07:29:20Z",
       "competitors_checked": 16,
       "competitors_changed": [],
       "partial_or_failed": [

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T07:33:49Z",
+  "generated_at": "2026-09-19T07:29:20Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
@@ -9,7 +9,7 @@
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -98,7 +98,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -185,7 +185,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -274,7 +274,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -347,7 +347,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -405,7 +405,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -484,7 +484,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -573,7 +573,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -649,7 +649,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -727,7 +727,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -783,7 +783,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -850,7 +850,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -910,7 +910,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -997,7 +997,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1074,7 +1074,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1125,7 +1125,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-09-18T07:33:49Z",
+      "last_checked_at": "2026-09-19T07:29:20Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
