@@ -1,8 +1,8 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-09-19T13:26:31.375454+00:00",
-  "news_generated_at": "2026-09-19T17:05:19.567484+05:30",
+  "updated_at": "2026-09-19T16:11:41.047078+00:00",
+  "news_generated_at": "2026-09-19T21:35:23.918628+05:30",
   "news_item_count": 289,
   "summary_count": 289,
   "verified_summary_count": 151,
@@ -4841,6 +4841,18 @@
       "company": "Quest Diagnostics",
       "category": "Financials",
       "source_url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOWTMzVGJ2cDRGUW5LTFRWaF93NmxRS1JXWHBjTlhBMHFfa0ZkRHVfR181SDBRa0FaUHRlb1FILTlVZTdueW5KcXdnTUxrMHJJM0lpQTRVeVpIZmRIdExKbVpudWFTQUVJMXpPRXBrOV9kWmtRcnI3UXFUNjMtd1hheFFWaUpwRm13WWhfMGcwd3FXUEhHUVdJSFZyTkhCNW9fX09XNUhaUVZacXBhQy1lUzhhRXdCY3RRel9RWjc1aHl1VWtvMUxaUHJRSHZwZ0hZWG83Tko4WW1MYldDRjJ0NG02WDg4T1lkcnRz?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "35c5fbdd90c6bf3259f2": {
+      "summary": "Labcorp Reiterates 2026 Outlook, Issues Long-Term Guidance. The item was captured for Labcorp from marketscreener.com and is dated 10 Sep 2026. For Quest monitoring, this is a financial signal from Labcorp that may inform operating momentum, investment capacity or management priorities.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-16T12:25:59.457136+00:00",
+      "title": "Labcorp Reiterates 2026 Outlook, Issues Long-Term Guidance",
+      "company": "Labcorp",
+      "category": "Financials",
+      "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPVFltYlZoVk1ucldzb0ZwWVhXX29OaWJjTDB0bmxBZDZPdEVTQU9Pa1BfQ1phcF9SQ2M4bm0xa2U1UE9KUzQ2dmQ5SnIwVVo5TTBYUnRUSGJnMEJha0tIY3RodkEwOTViUW91ZU01bENKMnR3N1BSNTUwT2w3eFo2Ml85VkJDNlhIQ2hOQ2FTbF9lTHZWeTdMVXhCMG1jZjRGSkNTd1hNRDdwUzB3R3BPb0RvR0FKRVlZZms0?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
