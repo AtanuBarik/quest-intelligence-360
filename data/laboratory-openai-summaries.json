@@ -1,8 +1,8 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-09-18T19:12:31.952434+00:00",
-  "news_generated_at": "2026-09-18T22:14:25.524948+05:30",
+  "updated_at": "2026-09-19T05:06:53.823824+00:00",
+  "news_generated_at": "2026-09-19T02:46:43.540518+05:30",
   "news_item_count": 288,
   "summary_count": 288,
   "verified_summary_count": 151,
@@ -4805,6 +4805,30 @@
       "company": "Labcorp",
       "category": "Financials",
       "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPTnJmLUhkM0U0QklubmFsMkt0eWlZUFgxOVNXcUhzNy1NUHFDSHhRYmRXblM5Z2tRcmVGc1RhQldDTk1HMUxKUVBYbzZKT0ExMERWSVVjZmtiRGFyb2tqVWpuMTJCLUpMcHpDaUo0Z05UZkE4S0h1ZmNpRWhJaHZXcEZybjBUUmpNVG92VmJvSllyMnRtdlJFYWVKdmIxWXRzaWhxTkdJdGZ3ZVU0b3Mw?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "7be5949b81a296330b0c": {
+      "summary": "Labcorp Highlights Strategic Priorities Driving Durable Growth and Shareholder Value at 2026 Investor Day. The item was captured for Labcorp from PR Newswire and is dated 10 Sep 2026. For Quest monitoring, this is a financial signal from Labcorp that may inform operating momentum, investment capacity or management priorities.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-16T12:25:59.459702+00:00",
+      "title": "Labcorp Highlights Strategic Priorities Driving Durable Growth and Shareholder Value at 2026 Investor Day",
+      "company": "Labcorp",
+      "category": "Financials",
+      "source_url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQUWFFQm04Y0NDYWJrUjdkR0ZPTUFJZ09pYlhwblNBRUdWZjQzUlMwVVNyTVhMZ2lVMXFCZmdzTUpCMmJwQmhDc2xrWWFQbG1tUWh4SWg4elZqWTZZQmY2MU5ORkFjMHlubTdJV0xWVWVZUy1qNTRMTm1jdkt0dGVXV3NaUVRCSTJ4eW1wSFRjWDBnbGZ6c0xVS3hQTHhhS3VmT05iOU5DOUd3TUxyaFY3UmYyd3FWN2tfX1BlbzhJNTJ3Q2ZBNXMzWWl2SXlOeE93SFYwb19kd2FXSl85MFRpVEVNc0lsdFhDWVppd2o0RjFpQzQ?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "46ce4c1388bf82f42e3c": {
+      "summary": "Apple Health Labs: 50+ Biomarkers for $119 at Quest Diagnostics, How It Works. The item was captured for Quest Diagnostics from The Mac Observer and is dated 09 Sep 2026. For Quest monitoring, this is a clinical or R&D signal from Quest Diagnostics that may indicate changes in evidence, testing capability or specialty-diagnostics positioning.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-16T12:25:59.463401+00:00",
+      "title": "Apple Health Labs: 50+ Biomarkers for $119 at Quest Diagnostics, How It Works",
+      "company": "Quest Diagnostics",
+      "category": "Clinical, R&D",
+      "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMjJKcUdvU0g2cVZDVE9jQl9hMWRHOFZ6RXhISkpJTXRmY2I2amxZME1JNlk2Q0I2WWZvSDBJVG85WktURXJ6QWVIbk5iRzgyU3hVVk9JeEcxSkdmY1VnWGVUV1ZVQmxSdlpIbUgzQk80VGhjY1pqYk04OEtQQ05tNFhJeTFPZ0M2N1g2TkxtUURya2lES01lY3VQS0NHZw?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
