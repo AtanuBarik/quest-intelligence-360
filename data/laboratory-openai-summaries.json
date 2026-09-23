@@ -1,7 +1,7 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-09-23T17:39:33.819685+00:00",
+  "updated_at": "2026-09-23T20:41:33.395363+00:00",
   "news_generated_at": "2026-09-23T22:59:00.010682+05:30",
   "news_item_count": 315,
   "summary_count": 315,
@@ -9,7 +9,7 @@
   "instant_feed_brief_count": 164,
   "remaining_unsummarized": 0,
   "generated_this_run": 0,
-  "instant_briefs_added_this_run": 1,
+  "instant_briefs_added_this_run": 0,
   "unavailable_this_run": 0,
   "summary_policy": "Every new article receives an immediate feed-grounded brief; content-aware ChatGPT enrichment replaces the brief when verified article content is available.",
   "summaries": {
