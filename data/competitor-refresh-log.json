@@ -1,23 +1,6 @@
 {
   "runs": [
     {
-      "checked_at": "2026-08-13T07:03:29Z",
-      "competitors_checked": 8,
-      "competitors_changed": [
-        "quest"
-      ],
-      "partial_or_failed": [
-        "quest",
-        "labcorp",
-        "arup",
-        "mayo",
-        "bioreference",
-        "sonic",
-        "cleveland",
-        "neogenomics"
-      ]
-    },
-    {
       "checked_at": "2026-08-14T06:59:49Z",
       "competitors_checked": 8,
       "competitors_changed": [
@@ -537,6 +520,19 @@
       "competitors_checked": 16,
       "competitors_changed": [
         "exact"
+      ],
+      "partial_or_failed": [
+        "mayo",
+        "bioreference",
+        "tempus",
+        "genedx"
+      ]
+    },
+    {
+      "checked_at": "2026-09-26T07:56:44Z",
+      "competitors_checked": 16,
+      "competitors_changed": [
+        "pathgroup"
       ],
       "partial_or_failed": [
         "mayo",
