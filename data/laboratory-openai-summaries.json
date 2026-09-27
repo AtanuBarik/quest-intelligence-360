@@ -1,15 +1,15 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-09-27T10:49:07.483599+00:00",
-  "news_generated_at": "2026-09-27T11:20:22.000032+05:30",
+  "updated_at": "2026-09-27T12:38:47.638672+00:00",
+  "news_generated_at": "2026-09-27T17:59:32.524530+05:30",
   "news_item_count": 342,
   "summary_count": 342,
   "verified_summary_count": 151,
   "instant_feed_brief_count": 191,
   "remaining_unsummarized": 0,
   "generated_this_run": 0,
-  "instant_briefs_added_this_run": 0,
+  "instant_briefs_added_this_run": 1,
   "unavailable_this_run": 0,
   "summary_policy": "Every new article receives an immediate feed-grounded brief; content-aware ChatGPT enrichment replaces the brief when verified article content is available.",
   "summaries": {
@@ -5621,6 +5621,18 @@
       "company": "Labcorp",
       "category": "Financials",
       "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPcExfZmJyVjZPU2pTcUFXVTBjb0hwSnI4ejkyMVg1OTJfTi0wVUkzOGtRNzc5VGdjaEZTc3Z5endRRS1pdDhKcURrVGVGY1dfOXBBRFR3WFpsQ1REX3o4NWg5RmZvZVd1enhURk1rb1B6N1RnNlJvVl8wcG9KRWhKVWMxc01ZNEdyYUtiaWRB?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "0b339bcd8ce431c75bc7": {
+      "summary": "451,558 Marylanders Impacted By Labcorp Data Breach; Company Reaches $2.3 Million Settlement. The item was captured for Labcorp from The BayNet and is dated 27 Sep 2026. For Quest monitoring, this is a market signal involving Labcorp; the verified article detail should be used before drawing a broader strategic conclusion.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-27T12:38:47.638468+00:00",
+      "title": "451,558 Marylanders Impacted By Labcorp Data Breach; Company Reaches $2.3 Million Settlement",
+      "company": "Labcorp",
+      "category": "Other",
+      "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSDFGRnBDdl8yZ0ZDcWI0NTZla05sMTI4V0NJRVZBRUZyRFBRZjRQeWhwellYZk9nS2VHaTN0d04xXzJqcTNQMks2dlh0d1M0V1BTV2hhU0I1a3VOeHBUNjhsUXFlTzJ3WnJsVDVROFF6YTRiNVV1YXZyanZWUzduMnBsLXBGYVZYd0hKSFBuN0J1RWFxajZ2R0lRbTVieWV6QUlNc0tsR05JTTBud1Rkazd3?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
