@@ -1,22 +1,22 @@
 {
-  "last_checked": "2026-09-21T06:44:30Z",
-  "last_material_source_change": "2026-09-21T06:44:30Z",
+  "last_checked": "2026-09-28T07:16:14Z",
+  "last_material_source_change": "2026-09-28T07:16:14Z",
   "changed_source_count": 3,
   "changed_sources": [
     {
-      "url": "https://ir.labcorp.com/news-and-events/presentations",
-      "previous_digest": "41d0cebf5ae51cfbcf68a8cea44a0f9a58b07c9fed0b58ea695f0a77a5553eca",
-      "digest": "fb0bf690ad81c143148fd0b06a720f243b200c62481768a1feaebc032aa9f737"
+      "url": "https://ir.labcorp.com/financials/sec-filings",
+      "previous_digest": "eda3acd4ebc55e71c38a6f1fd9f8f627cfa980e23a9b63df334bd16774b2dc19",
+      "digest": "3d519b693ffd523d29478abd069db977d6683b967104a1247656eb1727b4c992"
     },
     {
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
-      "previous_digest": "7d367ee479c7488dd967b6acdd1e6339f05b38220ea8f03a09a4835d822aef57",
-      "digest": "ce5e55ccba82f7ed9537c708333677b19dd337360a74438376bd5272d4537fd8"
+      "previous_digest": "ce5e55ccba82f7ed9537c708333677b19dd337360a74438376bd5272d4537fd8",
+      "digest": "3c999daee14e56c3bcaca7056e324caef7cf5d41f643149970196226216918fc"
     },
     {
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
-      "previous_digest": "04669e40a3dc007e2ab173960e138c49e64cd0b344d8390d112618ae91b128cc",
-      "digest": "0f9c2018d05f28988b91cf6cc78a35105740776db361e81d0588356379725796"
+      "previous_digest": "0f9c2018d05f28988b91cf6cc78a35105740776db361e81d0588356379725796",
+      "digest": "08d9143380e704b6bb4302a79eb59953846d88a5d864e4dc0b0d1781106144b4"
     }
   ],
   "sources": [
@@ -26,7 +26,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -38,7 +38,7 @@
       "status": null,
       "digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
       "previous_digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main content | https://ir.questdiagnostics.com/events-and-presentations/default.aspx#main-content",
@@ -61,7 +61,7 @@
       "url": "https://ir.labcorp.com/financials/sec-filings",
       "final_url": "https://ir.labcorp.com/financials/sec-filings",
       "status": 200,
-      "digest": "eda3acd4ebc55e71c38a6f1fd9f8f627cfa980e23a9b63df334bd16774b2dc19",
+      "digest": "3d519b693ffd523d29478abd069db977d6683b967104a1247656eb1727b4c992",
       "evidence_preview": [
         "Skip to main navigation | https://ir.labcorp.com/financials/sec-filings#main-menu",
         "Covance shareholder FAQ | https://ir.labcorp.com/resources/investor-faq-covance",
@@ -77,8 +77,8 @@
         "Annual Cash Flow | https://ir.labcorp.com/fundamentals/cash-flow"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
-      "changed": false,
+      "checked_at": "2026-09-28T07:16:14Z",
+      "changed": true,
       "previous_digest": "eda3acd4ebc55e71c38a6f1fd9f8f627cfa980e23a9b63df334bd16774b2dc19",
       "error": null
     },
@@ -102,9 +102,9 @@
         "Annual Cash Flow | https://ir.labcorp.com/fundamentals/cash-flow"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
-      "changed": true,
-      "previous_digest": "41d0cebf5ae51cfbcf68a8cea44a0f9a58b07c9fed0b58ea695f0a77a5553eca",
+      "checked_at": "2026-09-28T07:16:14Z",
+      "changed": false,
+      "previous_digest": "fb0bf690ad81c143148fd0b06a720f243b200c62481768a1feaebc032aa9f737",
       "error": null
     },
     {
@@ -127,7 +127,7 @@
         "Board of Directors | https://investors.sonichealthcare.com/corporate-governance/?page=board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "previous_digest": "f0bc5970be961bbc685eef2ddde53ce8adeed224c9693758e4757fce4cd25741",
       "error": null
@@ -136,7 +136,7 @@
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
       "final_url": "https://www.eurofins.com:443/en/investors/reports-and-presentations/",
       "status": 200,
-      "digest": "ce5e55ccba82f7ed9537c708333677b19dd337360a74438376bd5272d4537fd8",
+      "digest": "3c999daee14e56c3bcaca7056e324caef7cf5d41f643149970196226216918fc",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com:443/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com:443/en/biopharma-services/biopharma-discovery/",
@@ -152,9 +152,9 @@
         "Softlines &amp; Hardlines | https://www.eurofins.com:443/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": true,
-      "previous_digest": "7d367ee479c7488dd967b6acdd1e6339f05b38220ea8f03a09a4835d822aef57",
+      "previous_digest": "ce5e55ccba82f7ed9537c708333677b19dd337360a74438376bd5272d4537fd8",
       "error": null
     },
     {
@@ -163,7 +163,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -175,7 +175,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -201,7 +201,7 @@
         "Board of Directors | https://investors.tempus.com/corporate-governance/board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
       "error": null
@@ -212,7 +212,7 @@
       "status": null,
       "digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
       "previous_digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [
         "Part I - Financial Information | https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm#if454735e94df41c3a44babbae82e9fc7_10",
@@ -237,7 +237,7 @@
       "status": null,
       "digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
       "previous_digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [
         "Ordering &amp; Results | https://www.mayocliniclabs.com/order-tests",
@@ -276,7 +276,7 @@
         "Contact&nbsp; | https://newsroom.questdiagnostics.com/index.php?s=35201"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "previous_digest": "64b197c8c8455ba7623532e4c174dc676c606115d1cf6c2f67904a06371c5f94",
       "error": null
@@ -285,7 +285,7 @@
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "final_url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "status": 200,
-      "digest": "0f9c2018d05f28988b91cf6cc78a35105740776db361e81d0588356379725796",
+      "digest": "08d9143380e704b6bb4302a79eb59953846d88a5d864e4dc0b0d1781106144b4",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com/en/biopharma-services/biopharma-discovery/",
@@ -301,9 +301,9 @@
         "Softlines &amp; Hardlines | https://www.eurofins.com/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": true,
-      "previous_digest": "04669e40a3dc007e2ab173960e138c49e64cd0b344d8390d112618ae91b128cc",
+      "previous_digest": "0f9c2018d05f28988b91cf6cc78a35105740776db361e81d0588356379725796",
       "error": null
     },
     {
@@ -312,7 +312,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -324,7 +324,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -350,7 +350,7 @@
         "Board of Directors | https://investors.tempus.com/corporate-governance/board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-09-21T06:44:30Z",
+      "checked_at": "2026-09-28T07:16:14Z",
       "changed": false,
       "previous_digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
       "error": null
