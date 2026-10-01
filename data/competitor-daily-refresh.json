@@ -1,17 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-30T08:54:17Z",
+  "generated_at": "2026-10-01T09:18:23Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "exact"
+    "labcorp",
+    "neogenomics",
+    "pathgroup"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -100,14 +102,13 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
       },
       "latest_developments": [],
       "official_signals": [
-        "Children's Hospital of Philadelphia and Labcorp Announce a Collaboration to Accelerate Access to Advanced Pediatric Diagnostics Nationwide",
         "Diagnostic Reference & Specialty Labs",
         "Labcorp (NYSE: LH) is a global leader of innovative and comprehensive laboratory services that helps doctors, hospitals, pharmaceutical companies, researchers and patients make clear and confident decisions.",
         "Labcorp Acquires MLM Medical Labs, Expanding Global Central Laboratory and Biomarker Capabilities for Clinical Trials",
@@ -126,7 +127,8 @@
         "Labcorp Launches Next Generation of Labcorp Global Trial Connect™ to Help Sponsors and Investigator Sites Navigate Clinical Trial Complexity",
         "Labcorp Publishes 2025 Corporate Responsibility Report, Highlighting Progress in Sustainability, Access to Care and Employee Well-Being",
         "Labcorp Supports Multi-Institution Trial to Expand Genetic Testing in Colorectal Cancer",
-        "Labcorp and Epic Expand Collaboration to Advance Diagnostic Integration across Hospitals and Health Systems"
+        "Labcorp and Epic Expand Collaboration to Advance Diagnostic Integration across Hospitals and Health Systems",
+        "Labcorp and NACHC Launch Strategic Alliance to Strengthen Health Center Leadership and Advance Community Health"
       ],
       "source_status": [
         {
@@ -162,9 +164,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "02d870cdef855905843b23ced598eea7d293c40a86c11bca12953d61b8ca3b09",
-      "last_updated_at": "2026-09-09T07:31:22Z",
-      "change_detected": false,
+      "content_hash": "ef01445ffac738a45d307f4c2f30595105ae6db3197cb3f4387cb5901e5a9704",
+      "last_updated_at": "2026-10-01T09:18:23Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -187,7 +189,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -276,7 +278,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -349,7 +351,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -407,7 +409,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -486,7 +488,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -575,7 +577,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -593,6 +595,7 @@
         "Our oncology laboratory services support both providers and patients through a robust cancer testing portfolio, including lung cancer molecular profiling, breast cancer genomic testing, and leukemia markers.",
         "Our technology and test offerings are constantly evolving to offer state-of-the-art capabilities in cancer testing that align to the latest evidence and guidelines.",
         "That’s why we have developed both broad pan-cancer and disease-state testing solutions that give you options for obtaining diagnostic data, therapy guidance, and predictive biomarker insights.",
+        "The same trusted tests you rely on, now offering broader genomic coverage, increased reporting sensitivity, and faster turnaround times",
         "We understand oncology testing",
         "Whether it’s for solid tumors or hematologic cancers, we offer advanced tissue-based, liquid biopsy, and heme tests to deliver precise and actionable insights for personalized care.",
         "With regular updates to keep pace with an evolving cancer landscape, our test menu provides comprehensive genomic profiling capabilities that align to the latest evidence and guidelines."
@@ -613,6 +616,7 @@
           "kind": "company",
           "status": "ok",
           "signals": [
+            "The same trusted tests you rely on, now offering broader genomic coverage, increased reporting sensitivity, and faster turnaround times",
             "MRD detection, personalized to every patient’s tumor .",
             "Genomic and biomarker insights tailored to your patient for personalized therapy selection in one, streamlined order.",
             "We understand oncology testing",
@@ -621,15 +625,14 @@
             "With regular updates to keep pace with an evolving cancer landscape, our test menu provides comprehensive genomic profiling capabilities that align to the latest evidence and guidelines.",
             "As a leader in oncology diagnostics, we provide an extensive range of over 500 tests covering all major testing modalities, including single-gene molecular testing, immunohistochemistry (IHC), flow cytometry, fluorescence in situ hybridization (FISH), DNA- and RNA-based next-generation sequencing (NGS), and…",
             "Whether it’s for solid tumors or hematologic cancers, we offer advanced tissue-based, liquid biopsy, and heme tests to deliver precise and actionable insights for personalized care.",
-            "NeoGenomics plays an essential role in helping our biopharma partners accelerate drug development and clinical trials, supporting your mission to save lives through innovation.",
-            "Our biomarker discovery efforts contribute to cancer immunology research, driving innovation in oncology diagnostics."
+            "NeoGenomics plays an essential role in helping our biopharma partners accelerate drug development and clinical trials, supporting your mission to save lives through innovation."
           ]
         }
       ],
       "errors": [],
-      "content_hash": "f80f03b7cc422f7628222c40a9907d87ddaa2838e849ffaf6e29ee82f1107d74",
-      "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": false,
+      "content_hash": "7b059dd16795a9151854221bcd243e1ea4af123a1afc2cf048d8b468d789b879",
+      "last_updated_at": "2026-10-01T09:18:23Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -651,7 +654,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -729,7 +732,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -785,7 +788,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -852,7 +855,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -892,7 +895,7 @@
       "errors": [],
       "content_hash": "3d04c810225721e2cbd42a52c4ce58154d856c02182fc5c1ea44d2ad1d819b11",
       "last_updated_at": "2026-09-30T08:54:17Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -914,72 +917,31 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
-      "official_signals": [
-        "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
-        "Anatomic, Clinical & Molecular Pathology",
-        "As an industry leader, PathGroup provides comprehensive anatomic, clinical and molecular pathology services.",
-        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-        "Championing Men’s Health: Top 10 Diagnostic Strategies for Enhanced Wellness and Early Detection",
-        "Combined with the doctor’s knowledge of a patient’s medical history, PathGroup’s team of specialists provides the most comprehensive diagnostic information from which to determine a course of treatment",
-        "Digital Pathology for Health Systems: Enhancing hospital efficiency through virtual slide sharing and AI tools",
-        "Fast, accurate, clinical pathology services.",
-        "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-        "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-        "Hematology and Molecular Oncology",
-        "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-        "Morphologic review and interpretation of biopsy material continues to be the backbone of oncology diagnostics, and is the basis on which PathGroup deploys complement technologies to give the clearest, most accurate picture of a patient’s malignancy from original diagnosis to the presence of minimal residual disease.",
-        "MyResults and MyResultsPAP give patients access to their test results quickly and conveniently, 24 hours a day.",
-        "Our staff functions as a partner to physician practices, providing expert laboratory interpretation and consultation for the best in patient care.",
-        "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-        "PathGroup is a physician-led, patient-focused organization providing a wide range of anatomic, clinical, and molecular services to hospitals, multi-specialty groups, surgery centers and physician offices since our founding in 1965.",
-        "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
-        "PathGroup is one of the country’s largest providers of comprehensive women’s health laboratory services.",
-        "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
-      ],
+      "official_signals": [],
       "source_status": [
         {
           "label": "PathGroup news",
           "url": "https://www.pathgroup.com/category/news/",
           "kind": "news",
           "status": "ok",
-          "signals": [
-            "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-            "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-            "The rollout of twelve Sentinel units will strengthen PathGroup’s commitment to innovation, diagnostic precision, and operational excellence.",
-            "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-            "The collaboration marks a significant milestone in the evolution of AI-driven pathology, uniting Mindpeak’s proprietary image analysis technology with PathGroup’s extensive, pathologist-led diagnostic network.",
-            "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-            "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
-            "The partnership will bring Shield to more than 250 hospitals and health […]"
-          ]
+          "signals": []
         },
         {
           "label": "PathGroup company",
           "url": "https://www.pathgroup.com/",
           "kind": "company",
           "status": "ok",
-          "signals": [
-            "Pathology Services by PathGroup | Anatomic, Clinical & Molecular Oncology Services",
-            "Anatomic, Clinical & Molecular Pathology",
-            "With more than 240 subspecialty expert pathologists, PathGroup provides comprehensive anatomic, clinical and molecular pathology services, using the latest advancements in digital pathology and AI.",
-            "We provide the highest quality pathology & clinical lab services",
-            "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-            "Hematology and Molecular Oncology",
-            "With advanced digital pathology linking more than 240 subspecialty expert pathologists, PathGroup’s anatomic laboratory provides a full range of professional and technical services, operating 24 hours a day, 365 days per year.",
-            "PathGroup’s clinical pathology laboratory is committed to personalized, around-the-clock service, with same-day testing available.",
-            "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
-            "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
-          ]
+          "signals": []
         }
       ],
       "errors": [],
-      "content_hash": "b5506fb2b8e08abe42cd2f2f83ff1de396a0ae523d61c4c9ac9cecbad99a07c3",
-      "last_updated_at": "2026-09-29T08:55:24Z",
-      "change_detected": false,
+      "content_hash": "75855d85e3060a7517d926891eda42a4cfa0584db561d203193ef462b805af28",
+      "last_updated_at": "2026-10-01T09:18:23Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -1001,7 +963,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1078,7 +1040,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1129,7 +1091,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-09-30T08:54:17Z",
+      "last_checked_at": "2026-10-01T09:18:23Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
