@@ -1,8 +1,8 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-10-03T16:44:29.052139+00:00",
-  "news_generated_at": "2026-10-03T17:33:45.459222+05:30",
+  "updated_at": "2026-10-03T21:57:16.062838+00:00",
+  "news_generated_at": "2026-10-04T03:17:57.473596+05:30",
   "news_item_count": 364,
   "summary_count": 364,
   "verified_summary_count": 151,
@@ -6041,6 +6041,18 @@
       "company": "Quest Diagnostics",
       "category": "Other",
       "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNN0t3bmU2ejFKbjNucUFYY2NELTZKOUhSbkN6d3RCa0RBUEhCQ3d3QzNaYnBWdmlDUmpRc3J3b2UyU295amgtT05IU1ItN0MzZ2pwOXlwOU5SUGE4OXdLN0pYYU5kUnZkOWY4bWlFVzZXcm00eW9faTllS3QxeFdxdzJsT0lLZDhieHF3MXZ1U01XY3hJRmhJWFgxWQ?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "4184478db54b416432de": {
+      "summary": "Labcorp to pay $2.2 million in settlement with 40 states over 2019 data breach. The item was captured for Labcorp from Audacy and is dated 24 Sep 2026. For Quest monitoring, this is a market signal involving Labcorp; the verified article detail should be used before drawing a broader strategic conclusion.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-09-24T21:55:18.100009+00:00",
+      "title": "Labcorp to pay $2.2 million in settlement with 40 states over 2019 data breach",
+      "company": "Labcorp",
+      "category": "Other",
+      "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNG9YVUtYemtmbmJGLUtMXzd3UkFzQUJhQXpMemI5TlgxVFNjUjlXU2Y5SUQzWVgtYWNUTUlyVGlxWUJOV2RzeWZaYTZjU0tEUDJVeHpYWHRDeHoxTkZiZklybTFWbnFsTjU1ZG9PcmR3Y2FZVjZycVA2WTYzSWN2anlMTQ?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
