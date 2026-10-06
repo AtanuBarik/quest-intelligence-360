@@ -170,7 +170,7 @@
       const response = await fetch(`data/project-tracker.json?v=${RELEASE}`, { cache:'no-store' });
       if (!response.ok) return;
       const payload = await response.json();
-      const names = (payload.projects || []).map(item => item.project_name).filter(Boolean);
+      const names = (payload.projects || []).filter(item=>window.QuestWorkspaces?.inTeam(item.project_name)!==false).map(item => item.project_name).filter(Boolean);
       select.insertAdjacentHTML('beforeend', names.map(name => `<option value="${esc(name)}">${esc(name)}</option>`).join(''));
     } catch (_) {}
   }
@@ -183,7 +183,7 @@
     button.textContent = 'Loading metadata…';
     root.innerHTML = '';
     try {
-      const docs = await recentMetadata(MAX_LIST);
+      const docs = (await recentMetadata(MAX_LIST)).filter(doc=>window.QuestWorkspaces?.inTeam(doc.project)!==false);
       root.innerHTML = docs.length ? docs.map(doc => `<article class="qkr-doc"><div><strong>${esc(doc.name || 'Untitled file')}</strong><small>${esc(doc.project || 'Unassigned')} · ${esc(doc.type || 'Other')} · ${fmt(doc.size)} bytes · ${esc(doc.uploadedAt || '')}</small></div><button class="qkr-btn secondary" data-qkr-delete="${esc(doc.id)}">Delete</button></article>`).join('') : '<div class="qkr-status">No local files are indexed yet.</div>';
       root.querySelectorAll('[data-qkr-delete]').forEach(node => node.onclick = async () => {
         node.disabled = true;
@@ -233,6 +233,7 @@
           const cursor = request.result;
           if (!cursor) return resolve();
           const doc = cursor.value || {};
+          if(window.QuestWorkspaces?.inTeam(doc.project)===false){cursor.continue();return;}
           const metadata = `${doc.name || ''}\n${doc.project || ''}\n${doc.type || ''}`.toLowerCase();
           const searchable = String(doc.text || '').slice(0, MAX_SEARCH_TEXT).toLowerCase();
           let score = 0;
@@ -263,6 +264,7 @@
   }
 
   async function ingest(files) {
+    try { if(JSON.parse(sessionStorage.getItem('quest360-session-v2'))?.role==='Viewer') { if($('#qkrStatus')) $('#qkrStatus').textContent='Viewer access is read-only.'; return; } } catch (_) {}
     const status = $('#qkrStatus');
     const progress = $('#qkrProgress');
     const bar = progress?.querySelector('i');
@@ -332,6 +334,7 @@
     loadProjects();
   }
 
+  window.addEventListener('quest:workspace-change', () => { $('#qKnowledgeRepositoryLite')?.remove(); mount(); });
   window.addEventListener('quest:layout-refresh', event => { if (event.detail?.group === 'library') mount(); });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, { once:true });
   else mount();

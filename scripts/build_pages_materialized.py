@@ -6,7 +6,7 @@ import re
 import shutil
 from pathlib import Path
 
-RELEASE = "20260916ux7"
+RELEASE = "20261006teams1"
 ROOT = Path(".")
 SITE = ROOT / "_site"
 
@@ -110,6 +110,8 @@ def build() -> None:
 
     scripts = "".join(
         [
+            f'<script src="integrations/team-workspaces.js?v={RELEASE}"></script>',
+            f'<script src="integrations/role-access-governance.js?v={RELEASE}"></script>',
             f'<script src="integrations/frontend-critical-nav-survey.js?v={RELEASE}"></script>',
             f'<script src="integrations/survey-analytics-dashboard-final.js?v={RELEASE}"></script>',
             f'<script src="integrations/survey-analytics-failsafe.js?v={RELEASE}"></script>',

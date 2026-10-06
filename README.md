@@ -106,3 +106,26 @@ A typical flow is:
 ## Branding note
 
 The prototype uses Quest-inspired colors and text-based prototype marks. Replace the marks with approved, unmodified Quest Diagnostics and Evalueserve logo assets before external distribution, following each company’s brand and trademark guidance.
+
+## Team workspaces (October 2026)
+
+Sign in → choose your team → choose Hub Owner, Contributor or Viewer → enter your dashboard.
+
+Executive Leadership is shown in a full-width row above the three specialist teams. On smaller screens the specialist cards stack. The selected workspace and access level are retained for the current browser session. Use **Change team / access** to revisit either selection.
+
+| Team | Workspace focus |
+| --- | --- |
+| Executive Leadership | Every existing section and workstream, plus the role-aware assistant |
+| Strategy & Business Intelligence | Competitor profiles, alerts, news, strategic PMR and growth opportunities |
+| Market and Customer Insights (MACI) | Customer research, experts, surveys, competitor perception and social intelligence |
+| Product & Operations Management | Workflow integration, service reliability, adoption, product requirements and delivery |
+
+PMR, expert and survey views apply the selected team's workstream scope to calculations and exports. The team dashboards reuse the existing insight library, survey cohorts and delivery tracker. Survey values and PMR synthesis remain labeled as illustrative; tracker reporting dates are displayed.
+
+The team assistant retrieves matching objects from `data/pmr-insight-library.json`, limits them to the team's workstreams, and shows their source and demo status. It returns a coverage gap when no evidence matches. It is deterministic keyword retrieval, not a live LLM. Executive Leadership also retains the full original Insights Engine.
+
+The existing public demo login remains available (`quest@medtech.com` / `evalueserve`). Existing role-specific prototype accounts retain their credential-assigned maximum access: Owners can select any user type, Contributors can select Contributor or Viewer, and Viewers remain read-only. Team selection controls relevance, not authorization. Static browser controls do not provide production authentication or server-enforced data isolation; the SSO button remains a placeholder.
+
+Changes are loaded by both `index.html` and `scripts/build_pages_materialized.py`. The publication workflow builds `_site` and synchronizes `gh-pages`. The shared release marker is `20261006teams1`.
+
+Validation: all 12 team/user-type combinations checked in a DOM integration harness, including onboarding order, visible modules, PMR scope, assistant evidence matches and no-match behavior, workspace changes and retained executive visibility. JavaScript syntax, JSON data and the materialized build were checked separately.

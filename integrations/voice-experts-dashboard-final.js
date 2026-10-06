@@ -56,7 +56,7 @@
     (DATA?.segments||[]).forEach(segment=>{
       (segment.observations||[]).forEach(obs=>rows.push({segment,obs,project:DATA.projects.find(p=>p.id===obs.project_id)||{id:obs.project_id,name:obs.project_id,short_name:obs.project_id}}));
     });
-    return rows;
+    return rows.filter(({obs,project}) => window.QuestWorkspaces?.includesProject(obs.project_id, project.name) !== false);
   }
 
   function filteredRows(){
@@ -84,7 +84,7 @@
   function filterBar(){
     const rows=allRows(),segments=DATA?.segments||[];
     const defs=[
-      ['project','Project',['All',...(DATA?.projects||[]).map(p=>p.id)],v=>v==='All'?'All projects':projectName(v)],
+      ['project','Project',['All',...(DATA?.projects||[]).filter(p=>window.QuestWorkspaces?.includesProject(p.id,p.name)!==false).map(p=>p.id)],v=>v==='All'?'All projects':projectName(v)],
       ['persona','Persona / expert type',['All',...uniq(segments.map(s=>s.persona))]],
       ['orgType','Organization type',['All',...uniq(segments.map(s=>s.organization_type))]],
       ['archetype','Organization archetype',['All',...uniq(segments.map(s=>s.organization_archetype))]],
@@ -207,7 +207,7 @@
   }
 
   async function boot(){
-    if(booted)return;booted=true;injectStyles();try{await load();}catch(e){console.error('Voice of Experts analysis unavailable:',e);return;}render();document.addEventListener('click',e=>{const nav=e.target.closest('.nav-item');if(nav&&(nav.dataset.view==='experts'||/Voice of Experts/i.test(nav.textContent||'')))setTimeout(render,0);},true);window.addEventListener('quest:layout-refresh',e=>{if(!e.detail?.group||e.detail.group==='experts')setTimeout(render,0);});window.addEventListener('quest:module-loaded',e=>{if(/voice-experts/i.test(e.detail?.path||''))setTimeout(render,0);});
+    if(booted)return;booted=true;injectStyles();try{await load();}catch(e){console.error('Voice of Experts analysis unavailable:',e);return;}render();window.addEventListener('quest:workspace-change',()=>{state.project='All';state.search='';render();});document.addEventListener('click',e=>{const nav=e.target.closest('.nav-item');if(nav&&(nav.dataset.view==='experts'||/Voice of Experts/i.test(nav.textContent||'')))setTimeout(render,0);},true);window.addEventListener('quest:layout-refresh',e=>{if(!e.detail?.group||e.detail.group==='experts')setTimeout(render,0);});window.addEventListener('quest:module-loaded',e=>{if(/voice-experts/i.test(e.detail?.path||''))setTimeout(render,0);});
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
