@@ -120,12 +120,22 @@ Executive Leadership is shown in a full-width row above the three specialist tea
 | Market and Customer Insights (MACI) | Customer research, experts, surveys, competitor perception and social intelligence |
 | Product & Operations Management | Workflow integration, service reliability, adoption, product requirements and delivery |
 
-PMR, expert and survey views apply the selected team's workstream scope to calculations and exports. The team dashboards reuse the existing insight library, survey cohorts and delivery tracker. Survey values and PMR synthesis remain labeled as illustrative; tracker reporting dates are displayed.
+PMR portfolio charts, Project Tracker, expert and survey views apply the selected team's workstream scope to calculations and exports. My Dashboard reuses the existing insight library, survey cohorts and delivery tracker. Survey values and PMR synthesis remain labeled as illustrative; tracker reporting dates are displayed.
 
 The team assistant retrieves matching objects from `data/pmr-insight-library.json`, limits them to the team's workstreams, and shows their source and demo status. It returns a coverage gap when no evidence matches. It is deterministic keyword retrieval, not a live LLM. Executive Leadership also retains the full original Insights Engine.
 
 The existing public demo login remains available (`quest@medtech.com` / `evalueserve`). Existing role-specific prototype accounts retain their credential-assigned maximum access: Owners can select any user type, Contributors can select Contributor or Viewer, and Viewers remain read-only. Team selection controls relevance, not authorization. Static browser controls do not provide production authentication or server-enforced data isolation; the SSO button remains a placeholder.
 
-Changes are loaded by both `index.html` and `scripts/build_pages_materialized.py`. The publication workflow builds `_site` and synchronizes `gh-pages`. The shared release marker is `20261006teams1`.
+Changes are loaded by both `index.html` and `scripts/build_pages_materialized.py`. The publication workflow builds `_site` and synchronizes `gh-pages`. The shared release marker is `20261006motion1`.
 
 Validation: all 12 team/user-type combinations checked in a DOM integration harness, including onboarding order, visible modules, PMR scope, assistant evidence matches and no-match behavior, workspace changes and retained executive visibility. JavaScript syntax, JSON data and the materialized build were checked separately.
+
+### Personalized experience and research agenda
+
+The optional name field provides a greeting, defaulting to **Quest team**. Every workspace names the team and Hub Owner, Contributor or Viewer access, and explains its curation scope. Sign-in restores Executive Hub or My Dashboard as the landing page. Screen and content transitions respect reduced-motion preferences. Loading indicators count completed module or evidence loading steps; the assistant shows a busy state during evidence retrieval.
+
+Specialist teams receive three proposed research outputs each. Executives can see all nine alongside all original sections. `data/team-research-agenda.json` links official Quest product context reviewed on October 6, 2026 to relevant PMR, expert, survey and delivery evidence. Analyst questions and proposed outputs are explicitly distinguished from published product facts and completed deliverables. The scope stays within research synthesis, competitive benchmarking, survey analysis, journey assessment and decision briefs.
+
+Product & Operations does not receive the general financial/news Alerts feed. MACI competitor detail pages omit executive/financial scale panels; specialist Methodology & Audit pages focus on evidence quality and relevant research handoffs. Project Tracker totals, records, charts and exports share the team scope. PMR portfolio charts use the same scope and correctly treat an empty search as unfiltered.
+
+Validation covers all 12 team/access combinations, default and supplied names, curated source and agenda counts, dashboard landing, tracker CSV exports, PMR chart counts, assistant coverage gaps, access restrictions and loading progress.

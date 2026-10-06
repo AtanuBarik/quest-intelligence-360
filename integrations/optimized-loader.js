@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const RELEASE = '20261006teams1';
+  const RELEASE = '20261006motion1';
   const loaded = new Map();
   const groupLoads = new Map();
 
@@ -61,6 +61,7 @@
   const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
 
   function progress(active, done = false) {
+    if(window.QuestExperience)return;
     let node = document.getElementById('qModuleProgress');
     if (!node) {
       node = document.createElement('div');
@@ -118,14 +119,17 @@
 
   async function loadPaths(paths, context) {
     const failures = [];
+    const task=window.QuestExperience?.start(context==='core'?'Preparing your workspace':'Opening content',paths?.length||0);
+    let completed=0;
     for (const path of paths || []) {
       try {
         await loadScript(path);
       } catch (error) {
         failures.push({ path, error });
         console.error(`Quest ${context} module failed (${path}):`, error);
-      }
+      } finally { window.QuestExperience?.step(task,++completed); }
     }
+    window.QuestExperience?.finish(task,failures.length?'Some content could not load. Refresh to retry.':'');
     return failures;
   }
 

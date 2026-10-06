@@ -11,6 +11,7 @@
   };
   const TITLE_BY_ROUTE = {
     home:'Executive Hub',
+    'team-dashboard':'My Dashboard',
     copilot:'Insights Copilot',
     insights:'Insights Copilot',
     alerts:'Alerts & Signals',
@@ -21,7 +22,7 @@
     experts:'Voice of Experts',
     survey:'Survey Analytics',
     library:'Evidence Library',
-    projects:'All-Project Tracker',
+    projects:'Project Tracker',
     methodology:'Methodology & Audit'
   };
   const FILTER_CONTEXT = '.filter-bar,.sa-filter,.voe-filter,.pmrf-filterbar,.live-filter-bar,.heading-actions,.button-row,.toolbar,[data-filter-bar]';

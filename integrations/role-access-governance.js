@@ -17,7 +17,8 @@
   const WORKSPACES = window.QuestWorkspaces;
   function persist() { if (session) { session.stage = stage; sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)); } }
   function notify() { window.dispatchEvent(new CustomEvent('quest:workspace-change')); }
-  let scheduled = false;
+  let scheduled = false, visibleScreen = '';
+  const displayName = () => String(session?.displayName||'Quest team').trim().slice(0,80)||'Quest team';
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -78,7 +79,7 @@
   function buildOnboarding() {
     if (!$('#teamScreen')) {
       const node = document.createElement('main'); node.id='teamScreen'; node.className='q-team-screen hidden';
-      node.innerHTML=`<section class="q-onboard">${logos()}<div class="q-steps"><span>✓ Sign in</span><b>02 Choose team</b><span>03 Choose access</span><span>04 Your dashboard</span></div><h2>Which team do you belong to?</h2><p>Choose your role and team. Your dashboard, workstreams and insights assistant will adapt to the decisions you make.</p><div class="q-team-options">${Object.entries(WORKSPACES.teams).map(([key,t])=>`<button type="button" class="q-team-choice ${key==='executive'?'executive':''}" data-team="${key}" aria-pressed="false"><span class="q-choice-icon" aria-hidden="true">${t.icon}</span><span><strong>${t.name}</strong><small>${t.description}</small></span>${key==='executive'?'<span class="q-choice-tag">All workstreams</span>':''}</button>`).join('')}</div><div class="q-onboard-footer"><button type="button" class="text-button" id="qTeamBack">← Back to sign in</button><button type="button" class="primary-button" id="qTeamContinue" disabled>Continue to access level →</button></div></section>`;
+      node.innerHTML=`<section class="q-onboard">${logos()}<div class="q-steps"><span>✓ Sign in</span><b>02 Choose team</b><span>03 Choose access</span><span>04 Your dashboard</span></div><p class="q-personal-greeting" id="qTeamGreeting">Welcome, Quest team</p><h2>Which team do you belong to?</h2><p>Choose your role and team. Your dashboard, workstreams and insights assistant will adapt to the decisions you make.</p><label class="q-name-field" for="qDisplayName">Your name <span>(optional)</span><input id="qDisplayName" type="text" maxlength="80" autocomplete="given-name" placeholder="Quest team" aria-describedby="qNameNote"><small id="qNameNote">Used to greet you in this browser session.</small></label><div class="q-team-options">${Object.entries(WORKSPACES.teams).map(([key,t])=>`<button type="button" class="q-team-choice ${key==='executive'?'executive':''}" data-team="${key}" aria-pressed="false"><span class="q-choice-icon" aria-hidden="true">${t.icon}</span><span><strong>${t.name}</strong><small>${t.description}</small></span>${key==='executive'?'<span class="q-choice-tag">All workstreams</span>':''}</button>`).join('')}</div><div class="q-onboard-footer"><button type="button" class="text-button" id="qTeamBack">← Back to sign in</button><button type="button" class="primary-button" id="qTeamContinue" disabled>Continue to access level →</button></div></section>`;
       $('#roleScreen').insertAdjacentElement('beforebegin',node);
     }
     const role=$('#roleScreen');
@@ -91,7 +92,9 @@
     $$('.q-team-choice').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.team===selectedTeam)));
     const next=$('#qTeamContinue');if(next)next.disabled=!selectedTeam;
     const name=WORKSPACES.teams[selectedTeam]?.name||'Choose a team';
-    if($('#qAccessTeam'))$('#qAccessTeam').textContent=name;
+    if($('#qAccessTeam'))$('#qAccessTeam').textContent='Welcome, '+displayName()+'. '+name+' — your content and assistant will be curated for this team.';
+    if($('#qTeamGreeting'))$('#qTeamGreeting').textContent='Welcome, '+displayName();
+    const nameInput=$('#qDisplayName');if(nameInput&&document.activeElement!==nameInput)nameInput.value=session?.displayName||'';
     const cap=TYPES.indexOf(session?.maxRole||session?.role||'Viewer');
     $$('#roleScreen .role-option').forEach(n=>{
       const blocked=TYPES.indexOf(n.dataset.role)<cap;n.disabled=blocked;
@@ -99,10 +102,11 @@
       n.classList.toggle('selected',n.dataset.role===selectedRole);
       n.setAttribute('aria-pressed',String(n.dataset.role===selectedRole));
     });
-    const enter=$('#enterHub');if(enter)enter.disabled=!selectedRole||TYPES.indexOf(selectedRole)<cap;
+    const enter=$('#enterHub');if(enter){enter.disabled=!selectedRole||TYPES.indexOf(selectedRole)<cap;enter.textContent=selectedTeam==='executive'?'Open Executive Hub →':'Open My Dashboard →';}
   }
   function showScreen(target) {
     ['login','team','role','app'].forEach(name=>$('#'+name+'Screen')?.classList.toggle('hidden',name!==target));
+    if(visibleScreen!==target){visibleScreen=target;window.dispatchEvent(new CustomEvent('quest:screen-opened',{detail:{screen:target}}));}
   }
 
   function applyRoleLabels() {
@@ -275,6 +279,8 @@
     const error = $('#loginError');
     const email = username?.value?.trim().toLowerCase() || '';
     if (error) error.textContent = '';
+    const submit=$('#loginForm button[type="submit"]'),label=submit?.textContent;
+    if(submit){submit.disabled=true;submit.setAttribute('aria-busy','true');submit.textContent='Signing in…';}
     try {
       const hash = await credentialHash(email, password?.value || '');
       const match = ROLE_HASHES.get(hash);
@@ -293,7 +299,7 @@
       if (error) error.textContent = 'Incorrect email or password.';
       showScreen('login');
       prepareLogin();
-    }
+    } finally { if(submit){submit.disabled=false;submit.removeAttribute('aria-busy');submit.textContent=label;} }
   }
 
   function bind() {
@@ -329,7 +335,7 @@
       if(team && team.closest('#teamScreen')) { selectedTeam=team.dataset.team; updateChoices(); }
       const role = event.target.closest('#roleScreen [data-role]');
       if(role && !role.disabled) { selectedRole=role.dataset.role; updateChoices(); }
-      if(event.target.closest('#qTeamContinue') && session && selectedTeam) { stage='role'; session.team=selectedTeam; persist(); updateChoices(); showScreen(stage); }
+      if(event.target.closest('#qTeamContinue') && session && selectedTeam) { stage='role'; session.team=selectedTeam; session.displayName=String($('#qDisplayName')?.value||'').trim().slice(0,80)||'Quest team'; persist(); updateChoices(); showScreen(stage); }
       if(event.target.closest('#qAccessBack')) { stage='team'; persist(); showScreen(stage); }
       if(event.target.closest('#qTeamBack')) { session=null; stage='login'; sessionStorage.removeItem(SESSION_KEY); showScreen(stage); }
       if(event.target.closest('#enterHub') && session && selectedTeam && selectedRole) {
@@ -341,12 +347,13 @@
       }
       if(event.target.closest('#qChangeWorkspace')) { stage='team';persist();updateChoices();showScreen(stage); }
     }, true);
+    document.addEventListener('input',event=>{if(event.target.id==='qDisplayName'&&session){session.displayName=event.target.value.trim().slice(0,80)||'Quest team';persist();const greeting=$('#qTeamGreeting');if(greeting)greeting.textContent='Welcome, '+displayName();}});
     sessionStorage.removeItem('quest360-auth');
     session = readSession();
     if (session && TYPES.includes(session.role)) {
       session.maxRole ||= session.role;
       if(!WORKSPACES.teams[session.team]) { stage='team'; selectedTeam=''; }
-      persist();updateChoices();applyAll();notify();
+      persist();updateChoices();applyAll();notify();if(stage==='app')WORKSPACES.go(session.team==='executive'?'home':'team-dashboard');
     } else { session=null;stage='login';showScreen(stage); }
 
     const observer = new MutationObserver(() => {

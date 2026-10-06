@@ -15,7 +15,7 @@
   <div class="q-boot"><div class="q-boot-card"><strong>Quest Intelligence 360</strong><span>Loading the optimized dashboard and visual system…</span><div class="q-boot-line"><i></i></div></div></div>
   <script>
   (async()=>{try{
-    const release='20261006teams1';
+    const release='20261006motion1';
     const shellKey='./.quest-shell-'+release+'.html';
     const scrubText=value=>String(value||'')
       .replace(/ChatGPT/gi,'Insight assistant')
@@ -72,7 +72,7 @@
       h=scrubShell(h);
       if('caches'in window){try{const cache=await caches.open('quest-shell-cache');await cache.put(shellKey,new Response(h,{headers:{'Content-Type':'text/html;charset=utf-8'}}))}catch(_){}}
     }else h=scrubShell(h);
-    const teams='<script src="integrations/team-workspaces.js?v='+release+'"><\/script><script src="integrations/role-access-governance.js?v='+release+'"><\/script>';
+    const teams='<script src="integrations/workspace-experience.js?v='+release+'"><\/script><script src="integrations/team-workspaces.js?v='+release+'"><\/script><script src="integrations/role-access-governance.js?v='+release+'"><\/script>';
     const critical='<script src="integrations/frontend-critical-nav-survey.js?v='+release+'"><\/script>';
     const survey='<script src="integrations/survey-analytics-dashboard-final.js?v='+release+'"><\/script>';
     const chartAlign='<script src="integrations/chart-alignment-system.js?v='+release+'"><\/script>';

@@ -1,11 +1,11 @@
 (() => {
   'use strict';
-  const RELEASE = '20261006teams1';
+  const RELEASE = '20261006motion1';
   const TEAMS = {
     executive: { name: 'Executive Leadership Team', short: 'Executive Leadership', icon: '◎', title: 'Complete intelligence. One view.', description: 'Enterprise priorities, every workstream and the complete intelligence portfolio.', focus: 'Enterprise value, investment priorities, risks and decisions across all workstreams.', routes: null, projects: null, questions: ['What priorities recur across the research portfolio?', 'What does the evidence say about enterprise value?'], metrics: ['quest_trust', 'value_clarity', 'service_reliability'] },
     strategy: { name: 'Strategy & Business Intelligence Team', short: 'Strategy & BI', icon: '↗', title: 'Connect signals to strategic decisions.', description: 'Competitive positioning, market signals, growth opportunities and strategic research.', focus: 'Competitive differentiation, growth opportunities, partnerships and strategic trade-offs.', routes: ['team-dashboard','copilot','alerts','competitors','news','pmr','library','projects','methodology'], projects: ['health-system-experience','data-ecosystem-needs','data-ecosystem-extended','consumer-testing','ci-always-on'], questions: ['Where can Quest differentiate its enterprise value proposition?', 'Which consumer testing opportunities are supported by this evidence?'], metrics: ['value_clarity','quest_trust','data_ai_readiness'] },
     maci: { name: 'Market and Customer Insights (MACI) team', short: 'Market & Customer Insights', icon: '◉', title: 'Bring the customer into every decision.', description: 'Customer needs, expert perspectives, survey findings and market perception.', focus: 'Customer segmentation, unmet needs, perception, qualitative and quantitative evidence, and research gaps.', routes: ['team-dashboard','copilot','competitors','social','pmr','experts','survey','library','projects','methodology'], projects: ['health-system-experience','digital-customer-journey','data-ecosystem-needs','data-ecosystem-extended','lab-stewardship','consumer-testing'], questions: ['Which customer needs recur across these projects?', 'What does the evidence say about persona-specific value propositions?'], metrics: ['quest_trust','digital_experience','recommend_score'] },
-    operations: { name: 'Product & Operations Management team', short: 'Product & Operations', icon: '▦', title: 'Turn customer needs into delivery priorities.', description: 'Workflow, product requirements, service reliability and implementation progress.', focus: 'Product requirements, workflow integration, service delivery, adoption barriers and implementation priorities.', routes: ['team-dashboard','copilot','alerts','pmr','experts','survey','library','projects','methodology'], projects: ['digital-customer-journey','data-ecosystem-needs','data-ecosystem-extended','lab-stewardship'], questions: ['What workflow and interoperability gaps should the roadmap address?', 'What does the evidence say about service reliability and adoption?'], metrics: ['workflow_integration','service_reliability','digital_experience'] }
+    operations: { name: 'Product & Operations Management team', short: 'Product & Operations', icon: '▦', title: 'Turn customer needs into delivery priorities.', description: 'Workflow, product requirements, service experience and research delivery.', focus: 'Product requirements, workflow integration, service experience, adoption barriers and research-informed product priorities.', routes: ['team-dashboard','copilot','pmr','experts','survey','library','projects','methodology'], projects: ['digital-customer-journey','data-ecosystem-needs','data-ecosystem-extended','lab-stewardship'], questions: ['What workflow and interoperability gaps should the roadmap address?', 'What does the evidence say about service reliability and adoption?'], metrics: ['workflow_integration','service_reliability','digital_experience'] }
   };
   const $ = s => document.querySelector(s);
   const $$ = s => [...document.querySelectorAll(s)];
@@ -15,7 +15,7 @@
   const ready = () => session()?.stage === 'app' && !!profile();
   const canonical = route => ({surveys:'survey',tracker:'projects',insights:'copilot'})[route] || route;
   const allowed = route => !ready() || !profile().routes || profile().routes.includes(canonical(route));
-  let data = null, pending = null, queued = false, signature = '';
+  let data = null, pending = null, queued = false, signature = '', answerSequence = 0;
 
   function styles() {
     if ($('#qTeamStyles')) return;
@@ -30,9 +30,11 @@
   async function loadData() {
     if (data) return data;
     if (pending) return pending;
-    pending = Promise.all(['project-tracker','pmr-insight-library','survey-analytics-demo'].map(async n => {
-      const r = await fetch(`data/${n}.json?v=${RELEASE}`); if (!r.ok) throw new Error(`${n}: ${r.status}`); return r.json();
-    })).then(([tracker,insights,survey]) => (data={tracker,insights,survey})).catch(e=>{pending=null;throw e;});
+    const task=window.QuestExperience?.start('Loading workspace evidence',4);
+    let completed=0;
+    pending = Promise.all(['project-tracker','pmr-insight-library','survey-analytics-demo','team-research-agenda'].map(async n => {
+      const r = await fetch(`data/${n}.json?v=${RELEASE}`); if (!r.ok) throw new Error(`${n}: ${r.status}`); const result=await r.json(); window.QuestExperience?.step(task,++completed); return result;
+    })).then(([tracker,insights,survey,agenda]) => (data={tracker,insights,survey,agenda})).catch(e=>{pending=null;throw e;}).finally(()=>window.QuestExperience?.finish(task));
     return pending;
   }
   const includesProject = (key, name = '') => {
@@ -56,7 +58,7 @@
     if (!$('.view[data-view="team-dashboard"]')) {
       const view = document.createElement('section'); view.className='view'; view.dataset.view='team-dashboard';
       view.innerHTML='<div class="q-team-panel">Loading your team workspace…</div>'; $('#appScreen .content')?.prepend(view);
-      const nav=document.createElement('button'); nav.type='button';nav.className='nav-item';nav.dataset.view='team-dashboard';nav.innerHTML='<span>⌂</span><b>Team Dashboard</b>';
+      const nav=document.createElement('button'); nav.type='button';nav.className='nav-item';nav.dataset.view='team-dashboard';nav.innerHTML='<span>⌂</span><b>My Dashboard</b>';
       $('.nav-item[data-view="home"]')?.insertAdjacentElement('afterend',nav);
     }
   }
@@ -76,6 +78,19 @@
       <article class="q-team-panel full"><h3>Workstreams & next actions</h3><p class="q-team-note">Recorded actions from the existing tracker. This reflects the source reporting date, not a real-time task feed.</p><div class="q-team-table-wrap"><table class="q-team-table"><thead><tr><th>Workstream</th><th>Research type</th><th>Next action</th><th>Owner / due</th></tr></thead><tbody>${projects.map(p=>`<tr><td>${esc(p.project_name)}</td><td>${esc(p.research_type)}</td><td>${esc(p.next_step||p.next_milestone||'No action recorded')}</td><td>${esc(p.next_step_owner||'Not recorded')}<br>${esc(p.milestone_due||'No date recorded')}</td></tr>`).join('')}</tbody></table></div></article></div>`;
   }
 
+  function renderAgenda() {
+    const p=profile();if(!p||!data?.agenda)return;
+    const executive=session().team==='executive';
+    const view=$(`.view[data-view="${executive?'home':'team-dashboard'}"]`);if(!view)return;
+    let section=view.querySelector('.q-research-agenda');if(!section){section=document.createElement('section');section.id=executive?'qExecutiveResearchAgenda':'qTeamResearchAgenda';view.appendChild(section);}
+    const keys=executive?['strategy','maci','operations']:[session().team];
+    const cards=keys.flatMap(key=>(data.agenda.teams[key]||[]).map(item=>({...item,team:key})));
+    const sources=(data.agenda.sources||[]).filter(source=>executive||source.teams.includes(session().team));
+    const permissions={'Hub Owner':'Curate evidence and review proposed outputs.','Contributor':'Contribute evidence and prepare research drafts.','Viewer':'Explore research and download available outputs.'};
+    section.className='q-research-agenda';
+    section.innerHTML=`<div class="q-agenda-heading"><div><span class="q-agenda-kicker">RESEARCH TO DECISION</span><h2>${executive?'Cross-team research agenda':'Your team’s research agenda'}</h2><p>Recommended outputs using PMR synthesis, competitive intelligence, survey analysis and research reporting.</p></div><span class="q-access-chip">${esc(session().role)}</span></div><p class="q-team-note">${esc(permissions[session().role])} These are proposed research outputs, with validation steps before decisions.</p><div class="q-agenda-grid">${cards.map(c=>`<article class="q-agenda-card"><span class="q-agenda-kicker">${esc(TEAMS[c.team].short)}</span><h3>${esc(c.title)}</h3><p>${esc(c.question)}</p><p><b>Analyst deliverable</b><br>${esc(c.output)}</p><p class="q-team-note"><b>Evidence to use:</b> ${esc(c.evidence)}</p><p class="q-team-note"><b>Next validation:</b> ${esc(c.validation)}</p><div class="q-team-links"><button type="button" data-team-go="${c.route}">Explore existing evidence →</button></div></article>`).join('')}</div><div class="q-agenda-heading" style="margin-top:28px"><div><span class="q-agenda-kicker">OFFICIAL SOURCE CONTEXT</span><h2>Public market context</h2><p>Quest Diagnostics product descriptions · sources reviewed ${esc(data.agenda.reviewed_at)}.</p></div></div><div class="q-context-grid">${sources.map(source=>`<article class="q-context-card"><h3>${esc(source.title)}</h3><p>${esc(source.fact)}</p><p class="q-team-note">Research lens: ${esc(cards.find(c=>c.source_ids.includes(source.id))?.question||'Compare customer needs across the portfolio.')} This question is an analyst interpretation of the public description.</p><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">Read official Quest source ↗</a></article>`).join('')}</div>`;
+  }
+
   function renderAssistant() {
     const view=$('.view[data-view="copilot"]'), p=profile();if (!view||!p) return;
     let node=$('#qTeamAssistant');
@@ -91,10 +106,13 @@
     [...view.children].forEach(child=>child.classList.toggle('q-team-legacy-insights',key!=='executive'&&child!==node));
   }
   async function answer(question) {
-    const teamAtStart=session()?.team;
-    try { await loadData(); } catch(e) { const errorPanel=$('#qTeamAnswer');if(errorPanel){errorPanel.hidden=false;errorPanel.textContent='Unable to load the evidence library. Please retry.';}return; }
-    if (session()?.team!==teamAtStart||!ready()) return;
-    const panel=$('#qTeamAnswer'); if (!panel) return;
+    const teamAtStart=session()?.team, request=++answerSequence;
+    const busyPanel=$('#qTeamAnswer');if(busyPanel){busyPanel.hidden=false;busyPanel.setAttribute('aria-busy','true');busyPanel.innerHTML='<span class="q-busy-dot" aria-hidden="true"></span> Finding evidence in your team’s workstreams…';}
+    const task=window.QuestExperience?.start('Finding relevant evidence',1);
+    try { await loadData(); } catch(e) { window.QuestExperience?.finish(task); const errorPanel=$('#qTeamAnswer');if(errorPanel&&session()?.team===teamAtStart&&request===answerSequence){errorPanel.hidden=false;errorPanel.setAttribute('aria-busy','false');errorPanel.textContent='Unable to load the evidence library. Please retry.';}return; }
+    window.QuestExperience?.finish(task);
+    if (session()?.team!==teamAtStart||!ready()||request!==answerSequence) return;
+    const panel=$('#qTeamAnswer'); if (!panel) return; panel.setAttribute('aria-busy','false');
     const chosen=$('#qTeamChatProject')?.value||'all';
     const stop=new Set(['what','which','where','when','does','about','these','should','across','with','from','have','that','this','their','there','would','could','quest','evidence','supported','research','projects','priorities','recurring']);
     const tokens=question.toLowerCase().match(/[a-z]{3,}/g)?.filter(t=>!stop.has(t))||[];
@@ -118,9 +136,18 @@
     if($('.view.active')&&!allowed($('.view.active').dataset.view))go('team-dashboard');
     const label=$('#sidebarRole');if(label&&label.textContent!==p.short+' · '+session().role)label.textContent=p.short+' · '+session().role;
     const content=$('#appScreen .content'); if(content&&!$('#qWorkspaceContext')){
-      const context=document.createElement('div');context.id='qWorkspaceContext';context.className='q-workspace-context';context.innerHTML='<span>◎</span><strong></strong><button type="button" class="secondary-button" id="qChangeWorkspace">Change team / access</button>';content.prepend(context);
+      const context=document.createElement('div');context.id='qWorkspaceContext';context.className='q-workspace-context';context.innerHTML='<span class="q-welcome-icon" aria-hidden="true">◎</span><div class="q-welcome-copy"><strong></strong><small id="qWorkspaceFocus"></small></div><button type="button" class="secondary-button" id="qChangeWorkspace">Change team / access</button>';content.prepend(context);
     }
-    const text=$('#qWorkspaceContext strong'),value=p.name+' · '+session().role+(executive?' · All workstreams':'');if(text&&text.textContent!==value)text.textContent=value;
+    const text=$('#qWorkspaceContext strong'),value='Welcome, '+(session().displayName||'Quest team');if(text&&text.textContent!==value)text.textContent=value;
+    const displayName=session().displayName||'Quest team';
+    $$('.sidebar-footer strong').forEach(n=>{if(n.textContent!==displayName)n.textContent=displayName;});
+    $$('.welcome-strip strong').forEach(n=>{if(n.textContent!=='Welcome, '+displayName)n.textContent='Welcome, '+displayName;});
+    const avatar=$('.user-avatar'),initials=displayName.split(/\s+/).slice(0,2).map(word=>[...word][0]||'').join('').toUpperCase();if(avatar&&avatar.textContent!==initials)avatar.textContent=initials;
+    const focus=$('#qWorkspaceFocus'),focusText=p.name+' · '+session().role+(executive?' · Complete visibility across all workstreams':' · Information and assistant curated for your team');if(focus&&focus.textContent!==focusText)focus.textContent=focusText;
+    $$('.live-ai-launcher,.live-ai-panel,.flo-badge,#floDrawer').forEach(n=>n.dataset.teamHidden=String(!executive));
+    $$('.qef-alert-drawer').forEach(n=>n.dataset.teamHidden=String(!allowed('alerts')));
+    $$('#profileDrawer,#drawerBackdrop').forEach(n=>n.dataset.teamHidden=String(!allowed('competitors')));
+    if(data&&!$('.view[data-view="'+(executive?'home':'team-dashboard')+'"] .q-research-agenda'))renderAgenda();
     renderAssistant();
   }
   function schedule() { if(queued)return;queued=true;setTimeout(()=>{queued=false;enforce();},80); }
@@ -128,7 +155,7 @@
     styles();addRoute();
     const key=session()?.team; if(!ready())return;
     enforce();
-    try{await loadData();if(session()?.team!==key||!ready())return;const sig=key+':'+session().role;if(signature!==sig){signature=sig;renderDashboard();}renderAssistant();enforce();}catch(e){const view=$('.view[data-view="team-dashboard"]');if(view)view.innerHTML=`<div class="q-team-panel"><h3>Unable to load your workspace</h3><p>${esc(e.message)}</p><button type="button" data-team-retry>Retry</button></div>`;}
+    try{await loadData();if(session()?.team!==key||!ready())return;const sig=key+':'+session().role+':'+(session().displayName||'Quest team');if(signature!==sig){signature=sig;renderDashboard();renderAgenda();}renderAssistant();enforce();}catch(e){const view=$('.view[data-view="team-dashboard"]');if(view)view.innerHTML=`<div class="q-team-panel"><h3>Unable to load your workspace</h3><p>${esc(e.message)}</p><button type="button" data-team-retry>Retry</button></div>`;}
   }
   function boot() {
     styles();addRoute();
@@ -139,7 +166,7 @@
       const nav=event.target.closest('.nav-item,[data-view-jump],[data-search-view]');if(nav&&!allowed(nav.dataset.view||nav.dataset.viewJump||nav.dataset.searchView)){event.preventDefault();event.stopImmediatePropagation();go('team-dashboard');}
     },true);
     document.addEventListener('submit',event=>{if(event.target.id==='qTeamPromptForm'){event.preventDefault();event.stopImmediatePropagation();answer($('#qTeamPromptInput').value.trim());}},true);
-    window.addEventListener('quest:workspace-change',applyWorkspace);
+    window.addEventListener('quest:workspace-change',()=>{answerSequence++;$$('.live-ai-panel,.qef-alert-drawer,#profileDrawer,#drawerBackdrop,#floDrawer').forEach(n=>n.classList.remove('open','active'));applyWorkspace();});
     window.addEventListener('quest:module-loaded',schedule);
     window.addEventListener('quest:layout-refresh',schedule);
     new MutationObserver(ms=>{if(ms.some(m=>m.addedNodes.length))schedule();}).observe(document.body,{childList:true,subtree:true});

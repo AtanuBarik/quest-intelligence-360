@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-06",
+  "publisher": "Quest Diagnostics",
+  "scope": "Public product context and recommended analyst research outputs; no new service is represented as already delivered.",
+  "sources": [
+    {
+      "id": "colab",
+      "title": "Health-system collaboration",
+      "fact": "Quest describes CoLab solutions spanning laboratory management, supply-chain partnership and laboratory analytics.",
+      "url": "https://www.questdiagnostics.com/business-solutions/hospitals-health-systems/collaborative-lab-solutions",
+      "teams": [
+        "strategy",
+        "maci"
+      ]
+    },
+    {
+      "id": "qci",
+      "title": "Comprehensive analytics",
+      "fact": "Quest Comprehensive Insights combines core laboratory, Quest and third-party testing data to examine testing patterns and utilization.",
+      "url": "https://www.questdiagnostics.com/laboratory-managers/lab-performance-optimization/lab-analytics-stewardship/quest-comprehensive-insights",
+      "teams": [
+        "strategy",
+        "operations",
+        "maci"
+      ]
+    },
+    {
+      "id": "qei",
+      "title": "Reference-testing insights",
+      "fact": "Quest Essential Insights provides analytics focused on Quest reference testing for reference-testing customers.",
+      "url": "https://www.questdiagnostics.com/laboratory-managers/lab-performance-optimization/lab-analytics-stewardship/quest-essential-insights",
+      "teams": [
+        "strategy",
+        "maci"
+      ]
+    },
+    {
+      "id": "quanum",
+      "title": "Ordering and results workflows",
+      "fact": "Quanum Lab Services Manager supports tasks including ordering tests, tracking orders, requesting supplies and accessing results.",
+      "url": "https://www.questdiagnostics.com/healthcare-professionals/lab-tools-it-systems/quanum-lab-services-manager",
+      "teams": [
+        "operations",
+        "maci"
+      ]
+    }
+  ],
+  "teams": {
+    "strategy": [
+      {
+        "title": "Compare partnership value propositions",
+        "question": "Which health-system needs best support a collaboration proposition?",
+        "output": "A comparison brief linking partnership models to customer needs and existing PMR themes.",
+        "validation": "Validate decision criteria with the health-system research evidence; identify unsupported claims.",
+        "route": "pmr",
+        "source_ids": [
+          "colab"
+        ],
+        "evidence": "Health System Experience + Competitive Intelligence"
+      },
+      {
+        "title": "Assess analytics positioning",
+        "question": "How do data coverage and perceived value influence differentiation?",
+        "output": "A positioning matrix comparing reference-testing insights and broader analytics propositions.",
+        "validation": "Check perceived value against Data Ecosystem Needs and Extended findings before recommending messages.",
+        "route": "pmr",
+        "source_ids": [
+          "qci",
+          "qei"
+        ],
+        "evidence": "Data Ecosystem Needs + Extended"
+      },
+      {
+        "title": "Prioritize growth hypotheses",
+        "question": "Which consumer and enterprise opportunities have enough evidence for a decision brief?",
+        "output": "A ranked opportunity brief with supporting evidence, uncertainties and next research questions.",
+        "validation": "Separate established findings from hypotheses and validate gaps through approved research.",
+        "route": "copilot",
+        "source_ids": [
+          "colab"
+        ],
+        "evidence": "Consumer Testing + Health System Experience"
+      }
+    ],
+    "maci": [
+      {
+        "title": "Build customer needs by segment",
+        "question": "How do unmet needs differ across health-system and consumer audiences?",
+        "output": "A needs-and-persona matrix supported by survey patterns and expert themes.",
+        "validation": "Keep individual study bases visible; use qualitative evidence to explain patterns, not infer prevalence.",
+        "route": "survey",
+        "source_ids": [
+          "colab",
+          "qei"
+        ],
+        "evidence": "Health System Experience + Consumer Testing"
+      },
+      {
+        "title": "Trace journey friction",
+        "question": "Where do users encounter friction in ordering, tracking and finding results?",
+        "output": "A research-based journey map with pain points, evidence references and follow-up questions.",
+        "validation": "Triangulate Digital Customer Journey findings with Voice of Experts before prioritizing issues.",
+        "route": "experts",
+        "source_ids": [
+          "quanum"
+        ],
+        "evidence": "Digital Customer Journey"
+      },
+      {
+        "title": "Test value and messaging hypotheses",
+        "question": "Which analytics benefits resonate with each customer segment?",
+        "output": "A message-hypothesis brief and recommended discussion-guide or survey questions.",
+        "validation": "Use existing evidence to frame hypotheses; run approved customer validation before claiming effectiveness.",
+        "route": "pmr",
+        "source_ids": [
+          "qci",
+          "qei"
+        ],
+        "evidence": "Data Ecosystem + Lab Stewardship"
+      }
+    ],
+    "operations": [
+      {
+        "title": "Translate research into requirements",
+        "question": "Which workflow and data needs should inform product discussions?",
+        "output": "A customer-derived requirements matrix with evidence, priority rationale and unresolved questions.",
+        "validation": "Review feasibility with Quest product and operations stakeholders before treating any item as a roadmap commitment.",
+        "route": "pmr",
+        "source_ids": [
+          "qci",
+          "quanum"
+        ],
+        "evidence": "Data Ecosystem + Digital Customer Journey"
+      },
+      {
+        "title": "Prioritize adoption barriers",
+        "question": "Which ordering, onboarding and results-access frictions recur in the evidence?",
+        "output": "An adoption-barrier brief and research-informed journey recommendations.",
+        "validation": "Use expert and customer evidence to distinguish process pain points from technical assumptions.",
+        "route": "experts",
+        "source_ids": [
+          "quanum"
+        ],
+        "evidence": "Digital Customer Journey + Lab Stewardship"
+      },
+      {
+        "title": "Track research delivery and handoffs",
+        "question": "What evidence or deliverable must be completed before the next product discussion?",
+        "output": "A delivery and evidence-gap review based on recorded tracker milestones and PMR outputs.",
+        "validation": "Confirm dates and ownership with the recorded project owner; prioritize the next research handoff.",
+        "route": "projects",
+        "source_ids": [
+          "qci"
+        ],
+        "evidence": "Relevant research tracker records"
+      }
+    ]
+  }
+}
