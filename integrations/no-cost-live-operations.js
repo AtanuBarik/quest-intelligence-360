@@ -170,7 +170,7 @@
   }
 
   function projectOptions() {
-    const projects = state.projects?.projects || [];
+    const projects = relevantProjects();
     return projects.map(item => `<option value="${esc(item.project_name)}">${esc(item.project_name)}</option>`).join('');
   }
 
@@ -243,10 +243,12 @@
     };
   }
 
+  const relevantProjects = () => (state.projects?.projects || []).filter(p=>!window.QuestWorkspaces || window.QuestWorkspaces.includesProject(p.id,p.project_name));
+
   function projectsTemplate() {
-    const projects = state.projects?.projects || [];
+    const projects = relevantProjects();
     const metrics = projectMetrics(projects);
-    return `<section class="view flo-shell" data-view="projects" data-live-projects="true"><div class="page-heading"><div><span class="section-kicker">LIVE PRIMARY MARKET RESEARCH PORTFOLIO</span><h1>PMR Projects & Reports</h1><p>JSON-driven weekly tracker with browser-side imports, portfolio analytics and downloadable records.</p></div><div class="heading-actions"><button class="secondary-button" id="floProjectImport">Upload tracker CSV/JSON</button><button class="primary-button" id="floProjectExport">Export current CSV</button></div></div><div class="flo-status-line"><i class="flo-dot"></i><strong>Reporting date:</strong> ${esc(state.projects?.reporting_date || 'Not available')} · Last source update ${esc(dateText(state.projects?.updated_at))}</div><div class="flo-kpis"><article class="flo-kpi"><span>Tracked workstreams</span><strong id="floWorkstreams">${metrics.workstreams}</strong><small>${metrics.onTrack} on track · ${metrics.completedProjects} completed</small></article><article class="flo-kpi"><span>Respondents completed</span><strong id="floCompleted">${metrics.completed}/${metrics.target}</strong><small>${metrics.remaining} remaining</small></article><article class="flo-kpi"><span>Fieldwork completion</span><strong>${metrics.target ? Math.round(metrics.completed/metrics.target*100) : 0}%</strong><small>Applicable IDI and survey workstreams</small></article><article class="flo-kpi"><span>Final output progress</span><strong>${metrics.finalAverage}%</strong><small>Portfolio average</small></article><article class="flo-kpi"><span>Open blockers</span><strong>${projects.filter(item => !['NA','Not Applicable',''].includes(item.risk)).length}</strong><small>Based on latest tracker</small></article></div><div class="flo-controls"><input id="floProjectSearch" placeholder="Search projects, owners, milestones or next steps…"><select id="floProjectStatus"><option value="">All statuses</option><option>On Track</option><option>Completed</option><option>At Risk</option><option>Blocked</option></select><select id="floProjectType"><option value="">All research types</option>${[...new Set(projects.map(item => item.research_type))].map(value => `<option>${esc(value)}</option>`).join('')}</select><button class="flo-button secondary" id="floProjectReset">Reset</button></div><div class="flo-grid"><article class="flo-panel flo-span-7"><span class="flo-kicker">DELIVERABLE PROGRESS</span><h3>Final report completion by workstream</h3><div class="flo-chart"><canvas id="floProjectProgressChart"></canvas></div></article><article class="flo-panel flo-span-5"><span class="flo-kicker">FIELDWORK DELIVERY</span><h3>Target versus completed</h3><div class="flo-chart"><canvas id="floProjectFieldworkChart"></canvas></div></article><article class="flo-panel flo-span-12"><span class="flo-kicker">PROJECT REGISTER</span><h3>Current portfolio records</h3><div class="flo-table-wrap"><table class="flo-table"><thead><tr><th>Project</th><th>Type</th><th>Lead / owner</th><th>Status</th><th>Fieldwork</th><th>Interim</th><th>Final</th><th>Next milestone</th><th>Due</th><th>Next step</th><th>Response needed</th></tr></thead><tbody id="floProjectRows"></tbody></table></div></article></div><input type="file" id="floProjectFile" accept=".csv,.json" hidden></section>`;
+    return `<section class="view flo-shell" data-view="projects" data-live-projects="true"><div class="page-heading"><div><span class="section-kicker">RESEARCH DELIVERY PORTFOLIO</span><h1>Project Tracker</h1><p>JSON-driven weekly tracker with browser-side imports, portfolio analytics and downloadable records.</p></div><div class="heading-actions"><button class="secondary-button" id="floProjectImport">Upload tracker CSV/JSON</button><button class="primary-button" id="floProjectExport">Export current CSV</button></div></div><div class="flo-status-line"><i class="flo-dot"></i><strong>Reporting date:</strong> ${esc(state.projects?.reporting_date || 'Not available')} · Last source update ${esc(dateText(state.projects?.updated_at))}</div><div class="flo-kpis"><article class="flo-kpi"><span>Tracked workstreams</span><strong id="floWorkstreams">${metrics.workstreams}</strong><small>${metrics.onTrack} on track · ${metrics.completedProjects} completed</small></article><article class="flo-kpi"><span>Respondents completed</span><strong id="floCompleted">${metrics.completed}/${metrics.target}</strong><small>${metrics.remaining} remaining</small></article><article class="flo-kpi"><span>Fieldwork completion</span><strong>${metrics.target ? Math.round(metrics.completed/metrics.target*100) : 0}%</strong><small>Applicable IDI and survey workstreams</small></article><article class="flo-kpi"><span>Final output progress</span><strong>${metrics.finalAverage}%</strong><small>Portfolio average</small></article><article class="flo-kpi"><span>Open blockers</span><strong>${projects.filter(item => !['NA','Not Applicable',''].includes(item.risk)).length}</strong><small>Based on latest tracker</small></article></div><div class="flo-controls"><input id="floProjectSearch" placeholder="Search projects, owners, milestones or next steps…"><select id="floProjectStatus"><option value="">All statuses</option><option>On Track</option><option>Completed</option><option>At Risk</option><option>Blocked</option></select><select id="floProjectType"><option value="">All research types</option>${[...new Set(projects.map(item => item.research_type))].map(value => `<option>${esc(value)}</option>`).join('')}</select><button class="flo-button secondary" id="floProjectReset">Reset</button></div><div class="flo-grid"><article class="flo-panel flo-span-7"><span class="flo-kicker">DELIVERABLE PROGRESS</span><h3>Final report completion by workstream</h3><div class="flo-chart"><canvas id="floProjectProgressChart"></canvas></div></article><article class="flo-panel flo-span-5"><span class="flo-kicker">FIELDWORK DELIVERY</span><h3>Target versus completed</h3><div class="flo-chart"><canvas id="floProjectFieldworkChart"></canvas></div></article><article class="flo-panel flo-span-12"><span class="flo-kicker">PROJECT REGISTER</span><h3>Current portfolio records</h3><div class="flo-table-wrap"><table class="flo-table"><thead><tr><th>Project</th><th>Type</th><th>Lead / owner</th><th>Status</th><th>Fieldwork</th><th>Interim</th><th>Final</th><th>Next milestone</th><th>Due</th><th>Next step</th><th>Response needed</th></tr></thead><tbody id="floProjectRows"></tbody></table></div></article></div><input type="file" id="floProjectFile" accept=".csv,.json" hidden></section>`;
   }
 
   function projectRows(projects) {
@@ -270,7 +272,7 @@
     const query = ($('#floProjectSearch')?.value || '').toLowerCase();
     const status = $('#floProjectStatus')?.value || '';
     const type = $('#floProjectType')?.value || '';
-    return (state.projects?.projects || []).filter(item => (!query || JSON.stringify(item).toLowerCase().includes(query)) && (!status || item.status === status) && (!type || item.research_type === type));
+    return relevantProjects().filter(item => (!query || JSON.stringify(item).toLowerCase().includes(query)) && (!status || item.status === status) && (!type || item.research_type === type));
   }
 
   function rerenderProjects() {
@@ -319,7 +321,7 @@
     const active = view.classList.contains('active');
     const wrapper = document.createElement('div'); wrapper.innerHTML = projectsTemplate();
     const replacement = wrapper.firstElementChild; if (active) replacement.classList.add('active');
-    view.replaceWith(replacement); $('#floProjectRows').innerHTML = projectRows(state.projects.projects || []); wireProjects(); setTimeout(() => renderProjectCharts(state.projects.projects || []), 100);
+    view.replaceWith(replacement); $('#floProjectRows').innerHTML = projectRows(relevantProjects()); wireProjects(); setTimeout(() => renderProjectCharts(relevantProjects()), 100);
   }
 
   function libraryPanelHtml() {
@@ -429,6 +431,7 @@
   async function boot() {
     injectStyles(); globalDrawer();
     try { const local = JSON.parse(localStorage.getItem('quest-local-project-tracker') || 'null'); if (local?.projects?.length) state.projects = local; } catch (_) {}
+    window.addEventListener('quest:workspace-change',()=>mountProjects(true));
     await loadAll(false);
     mountAll();
     const observer = new MutationObserver(() => mountAll()); observer.observe(document.body,{childList:true,subtree:true});

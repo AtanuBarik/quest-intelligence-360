@@ -23,7 +23,7 @@
 
   function filterState(view) {
     return {
-      search: controlValue(view, 'search'),
+      search: view.querySelector('[data-filter="search"]')?.value || '',
       project: controlValue(view, 'project'),
       objective: controlValue(view, 'objective'),
       theme: controlValue(view, 'theme'),
@@ -37,6 +37,7 @@
     const state = filterState(view);
     const q = clean(state.search).toLowerCase();
     return (DATA?.projects || []).filter(p => {
+      if (window.QuestWorkspaces && !window.QuestWorkspaces.includesProject(p.id,p.name)) return false;
       const arts = p.artifacts || [];
       if (state.artifact !== 'All' && !arts.some(a => a.type === state.artifact)) return false;
       if (state.project !== 'All' && p.name !== state.project) return false;
@@ -219,6 +220,7 @@
     document.addEventListener('change',event=>{if(event.target.closest?.('.view[data-view="pmr"]') && event.target.matches?.('[data-filter]')) schedule(120)},true);
     document.addEventListener('input',event=>{if(event.target.closest?.('.view[data-view="pmr"]') && event.target.matches?.('[data-filter="search"]')) schedule(180)},true);
     document.addEventListener('click',event=>{const nav=event.target.closest?.('.nav-item[data-view="pmr"]');if(nav) [100,350,800].forEach(schedule)},true);
+    window.addEventListener('quest:workspace-change',()=>schedule(20));
     window.addEventListener('quest:layout-refresh',()=>schedule(120));
     window.addEventListener('quest:stable-route',event=>{if(event.detail?.route==='pmr') schedule(100)});
   }
