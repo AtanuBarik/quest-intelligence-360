@@ -23,7 +23,7 @@
   }
 
   function trackerTemplate(){
-    const projects=projectData?.projects||[];
+    const projects=(projectData?.projects||[]).filter(p=>window.QuestWorkspaces?.inTeam(p.project_name)!==false);
     const applicable=projects.filter(row=>Number.isFinite(Number(row.total_target)));
     const target=applicable.reduce((sum,row)=>sum+Number(row.total_target||0),0);
     const completed=applicable.reduce((sum,row)=>sum+Number(row.completed||0),0);
@@ -47,7 +47,7 @@
 
   function wire(){
     document.getElementById('lgTrackerRefresh')?.addEventListener('click',async()=>{await load();const view=document.querySelector('.view[data-view="tracker"]');if(view){view.dataset.liveGovernance='';replace('tracker',trackerTemplate());wire();}});
-    document.getElementById('lgTrackerDownload')?.addEventListener('click',()=>download('quest-project-tracker.json',projectData));
+    document.getElementById('lgTrackerDownload')?.addEventListener('click',()=>download('quest-project-tracker.json',{...projectData,projects:(projectData?.projects||[]).filter(p=>window.QuestWorkspaces?.inTeam(p.project_name)!==false)}));
     document.getElementById('lgAuditRefresh')?.addEventListener('click',async()=>{await load();const view=document.querySelector('.view[data-view="methodology"]');if(view){view.dataset.liveGovernance='';replace('methodology',auditTemplate());wire();}});
     document.getElementById('lgAuditDownload')?.addEventListener('click',()=>download('quest-live-operations-audit.json',statusData));
   }
@@ -56,6 +56,6 @@
     style();if(!projectData||!statusData)await load();replace('tracker',trackerTemplate());replace('methodology',auditTemplate());wire();
   }
 
-  async function boot(){await mount();const observer=new MutationObserver(()=>mount());observer.observe(document.body,{childList:true,subtree:true});document.addEventListener('click',event=>{if(event.target.closest('.nav-item'))setTimeout(mount,80);});}
+  async function boot(){await mount();window.addEventListener('quest:workspace-change',()=>{document.querySelectorAll('[data-live-governance]').forEach(n=>n.dataset.liveGovernance='');mount();});const observer=new MutationObserver(()=>mount());observer.observe(document.body,{childList:true,subtree:true});document.addEventListener('click',event=>{if(event.target.closest('.nav-item'))setTimeout(mount,80);});}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();

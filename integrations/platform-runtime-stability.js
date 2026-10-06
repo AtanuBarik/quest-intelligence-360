@@ -146,6 +146,7 @@
   function setActiveRoute(route, options = {}) {
     const target = canonicalRoute(route);
     if (!target || target === 'landscape') return false;
+    if (window.QuestWorkspaces && !window.QuestWorkspaces.allowed(target)) return false;
     normalizeKnownAliases();
 
     const nav = findNav(target);

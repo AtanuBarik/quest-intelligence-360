@@ -41,6 +41,7 @@
   function filtered(){
     const q=norm(state.search);
     return (DATA?.segments||[]).filter(r=>{
+      if(window.QuestWorkspaces?.includesProject(r.project_id, project(r.project_id).name) === false)return false;
       if(state.project!=='All'&&r.project_id!==state.project)return false;
       if(state.persona!=='All'&&r.persona!==state.persona)return false;
       if(state.orgType!=='All'&&r.organization_type!==state.orgType)return false;
@@ -57,7 +58,7 @@
   function metricKeys(){return state.metric==='All'?(DATA?.questions||[]).map(q=>q.key):[state.metric];}
 
   function filterBar(){
-    const rows=DATA?.segments||[],projects=DATA?.projects||[];
+    const projects=(DATA?.projects||[]).filter(p=>window.QuestWorkspaces?.includesProject(p.id,p.name)!==false), rows=(DATA?.segments||[]).filter(r=>projects.some(p=>p.id===r.project_id));
     const defs=[
       ['project','Project',['All',...projects.map(p=>p.id)],v=>v==='All'?'All projects':project(v).short_name],
       ['persona','Persona',['All',...uniq(rows.map(r=>r.persona))]],
@@ -111,6 +112,6 @@
   function render(){if(!DATA)return;const current=locate();if(!current)return;const h=document.createElement('div');h.innerHTML=template().trim();const r=h.firstElementChild;if(current.classList.contains('active'))r.classList.add('active');current.replaceWith(r);wire(r);}
   function exportCsv(){const rows=filtered();const headers=['Project','Persona','Organization type','Archetype','Organization level','n','Top priority','Barrier','Preferred support',...(DATA.questions||[]).map(q=>q.label)];const body=rows.map(r=>[project(r.project_id).short_name,r.persona,r.organization_type,r.archetype,r.organization_level,r.n,r.top_priority,r.barrier,r.preferred_support,...(DATA.questions||[]).map(q=>r.metrics[q.key])]);const csv=[headers,...body].map(row=>row.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='quest-survey-analytics-filtered-demo.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);}
   async function load(){const r=await fetch(DATA_URL,{cache:'no-store'});if(!r.ok)throw new Error(`Survey data ${r.status}`);DATA=await r.json();}
-  async function boot(){if(booted)return;booted=true;injectStyles();try{await load();}catch(e){console.error('Survey Analytics unavailable:',e);return;}render();document.addEventListener('click',e=>{const n=e.target.closest('.nav-item');if(n&&(n.dataset.view==='survey'||/Survey Analytics/i.test(n.textContent||'')))setTimeout(render,0);},true);window.addEventListener('quest:layout-refresh',e=>{if(!e.detail?.group||e.detail.group==='survey')setTimeout(render,0);});}
+  async function boot(){if(booted)return;booted=true;injectStyles();try{await load();}catch(e){console.error('Survey Analytics unavailable:',e);return;}render();window.addEventListener('quest:workspace-change',()=>{Object.assign(state,{project:'All',persona:'All',orgType:'All',archetype:'All',level:'All',metric:'All',priority:'All',search:''});render();});document.addEventListener('click',e=>{const n=e.target.closest('.nav-item');if(n&&(n.dataset.view==='survey'||/Survey Analytics/i.test(n.textContent||'')))setTimeout(render,0);},true);window.addEventListener('quest:layout-refresh',e=>{if(!e.detail?.group||e.detail.group==='survey')setTimeout(render,0);});}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();

@@ -10,11 +10,18 @@
   ]);
 
   let session = readSession();
+  let stage = session?.team && session?.stage === 'app' ? 'app' : session ? 'team' : 'login';
+  let selectedTeam = session?.team || '';
+  let selectedRole = session?.role || '';
+  const TYPES = ['Hub Owner','Contributor','Viewer'];
+  const WORKSPACES = window.QuestWorkspaces;
+  function persist() { if (session) { session.stage = stage; sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)); } }
+  function notify() { window.dispatchEvent(new CustomEvent('quest:workspace-change')); }
   let scheduled = false;
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-  const parse = (value, fallback) => { try { return JSON.parse(value); } catch { return fallback; } };
+  function parse(value, fallback) { try { return JSON.parse(value); } catch { return fallback; } }
   function readSession() { return parse(sessionStorage.getItem(SESSION_KEY), null); }
   function readApprovals() { return parse(localStorage.getItem(APPROVAL_KEY), {}); }
   function writeApprovals(value) { localStorage.setItem(APPROVAL_KEY, JSON.stringify(value)); }
@@ -61,18 +68,41 @@
       password.dataset.questPrepared = '1';
     }
     const help = $('.login-help');
-    if (help) help.innerHTML = '<span>🔐 Authorized prototype access</span><span>Role is assigned from your credentials</span>';
-    const roleScreen = $('#roleScreen');
-    if (roleScreen) roleScreen.classList.add('hidden');
+    if (help && !help.dataset.teamPrepared) {
+      help.innerHTML = '<span>🔐 Prototype access</span><span>Choose your team after sign in</span>';
+      help.dataset.teamPrepared = '1';
+    }
   }
 
+  function logos() { return '<div class="role-logos"><div class="ev-wordmark dark">EVALUESERVE</div><div class="quest-wordmark dark"><span class="quest-q">Q</span><span>Quest Diagnostics</span></div></div>'; }
+  function buildOnboarding() {
+    if (!$('#teamScreen')) {
+      const node = document.createElement('main'); node.id='teamScreen'; node.className='q-team-screen hidden';
+      node.innerHTML=`<section class="q-onboard">${logos()}<div class="q-steps"><span>✓ Sign in</span><b>02 Choose team</b><span>03 Choose access</span><span>04 Your dashboard</span></div><h2>Which team do you belong to?</h2><p>Choose your role and team. Your dashboard, workstreams and insights assistant will adapt to the decisions you make.</p><div class="q-team-options">${Object.entries(WORKSPACES.teams).map(([key,t])=>`<button type="button" class="q-team-choice ${key==='executive'?'executive':''}" data-team="${key}" aria-pressed="false"><span class="q-choice-icon" aria-hidden="true">${t.icon}</span><span><strong>${t.name}</strong><small>${t.description}</small></span>${key==='executive'?'<span class="q-choice-tag">All workstreams</span>':''}</button>`).join('')}</div><div class="q-onboard-footer"><button type="button" class="text-button" id="qTeamBack">← Back to sign in</button><button type="button" class="primary-button" id="qTeamContinue" disabled>Continue to access level →</button></div></section>`;
+      $('#roleScreen').insertAdjacentElement('beforebegin',node);
+    }
+    const role=$('#roleScreen');
+    if(role&&!role.dataset.teamPrepared){
+      role.className='q-team-screen hidden';role.dataset.teamPrepared='1';
+      role.innerHTML=`<section class="q-onboard">${logos()}<div class="q-steps"><span>✓ Sign in</span><span>✓ Choose team</span><b>03 Choose access</b><span>04 Your dashboard</span></div><h2>How will you use the hub?</h2><p id="qAccessTeam"></p><div class="q-access-options" id="roleOptions">${[['Hub Owner','✎','Curate intelligence, manage sources and review or publish content.'],['Contributor','▤','Add evidence, prepare analysis and contribute draft insights.'],['Viewer','◉','Explore intelligence, ask questions and download available outputs.']].map(([type,icon,desc])=>`<button type="button" class="role-option" data-role="${type}" aria-pressed="false"><span class="role-icon green">${icon}</span><strong>${type}</strong><small>${desc}</small></button>`).join('')}</div><p class="q-access-note">Available access levels follow your prototype account. Team selection changes relevance; your access level controls editing actions.</p><div class="q-onboard-footer"><button type="button" class="text-button" id="qAccessBack">← Back to team selection</button><button type="button" class="primary-button" id="enterHub" disabled>Open my dashboard →</button></div></section>`;
+    }
+  }
+  function updateChoices() {
+    $$('.q-team-choice').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.team===selectedTeam)));
+    const next=$('#qTeamContinue');if(next)next.disabled=!selectedTeam;
+    const name=WORKSPACES.teams[selectedTeam]?.name||'Choose a team';
+    if($('#qAccessTeam'))$('#qAccessTeam').textContent=name;
+    const cap=TYPES.indexOf(session?.maxRole||session?.role||'Viewer');
+    $$('#roleScreen .role-option').forEach(n=>{
+      const blocked=TYPES.indexOf(n.dataset.role)<cap;n.disabled=blocked;
+      n.title=blocked?'This access level is unavailable for your account.':'';
+      n.classList.toggle('selected',n.dataset.role===selectedRole);
+      n.setAttribute('aria-pressed',String(n.dataset.role===selectedRole));
+    });
+    const enter=$('#enterHub');if(enter)enter.disabled=!selectedRole||TYPES.indexOf(selectedRole)<cap;
+  }
   function showScreen(target) {
-    const login = $('#loginScreen');
-    const role = $('#roleScreen');
-    const app = $('#appScreen');
-    if (login) login.classList.toggle('hidden', target !== 'login');
-    if (role) role.classList.add('hidden');
-    if (app) app.classList.toggle('hidden', target !== 'app');
+    ['login','team','role','app'].forEach(name=>$('#'+name+'Screen')?.classList.toggle('hidden',name!==target));
   }
 
   function applyRoleLabels() {
@@ -83,7 +113,8 @@
       roleBadge.classList.add('q-role-governance-badge');
     }
     const sidebarRole = $('#sidebarRole');
-    if (sidebarRole) sidebarRole.textContent = session.role;
+    const label = (WORKSPACES.teams[session.team]?.short || '') + ' · ' + session.role;
+    if (sidebarRole && sidebarRole.textContent !== label) sidebarRole.textContent = label;
   }
 
   function actionText(element) {
@@ -92,6 +123,8 @@
 
   function restrictionReason(element) {
     if (!session || session.role === 'Hub Owner') return '';
+    if(session.role==='Viewer' && element.matches('input[type="file"]')) return 'Viewer access is read-only.';
+    if(element.id==='qkrClear') return 'Only Hub Owners can clear locally indexed files.';
     const text = actionText(element);
     if (/filter|search|sort|reset|apply|view|open|expand|collapse|download|export|copy|refresh|next|previous|page|brief|summary/.test(text)) return '';
     if (/approve|reject|remind|hold|status|publish|unpublish|archive|restore|configure|edit|modify|rename|delete|remove/.test(text)) {
@@ -106,7 +139,7 @@
   function applyControlRestrictions() {
     if (!session) return;
     $$('button,[role="button"],input[type="file"]').forEach(element => {
-      if (element.closest('#loginScreen') || element.classList.contains('q-approval-action')) return;
+      if (!element.closest('#appScreen') || element.classList.contains('q-approval-action') || element.closest('#qTeamAssistant') || element.id === 'qChangeWorkspace') return;
       const reason = restrictionReason(element);
       if (reason) {
         element.disabled = true;
@@ -150,7 +183,7 @@
     card.dataset.questApprovalKey = key;
     card.dataset.questApprovalStatus = status;
 
-    if ((session.role === 'Viewer' && status !== 'approved') || (session.role === 'Contributor' && status === 'rejected')) {
+    if ((session.team !== 'executive' && session.role === 'Viewer' && status !== 'approved') || (session.role === 'Contributor' && status === 'rejected')) {
       card.style.display = 'none';
       return;
     }
@@ -217,8 +250,9 @@
 
   function applyAll() {
     prepareLogin();
-    if (!session) return;
-    showScreen('app');
+    if (!session) { showScreen('login'); return; }
+    showScreen(stage);
+    if(stage !== 'app') return;
     applyRoleLabels();
     applyControlRestrictions();
     applyApprovalGovernance();
@@ -244,15 +278,17 @@
     try {
       const hash = await credentialHash(email, password?.value || '');
       const match = ROLE_HASHES.get(hash);
-      if (!match || match.email !== email) throw new Error('bad credentials');
-      session = { role: match.role, email: match.email, authenticatedAt: new Date().toISOString() };
-      sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+      const account = email === 'quest@medtech.com' && password?.value === 'evalueserve' ? {role:'Hub Owner',email} : match;
+      if (!account || account.email !== email) throw new Error('bad credentials');
+      session = { role: account.role, maxRole: account.role, email: account.email, authenticatedAt: new Date().toISOString() };
+      stage = 'team'; selectedTeam = ''; selectedRole = account.role; persist(); updateChoices();
       sessionStorage.removeItem('quest360-auth');
       if (password) password.value = '';
       applyAll();
-      toast(`Signed in as ${match.role}.`);
+      notify();
+      toast('Signed in. Choose your team to continue.');
     } catch (_) {
-      session = null;
+      session = null; stage = 'login';
       sessionStorage.removeItem(SESSION_KEY);
       if (error) error.textContent = 'Incorrect email or password.';
       showScreen('login');
@@ -273,8 +309,9 @@
         event.stopImmediatePropagation();
         sessionStorage.removeItem(SESSION_KEY);
         sessionStorage.removeItem('quest360-auth');
-        session = null;
+        session = null; stage = 'login'; selectedTeam = ''; selectedRole = '';
         showScreen('login');
+        notify();
         prepareLogin();
         toast('Signed out.');
       }, true);
@@ -284,12 +321,33 @@
 
   function boot() {
     injectStyles();
+    buildOnboarding();
     prepareLogin();
     bind();
+    document.addEventListener('click', event => {
+      const team = event.target.closest('[data-team]');
+      if(team && team.closest('#teamScreen')) { selectedTeam=team.dataset.team; updateChoices(); }
+      const role = event.target.closest('#roleScreen [data-role]');
+      if(role && !role.disabled) { selectedRole=role.dataset.role; updateChoices(); }
+      if(event.target.closest('#qTeamContinue') && session && selectedTeam) { stage='role'; session.team=selectedTeam; persist(); updateChoices(); showScreen(stage); }
+      if(event.target.closest('#qAccessBack')) { stage='team'; persist(); showScreen(stage); }
+      if(event.target.closest('#qTeamBack')) { session=null; stage='login'; sessionStorage.removeItem(SESSION_KEY); showScreen(stage); }
+      if(event.target.closest('#enterHub') && session && selectedTeam && selectedRole) {
+        event.preventDefault(); event.stopImmediatePropagation();
+        if(TYPES.indexOf(selectedRole)<TYPES.indexOf(session.maxRole||session.role))return;
+        session.team=selectedTeam;session.role=selectedRole;stage='app';persist();applyAll();notify();
+        WORKSPACES.go(selectedTeam==='executive'?'home':'team-dashboard');
+        window.dispatchEvent(new Event('resize'));
+      }
+      if(event.target.closest('#qChangeWorkspace')) { stage='team';persist();updateChoices();showScreen(stage); }
+    }, true);
     sessionStorage.removeItem('quest360-auth');
     session = readSession();
-    if (session && ['Hub Owner','Contributor','Viewer'].includes(session.role)) applyAll();
-    else showScreen('login');
+    if (session && TYPES.includes(session.role)) {
+      session.maxRole ||= session.role;
+      if(!WORKSPACES.teams[session.team]) { stage='team'; selectedTeam=''; }
+      persist();updateChoices();applyAll();notify();
+    } else { session=null;stage='login';showScreen(stage); }
 
     const observer = new MutationObserver(() => {
       bind();

@@ -61,7 +61,7 @@
   }
 
   function projects(){
-    return (DATA?.projects || []).map(p => {
+    return (DATA?.projects || []).filter(p => window.QuestWorkspaces?.includesProject(p.id, p.name) !== false).map(p => {
       const rows = trackerRows(p);
       const completed = rows.reduce((sum,r)=>sum + Number(r.completed || 0),0);
       const prog = rows.map(r=>Number(r.final_progress)).filter(Number.isFinite);
@@ -357,6 +357,7 @@
     if (booted) return; booted=true; injectStyles();
     try{await load();}catch(e){console.error('PMR final dashboard data unavailable:',e);return;}
     render();
+    window.addEventListener('quest:workspace-change', () => { Object.assign(state, { search:'', project:'All', objective:'All', theme:'All', research:'All', status:'All', artifact:'All' }); render(); });
     document.addEventListener('click',e=>{const nav=e.target.closest('.nav-item');if(nav && (nav.dataset.view==='pmr'||/PMR Projects|PMR Reports/i.test(nav.textContent||''))) setTimeout(render,0);},true);
     window.addEventListener('quest:layout-refresh',e=>{if(!e.detail?.group||e.detail.group==='pmr') setTimeout(render,0);});
     window.addEventListener('quest:module-loaded',e=>{if(/pmr/i.test(e.detail?.path||'')) setTimeout(render,0);});
