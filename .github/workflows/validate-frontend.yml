@@ -7,6 +7,8 @@ on:
     paths:
       - 'index.html'
       - 'integrations/**/*.js'
+      - 'integrations/**/*.css'
+      - 'tests/**/*.cjs'
       - 'data/**/*.json'
       - 'scripts/build_pages_materialized.py'
       - '.github/workflows/validate-frontend.yml'
@@ -14,6 +16,8 @@ on:
     paths:
       - 'index.html'
       - 'integrations/**/*.js'
+      - 'integrations/**/*.css'
+      - 'tests/**/*.cjs'
       - 'data/**/*.json'
       - 'scripts/build_pages_materialized.py'
 
@@ -47,6 +51,16 @@ jobs:
               json.loads(path.read_text(encoding='utf-8'))
               print(f'Validated {path}')
           PY
+
+      - name: Validate MACI evidence and team workflows
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test tests/maci-evidence-model.test.cjs
+          python scripts/build_pages_materialized.py
+          qa_deps="${RUNNER_TEMP}/quest-maci-qa"
+          npm install --prefix "$qa_deps" jsdom@26.1.0 --no-audit --no-fund
+          NODE_PATH="$qa_deps/node_modules" node tests/maci-workspace.test.cjs
 
       - name: Confirm Aug 30 design with current data architecture
         shell: bash

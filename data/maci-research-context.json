@@ -1,0 +1,764 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-09",
+  "purpose": "Customer evidence, reusable research context and the next research question",
+  "policy": {
+    "age_review_months": 24,
+    "default_lens": "Reviewed public + approved local evidence",
+    "public_is_internal": false,
+    "synthetic_is_customer_evidence": false,
+    "comparability": "Compare conclusions only when business question, population, geography, period and method are sufficiently aligned. No automatic pooling or statistical significance from cohort means."
+  },
+  "sources": [
+    {
+      "id": "onc-portals-2024",
+      "title": "US portal access and use, 2024",
+      "url": "https://healthit.gov/data/data-briefs/individuals-access-and-use-patient-portals-and-smartphone-health-apps-2024/",
+      "kind": "Quantitative",
+      "published": "2025-06",
+      "collection_period": "March–September 2024",
+      "method": "HINTS 7; probability sampling; weighted national estimates",
+      "population": "US adults",
+      "geography": "United States",
+      "sample": "7,278 completed surveys; response rate 27.31%",
+      "summary": "Portal use is widespread, while multiple portals create a useful research question about information fragmentation.",
+      "limitations": "National context; not a Quest customer sample. Measures have different bases and are not a single response distribution.",
+      "topics": [
+        "digital",
+        "interoperability",
+        "adoption"
+      ],
+      "statistics": [
+        {
+          "label": "Accessed a portal at least once in the past year",
+          "value": 65,
+          "base": "US adults, weighted",
+          "question": "",
+          "count": null
+        },
+        {
+          "label": "Had multiple portals",
+          "value": 59,
+          "base": "US adults, weighted",
+          "question": "",
+          "count": null
+        },
+        {
+          "label": "Had a clinical laboratory portal",
+          "value": 29,
+          "base": "US adults, weighted",
+          "question": "",
+          "count": null
+        },
+        {
+          "label": "Used an app to organize portals",
+          "value": 7,
+          "base": "US adults, weighted",
+          "question": "",
+          "count": null
+        }
+      ],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": "2024-09",
+      "age_basis": "Fieldwork / search cutoff"
+    },
+    {
+      "id": "jama-results-2023",
+      "title": "Patient preferences for immediate results",
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2802672",
+      "kind": "Quantitative",
+      "published": "2023-03-20",
+      "collection_period": "May 2022 survey; portal activity April 2021–April 2022",
+      "method": "Multicenter survey",
+      "population": "Patient portal users at four academic medical centers",
+      "geography": "United States",
+      "sample": "8,139 respondents / 43,380 delivered invitations; 18.8% response",
+      "summary": "Most respondents preferred immediate release. Higher worry after abnormal results can coexist with that preference.",
+      "limitations": "Self-selected portal users; older and predominantly English-speaking sample. Not representative of all patients or Quest customers. Question-specific denominators differ.",
+      "topics": [
+        "communication",
+        "preferences",
+        "digital"
+      ],
+      "statistics": [
+        {
+          "label": "Prefer immediate release: yes",
+          "value": 95.7,
+          "base": "7,859 answering preference item",
+          "question": "Immediate release preference",
+          "count": 7520
+        },
+        {
+          "label": "Prefer immediate release: no",
+          "value": 2.6,
+          "base": "7,859 answering preference item",
+          "question": "Immediate release preference",
+          "count": 201
+        },
+        {
+          "label": "Prefer immediate release: other",
+          "value": 1.8,
+          "base": "7,859 answering preference item",
+          "question": "Immediate release preference",
+          "count": 138
+        },
+        {
+          "label": "Reported increased worry after abnormal results",
+          "value": 16.5,
+          "base": "2,442 in abnormal-result group",
+          "question": "Result-related worry",
+          "count": 403
+        },
+        {
+          "label": "Reported increased worry after normal results",
+          "value": 5,
+          "base": "5,918 in normal-result group",
+          "question": "Result-related worry",
+          "count": 294
+        }
+      ],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": "2022-05",
+      "age_basis": "Fieldwork / search cutoff"
+    },
+    {
+      "id": "onc-hospitals-2023",
+      "title": "Hospital interoperability, 2023",
+      "url": "https://healthit.gov/data/data-briefs/interoperable-exchange-patient-health-information-among-us-hospitals-2023/",
+      "kind": "Quantitative",
+      "published": "2024",
+      "collection_period": "2023 survey wave",
+      "method": "AHA Annual Survey IT Supplement",
+      "population": "Nonfederal acute-care hospitals",
+      "geography": "United States",
+      "sample": "Sample base not extracted in this source card",
+      "summary": "Information exchange capability and routine use are different measures. Lower-resource hospitals exchanged less frequently.",
+      "limitations": "Hospital-level reporting; not laboratory-specific or customer perceptions. At-least-sometimes and routine thresholds must not be treated as contradictory.",
+      "topics": [
+        "interoperability",
+        "workflow",
+        "adoption"
+      ],
+      "statistics": [
+        {
+          "label": "All four exchange domains at least sometimes",
+          "value": 70,
+          "base": "US nonfederal acute-care hospitals",
+          "question": "",
+          "count": null
+        },
+        {
+          "label": "All four exchange domains routinely",
+          "value": 43,
+          "base": "US nonfederal acute-care hospitals",
+          "question": "",
+          "count": null
+        }
+      ],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": "2023-12",
+      "age_basis": "Fieldwork / search cutoff"
+    },
+    {
+      "id": "jama-education-2025",
+      "title": "Patient-friendly results and subsequent messaging",
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2841447",
+      "kind": "Quantitative",
+      "published": "2025",
+      "collection_period": "January–December 2024; intervention August 7",
+      "method": "Interrupted time series",
+      "population": "Patients receiving common outpatient laboratory results at Vanderbilt",
+      "geography": "United States; one academic center",
+      "sample": "205,139 patients; 829,902 results",
+      "summary": "Patient-friendly educational material was not associated with a clinically meaningful overall reduction in messages within 24 hours of result review.",
+      "limitations": "Single-center observational study. These percentages use results, not patients, as their denominator. Do not generalize workload effects to Quest.",
+      "topics": [
+        "communication",
+        "workflow",
+        "digital"
+      ],
+      "statistics": [
+        {
+          "label": "Messages following review: before intervention",
+          "value": 17.5,
+          "base": "497,651 results before intervention",
+          "question": "Messages within 24 hours",
+          "count": 87038
+        },
+        {
+          "label": "Messages following review: after intervention",
+          "value": 17.3,
+          "base": "332,251 results after intervention",
+          "question": "Messages within 24 hours",
+          "count": 57585
+        }
+      ],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": "2024-12",
+      "age_basis": "Fieldwork / search cutoff"
+    },
+    {
+      "id": "ama-digital-2022",
+      "title": "Physician digital health research, 2022",
+      "url": "https://www.ama-assn.org/about/ama-research/ama-digital-health-care-2022-study-findings",
+      "kind": "Quantitative",
+      "published": "2022",
+      "collection_period": "2022 wave; earlier waves 2016 and 2019",
+      "method": "Physician survey",
+      "population": "Physicians",
+      "geography": "United States",
+      "sample": "1,300 physicians",
+      "summary": "Physicians assessed clinical benefit, reimbursement, liability and practice fit when considering digital tools.",
+      "limitations": "Broad digital health context; not diagnostic supplier preference. Older fieldwork should be reviewed before applying to current customer decisions.",
+      "topics": [
+        "adoption",
+        "workflow",
+        "drivers"
+      ],
+      "statistics": [
+        {
+          "label": "Saw an advantage for patient care",
+          "value": 93,
+          "base": "Physicians surveyed in 2022",
+          "question": "",
+          "count": null
+        }
+      ],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": "2022-12",
+      "age_basis": "Fieldwork / search cutoff"
+    },
+    {
+      "id": "jmir-portals-2023",
+      "title": "Consumer requirements for laboratory portals",
+      "url": "https://onlineacademiccommunity.uvic.ca/ialh/consumers-needs-for-laboratory-results-portals-questionnaire-study/",
+      "kind": "Mixed methods",
+      "published": "2023-06-12",
+      "collection_period": "Collection dates not extracted",
+      "method": "Questionnaire with closed and open items; affinity analysis",
+      "population": "Consumers using laboratory-result portals",
+      "geography": "British Columbia, Canada",
+      "sample": "30 participants",
+      "summary": "Participants favored portal access but identified issues with usability, completeness and clarity of result displays.",
+      "limitations": "Small local sample; not a US prevalence estimate. University research summary links the primary JMIR paper; no transcript passages are held here.",
+      "topics": [
+        "needs",
+        "digital",
+        "communication",
+        "preferences"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": null,
+      "age_basis": "Publication; collection date not available"
+    },
+    {
+      "id": "jmir-display-review-2024",
+      "title": "Review of laboratory-result presentation",
+      "url": "https://cris.maastrichtuniversity.nl/en/publications/enhancing-patient-understanding-of-laboratory-test-results-system/",
+      "kind": "Evidence review",
+      "published": "2024-08-12",
+      "collection_period": "Literature search through May 31, 2023",
+      "method": "Systematic review",
+      "population": "Patients in included presentation studies",
+      "geography": "Multiple study settings",
+      "sample": "18 studies; 16 used mock results",
+      "summary": "Visual reference ranges and color bars improved some perception and usability outcomes; evidence on actions and recall was sparse.",
+      "limitations": "Heterogeneous quality and outcomes; most studies used mock results. Does not establish clinical benefit or reduced messaging for a particular service.",
+      "topics": [
+        "digital",
+        "communication",
+        "needs"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": "2023-05",
+      "age_basis": "Fieldwork / search cutoff"
+    },
+    {
+      "id": "gp-communication-2026",
+      "title": "GP experiences of diagnostic-result communication",
+      "url": "https://academic.oup.com/fampra/article/43/1/cmaf113/8424250",
+      "kind": "Qualitative",
+      "published": "2026-01-13",
+      "collection_period": "January–December 2024",
+      "method": "Purposive sampling; semi-structured interviews; thematic analysis",
+      "population": "General practitioners",
+      "geography": "Netherlands",
+      "sample": "18 participants in 17 interviews",
+      "summary": "GPs described setting expectations, adapting explanations to patients and balancing efficiency with patient participation. Jargon and misinterpretation were communication concerns.",
+      "limitations": "Dutch primary-care context; not Quest customers or US health-system executives. Participant and interview counts differ because one interview included two GPs. The source contains transcripts excerpts; no private transcripts are imported here.",
+      "topics": [
+        "communication",
+        "workflow",
+        "needs",
+        "expectations"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": "2024-12",
+      "age_basis": "Fieldwork / search cutoff"
+    },
+    {
+      "id": "quest-qci",
+      "title": "Quest Comprehensive Insights",
+      "url": "https://www.questdiagnostics.com/laboratory-managers/lab-performance-optimization/lab-analytics-stewardship/quest-comprehensive-insights",
+      "kind": "Supplier description",
+      "published": null,
+      "collection_period": "Not applicable",
+      "method": "Official product description",
+      "population": "Laboratory and health-system audiences",
+      "geography": "Not specified",
+      "sample": "Not a customer study",
+      "summary": "Quest describes analytics covering core-laboratory, Quest and third-party testing patterns.",
+      "limitations": "Supplier description supports a capability comparison, not awareness, preference, satisfaction or proven customer outcomes.",
+      "topics": [
+        "interoperability",
+        "stewardship",
+        "perception"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": null,
+      "age_basis": "Not applicable"
+    },
+    {
+      "id": "quest-qei",
+      "title": "Quest Essential Insights",
+      "url": "https://www.questdiagnostics.com/laboratory-managers/lab-performance-optimization/lab-analytics-stewardship/quest-essential-insights",
+      "kind": "Supplier description",
+      "published": null,
+      "collection_period": "Not applicable",
+      "method": "Official product description",
+      "population": "Laboratory audiences",
+      "geography": "Not specified",
+      "sample": "Not a customer study",
+      "summary": "Quest describes reporting and analytics for laboratory testing sent to Quest.",
+      "limitations": "Product positioning is not evidence of customer preference or unmet needs.",
+      "topics": [
+        "stewardship",
+        "perception"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": null,
+      "age_basis": "Not applicable"
+    },
+    {
+      "id": "quest-quanum",
+      "title": "Quanum Lab Services Manager",
+      "url": "https://www.questdiagnostics.com/healthcare-professionals/lab-tools-it-systems/quanum-lab-services-manager",
+      "kind": "Supplier description",
+      "published": null,
+      "collection_period": "Not applicable",
+      "method": "Official service description",
+      "population": "Healthcare professionals",
+      "geography": "Not specified",
+      "sample": "Not a customer study",
+      "summary": "Quest describes online ordering, results and laboratory-service management tools.",
+      "limitations": "Published service features do not establish ease of use or customer satisfaction.",
+      "topics": [
+        "workflow",
+        "digital",
+        "perception"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": null,
+      "age_basis": "Not applicable"
+    },
+    {
+      "id": "visiun-integration",
+      "title": "Visiun integration options",
+      "url": "https://www.visiun.com/lab-solutions/flexible-integration",
+      "kind": "Supplier description",
+      "published": null,
+      "collection_period": "Not applicable",
+      "method": "Official integration description",
+      "population": "Laboratory organizations",
+      "geography": "Not specified",
+      "sample": "Not a customer study",
+      "summary": "Visiun describes deployment alternatives and integrations with laboratory information systems.",
+      "limitations": "Evaluate stated options against customer implementation requirements; no customer preference data are supplied.",
+      "topics": [
+        "interoperability",
+        "stewardship",
+        "perception"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": null,
+      "age_basis": "Not applicable"
+    },
+    {
+      "id": "arup-analytics",
+      "title": "ARUP AnalyticsDx Sendout",
+      "url": "https://www.aruplab.com/files/resources/branding/ADX-Users-Guide.pdf",
+      "kind": "Supplier description",
+      "published": null,
+      "collection_period": "Not applicable",
+      "method": "Official user guide, version 5.0.0",
+      "population": "ARUP laboratory clients",
+      "geography": "Not specified",
+      "sample": "Not a customer study",
+      "summary": "The guide describes sendout reporting for volume, spend, turnaround, exceptions, utilization and exports.",
+      "limitations": "Guide functionality is not a customer experience study. Confirm data coverage and implementation details before like-for-like comparison.",
+      "topics": [
+        "stewardship",
+        "drivers",
+        "perception"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": null,
+      "age_basis": "Not applicable"
+    },
+    {
+      "id": "mayo-access",
+      "title": "MayoACCESS ordering and reporting",
+      "url": "https://www.mayocliniclabs.com/order-tests/mayoaccess",
+      "kind": "Supplier description",
+      "published": null,
+      "collection_period": "Not applicable",
+      "method": "Official service description",
+      "population": "Laboratory clients",
+      "geography": "Not specified",
+      "sample": "Not a customer study",
+      "summary": "Mayo describes ordering, results retrieval and utilization reporting, including compatible laboratory-system connections.",
+      "limitations": "Supplier descriptions cannot establish awareness, consideration, reasons for preference or switching rates.",
+      "topics": [
+        "workflow",
+        "interoperability",
+        "perception"
+      ],
+      "statistics": [],
+      "reviewed_at": "2026-10-09",
+      "authority": "Reviewed public context",
+      "approval": "Public source reviewed; not Quest research approval",
+      "collection_end": null,
+      "age_basis": "Not applicable"
+    }
+  ],
+  "topics": [
+    {
+      "id": "needs",
+      "name": "Customer & unmet needs",
+      "pillar": "Needs",
+      "terms": [
+        "needs",
+        "unmet",
+        "pain point"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "health-system-experience"
+      ],
+      "next_question": "Which needs remain unmet after accounting for current workflow and support?",
+      "next_method": "Qualitative exploration followed by targeted validation"
+    },
+    {
+      "id": "preferences",
+      "name": "Preferences & result access",
+      "pillar": "Needs",
+      "terms": [
+        "preference",
+        "immediate",
+        "release",
+        "results"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "consumer-testing"
+      ],
+      "next_question": "How does release preference vary with result complexity and available explanation?",
+      "next_method": "Segmented survey with question-level denominators"
+    },
+    {
+      "id": "expectations",
+      "name": "Customer expectations",
+      "pillar": "Needs",
+      "terms": [
+        "expectation",
+        "explain",
+        "understand"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "health-system-experience"
+      ],
+      "next_question": "What communication do patients and clinicians expect at each result touchpoint?",
+      "next_method": "Journey interviews with patient and clinician perspectives"
+    },
+    {
+      "id": "drivers",
+      "name": "Purchase & choice drivers",
+      "pillar": "Needs",
+      "terms": [
+        "purchase",
+        "choice",
+        "driver",
+        "consideration",
+        "awareness",
+        "switching"
+      ],
+      "projects": [
+        "health-system-experience",
+        "lab-stewardship",
+        "consumer-testing"
+      ],
+      "next_question": "Which needs determine consideration, selection and switching, and why?",
+      "next_method": "Decision-maker interviews; importance and choice survey"
+    },
+    {
+      "id": "adoption",
+      "name": "Adoption barriers",
+      "pillar": "Needs",
+      "terms": [
+        "adoption",
+        "barrier",
+        "implement",
+        "onboard"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "data-ecosystem-needs",
+        "data-ecosystem-extended"
+      ],
+      "next_question": "Which barriers prevent uptake despite perceived value?",
+      "next_method": "Workflow interviews and segmented barrier questions"
+    },
+    {
+      "id": "digital",
+      "name": "Digital & service experience",
+      "pillar": "Experience",
+      "terms": [
+        "digital",
+        "portal",
+        "satisfaction",
+        "service",
+        "journey"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "consumer-testing"
+      ],
+      "next_question": "Where does the journey create effort, confusion or avoidable repeat contacts?",
+      "next_method": "Journey mapping; usability interviews; satisfaction cross-tabs"
+    },
+    {
+      "id": "communication",
+      "name": "Communication experience",
+      "pillar": "Experience",
+      "terms": [
+        "communication",
+        "message",
+        "worry",
+        "anxiety",
+        "jargon",
+        "interview"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "health-system-experience"
+      ],
+      "next_question": "Which explanations improve comprehension for which customers?",
+      "next_method": "Qualitative comprehension research; validation of selected formats"
+    },
+    {
+      "id": "workflow",
+      "name": "Workflow friction",
+      "pillar": "Experience",
+      "terms": [
+        "workflow",
+        "friction",
+        "physician",
+        "clinician",
+        "expert"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "data-ecosystem-needs",
+        "lab-stewardship"
+      ],
+      "next_question": "Where do ordering, results and follow-up interrupt actual work?",
+      "next_method": "Stakeholder workflow interviews and survey comparison"
+    },
+    {
+      "id": "interoperability",
+      "name": "Interoperability & data access",
+      "pillar": "Experience",
+      "terms": [
+        "interoperability",
+        "integrat",
+        "interface",
+        "health system",
+        "data ecosystem",
+        "data exchange"
+      ],
+      "projects": [
+        "digital-customer-journey",
+        "data-ecosystem-needs",
+        "data-ecosystem-extended"
+      ],
+      "next_question": "Which information is available, used routinely and missing at decisions?",
+      "next_method": "Existing-evidence review; stakeholder interviews; targeted quant validation"
+    },
+    {
+      "id": "stewardship",
+      "name": "Lab analytics & stewardship",
+      "pillar": "Experience",
+      "terms": [
+        "stewardship",
+        "utilization",
+        "turnaround",
+        "analytics",
+        "sendout"
+      ],
+      "projects": [
+        "lab-stewardship",
+        "data-ecosystem-extended"
+      ],
+      "next_question": "Which analytics decisions are supported today, and where is evidence missing?",
+      "next_method": "Use-case interviews and product-positioning comparison"
+    },
+    {
+      "id": "perception",
+      "name": "Quest & competitor perceptions",
+      "pillar": "Perception",
+      "terms": [
+        "quest",
+        "competitor",
+        "brand",
+        "perception",
+        "positioning",
+        "labcorp",
+        "arup",
+        "mayo",
+        "visiun"
+      ],
+      "projects": [
+        "health-system-experience",
+        "lab-stewardship",
+        "consumer-testing"
+      ],
+      "next_question": "How do customers perceive providers, and which experiences explain associations?",
+      "next_method": "Unaided/aided awareness and choice research; qualitative explanation"
+    }
+  ],
+  "request_statuses": [
+    "New",
+    "Under Review",
+    "Existing Evidence Found",
+    "Approved",
+    "In Progress",
+    "Completed"
+  ],
+  "report_types": [
+    "PMR Executive Summary",
+    "Study Report",
+    "Survey Findings Report",
+    "Cross-Tab Report",
+    "Voice of Expert Synthesis",
+    "Cross-Study Synthesis",
+    "Customer Segment Report",
+    "Journey Insights Report",
+    "Evidence Gap Report",
+    "Research Portfolio Report",
+    "Methodology Summary",
+    "KBQ Evidence Report",
+    "Agreement / Conflict / Gap Report",
+    "Competitive Perception Report",
+    "Quest vs. Competitor Customer Perceptions",
+    "Customer Choice Drivers",
+    "Brand / Positioning Perception Brief",
+    "Competitive Evidence Summary"
+  ],
+  "methodology_source": "https://aapor.org/standards-and-ethics/disclosure-standards/",
+  "methodology_checks": [
+    "Record sponsor and research conductor separately.",
+    "Retain the business question, exact instrument and answer options.",
+    "Document population, recruitment, sampling, geography and collection period.",
+    "Preserve subgroup bases, weighting, missing responses and question-level denominators.",
+    "Keep qualitative excerpts linked to their source passage and coding context.",
+    "Explain uncertainty, limitations and any model used for precision."
+  ],
+  "comparability_notes": [
+    {
+      "title": "Preference and worry can coexist",
+      "sources": [
+        "jama-results-2023"
+      ],
+      "reason": "Immediate-release preference and worry after abnormal results are separate outcomes; this is not a contradictory finding."
+    },
+    {
+      "title": "Capability is different from routine use",
+      "sources": [
+        "onc-hospitals-2023"
+      ],
+      "reason": "At least sometimes and routinely use different thresholds. Do not label the 70% and 43% estimates a conflict."
+    },
+    {
+      "title": "Usability and messaging are different outcomes",
+      "sources": [
+        "jmir-display-review-2024",
+        "jama-education-2025"
+      ],
+      "reason": "Presentation experiments and real-world messaging involve different interventions, settings and outcomes. Their findings cannot be directly pooled."
+    },
+    {
+      "title": "Preserve stakeholder and country context",
+      "sources": [
+        "gp-communication-2026",
+        "jama-results-2023"
+      ],
+      "reason": "Dutch GP interviews explain professional concerns; US patient survey percentages answer different questions. They are not a matched physician-versus-executive comparison."
+    }
+  ],
+  "competitive_measures": [
+    "Awareness",
+    "Consideration",
+    "Stated preference",
+    "Reasons for preference",
+    "Perceived advantages / disadvantages",
+    "Customer experience",
+    "Brand associations",
+    "Switching factors"
+  ],
+  "survey_measures": [
+    "Awareness",
+    "Usage",
+    "Satisfaction",
+    "Preference",
+    "Importance",
+    "Adoption",
+    "Purchase intent",
+    "Barriers",
+    "Open-ended themes"
+  ]
+}

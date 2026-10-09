@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const RELEASE = '20261006motion1';
+  const RELEASE = '20261009maci1';
   const TEAMS = {
     executive: { name: 'Executive Leadership Team', short: 'Executive Leadership', icon: '◎', title: 'Complete intelligence. One view.', description: 'Enterprise priorities, every workstream and the complete intelligence portfolio.', focus: 'Enterprise value, investment priorities, risks and decisions across all workstreams.', routes: null, projects: null, questions: ['What priorities recur across the research portfolio?', 'What does the evidence say about enterprise value?'], metrics: ['quest_trust', 'value_clarity', 'service_reliability'] },
     strategy: { name: 'Strategy & Business Intelligence Team', short: 'Strategy & BI', icon: '↗', title: 'Connect signals to strategic decisions.', description: 'Competitive positioning, market signals, growth opportunities and strategic research.', focus: 'Competitive differentiation, growth opportunities, partnerships and strategic trade-offs.', routes: ['team-dashboard','copilot','alerts','competitors','news','pmr','library','projects','methodology'], projects: ['health-system-experience','data-ecosystem-needs','data-ecosystem-extended','consumer-testing','ci-always-on'], questions: ['Where can Quest differentiate its enterprise value proposition?', 'Which consumer testing opportunities are supported by this evidence?'], metrics: ['value_clarity','quest_trust','data_ai_readiness'] },
@@ -64,6 +64,7 @@
   }
   function renderDashboard() {
     const view=$('.view[data-view="team-dashboard"]'), p=profile(); if (!view||!p||!data) return;
+    if(session().team==='maci'&&window.QuestMaci){window.QuestMaci.renderHub(view);return;}
     const projects=tracked(), entries=projectEntries(), insights=records();
     const average=projects.length?Math.round(projects.reduce((s,p)=>s+Number(p.final_progress||0),0)/projects.length):null;
     const date=data.tracker.reporting_date||'Date not supplied';
@@ -79,7 +80,7 @@
   }
 
   function renderAgenda() {
-    const p=profile();if(!p||!data?.agenda)return;
+    const p=profile();if(!p||!data?.agenda||session().team==='maci')return;
     const executive=session().team==='executive';
     const view=$(`.view[data-view="${executive?'home':'team-dashboard'}"]`);if(!view)return;
     let section=view.querySelector('.q-research-agenda');if(!section){section=document.createElement('section');section.id=executive?'qExecutiveResearchAgenda':'qTeamResearchAgenda';view.appendChild(section);}
@@ -93,6 +94,7 @@
 
   function renderAssistant() {
     const view=$('.view[data-view="copilot"]'), p=profile();if (!view||!p) return;
+    if(session().team==='maci'&&window.QuestMaci){window.QuestMaci.renderPartner();return;}
     let node=$('#qTeamAssistant');
     if (!node) { node=document.createElement('section');node.id='qTeamAssistant';node.className='q-team-chat';view.prepend(node); }
     const key=session().team;
@@ -106,6 +108,7 @@
     [...view.children].forEach(child=>child.classList.toggle('q-team-legacy-insights',key!=='executive'&&child!==node));
   }
   async function answer(question) {
+    if(session()?.team==='maci'&&window.QuestMaci)return window.QuestMaci.answer(question);
     const teamAtStart=session()?.team, request=++answerSequence;
     const busyPanel=$('#qTeamAnswer');if(busyPanel){busyPanel.hidden=false;busyPanel.setAttribute('aria-busy','true');busyPanel.innerHTML='<span class="q-busy-dot" aria-hidden="true"></span> Finding evidence in your team’s workstreams…';}
     const task=window.QuestExperience?.start('Finding relevant evidence',1);
@@ -125,6 +128,7 @@
   function enforce() {
     const p=profile(); if (!ready()||!p) return;
     const executive=session().team==='executive';
+    const hubLabel=$('.nav-item[data-view="team-dashboard"] b'), hubText=session().team==='maci'?'MY HUB':'My Dashboard';if(hubLabel&&hubLabel.textContent!==hubText)hubLabel.textContent=hubText;
     $$('.nav-item[data-view],.view[data-view],[data-view-jump]').forEach(node=>{
       const route=node.dataset.view||node.dataset.viewJump||node.dataset.searchView;
       const hide=route==='team-dashboard'?executive:!allowed(route);
