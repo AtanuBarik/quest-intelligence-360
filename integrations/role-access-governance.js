@@ -102,7 +102,7 @@
       n.classList.toggle('selected',n.dataset.role===selectedRole);
       n.setAttribute('aria-pressed',String(n.dataset.role===selectedRole));
     });
-    const enter=$('#enterHub');if(enter){enter.disabled=!selectedRole||TYPES.indexOf(selectedRole)<cap;enter.textContent=selectedTeam==='executive'?'Open Executive Hub →':'Open My Dashboard →';}
+    const enter=$('#enterHub');if(enter){enter.disabled=!selectedRole||TYPES.indexOf(selectedRole)<cap;enter.textContent=selectedTeam==='executive'?'Open Executive Hub →':selectedTeam==='maci'?'Open MY HUB →':'Open My Dashboard →';}
   }
   function showScreen(target) {
     ['login','team','role','app'].forEach(name=>$('#'+name+'Screen')?.classList.toggle('hidden',name!==target));
@@ -143,7 +143,7 @@
   function applyControlRestrictions() {
     if (!session) return;
     $$('button,[role="button"],input[type="file"]').forEach(element => {
-      if (!element.closest('#appScreen') || element.classList.contains('q-approval-action') || element.closest('#qTeamAssistant') || element.id === 'qChangeWorkspace') return;
+      if (!element.closest('#appScreen') || element.classList.contains('q-approval-action') || element.closest('#qTeamAssistant,.qm-center') || element.id === 'qChangeWorkspace') return;
       const reason = restrictionReason(element);
       if (reason) {
         element.disabled = true;

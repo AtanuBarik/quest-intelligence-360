@@ -96,7 +96,7 @@
   function applyTeamProfileScope(){
     const maci=window.QuestWorkspaces?.ready()&&window.QuestWorkspaces.profile()?.short==='Market & Customer Insights';
     document.querySelectorAll('#qCompetitorDetailPage .qcp-fact').forEach(n=>{n.dataset.teamHidden=String(maci&&/^(Leadership|Workforce \/ scale|Financial context)$/.test(clean(n.querySelector('b')?.textContent)));});
-    document.querySelectorAll('#qCompetitorDetailPage .qcp-panel').forEach(n=>{n.dataset.teamHidden=String(maci&&/^(Operations and scale|Strategic assessment|Latest public-web refresh)$/.test(clean(n.querySelector('h2')?.textContent)));});
+    document.querySelectorAll('#qCompetitorDetailPage .qcp-panel').forEach(n=>{n.dataset.teamHidden=String(maci&&/^(Operations and scale|Competitive Profile Matrix|Strategic assessment|Latest public-web refresh)$/.test(clean(n.querySelector('h2')?.textContent)));});
   }
   function openDetail(id,push=true){const profile=profiles.find(item=>item.id===id);if(!profile)return;document.getElementById('cpOverlay')?.classList.remove('open');document.body.style.overflow='';renderDetail(profile);if(push)history.pushState({qCompetitorProfile:id},'',`#competitor-profile/${encodeURIComponent(id)}`);}
   function closeDetail(){const view=profileView();const detail=document.getElementById('qCompetitorDetailPage');detail?.classList.remove('active');if(view)Array.from(view.children).filter(node=>node!==detail).forEach(node=>{const previous=node.dataset.qcpPreviousDisplay;node.style.display=previous&&previous!=='__empty__'?previous:'';delete node.dataset.qcpPreviousDisplay;});if(location.hash.startsWith('#competitor-profile/'))history.pushState({},'',location.pathname+location.search);window.scrollTo({top:0,behavior:'smooth'});}
