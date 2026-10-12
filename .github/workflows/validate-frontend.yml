@@ -20,6 +20,7 @@ on:
       - 'tests/**/*.cjs'
       - 'data/**/*.json'
       - 'scripts/build_pages_materialized.py'
+      - '.github/workflows/validate-frontend.yml'
 
 permissions:
   contents: read
@@ -30,7 +31,6 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
-
       - name: Check JavaScript syntax
         shell: bash
         run: |
@@ -39,7 +39,6 @@ jobs:
             echo "Checking $file"
             node --check "$file"
           done
-
       - name: Validate JSON data files
         shell: bash
         run: |
@@ -51,33 +50,33 @@ jobs:
               json.loads(path.read_text(encoding='utf-8'))
               print(f'Validated {path}')
           PY
-
       - name: Validate MACI evidence and team workflows
         shell: bash
         run: |
           set -euo pipefail
           node --test tests/maci-evidence-model.test.cjs
+          node tests/test_persona_contract.mjs
           python scripts/build_pages_materialized.py
           qa_deps="${RUNNER_TEMP}/quest-maci-qa"
           npm install --prefix "$qa_deps" jsdom@26.1.0 --no-audit --no-fund
           NODE_PATH="$qa_deps/node_modules" node tests/maci-workspace.test.cjs
-
-      - name: Confirm Aug 30 design with current data architecture
+      - name: Confirm persona presentation and retained data architecture
         shell: bash
         run: |
           set -euo pipefail
-
-          # Stable application bootstrap and visual safeguards.
-          grep -q 'integrations/optimized-loader.js' index.html
-          grep -q 'integrations/chart-alignment-system.js' index.html
-          grep -q 'integrations/platform-runtime-stability.js' index.html
+          # The bootstrap now constructs script paths from an asset manifest.
+          # Validate the actual emitted script URLs rather than incidental source formatting.
+          for asset in optimized-loader chart-alignment-system platform-runtime-stability persona-intelligence team-workspaces; do
+            grep -q "$asset.js" index.html
+            grep -q "integrations/$asset.js" _site/index.html
+          done
+          grep -q 'integrations/persona-intelligence.css' _site/index.html
           grep -q 'quest-brand-system.js' integrations/optimized-loader.js
           grep -q 'frontend-performance-layout.js' integrations/optimized-loader.js
           grep -q 'local-data-fetch-bridge.js' integrations/optimized-loader.js
           grep -q 'no-cost-live-operations.js' integrations/optimized-loader.js
-          grep -q "questDesignBaseline = '20260830'" integrations/optimized-loader.js
-
-          # Alerts retain the established presentation layer while using the live feed and complete summary cache.
+          grep -Eq "questDesignBaseline[[:space:]]*=[[:space:]]*'20260830'" integrations/optimized-loader.js
+          # Keep the existing Alerts feed, presentation and complete summary-cache safeguards.
           grep -q 'alerts-chatgpt-summaries.js' integrations/optimized-loader.js
           grep -q 'laboratory-news-monitor.js' integrations/optimized-loader.js
           grep -q 'alerts-resilience-fix.js' integrations/optimized-loader.js
@@ -110,36 +109,36 @@ jobs:
               raise SystemExit(f'Alerts articles without summaries: {len(missing)}')
           print(f'Validated summary coverage for {len(items)} live Alerts articles.')
           PY
-
-          # Competitor and strategic modules retain their established presentation layer.
+          # Competitor and strategic data adapters remain in place.
           grep -q 'competitor-intelligence-profiles/loader.js' integrations/optimized-loader.js
           grep -q 'competitor-daily-refresh.js' integrations/optimized-loader.js
           grep -q 'competitor-profiles-final.js' integrations/optimized-loader.js
           grep -q 'strategic-news-social-hubs.js' integrations/optimized-loader.js
           grep -q 'strategic-analysis-hub.js' integrations/optimized-loader.js
           grep -q 'strategic-source-watch-status.js' integrations/optimized-loader.js
-          grep -q "legacy-design-current-data" integrations/competitive-intelligence-live-refresh/loader.js
-
-          # Insights keeps the established workspace layout and the current mapped responses.
+          grep -q 'legacy-design-current-data' integrations/competitive-intelligence-live-refresh/loader.js
+          # Legacy synthesis assets survive the new role-specific advisor.
           grep -q 'insights-engine-layout-v3.js' integrations/optimized-loader.js
           grep -q 'insights-engine-evidence-placement-final.js' integrations/optimized-loader.js
           test -s data/quest-insights-q1.gz.b64
           test -s data/quest-insights-q2.gz.b64
-
-          # Source bootstrap and materializer must use the same release marker.
           python - <<'PY'
+          import json
           import re
           from pathlib import Path
-
-          index = Path('index.html').read_text(encoding='utf-8')
-          materializer = Path('scripts/build_pages_materialized.py').read_text(encoding='utf-8')
-          index_match = re.search(r"const release='([^']+)'", index)
-          build_match = re.search(r'^RELEASE\s*=\s*["\']([^"\']+)["\']', materializer, flags=re.M)
-          if not index_match or not build_match:
-              raise SystemExit('Release marker missing from index or materializer.')
-          if index_match.group(1) != build_match.group(1):
-              raise SystemExit(f'Release mismatch: index={index_match.group(1)} materializer={build_match.group(1)}')
-          print(f'Validated shared release {index_match.group(1)}.')
+          index=Path('index.html').read_text(encoding='utf-8')
+          materializer=Path('scripts/build_pages_materialized.py').read_text(encoding='utf-8')
+          loader=Path('integrations/optimized-loader.js').read_text(encoding='utf-8')
+          index_match=re.search(r"const\s+(?:RELEASE|release)\s*=\s*['\"]([^'\"]+)['\"]",index)
+          build_match=re.search(r'^RELEASE\s*=\s*["\']([^"\']+)["\']',materializer,flags=re.M)
+          loader_match=re.search(r"const\s+RELEASE\s*=\s*['\"]([^'\"]+)['\"]",loader)
+          if not all([index_match,build_match,loader_match]):
+              raise SystemExit('Release marker missing from bootstrap, materializer or lazy loader.')
+          release=index_match.group(1)
+          if release != build_match.group(1) or release != loader_match.group(1):
+              raise SystemExit('Bootstrap, materializer and lazy-loader releases differ.')
+          if json.loads(Path('data/persona-intelligence.json').read_text())['release'] != release:
+              raise SystemExit('Persona data release differs from frontend release.')
+          print(f'Validated shared release {release}.')
           PY
-
-          echo 'Aug-30 design baseline, current content adapters, navigation and chart safeguards are configured.'
+          echo 'Persona presentation, retained data adapters, navigation and chart safeguards are configured.'
