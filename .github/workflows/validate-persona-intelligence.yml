@@ -27,10 +27,14 @@ jobs:
         run: |
           python -m pip install playwright
           python -m playwright install --with-deps chromium
-      - name: Test all teams and access levels
+      - name: Test materialized Pages across all teams and access levels
         run: |
-          python -m http.server 8765 --directory _site > /tmp/quest-http.log 2>&1 &
-          python tests/test_persona_browser.py --url http://127.0.0.1:8765 --output test-results/personas
+          python -m http.server 8765 --directory _site > /tmp/quest-pages-http.log 2>&1 &
+          python tests/test_persona_browser.py --url http://127.0.0.1:8765 --output test-results/personas/pages
+      - name: Test repository bootstrap across all teams and access levels
+        run: |
+          python -m http.server 8766 --directory . > /tmp/quest-source-http.log 2>&1 &
+          python tests/test_persona_browser.py --url http://127.0.0.1:8766 --output test-results/personas/bootstrap
       - name: Save test evidence
         if: always()
         uses: actions/upload-artifact@v4
