@@ -1,33 +1,13 @@
 (() => {
   'use strict';
-
-  const RELEASE = '20261009maci1';
+  const RELEASE = '20261012persona1';
   const loaded = new Map();
   const groupLoads = new Map();
-
   const GROUPS = {
-    alerts: [
-      'integrations/alerts-chatgpt-summaries.js',
-      'integrations/laboratory-news-monitor.js',
-      'integrations/alerts-resilience-fix.js',
-      'integrations/alerts-signals-final.js'
-    ],
-    competitor: [
-      'integrations/competitor-intelligence-profiles/loader.js',
-      'integrations/competitor-daily-refresh.js',
-      'integrations/competitor-profiles-final.js'
-    ],
-    strategic: [
-      'integrations/strategic-news-social-hubs.js',
-      'integrations/strategic-analysis-hub.js',
-      'integrations/strategic-source-watch-status.js'
-    ],
-    insights: [
-      'integrations/enterprise-insights-engine/loader.js',
-      'integrations/insights-engine-layout-v3.js',
-      'integrations/insights-engine-evidence-placement-final.js',
-      'integrations/insights-modern-redesign.js'
-    ],
+    alerts: ['integrations/alerts-chatgpt-summaries.js','integrations/laboratory-news-monitor.js','integrations/alerts-resilience-fix.js','integrations/alerts-signals-final.js'],
+    competitor: ['integrations/competitor-intelligence-profiles/loader.js','integrations/competitor-daily-refresh.js','integrations/competitor-profiles-final.js'],
+    strategic: ['integrations/strategic-news-social-hubs.js','integrations/strategic-analysis-hub.js','integrations/strategic-source-watch-status.js'],
+    insights: ['integrations/enterprise-insights-engine/loader.js','integrations/insights-engine-layout-v3.js','integrations/insights-engine-evidence-placement-final.js','integrations/insights-modern-redesign.js'],
     library: ['integrations/knowledge-repository-lite.js'],
     pmr: ['integrations/pmr-repository-dashboard-final.js','integrations/pmr-portfolio-visual-analytics.js'],
     experts: ['integrations/voice-experts-dashboard-final.js'],
@@ -35,163 +15,40 @@
     governance: ['integrations/no-cost-live-operations.js','integrations/live-governance-panels.js'],
     microsoft: ['integrations/local-file-extraction.js','integrations/microsoft-local-bridge.js','integrations/microsoft-security-guard.js','integrations/approved-insights-panel.js']
   };
-
-  const CORE = [
-    'integrations/chart-lite.js',
-    'integrations/chart-alignment-system.js',
-    'integrations/frontend-quality-guard.js',
-    'integrations/role-access-governance.js',
-    'integrations/quest-brand-system.js',
-    'integrations/frontend-performance-layout.js',
-    'integrations/frontend-readability-overrides.js',
-    'integrations/local-data-fetch-bridge.js',
-    'integrations/executive-status-seed.js',
-    'integrations/executive-hub-final.js',
-    'integrations/executive-insight-split-layout.js',
-    'integrations/knowledge-repository-lite.js',
-    'integrations/knowledge-legacy-guard.js',
-    'integrations/public-demo-evidence.js',
-    'integrations/executive-typography-benchmark-cleanup.js',
-    'integrations/pmr-repository-dashboard-final.js',
-    'integrations/pmr-portfolio-visual-analytics.js',
-    'integrations/voice-experts-dashboard-final.js',
-    'integrations/survey-analytics-dashboard-final.js'
-  ];
-
+  const CORE = ['integrations/chart-lite.js','integrations/chart-alignment-system.js','integrations/frontend-quality-guard.js','integrations/role-access-governance.js','integrations/quest-brand-system.js','integrations/frontend-performance-layout.js','integrations/frontend-readability-overrides.js','integrations/local-data-fetch-bridge.js','integrations/executive-status-seed.js','integrations/executive-hub-final.js','integrations/executive-insight-split-layout.js','integrations/knowledge-repository-lite.js','integrations/knowledge-legacy-guard.js','integrations/public-demo-evidence.js','integrations/executive-typography-benchmark-cleanup.js','integrations/pmr-repository-dashboard-final.js','integrations/pmr-portfolio-visual-analytics.js','integrations/voice-experts-dashboard-final.js','integrations/survey-analytics-dashboard-final.js'];
   const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
-
   function progress(active, done = false) {
     if(window.QuestExperience)return;
     let node = document.getElementById('qModuleProgress');
-    if (!node) {
-      node = document.createElement('div');
-      node.id = 'qModuleProgress';
-      node.className = 'q-module-progress';
-      node.innerHTML = '<i></i>';
-      document.body.appendChild(node);
-    }
-    node.classList.toggle('active', Boolean(active));
-    node.classList.toggle('done', Boolean(done));
-    if (done) window.setTimeout(() => node.remove(), 220);
+    if (!node) {node=document.createElement('div');node.id='qModuleProgress';node.className='q-module-progress';node.innerHTML='<i></i>';document.body.appendChild(node);}
+    node.classList.toggle('active',Boolean(active));node.classList.toggle('done',Boolean(done));
+    if(done)window.setTimeout(()=>node.remove(),220);
   }
-
   function removeRetiredNavigation() {
-    let retiredView = '';
-    [...document.querySelectorAll('.nav-item')].forEach(node => {
-      if (/^competitive landscape$/i.test(clean(node.textContent))) {
-        retiredView = node.dataset?.view || retiredView;
-        node.remove();
-      }
-    });
-    [...document.querySelectorAll('.view[data-view]')].forEach(view => {
-      const heading = [...view.querySelectorAll('h1,h2,h3,[class*="title"]')].map(node => clean(node.textContent)).join(' | ');
-      if ((retiredView && view.dataset.view === retiredView) || view.dataset.view === 'landscape' || /competitive landscape/i.test(heading)) view.remove();
-    });
-    [...document.querySelectorAll('[data-view-jump="landscape"]')].forEach(node => node.remove());
+    let retiredView='';
+    [...document.querySelectorAll('.nav-item')].forEach(node=>{if(/^competitive landscape$/i.test(clean(node.textContent))){retiredView=node.dataset?.view||retiredView;node.remove();}});
+    [...document.querySelectorAll('.view[data-view]')].forEach(view=>{const heading=[...view.querySelectorAll('h1,h2,h3,[class*="title"]')].map(node=>clean(node.textContent)).join(' | ');if((retiredView&&view.dataset.view===retiredView)||view.dataset.view==='landscape'||/competitive landscape/i.test(heading))view.remove();});
+    [...document.querySelectorAll('[data-view-jump="landscape"]')].forEach(node=>node.remove());
   }
-
   function loadScript(path) {
-    if (loaded.has(path)) return loaded.get(path);
-    const existing = [...document.scripts].find(script => (script.src || '').includes(path));
-    if (existing) {
-      const promise = Promise.resolve(existing);
-      loaded.set(path, promise);
-      return promise;
-    }
-
-    const promise = new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = new URL(`${path}?v=${RELEASE}`, document.baseURI).href;
-      script.async = true;
-      script.dataset.qModule = path;
-      script.onload = () => {
-        script.dataset.qLoaded = 'true';
-        removeRetiredNavigation();
-        window.dispatchEvent(new CustomEvent('quest:module-loaded', { detail: { path } }));
-        resolve(script);
-      };
-      script.onerror = () => reject(new Error(`Unable to load ${path}`));
-      document.body.appendChild(script);
-    });
-    loaded.set(path, promise);
-    return promise;
+    if(loaded.has(path))return loaded.get(path);
+    const existing=[...document.scripts].find(script=>(script.src||'').includes(path));
+    if(existing){const promise=Promise.resolve(existing);loaded.set(path,promise);return promise;}
+    const promise=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=new URL(`${path}?v=${RELEASE}`,document.baseURI).href;script.async=true;script.dataset.qModule=path;script.onload=()=>{script.dataset.qLoaded='true';removeRetiredNavigation();window.dispatchEvent(new CustomEvent('quest:module-loaded',{detail:{path}}));resolve(script);};script.onerror=()=>reject(new Error(`Unable to load ${path}`));document.body.appendChild(script);});
+    loaded.set(path,promise);return promise;
   }
-
-  async function loadPaths(paths, context) {
-    const failures = [];
-    const task=window.QuestExperience?.start(context==='core'?'Preparing your workspace':'Opening content',paths?.length||0);
-    let completed=0;
-    for (const path of paths || []) {
-      try {
-        await loadScript(path);
-      } catch (error) {
-        failures.push({ path, error });
-        console.error(`Quest ${context} module failed (${path}):`, error);
-      } finally { window.QuestExperience?.step(task,++completed); }
-    }
-    window.QuestExperience?.finish(task,failures.length?'Some content could not load. Refresh to retry.':'');
-    return failures;
+  async function loadPaths(paths,context) {
+    const failures=[],task=window.QuestExperience?.start(context==='core'?'Preparing your workspace':'Opening content',paths?.length||0);let completed=0;
+    for(const path of paths||[]){try{await loadScript(path);}catch(error){failures.push({path,error});console.error(`Quest ${context} module failed (${path}):`,error);}finally{window.QuestExperience?.step(task,++completed);}}
+    window.QuestExperience?.finish(task,failures.length?'Some content could not load. Refresh to retry.':'');return failures;
   }
-
   async function loadGroup(name) {
-    if (!GROUPS[name]?.length) return [];
-    if (groupLoads.has(name)) return groupLoads.get(name);
-
-    const promise = (async () => {
-      progress(true);
-      let failures = [];
-      try {
-        failures = await loadPaths(GROUPS[name], `${name} group`);
-      } finally {
-        removeRetiredNavigation();
-        progress(false, true);
-        window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: name, reason: 'module-loaded', failures: failures.map(item => item.path) } }));
-        setTimeout(() => window.dispatchEvent(new Event('resize')), 60);
-      }
-      return failures;
-    })();
-
-    groupLoads.set(name, promise);
-    return promise;
+    if(!GROUPS[name]?.length)return [];if(groupLoads.has(name))return groupLoads.get(name);
+    const promise=(async()=>{progress(true);let failures=[];try{failures=await loadPaths(GROUPS[name],`${name} group`);}finally{removeRetiredNavigation();progress(false,true);window.dispatchEvent(new CustomEvent('quest:layout-refresh',{detail:{group:name,reason:'module-loaded',failures:failures.map(item=>item.path)}}));setTimeout(()=>window.dispatchEvent(new Event('resize')),60);}return failures;})();
+    groupLoads.set(name,promise);return promise;
   }
-
-  async function bootCore() {
-    progress(true);
-    let failures = [];
-    try {
-      removeRetiredNavigation();
-      failures = await loadPaths(CORE, 'core');
-    } finally {
-      progress(false, true);
-      window.dispatchEvent(new CustomEvent('quest:layout-refresh', { detail: { group: 'core', reason: 'core-loaded', failures: failures.map(item => item.path) } }));
-    }
-    return failures;
-  }
-
-  function bindRequests() {
-    window.addEventListener('quest:request-module-group', event => {
-      const group = event.detail?.group;
-      if (group) loadGroup(group);
-    });
-  }
-
-  async function boot() {
-    removeRetiredNavigation();
-    bindRequests();
-    bootCore();
-    document.documentElement.dataset.questRelease = RELEASE;
-    document.documentElement.dataset.questDesignBaseline = '20260830';
-    document.documentElement.classList.add('quest-ready');
-  }
-
-  window.QuestModuleLoader = {
-    loadScript,
-    loadGroup,
-    loadPaths,
-    groups: Object.keys(GROUPS),
-    release: RELEASE
-  };
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
-  else boot();
+  async function bootCore(){progress(true);let failures=[];try{removeRetiredNavigation();failures=await loadPaths(CORE,'core');}finally{progress(false,true);window.dispatchEvent(new CustomEvent('quest:layout-refresh',{detail:{group:'core',reason:'core-loaded',failures:failures.map(item=>item.path)}}));}return failures;}
+  async function boot(){removeRetiredNavigation();window.addEventListener('quest:request-module-group',event=>{const group=event.detail?.group;if(group)loadGroup(group);});bootCore();document.documentElement.dataset.questRelease=RELEASE;document.documentElement.dataset.questDesignBaseline='20260830';document.documentElement.classList.add('quest-ready');}
+  window.QuestModuleLoader={loadScript,loadGroup,loadPaths,groups:Object.keys(GROUPS),release:RELEASE};
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
