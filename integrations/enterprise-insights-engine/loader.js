@@ -1,5 +1,8 @@
 (() => {
   'use strict';
+  // Do not replace the persona advisor with the legacy whole-view template.
+  // Existing research assets and configured syntheses remain available.
+  if (window.QuestWorkspaces) return;
   const parts = ['chunk-00.b64', 'chunk-01.b64', 'chunk-02.b64', 'chunk-03.b64', 'chunk-04.b64', 'chunk-05.b64'];
   async function boot() {
     try {
