@@ -1,8 +1,8 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-10-18T21:03:26.293780+00:00",
-  "news_generated_at": "2026-10-18T21:38:57.687506+05:30",
+  "updated_at": "2026-10-19T01:45:09.503982+00:00",
+  "news_generated_at": "2026-10-19T02:33:35.959669+05:30",
   "news_item_count": 406,
   "summary_count": 406,
   "verified_summary_count": 138,
@@ -6821,6 +6821,18 @@
       "company": "Quest Diagnostics",
       "category": "Financials",
       "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNSWFPNmRNcmtpYkdTeklLNHdIRkZrNkJNNHJRUXc5dWdvNTZNUmJDMVlMVFRVeHdRSkxZZTZnVWRac3NyRFJuakxYSEZtY29WZDg5Q2h1ZzhXSjhXWDBId05DdWtLeHU5bHQ2eGI5dE9haVBIWDE3QWFrUVpTVGRmWi1Od1BtSmY2eVRiRlFCN1pndFZ5RnJWUjluWjZwY0tjVldxeE9vWWNHUElDdXdj?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "2526c33760f6decb6fa1": {
+      "summary": "Quest Diagnostics shares may shift 4.4% on Oct. 22 earnings By Investing.com. The item was captured for Quest Diagnostics from Investing.com India and is dated 15 Oct 2026. Quest Diagnostics shares may shift 4.4% on Oct. 22 earnings By Investing.com Investing.com South Africa. For Quest monitoring, this is a financial signal from Quest Diagnostics that may inform operating momentum, investment capacity or management priorities.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-10-15T17:33:34.430699+00:00",
+      "title": "Quest Diagnostics shares may shift 4.4% on Oct. 22 earnings By Investing.com",
+      "company": "Quest Diagnostics",
+      "category": "Financials",
+      "source_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcHlkOC12UzhzUUREN3hzUWxSVFFlM3BzbWQ2aFlqWkR3ek1KbEwtRFpYbU90RWRIMnlJSTkxX1c3NW9DZnl5T0pOaXYzZS1iSDJ2VkZ4cGRIOWw3VU9COV95Z2xybUV2cE5QM2RQbE93a0Y5Z190d2ZkemRSX1RNdGpZZE1tR1U3RjFDV1hCc0psUEVPelB2b1I1MWhLcFdrbzdBenBLOWpfS242UlBxMWdZcFY2VnZT?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
