@@ -1,22 +1,17 @@
 {
-  "last_checked": "2026-10-12T07:41:29Z",
-  "last_material_source_change": "2026-10-12T07:41:29Z",
-  "changed_source_count": 3,
+  "last_checked": "2026-10-19T06:29:50Z",
+  "last_material_source_change": "2026-10-19T06:29:50Z",
+  "changed_source_count": 2,
   "changed_sources": [
     {
-      "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
-      "previous_digest": "f0bc5970be961bbc685eef2ddde53ce8adeed224c9693758e4757fce4cd25741",
-      "digest": "56a2f15b2c759135a56edc2ae587bdd003956c8bccf468ac328b36a895e20662"
-    },
-    {
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
-      "previous_digest": "80754b890598d9a6bbf945231c3e60a97986f4b793cd458febcdd487236833c6",
-      "digest": "b665644c05dbb80f090be6a733faa8c1a871766a2e5aeb4cb4bbc362d1100cd9"
+      "previous_digest": "b665644c05dbb80f090be6a733faa8c1a871766a2e5aeb4cb4bbc362d1100cd9",
+      "digest": "8366cd9e45a6ee2074a01be4384e4c4f037d93e0bb5c404d78cc8870cb50aa06"
     },
     {
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
-      "previous_digest": "af071aa6ae78563bbc69a9fc37ddfb70e44a75cea91b8af8a38f4330118b71ce",
-      "digest": "c46482d6d66db10f9a4611bd6c90869f8c642816c7ca52e402c988ffb98a5253"
+      "previous_digest": "c46482d6d66db10f9a4611bd6c90869f8c642816c7ca52e402c988ffb98a5253",
+      "digest": "bbf34b37a2e64d39e916acb2d5d867264a81de8b343d89b7328721541bb97612"
     }
   ],
   "sources": [
@@ -26,7 +21,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -38,7 +33,7 @@
       "status": null,
       "digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
       "previous_digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main content | https://ir.questdiagnostics.com/events-and-presentations/default.aspx#main-content",
@@ -63,7 +58,7 @@
       "status": null,
       "digest": "cd0ef37c7c62951ccbb7e3edecd2699c48e8c1cea1a33506abff216900d53f5d",
       "previous_digest": "cd0ef37c7c62951ccbb7e3edecd2699c48e8c1cea1a33506abff216900d53f5d",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://ir.labcorp.com/financials/sec-filings#main-menu",
@@ -88,7 +83,7 @@
       "status": null,
       "digest": "1c1a2a770753e35c1daeef1675a1c2ef09eb42a7bbee47580715db5a82982eeb",
       "previous_digest": "1c1a2a770753e35c1daeef1675a1c2ef09eb42a7bbee47580715db5a82982eeb",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://ir.labcorp.com/news-and-events/recent-past-presentations#main-menu",
@@ -127,16 +122,16 @@
         "Board of Directors | https://investors.sonichealthcare.com/corporate-governance/?page=board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-10-12T07:41:29Z",
-      "changed": true,
-      "previous_digest": "f0bc5970be961bbc685eef2ddde53ce8adeed224c9693758e4757fce4cd25741",
+      "checked_at": "2026-10-19T06:29:50Z",
+      "changed": false,
+      "previous_digest": "56a2f15b2c759135a56edc2ae587bdd003956c8bccf468ac328b36a895e20662",
       "error": null
     },
     {
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
       "final_url": "https://www.eurofins.com:443/en/investors/reports-and-presentations/",
       "status": 200,
-      "digest": "b665644c05dbb80f090be6a733faa8c1a871766a2e5aeb4cb4bbc362d1100cd9",
+      "digest": "8366cd9e45a6ee2074a01be4384e4c4f037d93e0bb5c404d78cc8870cb50aa06",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com:443/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com:443/en/biopharma-services/biopharma-discovery/",
@@ -148,13 +143,13 @@
         "Detergents, Hygiene, Paper &amp; Pulp | https://www.eurofins.com:443/en/consumer-product-testing/detergents-hygiene-paper-pulp/",
         "Home &amp; Garden | https://www.eurofins.com:443/en/consumer-product-testing/home-garden/",
         "Packaging | https://www.eurofins.com:443/en/consumer-product-testing/packaging/",
-        "Cosmetics &amp; Personal Care | https://www.eurofins.com:443/en/consumer-product-testing/cosmetics-and-personal-care/",
-        "Softlines &amp; Hardlines | https://www.eurofins.com:443/en/consumer-product-testing/softlines-hardlines/"
+        "Cosmetics & Personal Care | https://www.eurofins.com:443/en/consumer-product-testing/cosmetics-and-personal-care/",
+        "Softlines & Hardlines | https://www.eurofins.com:443/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": true,
-      "previous_digest": "80754b890598d9a6bbf945231c3e60a97986f4b793cd458febcdd487236833c6",
+      "previous_digest": "b665644c05dbb80f090be6a733faa8c1a871766a2e5aeb4cb4bbc362d1100cd9",
       "error": null
     },
     {
@@ -163,7 +158,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -175,7 +170,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -187,7 +182,7 @@
       "status": null,
       "digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
       "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://investors.tempus.com/financials/financial-information#main-menu",
@@ -212,7 +207,7 @@
       "status": null,
       "digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
       "previous_digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [
         "Part I - Financial Information | https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm#if454735e94df41c3a44babbae82e9fc7_10",
@@ -237,7 +232,7 @@
       "status": null,
       "digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
       "previous_digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [
         "Ordering &amp; Results | https://www.mayocliniclabs.com/order-tests",
@@ -276,7 +271,7 @@
         "Contact&nbsp; | https://newsroom.questdiagnostics.com/index.php?s=35201"
       ],
       "header_profile": "research",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "previous_digest": "64b197c8c8455ba7623532e4c174dc676c606115d1cf6c2f67904a06371c5f94",
       "error": null
@@ -285,7 +280,7 @@
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "final_url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "status": 200,
-      "digest": "c46482d6d66db10f9a4611bd6c90869f8c642816c7ca52e402c988ffb98a5253",
+      "digest": "bbf34b37a2e64d39e916acb2d5d867264a81de8b343d89b7328721541bb97612",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com/en/biopharma-services/biopharma-discovery/",
@@ -297,13 +292,13 @@
         "Detergents, Hygiene, Paper &amp; Pulp | https://www.eurofins.com/en/consumer-product-testing/detergents-hygiene-paper-pulp/",
         "Home &amp; Garden | https://www.eurofins.com/en/consumer-product-testing/home-garden/",
         "Packaging | https://www.eurofins.com/en/consumer-product-testing/packaging/",
-        "Cosmetics &amp; Personal Care | https://www.eurofins.com/en/consumer-product-testing/cosmetics-and-personal-care/",
-        "Softlines &amp; Hardlines | https://www.eurofins.com/en/consumer-product-testing/softlines-hardlines/"
+        "Cosmetics & Personal Care | https://www.eurofins.com/en/consumer-product-testing/cosmetics-and-personal-care/",
+        "Softlines & Hardlines | https://www.eurofins.com/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": true,
-      "previous_digest": "af071aa6ae78563bbc69a9fc37ddfb70e44a75cea91b8af8a38f4330118b71ce",
+      "previous_digest": "c46482d6d66db10f9a4611bd6c90869f8c642816c7ca52e402c988ffb98a5253",
       "error": null
     },
     {
@@ -312,7 +307,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -324,7 +319,7 @@
       "status": null,
       "digest": null,
       "previous_digest": null,
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [],
       "header_profile": null,
@@ -336,7 +331,7 @@
       "status": null,
       "digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
       "previous_digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
-      "checked_at": "2026-10-12T07:41:29Z",
+      "checked_at": "2026-10-19T06:29:50Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results#main-menu",
