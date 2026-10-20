@@ -1,15 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-19T08:01:25Z",
+  "generated_at": "2026-10-20T07:51:24Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "quest",
+    "sonic",
+    "exact",
+    "pathgroup"
+  ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -19,8 +24,10 @@
         "After acquiring lab assets from systems such as Minneapolis-based Allina Health, Columbus, Ohio-based OhioHealth, Franklin, Tennessee-based Community Health Systems and Fort Wayne, Indiana-based Parkview Health, the two dominant national commercial laboratory companies have set their focus on broadening test menus…",
         "Apple Health app users will soon have access to lab test ordering, Quest says",
         "Approximately 2,000 patient locations and dozens of clinical laboratories throughout the U.S.",
+        "Current Screening Thresholds May Miss Half of Patients with Primary Aldosterone, a Leading Cause of Severe High Blood Pressure, Finds Study in Hypertension",
         "Delivers a broad range of customizable services for health systems and hospitals through Collaboration Lab Solutions (Co-Lab)",
         "Engages workforce of nearly 57,000 employees dedicated to putting patients first every day",
+        "Half of patients with the hormonal disorder, which raises risk of heart attack, stroke and kidney disease, may be undiagnosed under current screening thresholds SECAUCUS, N.J., Oct.",
         "Haystack MRD® Demonstrates Robust Clinical Performance in Specimen Cohort from the Landmark DYNAMIC Colorectal Cancer Trials",
         "How Amyloid Blood Test Could Transform Alzheimer’s Diagnostics",
         "Labcorp and Quest Diagnostics expand as hospitals face new pressure",
@@ -33,9 +40,7 @@
         "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
         "Quest announces 1st PFAS blood test for consumers.",
         "Quest provides thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions.",
-        "Test showed 100% specificity, with no false-positive results in the cohort, at both 3- and 5-year follow-up, and sensitivity of 100% and 83.3%, respectively, for predicting disease recurrence...",
-        "The Quest laboratory panel is designed to deliver preventive health insights and includes biomarkers for assessing cardiometabolic health and organ function.",
-        "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health."
+        "Test showed 100% specificity, with no false-positive results in the cohort, at both 3- and 5-year follow-up, and sensitivity of 100% and 83.3%, respectively, for predicting disease recurrence..."
       ],
       "source_status": [
         {
@@ -49,11 +54,11 @@
             "Quest announces 1st PFAS blood test for consumers.",
             "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health.",
             "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
+            "Current Screening Thresholds May Miss Half of Patients with Primary Aldosterone, a Leading Cause of Severe High Blood Pressure, Finds Study in Hypertension",
+            "Half of patients with the hormonal disorder, which raises risk of heart attack, stroke and kidney disease, may be undiagnosed under current screening thresholds SECAUCUS, N.J., Oct.",
             "Haystack MRD® Demonstrates Robust Clinical Performance in Specimen Cohort from the Landmark DYNAMIC Colorectal Cancer Trials",
             "Test showed 100% specificity, with no false-positive results in the cohort, at both 3- and 5-year follow-up, and sensitivity of 100% and 83.3%, respectively, for predicting disease recurrence...",
-            "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced today that it will report its third quarter 2026 financial results on Thursday, October 22, 2026,...",
-            "Labcorp and Quest Diagnostics expand as hospitals face new pressure",
-            "Labcorp and Quest Diagnostics see solid growth on the horizon for laboratory companies as health systems try to blunt financial headwinds and patients seek more on-demand services."
+            "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced today that it will report its third quarter 2026 financial results on Thursday, October 22, 2026,..."
           ]
         },
         {
@@ -73,9 +78,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "5d7a5390ad2fe4ee079ae00547ef8bbd1c39ad25d1d6fcadb3b5c28c5a7fe138",
-      "last_updated_at": "2026-10-02T08:51:34Z",
-      "change_detected": false,
+      "content_hash": "0f99ffe1e4831b556ddd7add35bb19d6148caccd16cd73bd45e5c9642ff62f36",
+      "last_updated_at": "2026-10-20T07:51:24Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -98,7 +103,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -162,7 +167,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -251,7 +256,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -324,7 +329,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -382,12 +387,13 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
         "(SHUSA) has acquired Cairo Diagnostics, a respected hematology oncology diagnostics provider based in New York.",
+        "A simpler way to order the ThyroSeq test and receive results",
         "Become a Sonic Healthcare USA Lab Partner",
         "Clinical Pathology Laboratories",
         "East Side Clinical Laboratory",
@@ -402,6 +408,7 @@
         "Sonic Healthcare USA has officially launched Sonic Research Network (SRN), a new initiative that sets Sonic Healthcare at the forefront of clinical research and innovation.",
         "Sonic Healthcare USA is a division of Sonic Healthcare Limited, one of the largest diagnostic laboratory medicine companies in the world.",
         "Sonic Healthcare introduces Non-Invasive Pre-Natal Test in Australia Opens in new window",
+        "The ThyroSeq test will soon be available through Aura, Epic's platform for ordering tests from specialty labs and receiving results.",
         "This acquisition expands Cairo’s medically led, integrated oncology testing model into SHUSA’s nationwide network, strengthening access to advanced diagnostics across the U.S.",
         "We focus on delivering the highest quality laboratory information through our unique Medical Leadership model and federated structure, through regional diagnostic laboratories operating across the United States."
       ],
@@ -412,6 +419,8 @@
           "kind": "company",
           "status": "ok",
           "signals": [
+            "A simpler way to order the ThyroSeq test and receive results",
+            "The ThyroSeq test will soon be available through Aura, Epic's platform for ordering tests from specialty labs and receiving results.",
             "East Side Clinical Laboratory",
             "Clinical Pathology Laboratories",
             "Become a Sonic Healthcare USA Lab Partner",
@@ -419,9 +428,7 @@
             "(SHUSA) has acquired Cairo Diagnostics, a respected hematology oncology diagnostics provider based in New York.",
             "This acquisition expands Cairo’s medically led, integrated oncology testing model into SHUSA’s nationwide network, strengthening access to advanced diagnostics across the U.S.",
             "We focus on delivering the highest quality laboratory information through our unique Medical Leadership model and federated structure, through regional diagnostic laboratories operating across the United States.",
-            "Sit down with our Vice President of Corporate Development, Matt Honan, for a discussion on the changing landscape of mergers and acquisitions in the healthcare space.",
-            "Redefine the Future of Clinical Research and Innovation with Sonic Research Network",
-            "Sonic Healthcare USA has officially launched Sonic Research Network (SRN), a new initiative that sets Sonic Healthcare at the forefront of clinical research and innovation."
+            "Sit down with our Vice President of Corporate Development, Matt Honan, for a discussion on the changing landscape of mergers and acquisitions in the healthcare space."
           ]
         },
         {
@@ -437,9 +444,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "d3250c5d5a71a5820d0d37813bed175e05abe2fe2e03b46496cd1fefa3ec7491",
-      "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": false,
+      "content_hash": "e285425c8789b1a980e888d6711582c22537b998b772ba0da080c74ee269777c",
+      "last_updated_at": "2026-10-20T07:51:24Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -461,7 +468,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -550,7 +557,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -631,7 +638,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -709,7 +716,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -765,7 +772,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -832,17 +839,18 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
-        "Exact Sciences Announces First Participant Enrolled in the CRANE Study, a Multi-Cancer Early Detection Clinical Evaluation in Japan",
-        "Not all CRC screening tests are created equal – your choice could have a big impact",
-        "Oncotype DX Breast DCIS Score ® test",
-        "Oncotype DX Breast Recurrence Score ® test",
-        "Oncotype DX Breast Recurrence Score® Test Surpasses 2 Million Patients Worldwide",
-        "Oncotype DX Colon Recurrence Score ® test"
+        "Exact Sciences Launches the Cologuard Plus™ Test, Transforming Colorectal Cancer Screening",
+        "Expanded Clinical Validation of the Oncodetect™ Test",
+        "Find out how our scientific rigor, quality standards, and development of future tests make us a leader in cancer testing and treatment guidance.",
+        "Insights from the Alpha-CORRECT clinical validation study",
+        "Oncotype DX Breast DCIS Score® test",
+        "Oncotype DX Breast Recurrence Score® test",
+        "Oncotype DX Colon Recurrence Score® test"
       ],
       "source_status": [
         {
@@ -851,12 +859,13 @@
           "kind": "news",
           "status": "ok",
           "signals": [
-            "Not all CRC screening tests are created equal – your choice could have a big impact",
-            "Oncotype DX Breast Recurrence Score® Test Surpasses 2 Million Patients Worldwide",
-            "Exact Sciences Announces First Participant Enrolled in the CRANE Study, a Multi-Cancer Early Detection Clinical Evaluation in Japan",
-            "Oncotype DX Breast DCIS Score ® test",
-            "Oncotype DX Breast Recurrence Score ® test",
-            "Oncotype DX Colon Recurrence Score ® test"
+            "Exact Sciences Launches the Cologuard Plus™ Test, Transforming Colorectal Cancer Screening",
+            "Oncotype DX Breast DCIS Score® test",
+            "Oncotype DX Breast Recurrence Score® test",
+            "Oncotype DX Colon Recurrence Score® test",
+            "Find out how our scientific rigor, quality standards, and development of future tests make us a leader in cancer testing and treatment guidance.",
+            "Insights from the Alpha-CORRECT clinical validation study",
+            "Expanded Clinical Validation of the Oncodetect™ Test"
           ]
         },
         {
@@ -868,9 +877,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "f71357058b6b749fb772cf8c619794b42a03e9d8789e28c495fda40797d26e76",
-      "last_updated_at": "2026-10-10T08:50:13Z",
-      "change_detected": false,
+      "content_hash": "3d04c810225721e2cbd42a52c4ce58154d856c02182fc5c1ea44d2ad1d819b11",
+      "last_updated_at": "2026-10-20T07:51:24Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -892,74 +901,31 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
-      "official_signals": [
-        "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
-        "Anatomic, Clinical & Molecular Pathology",
-        "As an industry leader, PathGroup provides comprehensive anatomic, clinical and molecular pathology services.",
-        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced",
-        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will expand its deployment of the Sentinel AI-powered grossing platform to its two Dermatopathology Centers of Excellence: DermPathGroup in Birmingham, AL and Atlanta Dermatopathology (ADPA)…",
-        "Combined with the doctor’s knowledge of a patient’s medical history, PathGroup’s team of specialists provides the most comprehensive diagnostic information from which to determine a course of treatment",
-        "Fast, accurate, clinical pathology services.",
-        "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-        "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-        "Hematology and Molecular Oncology",
-        "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-        "Morphologic review and interpretation of biopsy material continues to be the backbone of oncology diagnostics, and is the basis on which PathGroup deploys complement technologies to give the clearest, most accurate picture of a patient’s malignancy from original diagnosis to the presence of minimal residual disease.",
-        "MyResults and MyResultsPAP give patients access to their test results quickly and conveniently, 24 hours a day.",
-        "Our staff functions as a partner to physician practices, providing expert laboratory interpretation and consultation for the best in patient care.",
-        "PathGroup Expands Partnership With Vistapath to its Two Dermatopathology Centers of Excellence",
-        "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-        "PathGroup is a physician-led, patient-focused organization providing a wide range of anatomic, clinical, and molecular services to hospitals, multi-specialty groups, surgery centers and physician offices since our founding in 1965.",
-        "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
-        "PathGroup is one of the country’s largest providers of comprehensive women’s health laboratory services."
-      ],
+      "official_signals": [],
       "source_status": [
         {
           "label": "PathGroup news",
           "url": "https://www.pathgroup.com/category/news/",
           "kind": "news",
           "status": "ok",
-          "signals": [
-            "PathGroup Expands Partnership With Vistapath to its Two Dermatopathology Centers of Excellence",
-            "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will expand its deployment of the Sentinel AI-powered grossing platform to its two Dermatopathology Centers of Excellence: DermPathGroup in Birmingham, AL and Atlanta Dermatopathology (ADPA)…",
-            "The expansion follows PathGroup’s initial rollout of Sentinel units at […]",
-            "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-            "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-            "The rollout of twelve Sentinel units will strengthen PathGroup’s commitment to innovation, diagnostic precision, and operational excellence.",
-            "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-            "The collaboration marks a significant milestone in the evolution of AI-driven pathology, uniting Mindpeak’s proprietary image analysis technology with PathGroup’s extensive, pathologist-led diagnostic network.",
-            "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-            "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test."
-          ]
+          "signals": []
         },
         {
           "label": "PathGroup company",
           "url": "https://www.pathgroup.com/",
           "kind": "company",
           "status": "ok",
-          "signals": [
-            "Pathology Services by PathGroup | Anatomic, Clinical & Molecular Oncology Services",
-            "Anatomic, Clinical & Molecular Pathology",
-            "With more than 240 subspecialty expert pathologists, PathGroup provides comprehensive anatomic, clinical and molecular pathology services, using the latest advancements in digital pathology and AI.",
-            "We provide the highest quality pathology & clinical lab services",
-            "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-            "Hematology and Molecular Oncology",
-            "With advanced digital pathology linking more than 240 subspecialty expert pathologists, PathGroup’s anatomic laboratory provides a full range of professional and technical services, operating 24 hours a day, 365 days per year.",
-            "PathGroup’s clinical pathology laboratory is committed to personalized, around-the-clock service, with same-day testing available.",
-            "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
-            "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
-          ]
+          "signals": []
         }
       ],
       "errors": [],
-      "content_hash": "4973aa6755ecdd7540a16a9559b65794eb418892779a91f0221e82d295ed97fb",
-      "last_updated_at": "2026-10-17T07:08:03Z",
-      "change_detected": false,
+      "content_hash": "75855d85e3060a7517d926891eda42a4cfa0584db561d203193ef462b805af28",
+      "last_updated_at": "2026-10-20T07:51:24Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -981,7 +947,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1058,7 +1024,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1109,7 +1075,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-10-19T08:01:25Z",
+      "last_checked_at": "2026-10-20T07:51:24Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
