@@ -1,25 +1,25 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-22T07:51:57Z",
+  "generated_at": "2026-10-23T07:50:58Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "exact"
+    "quest"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {
+        "financial": "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
       },
       "latest_developments": [],
       "official_signals": [
-        "After acquiring lab assets from systems such as Minneapolis-based Allina Health, Columbus, Ohio-based OhioHealth, Franklin, Tennessee-based Community Health Systems and Fort Wayne, Indiana-based Parkview Health, the two dominant national commercial laboratory companies have set their focus on broadening test menus…",
-        "Apple Health app users will soon have access to lab test ordering, Quest says",
+        "A new at-home HPV test kit is going national through Quest Diagnostics",
         "Approximately 2,000 patient locations and dozens of clinical laboratories throughout the U.S.",
         "Current Screening Thresholds May Miss Half of Patients with Primary Aldosterone, a Leading Cause of Severe High Blood Pressure, Finds Study in Hypertension",
         "Delivers a broad range of customizable services for health systems and hospitals through Collaboration Lab Solutions (Co-Lab)",
@@ -27,17 +27,18 @@
         "Half of patients with the hormonal disorder, which raises risk of heart attack, stroke and kidney disease, may be undiagnosed under current screening thresholds SECAUCUS, N.J., Oct.",
         "Haystack MRD® Demonstrates Robust Clinical Performance in Specimen Cohort from the Landmark DYNAMIC Colorectal Cancer Trials",
         "How Amyloid Blood Test Could Transform Alzheimer’s Diagnostics",
-        "Labcorp and Quest Diagnostics expand as hospitals face new pressure",
-        "Labcorp and Quest Diagnostics see solid growth on the horizon for laboratory companies as health systems try to blunt financial headwinds and patients seek more on-demand services.",
         "Provides a broad range of solutions for employers, including workplace drug testing for employers and government agencies; our Workforce Health Solutions wellness screenings; and risk assessment services for the life insurance industry",
         "Provides an industry-leading menu of thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions",
         "Quest Diagnostics CEO on Using Blood Testing for Alzheimer’s Diagnosis",
-        "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced today that it will report its third quarter 2026 financial results on Thursday, October 22, 2026,...",
-        "Quest Diagnostics announced that Apple Health app users across most of the United States will be able to conveniently purchase a tailored Quest laboratory test panel that includes over 50 biomarkers directly through the app on iPhone and iPad later this year.",
+        "Quest Diagnostics Reports Third Quarter 2026 Financial Results; Raises Revenue and EPS Guidance for Full Year 2026",
         "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
         "Quest announces 1st PFAS blood test for consumers.",
         "Quest provides thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions.",
-        "Test showed 100% specificity, with no false-positive results in the cohort, at both 3- and 5-year follow-up, and sensitivity of 100% and 83.3%, respectively, for predicting disease recurrence..."
+        "Test showed 100% specificity, with no false-positive results in the cohort, at both 3- and 5-year follow-up, and sensitivity of 100% and 83.3%, respectively, for predicting disease recurrence...",
+        "The partnership, announced Tuesday, will begin making self-collection kits available in early 2027.",
+        "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
+        "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health.",
+        "will soon have access to a new cervical cancer test collected from the comfort of their own home—no stirrups, speculum, or in-person doctor’s visit needed."
       ],
       "source_status": [
         {
@@ -51,11 +52,11 @@
             "Quest announces 1st PFAS blood test for consumers.",
             "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health.",
             "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
+            "Quest Diagnostics Reports Third Quarter 2026 Financial Results; Raises Revenue and EPS Guidance for Full Year 2026",
+            "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
             "Current Screening Thresholds May Miss Half of Patients with Primary Aldosterone, a Leading Cause of Severe High Blood Pressure, Finds Study in Hypertension",
             "Half of patients with the hormonal disorder, which raises risk of heart attack, stroke and kidney disease, may be undiagnosed under current screening thresholds SECAUCUS, N.J., Oct.",
-            "Haystack MRD® Demonstrates Robust Clinical Performance in Specimen Cohort from the Landmark DYNAMIC Colorectal Cancer Trials",
-            "Test showed 100% specificity, with no false-positive results in the cohort, at both 3- and 5-year follow-up, and sensitivity of 100% and 83.3%, respectively, for predicting disease recurrence...",
-            "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced today that it will report its third quarter 2026 financial results on Thursday, October 22, 2026,..."
+            "Haystack MRD® Demonstrates Robust Clinical Performance in Specimen Cohort from the Landmark DYNAMIC Colorectal Cancer Trials"
           ]
         },
         {
@@ -75,15 +76,18 @@
         }
       ],
       "errors": [],
-      "content_hash": "0f99ffe1e4831b556ddd7add35bb19d6148caccd16cd73bd45e5c9642ff62f36",
-      "last_updated_at": "2026-10-20T07:51:24Z",
-      "change_detected": false,
+      "content_hash": "cfd1c2408e7be6da5658ff24a6b40c0857bb08cd69ea3c4e95dff51b1647daaf",
+      "last_updated_at": "2026-10-23T07:50:58Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": []
+        "modified": [
+          "financial"
+        ]
       },
       "profile_patch": {
+        "financial": "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…",
         "sources": [
           [
@@ -100,7 +104,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -164,7 +168,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -253,7 +257,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -326,7 +330,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -384,7 +388,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -465,7 +469,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -554,7 +558,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -635,7 +639,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -713,7 +717,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -769,7 +773,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -836,7 +840,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -876,7 +880,7 @@
       "errors": [],
       "content_hash": "3d04c810225721e2cbd42a52c4ce58154d856c02182fc5c1ea44d2ad1d819b11",
       "last_updated_at": "2026-10-22T07:51:57Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -898,7 +902,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -987,7 +991,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1064,7 +1068,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1115,7 +1119,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-10-22T07:51:57Z",
+      "last_checked_at": "2026-10-23T07:50:58Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
