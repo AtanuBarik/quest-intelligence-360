@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T07:50:58Z",
+  "generated_at": "2026-10-24T07:32:09Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "quest"
+    "neogenomics"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
@@ -78,13 +78,11 @@
       "errors": [],
       "content_hash": "cfd1c2408e7be6da5658ff24a6b40c0857bb08cd69ea3c4e95dff51b1647daaf",
       "last_updated_at": "2026-10-23T07:50:58Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": [
-          "financial"
-        ]
+        "modified": []
       },
       "profile_patch": {
         "financial": "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
@@ -104,7 +102,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -168,7 +166,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -257,7 +255,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -330,7 +328,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -388,7 +386,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -469,7 +467,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -558,7 +556,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -570,7 +568,6 @@
         "MRD detection, personalized to every patient’s tumor .",
         "NeoGenomics Expands Indica Labs Partnership to Scale AI-Powered Digital Pathology",
         "NeoGenomics Launches FDA-Approved PTEN IHC Companion Diagnostic for Prostate Cancer",
-        "NeoGenomics expands Indica Labs partnership to accelerate AI diagnostics.",
         "NeoGenomics plays an essential role in helping our biopharma partners accelerate drug development and clinical trials, supporting your mission to save lives through innovation.",
         "Our biomarker discovery efforts contribute to cancer immunology research, driving innovation in oncology diagnostics.",
         "Our expertise in real-world evidence (RWE) and genomic insights helps shape the future of precision medicine diagnostics.",
@@ -601,7 +598,6 @@
           "kind": "company",
           "status": "ok",
           "signals": [
-            "NeoGenomics expands Indica Labs partnership to accelerate AI diagnostics.",
             "As a pioneer in digital pathology, NeoGenomics has expanded its partnership with Indica Labs, leveraging its Halo AP® platform via a scalable, cloud-based framework.",
             "As computational pathology and AI-driven insights reshape healthcare, NeoGenomics continues to broaden its menu of advanced tools to guide personalized treatment decisions for the patients its clients serve.",
             "The same trusted tests you rely on, now offering broader genomic coverage, increased reporting sensitivity, and faster turnaround times",
@@ -610,14 +606,15 @@
             "At NeoGenomics, we understand the importance of precision oncology to support oncologists in delivering personalized patient care.",
             "That’s why we have developed both broad pan-cancer and disease-state testing solutions that give you options for obtaining diagnostic data, therapy guidance, and predictive biomarker insights.",
             "With regular updates to keep pace with an evolving cancer landscape, our test menu provides comprehensive genomic profiling capabilities that align to the latest evidence and guidelines.",
-            "As a leader in oncology diagnostics, we provide an extensive range of over 500 tests covering all major testing modalities, including single-gene molecular testing, immunohistochemistry (IHC), digital pathology, flow cytometry, fluorescence in situ hybridization (FISH), DNA- and RNA-based next-generation sequencing…"
+            "As a leader in oncology diagnostics, we provide an extensive range of over 500 tests covering all major testing modalities, including single-gene molecular testing, immunohistochemistry (IHC), digital pathology, flow cytometry, fluorescence in situ hybridization (FISH), DNA- and RNA-based next-generation sequencing…",
+            "Whether it’s for solid tumors or hematologic cancers, we offer advanced tissue-based, liquid biopsy, and heme tests to deliver precise and actionable insights for personalized care."
           ]
         }
       ],
       "errors": [],
-      "content_hash": "50f7715274d06460b8d00ba1553f4a1ee2b0bcd5434ee0345228ae5af273cf1c",
-      "last_updated_at": "2026-10-16T07:27:05Z",
-      "change_detected": false,
+      "content_hash": "f71451b94b2c4c96ef0969ecf8d2f588a9152efe18ca7e3c924393d2110ebbf3",
+      "last_updated_at": "2026-10-24T07:32:09Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -639,7 +636,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -717,7 +714,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -773,7 +770,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -840,7 +837,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -902,7 +899,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -991,7 +988,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1068,7 +1065,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1119,7 +1116,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-10-23T07:50:58Z",
+      "last_checked_at": "2026-10-24T07:32:09Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
