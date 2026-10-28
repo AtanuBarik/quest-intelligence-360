@@ -1,8 +1,8 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-10-28T06:19:21.011380+00:00",
-  "news_generated_at": "2026-10-28T04:08:01.427043+05:30",
+  "updated_at": "2026-10-28T06:33:10.568969+00:00",
+  "news_generated_at": "2026-10-28T11:49:47.305422+05:30",
   "news_item_count": 489,
   "summary_count": 489,
   "verified_summary_count": 87,
@@ -8727,6 +8727,18 @@
       "company": "Quest Diagnostics",
       "category": "Other",
       "source_url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNaGxHWkhWMElUdm1lSEtEeGVDdDN4clFiTEJoZFRKalQzQ1EybGI0M0hVd0VPRmVXOVczd0VXYTVhTG5JRy15NW5aeGtKS3V0cVpldWpwNWVOem9tRFE1RUpQWVd3VXN1QlhhOFlHZ3V4TkQwU25aUlZLcFdMWE95WHV2TVMxd0pVVmg3TjZFLXFZYUtVOHFGZ3NIZER1T3ZkZkVFeHdNY3NDX3IzaFVnQmdnMGF5RnEtaXZ4S1FSLWZTdElwcWFpTXk1MmtiSE1aUHhoRXRKMkhtTE1qNmNlZWZvczlmZ0E?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "eb90ad44aff56c3ae63e": {
+      "summary": "Labcorp to buy Myriad’s prenatal health testing unit for $210M. The item was captured for Labcorp from MedTech Dive and is dated 22 Oct 2026. For Quest monitoring, this is a market signal involving Labcorp; the verified article detail should be used before drawing a broader strategic conclusion.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-10-22T17:49:42.932956+00:00",
+      "title": "Labcorp to buy Myriad’s prenatal health testing unit for $210M",
+      "company": "Labcorp",
+      "category": "Other",
+      "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWno3OUtQLTItSDdKNUhsSEktX0VUa05LZzhST2U3b3dkd25GTlhmYzRmM01aYzBpZG4yRE41UzgySVBOTW1rV3JBUUsxN2ZHTFU5ZEF1dmstWXhPUDB1QmtOYWQ3M2ZLS0l4eUhyQWRDcDVnT05nVjAxSVY5Z3pJSFlBZ2ZwX2pDenJPbnBiX3dyeFdrLUpEMGM1SXNYWEpqcnVz?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
