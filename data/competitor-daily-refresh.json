@@ -1,15 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-27T08:16:08Z",
+  "generated_at": "2026-10-28T08:53:07Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "tempus"
+  ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
@@ -100,7 +102,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -164,7 +166,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -253,7 +255,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -326,7 +328,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -384,7 +386,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -465,7 +467,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -554,7 +556,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -634,7 +636,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -712,7 +714,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -768,7 +770,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -835,7 +837,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -895,7 +897,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -984,7 +986,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1061,7 +1063,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1079,18 +1081,16 @@
           "label": "Tempus investor releases",
           "url": "https://investors.tempus.com/news-releases/",
           "kind": "news",
-          "status": "error",
-          "error": "Unable to fetch https://investors.tempus.com/news-releases/: The read operation timed out",
+          "status": "ok",
           "signals": []
         }
       ],
       "errors": [
-        "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests",
-        "Unable to fetch https://investors.tempus.com/news-releases/: HTTP Error 404: Not Found"
+        "Unable to fetch https://www.tempus.com/news/: HTTP Error 429: Too Many Requests"
       ],
-      "content_hash": "5aaf5e2e4580137d8a8723a8593b3886bcf3e137aff13b1bb251244d47d00d1f",
-      "last_updated_at": "2026-09-01T06:53:46Z",
-      "change_detected": false,
+      "content_hash": "3a4ded5a9939473aff9b6e1d8e5d73e99821be78fb1253caa5aaabd498254b03",
+      "last_updated_at": "2026-10-28T08:53:07Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -1112,7 +1112,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-10-27T08:16:08Z",
+      "last_checked_at": "2026-10-28T08:53:07Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
