@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-28T08:53:07Z",
+  "generated_at": "2026-10-29T08:47:55Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "tempus"
+    "exact"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {
         "financial": "Third quarter revenues of $3.10 billion, up 10.0% from 2025, on strong organic revenue growth Third quarter reported diluted earnings per share (\"EPS\") of $2.78, up 28.7% from 2025; and adjusted...",
@@ -102,7 +102,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -166,7 +166,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -255,7 +255,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -328,7 +328,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -386,7 +386,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -467,7 +467,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -556,7 +556,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -636,7 +636,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -714,7 +714,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -770,7 +770,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -837,17 +837,18 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
-        "Exact Sciences Announces First Participant Enrolled in the CRANE Study, a Multi-Cancer Early Detection Clinical Evaluation in Japan",
-        "Not all CRC screening tests are created equal – your choice could have a big impact",
-        "Oncotype DX Breast DCIS Score ® test",
-        "Oncotype DX Breast Recurrence Score ® test",
-        "Oncotype DX Breast Recurrence Score® Test Surpasses 2 Million Patients Worldwide",
-        "Oncotype DX Colon Recurrence Score ® test"
+        "Exact Sciences Launches the Cologuard Plus™ Test, Transforming Colorectal Cancer Screening",
+        "Expanded Clinical Validation of the Oncodetect™ Test",
+        "Find out how our scientific rigor, quality standards, and development of future tests make us a leader in cancer testing and treatment guidance.",
+        "Insights from the Alpha-CORRECT clinical validation study",
+        "Oncotype DX Breast DCIS Score® test",
+        "Oncotype DX Breast Recurrence Score® test",
+        "Oncotype DX Colon Recurrence Score® test"
       ],
       "source_status": [
         {
@@ -856,12 +857,13 @@
           "kind": "news",
           "status": "ok",
           "signals": [
-            "Not all CRC screening tests are created equal – your choice could have a big impact",
-            "Oncotype DX Breast Recurrence Score® Test Surpasses 2 Million Patients Worldwide",
-            "Exact Sciences Announces First Participant Enrolled in the CRANE Study, a Multi-Cancer Early Detection Clinical Evaluation in Japan",
-            "Oncotype DX Breast DCIS Score ® test",
-            "Oncotype DX Breast Recurrence Score ® test",
-            "Oncotype DX Colon Recurrence Score ® test"
+            "Exact Sciences Launches the Cologuard Plus™ Test, Transforming Colorectal Cancer Screening",
+            "Oncotype DX Breast DCIS Score® test",
+            "Oncotype DX Breast Recurrence Score® test",
+            "Oncotype DX Colon Recurrence Score® test",
+            "Find out how our scientific rigor, quality standards, and development of future tests make us a leader in cancer testing and treatment guidance.",
+            "Insights from the Alpha-CORRECT clinical validation study",
+            "Expanded Clinical Validation of the Oncodetect™ Test"
           ]
         },
         {
@@ -873,9 +875,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "f71357058b6b749fb772cf8c619794b42a03e9d8789e28c495fda40797d26e76",
-      "last_updated_at": "2026-10-25T07:45:28Z",
-      "change_detected": false,
+      "content_hash": "3d04c810225721e2cbd42a52c4ce58154d856c02182fc5c1ea44d2ad1d819b11",
+      "last_updated_at": "2026-10-29T08:47:55Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -897,7 +899,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -986,7 +988,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1063,7 +1065,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1090,7 +1092,7 @@
       ],
       "content_hash": "3a4ded5a9939473aff9b6e1d8e5d73e99821be78fb1253caa5aaabd498254b03",
       "last_updated_at": "2026-10-28T08:53:07Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -1112,7 +1114,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-10-28T08:53:07Z",
+      "last_checked_at": "2026-10-29T08:47:55Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
