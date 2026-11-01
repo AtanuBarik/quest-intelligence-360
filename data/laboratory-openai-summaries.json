@@ -1,8 +1,8 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-10-31T21:53:17.151282+00:00",
-  "news_generated_at": "2026-10-31T18:36:36.972264+05:30",
+  "updated_at": "2026-11-01T01:29:14.343404+00:00",
+  "news_generated_at": "2026-11-01T03:22:59.412326+05:30",
   "news_item_count": 527,
   "summary_count": 527,
   "verified_summary_count": 74,
@@ -9435,6 +9435,18 @@
       "company": "Quest Diagnostics",
       "category": "Other",
       "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNS0VpMG9NRTZXZ3lhX09SUndmbVl1M3l6QzE3NDVKYk1sRXh4Q3pZMUF2SV9zdW5lSG5PZVRuYkFSaWdISTZUUkNKVm1aMDBQQU9jeTZBY2lZemhTM1g5ZURhOEZ4OS02ZTNyc05MTmhOWTlTVWRVQ2xzcmNvU21XX0RheUpxaFpqNUhFamY0ekZzVzZkaW0yczVjTENLWTZ5N2d1eVRWdWhESnNWWkZ3SDF1azF1aHJ5ei1NWGhoSS0?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "b3919f99898b7865ba5c": {
+      "summary": "Labcorp, Charles River and FDA Partner on Drug Abuse Research. The item was captured for Labcorp from Yahoo Finance and is dated 22 Oct 2026. Charles River, Labcorp, and FDA sign drug abuse potential research pact StreetInsider. For Quest monitoring, this is a clinical or R&D signal from Labcorp that may indicate changes in evidence, testing capability or specialty-diagnostics positioning.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-10-31T22:08:06.556952+00:00",
+      "title": "Labcorp, Charles River and FDA Partner on Drug Abuse Research",
+      "company": "Labcorp",
+      "category": "Clinical, R&D",
+      "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNU1A5ODhqR196SzgyU2VuS3pXN0JJVEx5TUhfTmtxVE45cjk2cDhKSUlSWjA5QWpIT1BKNTlzWWU5aS1BN2JhcGtHMERzLWlVWnpJS0xtR0FyTm0zSTd3M2UteVpLNWRoMjR0ZkhaVXZOeEFMUVY2dmtrSVpfZW5qVlpHSHpDbVVaN3lGS0tsMllkUHQySmxWVEpR?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
