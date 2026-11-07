@@ -1,20 +1,6 @@
 {
   "runs": [
     {
-      "checked_at": "2026-09-22T07:53:53Z",
-      "competitors_checked": 16,
-      "competitors_changed": [
-        "quest",
-        "pathgroup"
-      ],
-      "partial_or_failed": [
-        "mayo",
-        "bioreference",
-        "tempus",
-        "genedx"
-      ]
-    },
-    {
       "checked_at": "2026-09-23T07:54:53Z",
       "competitors_checked": 16,
       "competitors_changed": [
@@ -601,6 +587,23 @@
         "labcorp",
         "mayo",
         "bioreference",
+        "tempus",
+        "genedx"
+      ]
+    },
+    {
+      "checked_at": "2026-11-07T09:05:05Z",
+      "competitors_checked": 16,
+      "competitors_changed": [
+        "bioreference",
+        "exact",
+        "pathgroup",
+        "healthtrackrx",
+        "tempus"
+      ],
+      "partial_or_failed": [
+        "labcorp",
+        "mayo",
         "tempus",
         "genedx"
       ]
