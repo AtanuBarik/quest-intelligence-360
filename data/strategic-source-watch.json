@@ -1,40 +1,65 @@
 {
-  "last_checked": "2026-11-02T07:55:26Z",
-  "last_material_source_change": "2026-11-02T07:55:26Z",
-  "changed_source_count": 2,
+  "last_checked": "2026-11-09T08:21:47Z",
+  "last_material_source_change": "2026-11-09T08:21:47Z",
+  "changed_source_count": 5,
   "changed_sources": [
     {
+      "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
+      "previous_digest": "56a2f15b2c759135a56edc2ae587bdd003956c8bccf468ac328b36a895e20662",
+      "digest": "472f574a7e106286703f852270ba3bf6781c175746bbad3a388cb74c2aa4f4e9"
+    },
+    {
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
-      "previous_digest": "4e73dd74cf24040a4783691292aecf144be979795702ecd8530817459136c54c",
-      "digest": "5b77de256aa40ec62f073df1b28b09e036d3f8917b41087c2a6ca0cf40989a80"
+      "previous_digest": "5b77de256aa40ec62f073df1b28b09e036d3f8917b41087c2a6ca0cf40989a80",
+      "digest": "e6afca318dd7ed39a846d020a02b681de2256aef823d4191fbd777623f474f48"
+    },
+    {
+      "url": "https://investors.tempus.com/financials/financial-information",
+      "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
+      "digest": "575d7692da8fcf474f0a8b6222c709e3f497b0037f2b2becc583bc9891bbc112"
     },
     {
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
-      "previous_digest": "6c02f0dd1372df7e97fbcc815e2b983a79ffde94789dfebd597cdf86c3fac77f",
-      "digest": "40d21637ebd24be597108364199f9764b57e42583b5d9b30382b853e494b9d49"
+      "previous_digest": "40d21637ebd24be597108364199f9764b57e42583b5d9b30382b853e494b9d49",
+      "digest": "cb73c08a8daa15fae985e28ca5bf2c7645b63480c495d02cb5b5e960f855ebb7"
+    },
+    {
+      "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results",
+      "previous_digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
+      "digest": "493bb6fd90ecbe8df94dab625ddec724e92eb167768f5fa8bd59c403867f207c"
     }
   ],
   "sources": [
     {
       "url": "https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx",
       "final_url": "https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx",
-      "status": null,
-      "digest": null,
-      "previous_digest": null,
-      "checked_at": "2026-11-02T07:55:26Z",
+      "status": 200,
+      "digest": "4802375680c81ef8515a53fd8daf3aa1c93013ee298f5782f9fe101ce7e7700a",
+      "evidence_preview": [
+        "Skip to main content | https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx#main-content",
+        "Skip to main content | https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx#maincontent",
+        "Overview | https://ir.questdiagnostics.com/overview/default.aspx",
+        "Stock Info | https://ir.questdiagnostics.com/stock-info/stock-quote-and-chart/default.aspx",
+        "Stock Quote & Chart | https://ir.questdiagnostics.com/stock-info/stock-quote-and-chart/default.aspx",
+        "Investment Calculator | https://ir.questdiagnostics.com/stock-info/investment-calculator/default.aspx",
+        "Historical Price Lookup | https://ir.questdiagnostics.com/stock-info/historical-price-lookup/default.aspx",
+        "Analyst Coverage | https://ir.questdiagnostics.com/stock-info/analyst-coverage/default.aspx",
+        "Top Institutional Holders | https://ir.questdiagnostics.com/stock-info/top-institutional-holders/default.aspx",
+        "Financial Info | https://ir.questdiagnostics.com/financial-info/sec-filings/default.aspx",
+        "SEC Filings | https://ir.questdiagnostics.com/financial-info/sec-filings/default.aspx",
+        "Quarterly Results | https://ir.questdiagnostics.com/financial-info/quarterly-results/default.aspx"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
-      "evidence_preview": [],
-      "header_profile": null,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "previous_digest": null,
+      "error": null
     },
     {
       "url": "https://ir.questdiagnostics.com/events-and-presentations/default.aspx",
       "final_url": "https://ir.questdiagnostics.com/events-and-presentations/default.aspx",
-      "status": null,
+      "status": 200,
       "digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
-      "previous_digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
-      "checked_at": "2026-11-02T07:55:26Z",
-      "changed": false,
       "evidence_preview": [
         "Skip to main content | https://ir.questdiagnostics.com/events-and-presentations/default.aspx#main-content",
         "Skip to main content | https://ir.questdiagnostics.com/events-and-presentations/default.aspx#maincontent",
@@ -50,7 +75,10 @@
         "Quarterly Results | https://ir.questdiagnostics.com/financial-info/quarterly-results/default.aspx"
       ],
       "header_profile": "research",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "checked_at": "2026-11-09T08:21:47Z",
+      "changed": false,
+      "previous_digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
+      "error": null
     },
     {
       "url": "https://ir.labcorp.com/financials/sec-filings",
@@ -58,7 +86,7 @@
       "status": null,
       "digest": "cd0ef37c7c62951ccbb7e3edecd2699c48e8c1cea1a33506abff216900d53f5d",
       "previous_digest": "cd0ef37c7c62951ccbb7e3edecd2699c48e8c1cea1a33506abff216900d53f5d",
-      "checked_at": "2026-11-02T07:55:26Z",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://ir.labcorp.com/financials/sec-filings#main-menu",
@@ -83,7 +111,7 @@
       "status": null,
       "digest": "1c1a2a770753e35c1daeef1675a1c2ef09eb42a7bbee47580715db5a82982eeb",
       "previous_digest": "1c1a2a770753e35c1daeef1675a1c2ef09eb42a7bbee47580715db5a82982eeb",
-      "checked_at": "2026-11-02T07:55:26Z",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://ir.labcorp.com/news-and-events/recent-past-presentations#main-menu",
@@ -106,10 +134,10 @@
       "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
       "final_url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
       "status": 200,
-      "digest": "56a2f15b2c759135a56edc2ae587bdd003956c8bccf468ac328b36a895e20662",
+      "digest": "472f574a7e106286703f852270ba3bf6781c175746bbad3a388cb74c2aa4f4e9",
       "evidence_preview": [
         " | http://investors.sonichealthcare.com/",
-        " | https://investors.sonichealthcare.com/investors/?page=financial-reports",
+        " | https://investors.sonichealthcare.com/investors/?page=financial-reports#",
         "Company Information | https://investors.sonichealthcare.com/About/?page=About-Sonic-Healthcare",
         "About Sonic Healthcare | https://investors.sonichealthcare.com/about/?page=about-sonic-healthcare",
         "Overview | https://investors.sonichealthcare.com/about/?page=about-sonic-healthcare",
@@ -122,8 +150,8 @@
         "Board of Directors | https://investors.sonichealthcare.com/corporate-governance/?page=board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-02T07:55:26Z",
-      "changed": false,
+      "checked_at": "2026-11-09T08:21:47Z",
+      "changed": true,
       "previous_digest": "56a2f15b2c759135a56edc2ae587bdd003956c8bccf468ac328b36a895e20662",
       "error": null
     },
@@ -131,7 +159,7 @@
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
       "final_url": "https://www.eurofins.com:443/en/investors/reports-and-presentations/",
       "status": 200,
-      "digest": "5b77de256aa40ec62f073df1b28b09e036d3f8917b41087c2a6ca0cf40989a80",
+      "digest": "e6afca318dd7ed39a846d020a02b681de2256aef823d4191fbd777623f474f48",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com:443/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com:443/en/biopharma-services/biopharma-discovery/",
@@ -147,59 +175,85 @@
         "Softlines & Hardlines | https://www.eurofins.com:443/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-02T07:55:26Z",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": true,
-      "previous_digest": "4e73dd74cf24040a4783691292aecf144be979795702ecd8530817459136c54c",
+      "previous_digest": "5b77de256aa40ec62f073df1b28b09e036d3f8917b41087c2a6ca0cf40989a80",
       "error": null
     },
     {
       "url": "https://investor.natera.com/financials/quarterly-results/default.aspx",
       "final_url": "https://investor.natera.com/financials/quarterly-results/default.aspx",
-      "status": null,
-      "digest": null,
-      "previous_digest": null,
-      "checked_at": "2026-11-02T07:55:26Z",
+      "status": 200,
+      "digest": "a72c8eb1d6a9f27a0793ce2bd3b3dfa67a97a87e15a1a594cea167c7dfc57b5e",
+      "evidence_preview": [
+        "Skip to main content | https://investor.natera.com/financials/quarterly-results/default.aspx#main-content",
+        "Overview | https://investor.natera.com/overview/default.aspx",
+        "News | https://investor.natera.com/news/default.aspx",
+        "Events & Presentations | https://investor.natera.com/events-and-presentations/default.aspx",
+        "Stock Info | https://investor.natera.com/stock-info/default.aspx",
+        "Stock Quote | https://investor.natera.com/stock-info/default.aspx#stock-quote",
+        "Stock Chart | https://investor.natera.com/stock-info/default.aspx#stock-chart",
+        "Historical Stock Quote | https://investor.natera.com/stock-info/default.aspx#stock-historical",
+        "Investment Calculator | https://investor.natera.com/stock-info/default.aspx#calculator",
+        "Analyst Coverage | https://investor.natera.com/stock-info/analyst-coverage/default.aspx",
+        "Financials | https://investor.natera.com/financials/quarterly-results/default.aspx",
+        "Quarterly Results | https://investor.natera.com/financials/quarterly-results/default.aspx"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
-      "evidence_preview": [],
-      "header_profile": null,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "previous_digest": null,
+      "error": null
     },
     {
       "url": "https://investors.guardanthealth.com/financials/quarterly-results/default.aspx",
       "final_url": "https://investors.guardanthealth.com/financials/quarterly-results/default.aspx",
-      "status": null,
-      "digest": null,
-      "previous_digest": null,
-      "checked_at": "2026-11-02T07:55:26Z",
+      "status": 200,
+      "digest": "ce860aa507d3e9383f9e8c3b16f92393ee723bebb1b3e7b656c68ab20ab1f290",
+      "evidence_preview": [
+        "Skip to main content | https://investors.guardanthealth.com/financials/quarterly-results/default.aspx#main-content",
+        " | https://investors.guardanthealth.com/",
+        "Releases\">Press Releases | https://investors.guardanthealth.com/press-releases/default.aspx",
+        "Presentations\">Events & Presentations | https://investors.guardanthealth.com/events-and-presentations/default.aspx",
+        "Stock Info | https://investors.guardanthealth.com/stock-info/stock-quote/default.aspx",
+        "Info\">Stock Quote | https://investors.guardanthealth.com/stock-info/stock-quote/default.aspx",
+        "Coverage\">Analyst Coverage | https://investors.guardanthealth.com/stock-info/analyst-coverage/default.aspx",
+        "Financials | https://investors.guardanthealth.com/financials/quarterly-results/default.aspx",
+        "Results\">Quarterly Results | https://investors.guardanthealth.com/financials/quarterly-results/default.aspx",
+        "Reports\">Annual Reports | https://investors.guardanthealth.com/financials/annual-reports/default.aspx",
+        "Filings\">SEC Filings | https://investors.guardanthealth.com/financials/sec-filings/default.aspx",
+        "Governance | https://investors.guardanthealth.com/governance/governance-documents/default.aspx"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
-      "evidence_preview": [],
-      "header_profile": null,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "previous_digest": null,
+      "error": null
     },
     {
       "url": "https://investors.tempus.com/financials/financial-information",
-      "final_url": "https://investors.tempus.com/financials/financial-information",
-      "status": null,
-      "digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
-      "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
-      "checked_at": "2026-11-02T07:55:26Z",
-      "changed": false,
+      "final_url": "https://investors.tempus.com/financials/financial-information/",
+      "status": 200,
+      "digest": "575d7692da8fcf474f0a8b6222c709e3f497b0037f2b2becc583bc9891bbc112",
       "evidence_preview": [
-        "Skip to main navigation | https://investors.tempus.com/financials/financial-information#main-menu",
-        "Overview | https://investors.tempus.com/investor-relations",
-        "News &amp; Events | https://investors.tempus.com/news-events/news-releases",
-        "News Releases | https://investors.tempus.com/news-events/news-releases",
-        "Events | https://investors.tempus.com/news-events/investor-events",
-        "Presentations | https://investors.tempus.com/news-events/presentations",
-        "Letter from the CEO | https://investors.tempus.com/static-files/d8c5f9dd-ae5a-41fc-b3d4-13436086e760",
-        "Stock Information | https://investors.tempus.com/stock-information/stock-quote-chart",
-        "Stock Quote &amp; Chart | https://investors.tempus.com/stock-information/stock-quote-chart",
-        "Analyst Coverage | https://investors.tempus.com/stock-information/analyst-coverage",
-        "Corporate Governance | https://investors.tempus.com/corporate-governance/governance-documents",
-        "Board of Directors | https://investors.tempus.com/corporate-governance/board-of-directors"
+        "Skip to main content | https://investors.tempus.com/financials/financial-information/#main-content",
+        "Overview | https://investors.tempus.com/overview/default.aspx",
+        "News | https://investors.tempus.com/news/default.aspx",
+        "Events | https://investors.tempus.com/events/default.aspx",
+        "Stock Info | https://investors.tempus.com/stock-info/stock-quote-chart/default.aspx",
+        "Stock Quote & Chart | https://investors.tempus.com/stock-info/stock-quote-chart/default.aspx",
+        "Analyst Coverage | https://investors.tempus.com/stock-info/analyst-coverage/default.aspx",
+        "Governance | https://investors.tempus.com/default.aspx",
+        "Board of Directors | https://investors.tempus.com/governance/board-of-directors/default.aspx",
+        "Governance Documents | https://investors.tempus.com/governance/governance-documents/default.aspx",
+        "Financials | https://investors.tempus.com/financials/financial-information/default.aspx",
+        "Financial Information | https://investors.tempus.com/financials/financial-information/default.aspx"
       ],
       "header_profile": "research",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "checked_at": "2026-11-09T08:21:47Z",
+      "changed": true,
+      "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
+      "error": null
     },
     {
       "url": "https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm",
@@ -207,7 +261,7 @@
       "status": null,
       "digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
       "previous_digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
-      "checked_at": "2026-11-02T07:55:26Z",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
       "evidence_preview": [
         "Part I - Financial Information | https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm#if454735e94df41c3a44babbae82e9fc7_10",
@@ -232,7 +286,7 @@
       "status": null,
       "digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
       "previous_digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
-      "checked_at": "2026-11-02T07:55:26Z",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
       "evidence_preview": [
         "Ordering &amp; Results | https://www.mayocliniclabs.com/order-tests",
@@ -271,7 +325,7 @@
         "Contact&nbsp; | https://newsroom.questdiagnostics.com/index.php?s=35201"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-02T07:55:26Z",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
       "previous_digest": "64b197c8c8455ba7623532e4c174dc676c606115d1cf6c2f67904a06371c5f94",
       "error": null
@@ -280,7 +334,7 @@
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "final_url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "status": 200,
-      "digest": "40d21637ebd24be597108364199f9764b57e42583b5d9b30382b853e494b9d49",
+      "digest": "cb73c08a8daa15fae985e28ca5bf2c7645b63480c495d02cb5b5e960f855ebb7",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com/en/biopharma-services/biopharma-discovery/",
@@ -296,59 +350,85 @@
         "Softlines & Hardlines | https://www.eurofins.com/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-02T07:55:26Z",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": true,
-      "previous_digest": "6c02f0dd1372df7e97fbcc815e2b983a79ffde94789dfebd597cdf86c3fac77f",
+      "previous_digest": "40d21637ebd24be597108364199f9764b57e42583b5d9b30382b853e494b9d49",
       "error": null
     },
     {
       "url": "https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx",
       "final_url": "https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx",
-      "status": null,
-      "digest": null,
-      "previous_digest": null,
-      "checked_at": "2026-11-02T07:55:26Z",
+      "status": 200,
+      "digest": "1fac520b4c80fa4486641700be2c89119d6563930671cf2303169fd021f2e909",
+      "evidence_preview": [
+        "Skip to main content | https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx#main-content",
+        "Overview | https://investor.natera.com/overview/default.aspx",
+        "News | https://investor.natera.com/news/default.aspx",
+        "Events & Presentations | https://investor.natera.com/events-and-presentations/default.aspx",
+        "Stock Info | https://investor.natera.com/stock-info/default.aspx",
+        "Stock Quote | https://investor.natera.com/stock-info/default.aspx#stock-quote",
+        "Stock Chart | https://investor.natera.com/stock-info/default.aspx#stock-chart",
+        "Historical Stock Quote | https://investor.natera.com/stock-info/default.aspx#stock-historical",
+        "Investment Calculator | https://investor.natera.com/stock-info/default.aspx#calculator",
+        "Analyst Coverage | https://investor.natera.com/stock-info/analyst-coverage/default.aspx",
+        "Financials | https://investor.natera.com/financials/quarterly-results/default.aspx",
+        "Quarterly Results | https://investor.natera.com/financials/quarterly-results/default.aspx"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
-      "evidence_preview": [],
-      "header_profile": null,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "previous_digest": null,
+      "error": null
     },
     {
       "url": "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx",
       "final_url": "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx",
-      "status": null,
-      "digest": null,
-      "previous_digest": null,
-      "checked_at": "2026-11-02T07:55:26Z",
+      "status": 200,
+      "digest": "511f4e82cb5065a6600f2be59ebd5cf4af7c78be1bc39c048f5c88ef826e51be",
+      "evidence_preview": [
+        "Skip to main content | https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx#main-content",
+        " | https://investors.guardanthealth.com/",
+        "Releases\">Press Releases | https://investors.guardanthealth.com/press-releases/default.aspx",
+        "Presentations\">Events & Presentations | https://investors.guardanthealth.com/events-and-presentations/default.aspx",
+        "Stock Info | https://investors.guardanthealth.com/stock-info/stock-quote/default.aspx",
+        "Info\">Stock Quote | https://investors.guardanthealth.com/stock-info/stock-quote/default.aspx",
+        "Coverage\">Analyst Coverage | https://investors.guardanthealth.com/stock-info/analyst-coverage/default.aspx",
+        "Financials | https://investors.guardanthealth.com/financials/quarterly-results/default.aspx",
+        "Results\">Quarterly Results | https://investors.guardanthealth.com/financials/quarterly-results/default.aspx",
+        "Reports\">Annual Reports | https://investors.guardanthealth.com/financials/annual-reports/default.aspx",
+        "Filings\">SEC Filings | https://investors.guardanthealth.com/financials/sec-filings/default.aspx",
+        "Governance | https://investors.guardanthealth.com/governance/governance-documents/default.aspx"
+      ],
+      "header_profile": "research",
+      "checked_at": "2026-11-09T08:21:47Z",
       "changed": false,
-      "evidence_preview": [],
-      "header_profile": null,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "previous_digest": null,
+      "error": null
     },
     {
       "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results",
-      "final_url": "https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results",
-      "status": null,
-      "digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
-      "previous_digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
-      "checked_at": "2026-11-02T07:55:26Z",
-      "changed": false,
+      "final_url": "https://investors.tempus.com:443/news/default.aspx",
+      "status": 200,
+      "digest": "493bb6fd90ecbe8df94dab625ddec724e92eb167768f5fa8bd59c403867f207c",
       "evidence_preview": [
-        "Skip to main navigation | https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results#main-menu",
-        "Overview | https://investors.tempus.com/investor-relations",
-        "News &amp; Events | https://investors.tempus.com/news-events/news-releases",
-        "News Releases | https://investors.tempus.com/news-events/news-releases",
-        "Events | https://investors.tempus.com/news-events/investor-events",
-        "Presentations | https://investors.tempus.com/news-events/presentations",
-        "Letter from the CEO | https://investors.tempus.com/static-files/d8c5f9dd-ae5a-41fc-b3d4-13436086e760",
-        "Stock Information | https://investors.tempus.com/stock-information/stock-quote-chart",
-        "Stock Quote &amp; Chart | https://investors.tempus.com/stock-information/stock-quote-chart",
-        "Analyst Coverage | https://investors.tempus.com/stock-information/analyst-coverage",
-        "Corporate Governance | https://investors.tempus.com/corporate-governance/governance-documents",
-        "Board of Directors | https://investors.tempus.com/corporate-governance/board-of-directors"
+        "Skip to main content | https://investors.tempus.com:443/news/default.aspx#main-content",
+        "Overview | https://investors.tempus.com/overview/default.aspx",
+        "News | https://investors.tempus.com/news/default.aspx",
+        "Events | https://investors.tempus.com/events/default.aspx",
+        "Stock Info | https://investors.tempus.com/stock-info/stock-quote-chart/default.aspx",
+        "Stock Quote & Chart | https://investors.tempus.com/stock-info/stock-quote-chart/default.aspx",
+        "Analyst Coverage | https://investors.tempus.com/stock-info/analyst-coverage/default.aspx",
+        "Governance | https://investors.tempus.com/default.aspx",
+        "Board of Directors | https://investors.tempus.com/governance/board-of-directors/default.aspx",
+        "Governance Documents | https://investors.tempus.com/governance/governance-documents/default.aspx",
+        "Financials | https://investors.tempus.com/financials/financial-information/default.aspx",
+        "Financial Information | https://investors.tempus.com/financials/financial-information/default.aspx"
       ],
       "header_profile": "research",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "checked_at": "2026-11-09T08:21:47Z",
+      "changed": true,
+      "previous_digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
+      "error": null
     }
   ],
   "note": "Source changes are a research trigger. Strategic synthesis is updated separately after evidence review; a changed page is not automatically treated as a strategic change."
