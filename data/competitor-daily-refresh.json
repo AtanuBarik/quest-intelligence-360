@@ -1,21 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T09:45:10Z",
+  "generated_at": "2026-11-12T10:06:31Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "quest",
-    "sonic",
-    "cleveland",
-    "exact",
-    "pathgroup"
+    "cleveland"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -77,13 +73,11 @@
       "errors": [],
       "content_hash": "a6428f7af8b1c65a1c6018afbdcc8234faef4816dd80dc0baa6cc98bbe882a80",
       "last_updated_at": "2026-11-11T09:45:10Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
-        "modified": [
-          "financial"
-        ]
+        "modified": []
       },
       "profile_patch": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…",
@@ -102,7 +96,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -166,7 +160,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -255,7 +249,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -328,7 +322,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -420,7 +414,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -479,7 +473,7 @@
       "errors": [],
       "content_hash": "09b4fc67d813d43e3ca8131e6741b748dd55ed3aef39ef79fa92ae68f8b30e17",
       "last_updated_at": "2026-11-11T09:45:10Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -501,34 +495,50 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-11-11T09:45:10Z",
-      "refresh_status": "partial",
+      "last_checked_at": "2026-11-12T10:06:31Z",
+      "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
         "100 Years of Cleveland Clinic About Us Locations Quality & Patient Safety Patient Experience Research & Innovations Community Commitment Careers For Employees Resources for Medical Professionals",
+        "Cleveland Clinic Laboratories | Pathology & Laboratory Medicine Services",
         "Cleveland Clinic’s Department of Pathology and Laboratory Medicine touches virtually every patient at Cleveland Clinic and thousands of patients across the world.",
+        "Contact Laboratory Customer Service",
+        "Create an Account & Order a Test",
+        "Find a Location | Pay Your Lab Bill",
+        "L15 - Pathology & Laboratory Medicine",
         "Lab Appointments & Locations",
+        "Laboratory Genetic Counseling",
+        "March 2025: Test Changes to Oxidized Low-Density-Lipoprotein & Lipoprotein-associated Phospholipase A2 Activity",
+        "New Test: Alzheimer’s Disease Biomarker Panel, Cerebrospinal Fluid",
         "Order A Test or Consultation",
+        "Outpatient Laboratory Service Center Locations",
         "PLM also provides pathology and laboratory services to external clients through our reference laboratory, Cleveland Clinic Laboratories.",
         "Pathology & Laboratory Medicine",
         "Pathology & Laboratory Medicine Institute Menu",
         "Pathology & Laboratory Medicine Institute | Cleveland Clinic",
         "Providing health systems and hospitals with their specialized laboratory testing needs.",
-        "The Department of Pathology & Laboratory Medicine (PLM) touches virtually every patient at Cleveland Clinic and thousands of patients across the world.",
-        "The Pathology & Laboratory Medicine Institute offers a variety of resources for healthcare providers delivering pathological and laboratory services.",
-        "We can help you choose the top specialist from our pool of pathologists and other researchers, including clinical and anatomic.",
-        "Why Choose the Department of Pathology & Laboratory Medicine?",
-        "With approximately 2,200 dedicated caregivers processing more than 20 million tests annually, the PLM laboratories are often cited as the largest volume hospital laboratory in the United States."
+        "Test Discontinuation: Creatine Kinase-Myocardial Band",
+        "The Department of Pathology & Laboratory Medicine (PLM) touches virtually every patient at Cleveland Clinic and thousands of patients across the world."
       ],
       "source_status": [
         {
           "label": "Cleveland Clinic Laboratories",
           "url": "https://clevelandcliniclabs.com/",
           "kind": "company",
-          "status": "error",
-          "error": "Unable to fetch https://clevelandcliniclabs.com/: HTTP Error 502: Bad Gateway",
-          "signals": []
+          "status": "ok",
+          "signals": [
+            "Cleveland Clinic Laboratories | Pathology & Laboratory Medicine Services",
+            "Create an Account & Order a Test",
+            "Laboratory Genetic Counseling",
+            "Outpatient Laboratory Service Center Locations",
+            "The Future of Cervical Cancer Screening Is Digital",
+            "March 2025: Test Changes to Oxidized Low-Density-Lipoprotein & Lipoprotein-associated Phospholipase A2 Activity",
+            "Test Discontinuation: Creatine Kinase-Myocardial Band",
+            "New Test: Alzheimer’s Disease Biomarker Panel, Cerebrospinal Fluid",
+            "Find a Location | Pay Your Lab Bill",
+            "L15 - Pathology & Laboratory Medicine"
+          ]
         },
         {
           "label": "Pathology & Laboratory Medicine Institute",
@@ -549,11 +559,9 @@
           ]
         }
       ],
-      "errors": [
-        "Unable to fetch https://clevelandcliniclabs.com/: HTTP Error 502: Bad Gateway"
-      ],
-      "content_hash": "8edc0d49eaf3f35f770617db6e5755f63ec15b913a6ba3869d87be4414be3af0",
-      "last_updated_at": "2026-11-11T09:45:10Z",
+      "errors": [],
+      "content_hash": "fc0a06732640bbc220503335acdf2738990d9b1fecf95b54e1eb089b953a8c12",
+      "last_updated_at": "2026-11-12T10:06:31Z",
       "change_detected": true,
       "changes": {
         "added": [],
@@ -576,7 +584,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -656,7 +664,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -734,7 +742,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -790,7 +798,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -857,7 +865,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -897,7 +905,7 @@
       "errors": [],
       "content_hash": "3d04c810225721e2cbd42a52c4ce58154d856c02182fc5c1ea44d2ad1d819b11",
       "last_updated_at": "2026-11-11T09:45:10Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -919,7 +927,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -986,7 +994,7 @@
       "errors": [],
       "content_hash": "c9e6e4802f8337ba1be7dc4fa72ec3ac7de354a3176016b6cfb691878564ba63",
       "last_updated_at": "2026-11-11T09:45:10Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -1008,7 +1016,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1087,7 +1095,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1136,7 +1144,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-11-11T09:45:10Z",
+      "last_checked_at": "2026-11-12T10:06:31Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
