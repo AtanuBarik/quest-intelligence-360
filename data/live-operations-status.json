@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T07:48:00.833620+00:00",
+  "generated_at": "2026-11-12T08:24:46.806203+00:00",
   "overall_status": "healthy",
   "errors": [],
   "sources": {
@@ -15,8 +15,8 @@
     },
     "laboratory_news": {
       "status": "ready",
-      "updated_at": "2026-11-11T12:41:39.984223+05:30",
-      "records": 535
+      "updated_at": "2026-11-12T13:15:10.130001+05:30",
+      "records": 533
     },
     "social_intelligence": {
       "status": "ready",
