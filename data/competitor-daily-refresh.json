@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-12T10:06:31Z",
+  "generated_at": "2026-11-13T09:52:37Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "cleveland"
+    "quest"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -28,6 +28,7 @@
         "Quest Diagnostics (NYSE: DGX), a leading provider of diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on...",
         "Quest Diagnostics CEO on Using Blood Testing for Alzheimer’s Diagnosis",
         "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced that Sam Samad, Executive Vice President and Chief Financial Officer, will participate in a...",
+        "Quest Diagnostics Launches Companion Diagnostic for Sarepta's Gene Therapy Sponsored Testing Program",
         "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
         "Quest announces 1st PFAS blood test for consumers.",
         "Quest provides thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions.",
@@ -49,9 +50,9 @@
             "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
             "Quest Diagnostics (NYSE: DGX), a leading provider of diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on...",
             "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced that Sam Samad, Executive Vice President and Chief Financial Officer, will participate in a...",
+            "Quest Diagnostics Launches Companion Diagnostic for Sarepta's Gene Therapy Sponsored Testing Program",
             "A new at-home HPV test kit is going national through Quest Diagnostics",
-            "will soon have access to a new cervical cancer test collected from the comfort of their own home—no stirrups, speculum, or in-person doctor’s visit needed.",
-            "The partnership, announced Tuesday, will begin making self-collection kits available in early 2027."
+            "will soon have access to a new cervical cancer test collected from the comfort of their own home—no stirrups, speculum, or in-person doctor’s visit needed."
           ]
         },
         {
@@ -71,9 +72,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "a6428f7af8b1c65a1c6018afbdcc8234faef4816dd80dc0baa6cc98bbe882a80",
-      "last_updated_at": "2026-11-11T09:45:10Z",
-      "change_detected": false,
+      "content_hash": "1192edf7a2949118af68a038d5bc20ee4eb2c7fa19af5391d69217c48e7c0c7f",
+      "last_updated_at": "2026-11-13T09:52:37Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -96,7 +97,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -160,7 +161,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -249,7 +250,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -322,7 +323,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -414,7 +415,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -495,7 +496,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -562,7 +563,7 @@
       "errors": [],
       "content_hash": "fc0a06732640bbc220503335acdf2738990d9b1fecf95b54e1eb089b953a8c12",
       "last_updated_at": "2026-11-12T10:06:31Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -584,7 +585,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -664,7 +665,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -742,7 +743,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -798,7 +799,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -865,7 +866,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -927,7 +928,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1016,7 +1017,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1095,7 +1096,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1144,7 +1145,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-11-12T10:06:31Z",
+      "last_checked_at": "2026-11-13T09:52:37Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
