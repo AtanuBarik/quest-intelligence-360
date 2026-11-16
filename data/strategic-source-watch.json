@@ -1,32 +1,57 @@
 {
-  "last_checked": "2026-11-09T08:21:47Z",
-  "last_material_source_change": "2026-11-09T08:21:47Z",
-  "changed_source_count": 5,
+  "last_checked": "2026-11-16T08:16:12Z",
+  "last_material_source_change": "2026-11-16T08:16:12Z",
+  "changed_source_count": 10,
   "changed_sources": [
     {
+      "url": "https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx",
+      "previous_digest": "4802375680c81ef8515a53fd8daf3aa1c93013ee298f5782f9fe101ce7e7700a",
+      "digest": "3f75ba5ab1b1b1499969dadf6048b41ab3a6122c6ab1387244255b006405cbbb"
+    },
+    {
+      "url": "https://ir.questdiagnostics.com/events-and-presentations/default.aspx",
+      "previous_digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
+      "digest": "5dac27b3c3e342eee1c0add1e27c7667d6c3dbc53859c362e4cebaf1ad0febac"
+    },
+    {
       "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
-      "previous_digest": "56a2f15b2c759135a56edc2ae587bdd003956c8bccf468ac328b36a895e20662",
-      "digest": "472f574a7e106286703f852270ba3bf6781c175746bbad3a388cb74c2aa4f4e9"
+      "previous_digest": "472f574a7e106286703f852270ba3bf6781c175746bbad3a388cb74c2aa4f4e9",
+      "digest": "2f853231a2a2073a17d0741025b4d93ec0bf26b6a29b20a7a5b4e948aff6d404"
     },
     {
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
-      "previous_digest": "5b77de256aa40ec62f073df1b28b09e036d3f8917b41087c2a6ca0cf40989a80",
-      "digest": "e6afca318dd7ed39a846d020a02b681de2256aef823d4191fbd777623f474f48"
+      "previous_digest": "e6afca318dd7ed39a846d020a02b681de2256aef823d4191fbd777623f474f48",
+      "digest": "410a9019104dcf51ae82229069158028e470e4951f3ed7f43316c1c2a5f4582c"
+    },
+    {
+      "url": "https://investor.natera.com/financials/quarterly-results/default.aspx",
+      "previous_digest": "a72c8eb1d6a9f27a0793ce2bd3b3dfa67a97a87e15a1a594cea167c7dfc57b5e",
+      "digest": "9ff26005de5ade24413795102d91a753f60106e729a2d554ac084d2925f53220"
     },
     {
       "url": "https://investors.tempus.com/financials/financial-information",
-      "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
-      "digest": "575d7692da8fcf474f0a8b6222c709e3f497b0037f2b2becc583bc9891bbc112"
+      "previous_digest": "575d7692da8fcf474f0a8b6222c709e3f497b0037f2b2becc583bc9891bbc112",
+      "digest": "46d0d5682deb22f22f87cead82d7aac37484b95c06108361f233373267154a67"
     },
     {
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
-      "previous_digest": "40d21637ebd24be597108364199f9764b57e42583b5d9b30382b853e494b9d49",
-      "digest": "cb73c08a8daa15fae985e28ca5bf2c7645b63480c495d02cb5b5e960f855ebb7"
+      "previous_digest": "cb73c08a8daa15fae985e28ca5bf2c7645b63480c495d02cb5b5e960f855ebb7",
+      "digest": "761b523cdaffbe323227bfc46867c48721e3f42a6f208eaeb46f82e2c08061d7"
+    },
+    {
+      "url": "https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx",
+      "previous_digest": "1fac520b4c80fa4486641700be2c89119d6563930671cf2303169fd021f2e909",
+      "digest": "a6ff593b1e504d78a1d7b78ef40cc88d0ff0df461754a346015fc96648d824e8"
+    },
+    {
+      "url": "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx",
+      "previous_digest": "511f4e82cb5065a6600f2be59ebd5cf4af7c78be1bc39c048f5c88ef826e51be",
+      "digest": "4ec3d54ca320baf43d6f778e1f67f17c17584dc0cc8ec6b3ed1f24aa1dfc2717"
     },
     {
       "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results",
-      "previous_digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
-      "digest": "493bb6fd90ecbe8df94dab625ddec724e92eb167768f5fa8bd59c403867f207c"
+      "previous_digest": "493bb6fd90ecbe8df94dab625ddec724e92eb167768f5fa8bd59c403867f207c",
+      "digest": "b847a2dc4236cb3f40ed8b7f979d96cc6412c1dc23659db5c5c939b3da01c20c"
     }
   ],
   "sources": [
@@ -34,7 +59,7 @@
       "url": "https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx",
       "final_url": "https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx",
       "status": 200,
-      "digest": "4802375680c81ef8515a53fd8daf3aa1c93013ee298f5782f9fe101ce7e7700a",
+      "digest": "3f75ba5ab1b1b1499969dadf6048b41ab3a6122c6ab1387244255b006405cbbb",
       "evidence_preview": [
         "Skip to main content | https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx#main-content",
         "Skip to main content | https://ir.questdiagnostics.com/financial-info/annual-reports/default.aspx#maincontent",
@@ -50,16 +75,16 @@
         "Quarterly Results | https://ir.questdiagnostics.com/financial-info/quarterly-results/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
-      "changed": false,
-      "previous_digest": null,
+      "checked_at": "2026-11-16T08:16:12Z",
+      "changed": true,
+      "previous_digest": "4802375680c81ef8515a53fd8daf3aa1c93013ee298f5782f9fe101ce7e7700a",
       "error": null
     },
     {
       "url": "https://ir.questdiagnostics.com/events-and-presentations/default.aspx",
       "final_url": "https://ir.questdiagnostics.com/events-and-presentations/default.aspx",
       "status": 200,
-      "digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
+      "digest": "5dac27b3c3e342eee1c0add1e27c7667d6c3dbc53859c362e4cebaf1ad0febac",
       "evidence_preview": [
         "Skip to main content | https://ir.questdiagnostics.com/events-and-presentations/default.aspx#main-content",
         "Skip to main content | https://ir.questdiagnostics.com/events-and-presentations/default.aspx#maincontent",
@@ -75,8 +100,8 @@
         "Quarterly Results | https://ir.questdiagnostics.com/financial-info/quarterly-results/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
-      "changed": false,
+      "checked_at": "2026-11-16T08:16:12Z",
+      "changed": true,
       "previous_digest": "cf0a2c5283e9bad3b3dcaf5b94cb622e09196fb7fa569c5af3f38df3c0459589",
       "error": null
     },
@@ -86,7 +111,7 @@
       "status": null,
       "digest": "cd0ef37c7c62951ccbb7e3edecd2699c48e8c1cea1a33506abff216900d53f5d",
       "previous_digest": "cd0ef37c7c62951ccbb7e3edecd2699c48e8c1cea1a33506abff216900d53f5d",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://ir.labcorp.com/financials/sec-filings#main-menu",
@@ -111,7 +136,7 @@
       "status": null,
       "digest": "1c1a2a770753e35c1daeef1675a1c2ef09eb42a7bbee47580715db5a82982eeb",
       "previous_digest": "1c1a2a770753e35c1daeef1675a1c2ef09eb42a7bbee47580715db5a82982eeb",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": false,
       "evidence_preview": [
         "Skip to main navigation | https://ir.labcorp.com/news-and-events/recent-past-presentations#main-menu",
@@ -134,7 +159,7 @@
       "url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
       "final_url": "https://investors.sonichealthcare.com/investors/?page=financial-reports",
       "status": 200,
-      "digest": "472f574a7e106286703f852270ba3bf6781c175746bbad3a388cb74c2aa4f4e9",
+      "digest": "2f853231a2a2073a17d0741025b4d93ec0bf26b6a29b20a7a5b4e948aff6d404",
       "evidence_preview": [
         " | http://investors.sonichealthcare.com/",
         " | https://investors.sonichealthcare.com/investors/?page=financial-reports#",
@@ -150,16 +175,16 @@
         "Board of Directors | https://investors.sonichealthcare.com/corporate-governance/?page=board-of-directors"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": true,
-      "previous_digest": "56a2f15b2c759135a56edc2ae587bdd003956c8bccf468ac328b36a895e20662",
+      "previous_digest": "472f574a7e106286703f852270ba3bf6781c175746bbad3a388cb74c2aa4f4e9",
       "error": null
     },
     {
       "url": "https://www.eurofins.com/investors/reports-and-presentations/",
       "final_url": "https://www.eurofins.com:443/en/investors/reports-and-presentations/",
       "status": 200,
-      "digest": "e6afca318dd7ed39a846d020a02b681de2256aef823d4191fbd777623f474f48",
+      "digest": "410a9019104dcf51ae82229069158028e470e4951f3ed7f43316c1c2a5f4582c",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com:443/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com:443/en/biopharma-services/biopharma-discovery/",
@@ -175,16 +200,16 @@
         "Softlines & Hardlines | https://www.eurofins.com:443/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": true,
-      "previous_digest": "5b77de256aa40ec62f073df1b28b09e036d3f8917b41087c2a6ca0cf40989a80",
+      "previous_digest": "e6afca318dd7ed39a846d020a02b681de2256aef823d4191fbd777623f474f48",
       "error": null
     },
     {
       "url": "https://investor.natera.com/financials/quarterly-results/default.aspx",
       "final_url": "https://investor.natera.com/financials/quarterly-results/default.aspx",
       "status": 200,
-      "digest": "a72c8eb1d6a9f27a0793ce2bd3b3dfa67a97a87e15a1a594cea167c7dfc57b5e",
+      "digest": "9ff26005de5ade24413795102d91a753f60106e729a2d554ac084d2925f53220",
       "evidence_preview": [
         "Skip to main content | https://investor.natera.com/financials/quarterly-results/default.aspx#main-content",
         "Overview | https://investor.natera.com/overview/default.aspx",
@@ -200,9 +225,9 @@
         "Quarterly Results | https://investor.natera.com/financials/quarterly-results/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
-      "changed": false,
-      "previous_digest": null,
+      "checked_at": "2026-11-16T08:16:12Z",
+      "changed": true,
+      "previous_digest": "a72c8eb1d6a9f27a0793ce2bd3b3dfa67a97a87e15a1a594cea167c7dfc57b5e",
       "error": null
     },
     {
@@ -225,16 +250,16 @@
         "Governance | https://investors.guardanthealth.com/governance/governance-documents/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": false,
-      "previous_digest": null,
+      "previous_digest": "ce860aa507d3e9383f9e8c3b16f92393ee723bebb1b3e7b656c68ab20ab1f290",
       "error": null
     },
     {
       "url": "https://investors.tempus.com/financials/financial-information",
       "final_url": "https://investors.tempus.com/financials/financial-information/",
       "status": 200,
-      "digest": "575d7692da8fcf474f0a8b6222c709e3f497b0037f2b2becc583bc9891bbc112",
+      "digest": "46d0d5682deb22f22f87cead82d7aac37484b95c06108361f233373267154a67",
       "evidence_preview": [
         "Skip to main content | https://investors.tempus.com/financials/financial-information/#main-content",
         "Overview | https://investors.tempus.com/overview/default.aspx",
@@ -250,9 +275,9 @@
         "Financial Information | https://investors.tempus.com/financials/financial-information/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": true,
-      "previous_digest": "d6c1bc0f3e19a3b40c6d8730a65aa658aeef7302a8a53e254f3d1a8348b06780",
+      "previous_digest": "575d7692da8fcf474f0a8b6222c709e3f497b0037f2b2becc583bc9891bbc112",
       "error": null
     },
     {
@@ -261,7 +286,7 @@
       "status": null,
       "digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
       "previous_digest": "febb4d5f0990f16786d94dd0f1721601a22263a38f5ae91d93fee370f5e7f68e",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": false,
       "evidence_preview": [
         "Part I - Financial Information | https://www.sec.gov/Archives/edgar/data/1800/000162828026028357/abt-20260331.htm#if454735e94df41c3a44babbae82e9fc7_10",
@@ -286,7 +311,7 @@
       "status": null,
       "digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
       "previous_digest": "5eb6944972a85db299c41eb05bea5709bb0c41efaa2398d6ef13ef99c339bafa",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": false,
       "evidence_preview": [
         "Ordering &amp; Results | https://www.mayocliniclabs.com/order-tests",
@@ -325,7 +350,7 @@
         "Contact&nbsp; | https://newsroom.questdiagnostics.com/index.php?s=35201"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": false,
       "previous_digest": "64b197c8c8455ba7623532e4c174dc676c606115d1cf6c2f67904a06371c5f94",
       "error": null
@@ -334,7 +359,7 @@
       "url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "final_url": "https://www.eurofins.com/en/media-centre/press-releases/eurofins-agrees-to-acquire-element-materials-technology-s-life-sciences-testing-services-business-in-north-america/",
       "status": 200,
-      "digest": "cb73c08a8daa15fae985e28ca5bf2c7645b63480c495d02cb5b5e960f855ebb7",
+      "digest": "761b523cdaffbe323227bfc46867c48721e3f42a6f208eaeb46f82e2c08061d7",
       "evidence_preview": [
         "BioPharma Product Testing | https://www.eurofins.com/en/biopharma-services/biopharma-product-testing/",
         "BioPharma Discovery Services &amp; Products | https://www.eurofins.com/en/biopharma-services/biopharma-discovery/",
@@ -350,16 +375,16 @@
         "Softlines & Hardlines | https://www.eurofins.com/en/consumer-product-testing/softlines-hardlines/"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": true,
-      "previous_digest": "40d21637ebd24be597108364199f9764b57e42583b5d9b30382b853e494b9d49",
+      "previous_digest": "cb73c08a8daa15fae985e28ca5bf2c7645b63480c495d02cb5b5e960f855ebb7",
       "error": null
     },
     {
       "url": "https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx",
       "final_url": "https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx",
       "status": 200,
-      "digest": "1fac520b4c80fa4486641700be2c89119d6563930671cf2303169fd021f2e909",
+      "digest": "a6ff593b1e504d78a1d7b78ef40cc88d0ff0df461754a346015fc96648d824e8",
       "evidence_preview": [
         "Skip to main content | https://investor.natera.com/news/news-details/2026/Natera-Announces-IVDR-Certification-for-Signatera-Across-Multiple-Cancers/default.aspx#main-content",
         "Overview | https://investor.natera.com/overview/default.aspx",
@@ -375,16 +400,16 @@
         "Quarterly Results | https://investor.natera.com/financials/quarterly-results/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
-      "changed": false,
-      "previous_digest": null,
+      "checked_at": "2026-11-16T08:16:12Z",
+      "changed": true,
+      "previous_digest": "1fac520b4c80fa4486641700be2c89119d6563930671cf2303169fd021f2e909",
       "error": null
     },
     {
       "url": "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx",
       "final_url": "https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx",
       "status": 200,
-      "digest": "511f4e82cb5065a6600f2be59ebd5cf4af7c78be1bc39c048f5c88ef826e51be",
+      "digest": "4ec3d54ca320baf43d6f778e1f67f17c17584dc0cc8ec6b3ed1f24aa1dfc2717",
       "evidence_preview": [
         "Skip to main content | https://investors.guardanthealth.com/press-releases/press-releases/2026/Guardant-Health-Reports-Second-Quarter-2026-Financial-Results-and-Increases-2026-Revenue-Guidance/default.aspx#main-content",
         " | https://investors.guardanthealth.com/",
@@ -400,16 +425,16 @@
         "Governance | https://investors.guardanthealth.com/governance/governance-documents/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
-      "changed": false,
-      "previous_digest": null,
+      "checked_at": "2026-11-16T08:16:12Z",
+      "changed": true,
+      "previous_digest": "511f4e82cb5065a6600f2be59ebd5cf4af7c78be1bc39c048f5c88ef826e51be",
       "error": null
     },
     {
       "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-reports-second-quarter-2026-results",
       "final_url": "https://investors.tempus.com:443/news/default.aspx",
       "status": 200,
-      "digest": "493bb6fd90ecbe8df94dab625ddec724e92eb167768f5fa8bd59c403867f207c",
+      "digest": "b847a2dc4236cb3f40ed8b7f979d96cc6412c1dc23659db5c5c939b3da01c20c",
       "evidence_preview": [
         "Skip to main content | https://investors.tempus.com:443/news/default.aspx#main-content",
         "Overview | https://investors.tempus.com/overview/default.aspx",
@@ -425,9 +450,9 @@
         "Financial Information | https://investors.tempus.com/financials/financial-information/default.aspx"
       ],
       "header_profile": "research",
-      "checked_at": "2026-11-09T08:21:47Z",
+      "checked_at": "2026-11-16T08:16:12Z",
       "changed": true,
-      "previous_digest": "1e95a6a1109e2b26c15c3b95a1a1bb73efd1a5ea66d5170bb3746be5bd267ea4",
+      "previous_digest": "493bb6fd90ecbe8df94dab625ddec724e92eb167768f5fa8bd59c403867f207c",
       "error": null
     }
   ],
