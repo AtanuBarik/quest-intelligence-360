@@ -1,20 +1,6 @@
 {
   "runs": [
     {
-      "checked_at": "2026-10-02T08:51:34Z",
-      "competitors_checked": 16,
-      "competitors_changed": [
-        "quest",
-        "pathgroup"
-      ],
-      "partial_or_failed": [
-        "mayo",
-        "bioreference",
-        "tempus",
-        "genedx"
-      ]
-    },
-    {
       "checked_at": "2026-10-03T08:28:10Z",
       "competitors_checked": 16,
       "competitors_changed": [],
@@ -609,6 +595,20 @@
     },
     {
       "checked_at": "2026-11-16T10:03:27Z",
+      "competitors_checked": 16,
+      "competitors_changed": [
+        "exact"
+      ],
+      "partial_or_failed": [
+        "labcorp",
+        "mayo",
+        "bioreference",
+        "tempus",
+        "genedx"
+      ]
+    },
+    {
+      "checked_at": "2026-11-17T10:59:28Z",
       "competitors_checked": 16,
       "competitors_changed": [
         "exact"
