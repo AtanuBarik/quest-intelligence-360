@@ -1,24 +1,26 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-19T10:39:17Z",
+  "generated_at": "2026-11-20T10:20:13Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
   "changed_competitors": [
-    "exact"
+    "quest",
+    "eurofins",
+    "guardant",
+    "pathgroup"
   ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
       },
       "latest_developments": [],
       "official_signals": [
-        "A new at-home HPV test kit is going national through Quest Diagnostics",
         "Approximately 2,000 patient locations and dozens of clinical laboratories throughout the U.S.",
         "Delivers a broad range of customizable services for health systems and hospitals through Collaboration Lab Solutions (Co-Lab)",
         "Engages workforce of nearly 57,000 employees dedicated to putting patients first every day",
@@ -26,15 +28,16 @@
         "Provides a broad range of solutions for employers, including workplace drug testing for employers and government agencies; our Workforce Health Solutions wellness screenings; and risk assessment services for the life insurance industry",
         "Provides an industry-leading menu of thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions",
         "Quest Diagnostics (NYSE: DGX), a leading provider of diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on...",
+        "Quest Diagnostics AAVrh74 Antibody ELISA Companion Diagnostic",
         "Quest Diagnostics CEO on Using Blood Testing for Alzheimer’s Diagnosis",
         "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced that Sam Samad, Executive Vice President and Chief Financial Officer, will participate in a...",
         "Quest Diagnostics Launches Companion Diagnostic for Sarepta's Gene Therapy Sponsored Testing Program",
         "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire actions to transform lives.",
         "Quest announces 1st PFAS blood test for consumers.",
+        "Quest has launched its AAVrh74 antibody ELISA companion diagnostic, which is authorized by the US Food and Drug Administration for identifying individuals with Duchenne muscular dystrophy who may be eligible for Sarepta’s gene therapy for the disease.",
         "Quest provides thousands of laboratory tests, ranging from advanced genomic tests for cancer and rare diseases to routine preventive tests for heart disease, diabetes and other chronic conditions.",
-        "The partnership, announced Tuesday, will begin making self-collection kits available in early 2027.",
-        "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health.",
-        "will soon have access to a new cervical cancer test collected from the comfort of their own home—no stirrups, speculum, or in-person doctor’s visit needed."
+        "The test, which is approved for the semi-quantitative detection of antibodies (IgG) to AAVrh74 capsid in human serum, is available through the Sarepta AAVrh74 antibody sponsored testing program.",
+        "We connect people, from clinicians to consumers, with laboratory insights that illuminate a path to better health."
       ],
       "source_status": [
         {
@@ -51,8 +54,8 @@
             "Quest Diagnostics (NYSE: DGX), a leading provider of diagnostic information services, today announced that its Board of Directors declared a quarterly cash dividend of $0.86 per share, payable on...",
             "Quest Diagnostics Incorporated (NYSE: DGX), a leader in diagnostic information services, announced that Sam Samad, Executive Vice President and Chief Financial Officer, will participate in a...",
             "Quest Diagnostics Launches Companion Diagnostic for Sarepta's Gene Therapy Sponsored Testing Program",
-            "A new at-home HPV test kit is going national through Quest Diagnostics",
-            "will soon have access to a new cervical cancer test collected from the comfort of their own home—no stirrups, speculum, or in-person doctor’s visit needed."
+            "Quest Diagnostics AAVrh74 Antibody ELISA Companion Diagnostic",
+            "Quest has launched its AAVrh74 antibody ELISA companion diagnostic, which is authorized by the US Food and Drug Administration for identifying individuals with Duchenne muscular dystrophy who may be eligible for Sarepta’s gene therapy for the disease."
           ]
         },
         {
@@ -72,9 +75,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "1192edf7a2949118af68a038d5bc20ee4eb2c7fa19af5391d69217c48e7c0c7f",
-      "last_updated_at": "2026-11-13T09:52:37Z",
-      "change_detected": false,
+      "content_hash": "3c0cd7ec94d0841ecfdb0ff80b6a808d4edd9a8d572d4aa46c31c5cd807898ec",
+      "last_updated_at": "2026-11-20T10:20:13Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -97,7 +100,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -161,7 +164,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -250,7 +253,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -323,7 +326,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -415,7 +418,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -496,7 +499,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -585,7 +588,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -665,7 +668,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -679,8 +682,8 @@
         "Diagnostic Services & Products",
         "Eurofins Clinical Diagnostics laboratories have a broad portfolio of genetic tests with well-known applications such as non-invasive prenatal testing (NIPT), the screening of hereditary cancers, cardiovascular disease predisposition testing, rare diseases diagnosis, and personalised medicine applications that can…",
         "Eurofins Clinical Diagnostics laboratories prioritise excellence, innovation and technological investment and offer testing services in all medical specialties, from routine testing to esoteric testing, including advanced and often proprietary genetic testing solutions.",
+        "Genetics and genomics are gradually becoming the standard of tomorrow‘s clinical diagnostics and our laboratories are investing heavily in advanced genetic technologies.",
         "In the current competitive landscape, Eurofins Clinical Diagnostics laboratories respond to the need to control health spending, with a focus on efficient referral testing services, while reducing costs and improving quality.",
-        "Specialised genetics and genomics are increasingly employed in clinical diagnostics testing and our laboratories are investing heavily in advanced genetic technologies.",
         "Through our network of Clinical Diagnostic Services laboratories, we strive to ensure access to the most specialised and innovative techniques, working with patients, healthcare professionals, and institutional providers, and operating a daily sample collection and delivery network that guarantees continuity in the…",
         "Whatever your testing needs, we have the right experts to help you — find a laboratory near you.",
         "With hundreds of thousands of clinical diagnostic tests performed every day, Eurofins Clinical Diagnostics laboratories strive to ensure that every patient, wherever they live, has access to the most specialised and innovative techniques for diagnosis, monitoring and therapeutic decisions."
@@ -719,9 +722,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "fc254798f95099751c84bd261813171172caef10f97f74f3eecc5c136cc6bbdc",
-      "last_updated_at": "2026-08-31T13:10:21Z",
-      "change_detected": false,
+      "content_hash": "857de3479e5944386e66b6ead65651db667ead3dd05270b5fdf58453d08a131f",
+      "last_updated_at": "2026-11-20T10:20:13Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -743,13 +746,13 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
       "official_signals": [
-        "American Cancer Society Recommends Guardant Health’s Shield Blood Test in Updated Colorectal Cancer Screening Guidelines",
         "Guardant Health Announces Landmark FDA Approval of Guardant360® CDx as Companion Diagnostic for AstraZeneca’s ETCAMAH™ (camizestrant) in Advanced Breast Cancer",
+        "Guardant Health Launches Guardant Reveal® Ultra to Deliver Leading Sensitivity in MRD Testing",
         "Guardant Health Reports Second Quarter 2026 Financial Results and Increases 2026 Revenue Guidance",
         "View all of our screening, early-stage cancer, and advanced cancer clinical studies."
       ],
@@ -761,9 +764,9 @@
           "status": "ok",
           "signals": [
             "View all of our screening, early-stage cancer, and advanced cancer clinical studies.",
+            "Guardant Health Launches Guardant Reveal® Ultra to Deliver Leading Sensitivity in MRD Testing",
             "Guardant Health Announces Landmark FDA Approval of Guardant360® CDx as Companion Diagnostic for AstraZeneca’s ETCAMAH™ (camizestrant) in Advanced Breast Cancer",
-            "Guardant Health Reports Second Quarter 2026 Financial Results and Increases 2026 Revenue Guidance",
-            "American Cancer Society Recommends Guardant Health’s Shield Blood Test in Updated Colorectal Cancer Screening Guidelines"
+            "Guardant Health Reports Second Quarter 2026 Financial Results and Increases 2026 Revenue Guidance"
           ]
         },
         {
@@ -775,9 +778,9 @@
         }
       ],
       "errors": [],
-      "content_hash": "cf47e4ebbb6beeac5208c4a168638b6aec164c875cb6b2937f6b96965b800bb0",
-      "last_updated_at": "2026-11-05T09:45:04Z",
-      "change_detected": false,
+      "content_hash": "4fb45ee7f34daabf4e84af9dcd683123c5e030a9fc1e5adfe8efece8d9cdee13",
+      "last_updated_at": "2026-11-20T10:20:13Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -799,7 +802,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -866,7 +869,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -906,7 +909,7 @@
       "errors": [],
       "content_hash": "3d04c810225721e2cbd42a52c4ce58154d856c02182fc5c1ea44d2ad1d819b11",
       "last_updated_at": "2026-11-19T10:39:17Z",
-      "change_detected": true,
+      "change_detected": false,
       "changes": {
         "added": [],
         "removed": [],
@@ -928,74 +931,31 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
-      "official_signals": [
-        "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test.",
-        "Anatomic, Clinical & Molecular Pathology",
-        "As an industry leader, PathGroup provides comprehensive anatomic, clinical and molecular pathology services.",
-        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-        "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will expand its deployment of the Sentinel AI-powered grossing platform to its two Dermatopathology Centers of Excellence: DermPathGroup in Birmingham, AL and Atlanta Dermatopathology (ADPA)…",
-        "Combined with the doctor’s knowledge of a patient’s medical history, PathGroup’s team of specialists provides the most comprehensive diagnostic information from which to determine a course of treatment",
-        "Fast, accurate, clinical pathology services.",
-        "Fasting Before a Blood Test: What to Know Before Visiting a Patient Service Center",
-        "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-        "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-        "Hematology and Molecular Oncology",
-        "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-        "Morphologic review and interpretation of biopsy material continues to be the backbone of oncology diagnostics, and is the basis on which PathGroup deploys complement technologies to give the clearest, most accurate picture of a patient’s malignancy from original diagnosis to the presence of minimal residual disease.",
-        "MyResults and MyResultsPAP give patients access to their test results quickly and conveniently, 24 hours a day.",
-        "Our staff functions as a partner to physician practices, providing expert laboratory interpretation and consultation for the best in patient care.",
-        "PSA Blood Test for Prostate Health: How to Prepare for Your Patient Service Center Visit",
-        "PathGroup Expands Partnership With Vistapath to its Two Dermatopathology Centers of Excellence",
-        "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-        "PathGroup is a physician-led, patient-focused organization providing a wide range of anatomic, clinical, and molecular services to hospitals, multi-specialty groups, surgery centers and physician offices since our founding in 1965.",
-        "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level."
-      ],
+      "official_signals": [],
       "source_status": [
         {
           "label": "PathGroup news",
           "url": "https://www.pathgroup.com/category/news/",
           "kind": "news",
           "status": "ok",
-          "signals": [
-            "PathGroup Expands Partnership With Vistapath to its Two Dermatopathology Centers of Excellence",
-            "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will expand its deployment of the Sentinel AI-powered grossing platform to its two Dermatopathology Centers of Excellence: DermPathGroup in Birmingham, AL and Atlanta Dermatopathology (ADPA)…",
-            "The expansion follows PathGroup’s initial rollout of Sentinel units at […]",
-            "PathGroup Partners with Vistapath to Advance Laboratory Precision and Efficiency with AI-Powered Grossing",
-            "BOSTON and NASHVILLE – Vistapath, a leader in pathology automation and AI-driven laboratory solutions, announced that PathGroup will deploy its Sentinel AI-powered grossing platform at PathGroup’s centralized laboratory in Nashville, TN.",
-            "The rollout of twelve Sentinel units will strengthen PathGroup’s commitment to innovation, diagnostic precision, and operational excellence.",
-            "HAMBURG, GERMANY, November 11, — Mindpeak, a global pioneer in AI-powered pathology solutions, today announced a strategic collaboration with PathGroup, a premier provider of anatomic, clinical, molecular and digital pathology services.",
-            "The collaboration marks a significant milestone in the evolution of AI-driven pathology, uniting Mindpeak’s proprietary image analysis technology with PathGroup’s extensive, pathologist-led diagnostic network.",
-            "Guardant Health Announces Partnership with PathGroup Bringing Shield Blood Test to 250+ Hospitals and Health Systems in 25 States",
-            "(Nasdaq: GH), a leading precision oncology company, today announced a strategic partnership with PathGroup, one of the nation’s leading partners to physicians, hospitals, and healthcare networks nationwide, to significantly expand the reach of Guardant’s FDA-approved Shield™ blood test."
-          ]
+          "signals": []
         },
         {
           "label": "PathGroup company",
           "url": "https://www.pathgroup.com/",
           "kind": "company",
           "status": "ok",
-          "signals": [
-            "Pathology Services by PathGroup | Anatomic, Clinical & Molecular Oncology Services",
-            "Anatomic, Clinical & Molecular Pathology",
-            "With more than 240 subspecialty expert pathologists, PathGroup provides comprehensive anatomic, clinical and molecular pathology services, using the latest advancements in digital pathology and AI.",
-            "We provide the highest quality pathology & clinical lab services",
-            "In our mission to provide the highest quality, comprehensive pathology and clinical lab services, PathGroup is proud to offer the following services:",
-            "Hematology and Molecular Oncology",
-            "With advanced digital pathology linking more than 240 subspecialty expert pathologists, PathGroup’s anatomic laboratory provides a full range of professional and technical services, operating 24 hours a day, 365 days per year.",
-            "PathGroup’s clinical pathology laboratory is committed to personalized, around-the-clock service, with same-day testing available.",
-            "PathGroup is an industry leader in the rapidly evolving quest to identify and understand disease at the genetic level.",
-            "PathGroup's digital pathology infrastructure enables real-time collaboration across all pathology subspecialties."
-          ]
+          "signals": []
         }
       ],
       "errors": [],
-      "content_hash": "c9e6e4802f8337ba1be7dc4fa72ec3ac7de354a3176016b6cfb691878564ba63",
-      "last_updated_at": "2026-11-11T09:45:10Z",
-      "change_detected": false,
+      "content_hash": "75855d85e3060a7517d926891eda42a4cfa0584db561d203193ef462b805af28",
+      "last_updated_at": "2026-11-20T10:20:13Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -1017,7 +977,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1096,7 +1056,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1145,7 +1105,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-11-19T10:39:17Z",
+      "last_checked_at": "2026-11-20T10:20:13Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
