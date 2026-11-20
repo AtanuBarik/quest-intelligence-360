@@ -1,7 +1,7 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-11-20T09:11:45.369777+00:00",
+  "updated_at": "2026-11-20T18:01:35.115529+00:00",
   "news_generated_at": "2026-11-20T13:17:34.578376+05:30",
   "news_item_count": 526,
   "summary_count": 526,
