@@ -1,8 +1,8 @@
 {
   "provider": "Quest article-summary pipeline",
   "model": "gpt-5-chat-latest",
-  "updated_at": "2026-11-21T15:37:59.397660+00:00",
-  "news_generated_at": "2026-11-21T13:13:48.838379+05:30",
+  "updated_at": "2026-11-21T19:54:11.945863+00:00",
+  "news_generated_at": "2026-11-22T01:18:52.382075+05:30",
   "news_item_count": 522,
   "summary_count": 522,
   "verified_summary_count": 11,
@@ -10756,6 +10756,18 @@
       "company": "Labcorp",
       "category": "Financials",
       "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQV2NSTVhxRGxGTHFGVkhjY0NfclhvRWpGcGFuS1pBM09EN0szcWhpT0J1UzFadGI5ekltNk1YRmFyV0hSRm1CcXRlSzJMUGNIcGd1X01US1NINzNzNG1xbzlvTUFick4zaUdTU2tCVEV6OTdON0taMGVid1RGU2sydDNpTWtNcFBlU0pvUUJxT1FGLWs?oc=5",
+      "verification": "feed_metadata_fallback",
+      "summary_tier": "instant_feed_brief",
+      "content_verified": false
+    },
+    "a5e13e2e7feec30eb4f8": {
+      "summary": "Mammogen Launches Leadership Council to Unite Industry Experts and Survivors, Names Former Quest Diagnostics CMO Dr. Yuri Fesko as Founding Member. The item was captured for Quest Diagnostics from The Manila Times and is dated 17 Nov 2026. Mammogen Launches Leadership Council to Unite Industry Experts and Survivors, Names Former Quest Diagnostics CMO Dr. Yuri Fesko as Founding Member The Manila Times. For Quest monitoring, this is a product or service signal from Quest Diagnostics that may affect portfolio positioning, customer choice or competitive differentiation.",
+      "provider": "Automated feed-grounded brief",
+      "updated_at": "2026-11-17T21:28:31.888829+00:00",
+      "title": "Mammogen Launches Leadership Council to Unite Industry Experts and Survivors, Names Former Quest Diagnostics CMO Dr. Yuri Fesko as Founding Member",
+      "company": "Quest Diagnostics",
+      "category": "Product & Services",
+      "source_url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxOaE54Vng4RDd4SzdSUmoxZmtsNWJDQVJ4aUI4YkFlaTU5RUxtM25sV3dJQVFNX2xIZmdFeUR4WEw1a3kwX0VzWndyV0U0VkpHc3JveGlZT0tlajZieUNIQ1hRV1FKQ0tVRmQyRnBvOXA0eVY0OTB5aXd1X0lXeFlISHpLMGtlUERpOGt4ME5yS0daMGJSVjBxVjhjVWZzZDdqVHNMNC1qanQ3SFJzUDBHQUwycTA2azc1elljSnh4QlhSUWgxX3JFRWxCWW5sZzFVZ285NVRIYmM3emJPdmVOZDRySzRDZU9tVzFZdVZUd1huYlY4d0FuNEdQcmhSaVFYekpPMjJLX0NUY2gweVhZR25aazNRQXNqU25yNkVvRVBJek4zSlNsM2tkXzZyRjRiVWROUlVlem5Qb1dINjVB0gHEAkFVX3lxTE9QY2lDYXpGbmRqLVVJNGpray1FTVBfd0ZCOTBuTEdkNklaNUJmMXlIYmc4VHRkbEQwdExKQ1diYXJLVVNmYzZDbi1hNVVLcjZUMDUxMnNtQUE1bmI3QTY1dDZCLTBHaENLekxMa2JHSTl2V044ZmZuQ1B0eFdFWUJCMFg0YzVlSFFsREp4dGQyZWxramtaVkQtR3VsMVRDQ0xMeXVfVGVpRm81LXZfWEx2UVlWNVlDNGlQcWp1aTBDNktHaDN0NlpaQTZ4MXRSN0ZodlQ5UmdJRTZUMk9mQzJQN3k3UHVMdGhCai00WUZhY29tenZVSjFmVUxKTEhXajJvQkYxY0lZb0NJOWhkTDF3UWxHVGUtYTZaaXVjTjFyeGZPLWRKSTEzbFVnazJESVhfRFhFNjZTQkxBaDZYQTRZTGxweA?oc=5",
       "verification": "feed_metadata_fallback",
       "summary_tier": "instant_feed_brief",
       "content_verified": false
