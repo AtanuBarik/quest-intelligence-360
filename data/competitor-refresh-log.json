@@ -1,17 +1,6 @@
 {
   "runs": [
     {
-      "checked_at": "2026-10-09T09:29:04Z",
-      "competitors_checked": 16,
-      "competitors_changed": [],
-      "partial_or_failed": [
-        "mayo",
-        "bioreference",
-        "tempus",
-        "genedx"
-      ]
-    },
-    {
       "checked_at": "2026-10-10T08:50:13Z",
       "competitors_checked": 16,
       "competitors_changed": [
@@ -620,6 +609,18 @@
     },
     {
       "checked_at": "2026-11-23T11:04:41Z",
+      "competitors_checked": 16,
+      "competitors_changed": [],
+      "partial_or_failed": [
+        "labcorp",
+        "mayo",
+        "bioreference",
+        "tempus",
+        "genedx"
+      ]
+    },
+    {
+      "checked_at": "2026-11-24T12:49:57Z",
       "competitors_checked": 16,
       "competitors_changed": [],
       "partial_or_failed": [
