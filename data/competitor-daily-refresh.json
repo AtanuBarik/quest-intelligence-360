@@ -1,15 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-24T12:49:57Z",
+  "generated_at": "2026-11-25T11:36:50Z",
   "refresh_cadence": "daily",
   "change_policy": "Per-competitor last_updated_at changes only when normalized monitored information changes.",
   "processing": "Deterministic public-web extraction; no paid LLM/API key required.",
-  "changed_competitors": [],
+  "changed_competitors": [
+    "bioreference"
+  ],
   "competitors": [
     {
       "id": "quest",
       "name": "Quest Diagnostics",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {
         "employees": "Quest Diagnostics serves half the physicians and hospitals in the United States and one in three American adults each year, and our nearly 57,000 employees work together to deliver diagnostic insights that inspire…"
@@ -95,7 +97,7 @@
     {
       "id": "labcorp",
       "name": "Labcorp",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "partial",
       "verified_fields": {
         "employees": "The company's nearly 71,000 employees serve clients in approximately 100 countries, provided support for more than 85% of the new drugs and therapeutic products approved by the FDA in 2025 and performed more than 750…"
@@ -159,7 +161,7 @@
     {
       "id": "arup",
       "name": "ARUP Laboratories",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -248,7 +250,7 @@
     {
       "id": "mayo",
       "name": "Mayo Clinic Laboratories",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [
@@ -321,7 +323,7 @@
     {
       "id": "bioreference",
       "name": "BioReference Health",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -331,21 +333,21 @@
         "(Nasdaq: OPK), a multinational biopharmaceutical and diagnostics company, announced today the completion of Labcorp’s acquisition of select assets of BioReference Health, a wholly owned subsidiary of OPKO Health.",
         "15, 2025 /PRNewswire/ — Labcorp (NYSE: LH), a global leader of innovative and comprehensive laboratory services, and OPKO Health, Inc.",
         "15, 2026 /PRNewswire/ — Labcorp (NYSE: LH), a global leader of innovative and comprehensive laboratory services, and OPKO Health, Inc.",
-        "Abbott ® simpli-COLLECT STI Home Self-Collection Test",
         "April 14 to April 20, 2024 The Future Is Lab Every single day, the work of laboratory professionals and pathologists is instrumental in healthcare and the delivery of patient care.",
         "As a trusted laboratory provider to healthcare providers and health systems, BioReference® is committed to helping organizations close care gaps, improve clinical […]",
-        "As an in-network laboratory with most major U.S.",
         "At BioReference, we are dedicated to advancing oncology […]",
-        "BioReference will continue to offer comprehensive Correction and Urology (4Kscore®) diagnostic services nationwide and maintain its full operation in New York and New Jersey.",
         "BioReference® Launches BioReference Direct®, Expanding Access to Consumer-Initiated Diagnostic Testing Through a Fully Integrated Digital Platform",
-        "BioReference® has sold select laboratory assets to Labcorp.",
-        "Built on 45 years of laboratory leadership, BioReference ® delivers on-demand laboratory testing directly to YOU!",
         "Clinical testing and genomic insights have revolutionized the way disease is understood, which has enabled personalized treatment approaches that can be tailored to an individual’s unique genetic makeup.",
         "Cutting-Edge Solutions: Empowering Clinical Trials with Specialized Genomic Testing",
-        "Find the test that meets your needs.",
         "Harnessing the potential of genomic testing and its cutting-edge technology can significantly benefit patient outcomes.",
         "Labcorp Announces Acquisition of Select Assets of BioReference Health’s Diagnostics Business",
-        "Labcorp Announces Acquisition of Select Assets of BioReference Health’s Innovative Oncology and Related Clinical Testing Services Businesses"
+        "Labcorp Announces Acquisition of Select Assets of BioReference Health’s Innovative Oncology and Related Clinical Testing Services Businesses",
+        "Labcorp Completes Acquisition of Select Assets of BioReference Health’s Innovative Oncology and Related Clinical Testing Services Businesses",
+        "Labcorp Enters into Agreement with OPKO Health to Acquire Select Assets of BioReference Health",
+        "PR Newswire Transaction to enhance Labcorp’s laboratory services network and expand access to the company’s high-quality clinical laboratory services BURLINGTON, N.C.",
+        "PR Newswire Transaction to extend Labcorp’s leadership in oncology and expand access to the company’s high-quality clinical laboratory services BURLINGTON, N.C.",
+        "Tagged Acquisition , bioreference , LabCorp",
+        "Tagged Lab Professionals , Lab Week , Medical Professionals"
       ],
       "source_status": [
         {
@@ -370,28 +372,17 @@
           "label": "BioReference company",
           "url": "https://www.bioreference.com/",
           "kind": "company",
-          "status": "ok",
-          "signals": [
-            "Built on 45 years of laboratory leadership, BioReference ® delivers on-demand laboratory testing directly to YOU!",
-            "pTau181 Test for Alzheimer’s Disease",
-            "Abbott ® simpli-COLLECT STI Home Self-Collection Test",
-            "Log in to view your latest lab test results, check your balance, and manage your insurance information.",
-            "Schedule an appointment, prepare for your visit, share feedback, and view your test results.",
-            "As an in-network laboratory with most major U.S.",
-            "Learn more about the conditions we test for — including diabetes, heart disease, sexual health, and more — so you can take control of your wellbeing.",
-            "Search our extensive test menu.",
-            "Find the test that meets your needs.",
-            "Our HIPAA-compliant and secure provider portal delivers 24/7 access to test data and integrates with hundreds of EHR and LIS systems."
-          ]
+          "status": "error",
+          "error": "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden",
+          "signals": []
         }
       ],
       "errors": [
-        "Unable to fetch https://www.bioreference.com/news/: HTTP Error 403: Forbidden",
         "Unable to fetch https://www.bioreference.com/: HTTP Error 403: Forbidden"
       ],
-      "content_hash": "31c6dd861d4be40c36473007890bcd3def40107ebc7e67b9577a4864f8f6c583",
-      "last_updated_at": "2026-11-07T09:05:05Z",
-      "change_detected": false,
+      "content_hash": "4b9087b54b5c24811e727350c91f07c6e403a24402370bec6634a28ea14be62e",
+      "last_updated_at": "2026-11-25T11:36:50Z",
+      "change_detected": true,
       "changes": {
         "added": [],
         "removed": [],
@@ -413,7 +404,7 @@
     {
       "id": "sonic",
       "name": "Sonic Healthcare USA",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -494,7 +485,7 @@
     {
       "id": "cleveland",
       "name": "Cleveland Clinic Laboratories",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -583,7 +574,7 @@
     {
       "id": "neogenomics",
       "name": "NeoGenomics Laboratories",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -663,7 +654,7 @@
     {
       "id": "eurofins",
       "name": "Eurofins",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -741,7 +732,7 @@
     {
       "id": "guardant",
       "name": "Guardant Health",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -797,7 +788,7 @@
     {
       "id": "natera",
       "name": "Natera",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -864,7 +855,7 @@
     {
       "id": "exact",
       "name": "Exact Sciences (Abbott)",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -924,7 +915,7 @@
     {
       "id": "pathgroup",
       "name": "PathGroup",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1013,7 +1004,7 @@
     {
       "id": "healthtrackrx",
       "name": "HealthTrackRx",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "ok",
       "verified_fields": {},
       "latest_developments": [],
@@ -1092,7 +1083,7 @@
     {
       "id": "tempus",
       "name": "Tempus AI",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
@@ -1141,7 +1132,7 @@
     {
       "id": "genedx",
       "name": "GeneDx",
-      "last_checked_at": "2026-11-24T12:49:57Z",
+      "last_checked_at": "2026-11-25T11:36:50Z",
       "refresh_status": "partial",
       "verified_fields": {},
       "latest_developments": [],
